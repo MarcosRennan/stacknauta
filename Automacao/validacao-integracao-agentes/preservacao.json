@@ -1,6 +1,6 @@
 {
   "stage": "2B",
-  "checked_at_utc": "2026-11-12T12:13:45.371867+00:00",
+  "checked_at_utc": "2026-11-12T12:16:34.768567+00:00",
   "status": "passed",
   "baseline_head": "b8cb42b6e8818132ad4a724e3778c0761cac313d",
   "legacy_entries_compared": 4259,
@@ -13,5 +13,24 @@
     "README.md",
     "Skills/validacao/validar_biblioteca.py"
   ],
-  "scope": "Legacy metadata (mode, size, mtime, ctime, symlink targets), all previous tracked library content and original core implementation hashes; only CLI dispatch, validator, root docs and placeholder changed. No consumer used as target."
+  "scope": "Legacy metadata (mode, size, mtime, ctime, symlink targets), all previous tracked library content and original core implementation hashes; only CLI dispatch, validator, root docs and placeholder changed. No consumer used as target.",
+  "final_check_after_clone": true,
+  "implementation_commit": "1f4d78ae2c7cc0e0e460293d98425cbf22120994",
+  "original_core_source_sha256": {
+    "Automacao/project-bootstrap/README.md": "7c4f6edbeecd366f89d5e289279d513ac22cff5f92fde87a45c8077d8e2b8548",
+    "Automacao/project-bootstrap/STATUS.json": "ba6a62e652af187b661797b0c1ab2709f7ee9570ba88e9febdb267fab6ea0c5a",
+    "Automacao/project-bootstrap/examples/go-api.json": "f0e7e85b34f84e56f833c2a801403758a55e4ff5a02c97ec417e92455877b517",
+    "Automacao/project-bootstrap/examples/python-fastapi.json": "aa395ea3068682ec77aeeebaca5ca00016abe5ee2f496a1d4e607dd63b1f1a38",
+    "Automacao/project-bootstrap/examples/typescript-nextjs.json": "c2f911f276d14e968d44c2bae2ecf250315c8c8708b6c3ee53a69d24ca9cf792",
+    "Automacao/project-bootstrap/project-bootstrap": "af8be6f143163c59f43050134b50331d9bfa153dc9b67b7f801554a426916853",
+    "Automacao/project-bootstrap/stacknauta_core/__init__.py": "84f80c09787dc5c6047f56e93fe4ed3f28b5e6b8141af802c629ab19051dafc3",
+    "Automacao/project-bootstrap/stacknauta_core/compatibility.py": "10ae1d3872a14edc008822d5029f9608bf6fac5c5709a65b9aa9cafbd9bed879",
+    "Automacao/project-bootstrap/stacknauta_core/config.py": "ca1d269430d1eca1e2a4070744541cea45dbf37aa6fba62aa7fab739f80b3da7",
+    "Automacao/project-bootstrap/stacknauta_core/core.py": "1cb0ed1429faa31b22cf2304d041ef484ca0ae7da56abd37db34aea8d07397b3",
+    "Automacao/project-bootstrap/stacknauta_core/filesystem.py": "dd4de0af0d4ebd5de89dd6d7e563ad907e25a2d93598caed22384856b3b0d965",
+    "Automacao/project-bootstrap/stacknauta_core/library.py": "6d053f3aedb9d9ea946c6cfde853de4bd74f31a5caab33c5fbe317df77338c38",
+    "Automacao/project-bootstrap/stacknauta_core/runtimes.py": "da89b4df3b3256bd6b63f5bad16b137752bf87cb05f03d29cf237623df102e6c"
+  },
+  "catalog_sha256": "3bb6b613a21d1103563ff2974206fbe66b39aa4ff355160a07e6bf8e945b6a4f",
+  "remote_configured": false
 }

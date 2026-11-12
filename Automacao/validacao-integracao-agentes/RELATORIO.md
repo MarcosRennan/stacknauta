@@ -50,11 +50,12 @@ próprias, não atualização silenciosa dos manifestos.
 | Hash incorreto | Bloqueio sem alterar arquivos |
 | Idempotência | Bytes, inode e mtime preservados nas duas stacks |
 | Falha parcial e links perigosos | Suíte 2B cobre retomada, symlink, hardlink e conflitos; testes anteriores preservados |
-| Clone local limpo sem cache | Pendente de execução no commit candidato; será registrado em clone-local.json |
+| Clone local limpo sem cache | Passou: 65 + 16 testes, 101 cópias, CLI real, idempotência e árvore Git limpa |
 
 Evidências detalhadas: [automatizados.json](automatizados.json),
 [nucleo-original.json](nucleo-original.json), [biblioteca.json](biblioteca.json),
-[codex-fluxo.json](codex-fluxo.json) e [preservacao.json](preservacao.json).
+[codex-fluxo.json](codex-fluxo.json), [preservacao.json](preservacao.json) e
+[clone-local.json](clone-local.json).
 
 Os algoritmos, launcher, exemplos e estado histórico 2A estão preservados por
 hash; somente a interface CLI recebe os novos despachos. Os 4.259 registros de
@@ -113,6 +114,13 @@ asdf exec python -I -B Skills/validacao/validar_biblioteca.py --copias --sintaxe
 asdf exec python -I -B Automacao/validacao-integracao-agentes/testar_clone.py
 ```
 
-O commit candidato conterá implementação e evidências atuais; um commit posterior
-de evidência registrará o clone, com o hash exato do candidato testado. Temporários
-e contextos de diagnóstico são preservados, sem exclusões recursivas.
+O commit de implementação testado é `1f4d78ae2c7cc0e0e460293d98425cbf22120994`.
+O commit posterior de evidência acrescenta somente o resultado do clone, esta
+atualização documental e a conferência final de preservação; nenhum código foi
+alterado depois dos testes no clone. O relatório identifica o candidato exato.
+Temporários e contextos de diagnóstico são preservados, sem exclusões recursivas.
+
+O wrapper legado `validar_catalogo.py` foi reexecutado com sua interface original,
+sem `-I`: ele importa o validador irmão pelo diretório do script. A tentativa
+com `-I` não encontrou esse módulo e foi corrigida sem mudar o wrapper. O validador
+principal `validar_biblioteca.py` e os testes 2A/2B passaram também com `-I`.
