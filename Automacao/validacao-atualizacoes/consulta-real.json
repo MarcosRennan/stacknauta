@@ -1,0 +1,61 @@
+{
+  "status": "consulta_concluida",
+  "origens": [
+    {
+      "origem": "ui-ux-pro-max",
+      "branch": "main",
+      "atual": "6ae86f61f520d6ca229d2f40e070410638c908c5",
+      "disponivel": "6ae86f61f520d6ca229d2f40e070410638c908c5",
+      "default_branch": "main",
+      "estado": "sem_alteracoes"
+    },
+    {
+      "origem": "fastapi",
+      "branch": "master",
+      "atual": "5add7a458d629b07311d48261f696b5ac2bb9a5f",
+      "disponivel": "5add7a458d629b07311d48261f696b5ac2bb9a5f",
+      "default_branch": "master",
+      "estado": "sem_alteracoes"
+    },
+    {
+      "origem": "remy",
+      "branch": "main",
+      "atual": "5d9eae132afea72518ba0f1f41919f9e37964362",
+      "disponivel": "5d9eae132afea72518ba0f1f41919f9e37964362",
+      "default_branch": "main",
+      "estado": "sem_alteracoes"
+    },
+    {
+      "origem": "expo",
+      "branch": "main",
+      "atual": "a9e5bd3fa00b4e61f632e43f85da73aee1942582",
+      "disponivel": "2a326eb51ddd93301577ad47a7bd2f2e671d53b2",
+      "default_branch": "main",
+      "estado": "atualizacao_disponivel"
+    },
+    {
+      "origem": "chrisbanes",
+      "branch": "main",
+      "atual": "50d54366e577460b769ce05b50da007de9939783",
+      "disponivel": "b684174b626c58e00e102de06de99f8a8a25ba4d",
+      "default_branch": "main",
+      "estado": "atualizacao_disponivel"
+    },
+    {
+      "origem": "android",
+      "branch": "main",
+      "atual": "5815d27fda564aa9f07ebdcb5e57ed3e8d904e0d",
+      "disponivel": "5815d27fda564aa9f07ebdcb5e57ed3e8d904e0d",
+      "default_branch": "main",
+      "estado": "sem_alteracoes"
+    },
+    {
+      "origem": "sentry",
+      "branch": "main",
+      "atual": "e94f22214528d69899d09c627b3315ddc3544816",
+      "disponivel": "e94f22214528d69899d09c627b3315ddc3544816",
+      "default_branch": "main",
+      "estado": "sem_alteracoes"
+    }
+  ]
+}

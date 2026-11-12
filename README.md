@@ -1,6 +1,22 @@
 # StackNauta
 
-**Etapa 2D — ciclo de vida dos arquivos.** O núcleo prepara esqueleto, runtimes globais asdf e cópias físicas de skills compatíveis. Arquivos evolutivos podem mudar ou ser removidos após inicialização sem sobrescritas; manifestos, runtimes registrados e skills continuam protegidos. A integração compartilhada permanece disponível; OpenCode/DeepSeek e Gemini CLI continuam pendentes de validação prática. Não certificado para produção.
+**Etapa 3A — atualização manual das skills.** Consulta das sete origens e preparação isolada de atualizações, com revisão de diff, hash e autorização explícita antes de promover. A biblioteca aprovada permanece na revisão anterior; nenhuma atualização real foi aplicada nesta etapa. OpenCode/DeepSeek e Gemini CLI continuam pendentes de validação prática. Não certificado para produção.
+
+```sh
+./Automacao/manutencao-skills/skills check
+./Automacao/manutencao-skills/skills update expo
+./Automacao/manutencao-skills/skills update --all
+# Os dois últimos comandos apenas preparam o dry-run.
+```
+
+Consulte [uso, segurança e recuperação](Automacao/manutencao-skills/README.md)
+e o [relatório 3A](Automacao/validacao-atualizacoes/RELATORIO.md). Novas skills
+permanecem pendentes. A atualização não modifica consumidores e não é executada
+durante o bootstrap.
+
+O núcleo prepara esqueleto, runtimes globais asdf e cópias físicas de skills
+compatíveis. Arquivos evolutivos podem mudar ou ser removidos após inicialização
+sem sobrescritas; manifestos, runtimes registrados e skills continuam protegidos.
 
 Consulte a [política de arquivos e compatibilidade](Automacao/project-bootstrap/CICLO-DE-VIDA.md)
 e o [relatório 2D](Automacao/validacao-ciclo-arquivos/RELATORIO.md). Novos projetos
@@ -31,6 +47,9 @@ StackNauta/
 │   ├── project-bootstrap/           # launcher, CLI, núcleo e exemplos
 │   ├── validacao-project-bootstrap/ # testes originais preservados
 │   ├── integracao-agentes/          # procedimento comum e testes manuais
+│   ├── manutencao-skills/           # consulta, preparação, promoção e recuperação
+│   ├── validacao-atualizacoes/      # fixtures Git e evidências 3A
+│   ├── python-global               # executor asdf compartilhado pelos launchers
 │   ├── validacao-ciclo-arquivos/    # investigação, compatibilidade e evidências 2D
 │   └── validacao-integracao-agentes/ # testes 2B e evidências
 ├── Skills/
@@ -123,8 +142,16 @@ A aprovação cobre integridade, fechamento dos arquivos, licenças, cópia e fu
 
 ## Manutenção e próxima etapa
 
-[MANUTENCAO.md](Skills/manutencao/MANUTENCAO.md) descreve a preparação reproduzível e a atualização manual planejada. Não há aquisição/restauração automática nem atualização durante consumo. O cache pode ser necessário para uma nova preparação, mas não para copiar, validar ou usar os pacotes aprovados.
+[MANUTENCAO.md](Skills/manutencao/MANUTENCAO.md) descreve a preparação histórica e
+a atualização incremental manual da Etapa 3A. Não há atualização durante consumo.
+O cache pode ser necessário para a preparação histórica, mas a CLI 3A adquire
+candidatos isoladamente e o consumo continua independente de `_repos/`.
 
-A Etapa 2A implementa a lógica única de esqueleto e seleção, preservada na 2B. A CLI recebeu apenas encaminhamento para os comandos de integração; algoritmos, launcher e testes originais continuam preservados. A skill orienta o agente a revisar dois hashes e as duas listas de arquivos, aplicar somente quando autorizado e interpretar as operações tecnológicas pendentes. A integração não concede autorização nem executa geradores.
+A Etapa 2A implementa a lógica única de esqueleto e seleção, preservada na 2B e
+evoluída pela política de arquivos 2D. Na 3A, o mesmo executor asdf do launcher foi
+extraído para reutilização na manutenção, sem alteração da lógica do núcleo.
+A skill orienta o agente a revisar dois hashes e as duas listas de arquivos,
+aplicar somente quando autorizado e interpretar operações tecnológicas pendentes.
+A integração não concede autorização nem executa geradores.
 
 Os aliases rasos `stacknauta-*` encaminham aos SKILL.md originais copiados fisicamente, preservando recursos e licenças sem duplicação. A descoberta nativa e o uso explícito no Codex atual têm evidências separadas; ativação automática numa nova sessão continua uma confirmação posterior. OpenCode/DeepSeek e Gemini CLI estão preparados estaticamente, sem aprovação prática nesta etapa.

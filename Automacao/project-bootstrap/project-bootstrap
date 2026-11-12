@@ -1,25 +1,4 @@
 #!/usr/bin/env bash
-# Launcher mínimo: nenhum Python do sistema/shim/local é usado para resolver Python.
 set -euo pipefail
-fail() { printf '%s\n' "StackNauta: $*" >&2; exit 2; }
-[[ -n "${HOME:-}" && "$HOME" = /* ]] || fail 'HOME absoluto não definido'
-command -v asdf >/dev/null 2>&1 || fail 'asdf indisponível; não usar Python do sistema'
-[[ -f "$HOME/.tool-versions" && -r "$HOME/.tool-versions" ]] || fail 'configuração global ~/.tool-versions ausente ou não regular'
-python_version=''
-while IFS= read -r line || [[ -n "$line" ]]; do
-    line="${line%%#*}"
-    read -r -a fields <<< "$line"
-    if [[ "${fields[0]:-}" == python ]]; then
-        [[ -z "$python_version" && ${#fields[@]} -eq 2 ]] || fail 'Python global duplicado ou com fallback; configure uma única versão'
-        python_version="${fields[1]}"
-    fi
-done < "$HOME/.tool-versions"
-[[ "$python_version" =~ ^[A-Za-z0-9][A-Za-z0-9._+-]*$ && "$python_version" != system && "$python_version" != latest ]] || fail 'versão Python global ausente ou inválida'
-installation="$(ASDF_PYTHON_VERSION="$python_version" asdf where python "$python_version")" || fail 'Python global não instalado'
-python_path="$(ASDF_PYTHON_VERSION="$python_version" asdf which python)" || fail 'Python global indisponível'
-installation="$(readlink -e -- "$installation")" || fail 'instalação Python inválida'
-python_path="$(readlink -e -- "$python_path")" || fail 'executável Python inválido'
-[[ "$python_path" == "$installation/"* && -f "$python_path" && -x "$python_path" ]] || fail 'Python retornado não pertence à instalação global asdf'
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
-# -I isola ambiente/cwd; -S evita autoload de site-packages; -B não cria bytecode.
-exec "$python_path" -I -S -B "$script_dir/bootstrap.py" "$@"
+exec bash "$script_dir/../python-global" "$script_dir/bootstrap.py" "$@"

@@ -1,4 +1,24 @@
-# Manutenção da biblioteca — Etapa 1.5
+# Manutenção da biblioteca
+
+## Atualização incremental — Etapa 3A
+
+Usar a [CLI de manutenção](../../Automacao/manutencao-skills/README.md):
+
+```sh
+./Automacao/manutencao-skills/skills check
+./Automacao/manutencao-skills/skills update expo
+./Automacao/manutencao-skills/skills update --all
+# Somente depois da revisão e autorização explícita:
+./Automacao/manutencao-skills/skills apply SESSION --plan-id HASH_REVISADO --approve
+```
+
+A preparação é isolada e a promoção é global por lote, com diário e backup.
+Não há atualização automática do cache, de consumidores ou de aprovações.
+Conflitos, mudanças de licença, novas dependências e mudanças na distribuição
+UI/UX bloqueiam a promoção para revisão manual. Recuperação, limites, exemplos
+e testes estão no guia acima. Nenhuma origem real foi promovida na Etapa 3A.
+
+## Preparação histórica — Etapa 1.5
 
 O Git principal versiona os nove pacotes de distribuição, política, catálogo, templates necessários ao renderer próprio e ferramentas de validação. `_repos/` é apenas cache opcional de aquisição/atualização; a validação padrão e o consumo dos pacotes não precisam dele. Nenhuma origem foi atualizada nesta etapa.
 
@@ -22,15 +42,18 @@ O empacotador lê somente as sete revisões locais do lock e verifica arquivos c
 
 O renderer UI/UX é Python da biblioteca padrão e usa os templates oficiais preservados em `ui-ux-pro-max-templates/`. Seu resultado antes das adaptações foi comparado ao renderer oficial para quatro plataformas. A geração do pacote usa o perfil universal e registra adaptações de portabilidade/asdf. Não há necessidade de instalar CLI, Bun ou pacotes npm.
 
-## Atualizações futuras, sempre manuais
+## Procedimento histórico para revisões que exigem adaptação manual
 
 1. Preservar os clones anteriores, o Git principal e os relatórios para reversão. Clones rasos não constituem histórico remoto completo.
 2. Conferir novamente URL, branch padrão e commit candidato. Adquirir para área nova sem alterar silenciosamente o cache aprovado. Não inicializar submódulos por padrão.
 3. Inspecionar mudanças de SKILL.md, recursos, licenças, scripts, processos de distribuição, novas dependências e entradas removidas. Reclassificar explicitamente todas as skills na política; não aprovar pelo simples aparecimento de um arquivo.
-4. Revisar lock, inventário de aquisição, templates e decisões em conjunto. As ferramentas não fazem essa atualização, fetch ou resolução de conflitos automaticamente. Alterações nos próprios arquivos de empacotamento exigem revisão.
+4. Revisar lock, inventário de aquisição, templates e decisões em conjunto. A receita histórica não faz atualização, fetch ou resolução de conflitos. A CLI 3A prepara revisões compatíveis; alterações nos próprios arquivos de empacotamento exigem revisão.
 5. Preparar artefatos e validar integridade, fechamento de cópia, renderização quando aplicável e clone local sem cache. Registrar diffs, relatórios e commit somente depois da revisão.
-6. Em falha, voltar ao snapshot Git e aos clones anteriores preservados, em área de restauração separada. Não sobrescrever consumidores ou apagar estados para aparentar sucesso. Não há motor automático de atualização/reversão nesta etapa.
+6. Em falha, consultar diário e backup da CLI 3A. Para adaptações manuais ou reversão deliberada, usar snapshot Git e clones anteriores em área de restauração separada. Não sobrescrever consumidores ou apagar estados para aparentar sucesso.
 
 Os índices de aquisição da Etapa 1 mantêm as fontes originais rastreáveis. Arquivos empacotados modificados têm hash original, hash distribuído, motivo e diff. Licenças específicas e atribuições continuam junto dos recursos. A biblioteca não atualiza fontes durante consumo e não instala ferramentas para satisfazer pré-requisitos.
 
-A implantação dos três agentes e o motor project-bootstrap ainda serão implementados. A política futura deverá validar todas as versões globais asdf necessárias antes de escrever no destino, copiar fisicamente apenas os conjuntos selecionados e preservar os projetos existentes.
+O núcleo e a integração compartilhada foram implementados nas etapas 2A–2D.
+O bootstrap valida runtimes globais antes de escrever e copia fisicamente os
+conjuntos selecionados. Não consulta atualizações durante a criação de projetos.
+OpenCode e Gemini continuam pendentes de validação prática separada.

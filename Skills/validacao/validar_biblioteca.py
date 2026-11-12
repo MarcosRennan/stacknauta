@@ -22,7 +22,7 @@ from biblioteca import DOMAINS, CONTRACT, sha, safe_path, selected_files, render
 from inventariar import frontmatter, git
 
 
-def check_links(root, paths=None):
+def check_links(root, paths=None, available_paths=None):
     checked,errors=0,[]
     paths=paths if paths is not None else [p.relative_to(root).as_posix() for p in root.rglob('*.md')]
     for relative in paths:
@@ -35,7 +35,11 @@ def check_links(root, paths=None):
             if not token or urlsplit(token).scheme or token.startswith('//') or token.lower() in {'url','path/to/screenshot'} or any(c in token for c in '{}<>*`'):
                 continue
             q=p.parent/token
-            if not q.exists() or not q.resolve().is_relative_to(root.resolve()):
+            unavailable=False
+            if available_paths is not None and q.exists() and q.resolve().is_relative_to(root.resolve()):
+                local=q.resolve().relative_to(root.resolve()).as_posix()
+                unavailable=local not in available_paths and not (q.is_dir() and any(p.startswith(local+'/') for p in available_paths))
+            if not q.exists() or not q.resolve().is_relative_to(root.resolve()) or unavailable:
                 errors.append(relative+' -> '+target)
             checked+=1
     return checked,errors
