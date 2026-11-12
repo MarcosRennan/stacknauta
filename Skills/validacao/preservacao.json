@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-11-12T02:50:55.256728+00:00",
+  "scope": "Duas árvores legadas de automação e skills, sem seguir links simbólicos",
+  "entry_count_before": 4251,
+  "entry_count_after": 4251,
+  "regular_files_hashed": 2858,
+  "fields_compared": [
+    "relative_path",
+    "mode_type_permissions",
+    "size",
+    "mtime_ns",
+    "symlink_target",
+    "sha256_regular_file"
+  ],
+  "baseline_sha256": "b141addb431494fcc35909e65ff325b82e34fa7434aa5aba26c331bcc45dc1b4",
+  "after_sha256": "b141addb431494fcc35909e65ff325b82e34fa7434aa5aba26c331bcc45dc1b4",
+  "added": [],
+  "removed": [],
+  "changed": [],
+  "status": "unchanged",
+  "limits": "Não compara atime (leituras podem atualizá-lo); não é baseline de projetos consumidores. Nenhuma operação de escrita foi direcionada aos diretórios legados ou consumidores."
+}

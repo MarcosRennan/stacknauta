@@ -1,0 +1,4 @@
+# Origens independentes, com seus próprios metadados Git e commits fixados.
+/Skills/_repos/
+__pycache__/
+*.pyc

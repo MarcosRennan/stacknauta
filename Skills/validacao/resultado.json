@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "validated_at_utc": "2026-11-12T02:52:33.884330+00:00",
+  "status": "passed_with_documented_pending",
+  "python_executor": {
+    "manager": "asdf",
+    "global_source": "~/.tool-versions",
+    "version": "3.14.8"
+  },
+  "counts": {
+    "sources": 7,
+    "physical_skill_files": 130,
+    "catalogued_skills": 124,
+    "distribution_aliases": 6,
+    "enabled_skills": 0,
+    "prepared_distribution_skills": 0,
+    "by_category": {
+      "Backend": 6,
+      "Frontend": 8,
+      "Mobile": 65,
+      "Seguranca": 9,
+      "manutencao": 29,
+      "validacao": 7
+    },
+    "by_scope": {
+      "catalogued_source": 122,
+      "experimental_source": 1,
+      "internal_evaluation_not_distributable": 1
+    }
+  },
+  "source_files_verified": 2690,
+  "upstream_relative_symlinks": [
+    {
+      "source_id": "ui-ux-pro-max",
+      "path": "gallery/data/styles.csv",
+      "target": "../../src/ui-ux-pro-max/data/styles.csv"
+    },
+    {
+      "source_id": "expo",
+      "path": "CLAUDE.md",
+      "target": "AGENTS.md"
+    },
+    {
+      "source_id": "sentry",
+      "path": ".agents/skills",
+      "target": "../skills"
+    },
+    {
+      "source_id": "sentry",
+      "path": "CLAUDE.md",
+      "target": "AGENTS.md"
+    }
+  ],
+  "legacy_preservation": "unchanged",
+  "artifact_sha256": {
+    "Skills/fontes.lock.json": "715f3c5c617947e72714553bedcf3e382fbe6367837c8bbbbc795f97ae3ce455",
+    "Skills/catalogo.json": "7582f5a945a77bc8cb5e9bc82c6f98dcf8af1a9795d29996b556e0214d8d8ebf",
+    "Skills/validacao/arquivos.json": "b2ed5f5246adf630ae2ada29fa540250e28a605f469af072de92750f719e7953",
+    "Skills/validacao/recursos.json": "6f7609a71a72b0557df5b63bb836b5b8c5dbdde08679587329702cff5e7d326a",
+    "Skills/validacao/preservacao.json": "11b131c23303ded5f55ca15fbe989ed8360e55277096084b5044d7733870129a"
+  },
+  "resource_references": {
+    "present": 1327,
+    "unresolved_requires_review": 28,
+    "example_or_dynamic": 4
+  },
+  "checks": [
+    "Catálogo e índices reproduzidos em memória, sem divergência.",
+    "Origem íntegra, commit/URL/branch fixados e Git fsck concluído: ui-ux-pro-max",
+    "Origem íntegra, commit/URL/branch fixados e Git fsck concluído: fastapi",
+    "Origem íntegra, commit/URL/branch fixados e Git fsck concluído: remy",
+    "Origem íntegra, commit/URL/branch fixados e Git fsck concluído: expo",
+    "Origem íntegra, commit/URL/branch fixados e Git fsck concluído: chrisbanes",
+    "Origem íntegra, commit/URL/branch fixados e Git fsck concluído: android",
+    "Origem íntegra, commit/URL/branch fixados e Git fsck concluído: sentry",
+    "Relatório de preservação registra baseline e comparação final idênticos.",
+    "Todos os arquivos materializados comparados aos blobs Git originais e SHA-256.",
+    "Todos os SKILL.md reais contabilizados como canônicos ou cópias identificadas.",
+    "Todos os arquivos necessários catalogados estão fisicamente presentes.",
+    "Licenças da raiz e exceções locais preservadas por skill.",
+    "Links das origens relativos, internos e existentes; nenhum link criado para agentes.",
+    "Diretórios de automação e ativação contêm somente .gitkeep.",
+    "Nenhum caminho da instalação anterior ou diretório pessoal em recursos/artefatos próprios."
+  ],
+  "errors": [],
+  "warnings": [
+    "28 menções de recursos aguardam interpretação; ver recursos.json e INSPECAO.md.",
+    "Compatibilidade de agentes, renderização UI/UX, dependências e execução de scripts não validadas.",
+    "Um submódulo de avaliação Expo preservado sem checkout; avaliação interna não disponível.",
+    "Fontes são clones locais ignorados pelo Git principal; preservar as pastas ao transportar esta instalação."
+  ],
+  "bootstrap_implemented": false
+}
