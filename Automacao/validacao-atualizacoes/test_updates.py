@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "Skills/manutencao"))
 sys.path.insert(0, str(ROOT / "Automacao/manutencao-skills"))
 from atualizacoes import Updates, tree, read_bytes, safe, atomic_json, move, SOURCES, load
-from atualizacao_receita import replay_patch
+from atualizacao_receita import replay_patch, relative_python_resources, python_dependencies
 from biblioteca import json_bytes, sha
 from stacknauta_core import BootstrapError
 
@@ -31,6 +31,53 @@ def reverse(diff):
     return "".join(("-" + row[1:] if row.startswith("+") and not row.startswith("+++") else
                     "+" + row[1:] if row.startswith("-") and not row.startswith("---") else row)
                    for row in diff.splitlines(True))
+
+
+class RelativePythonTests(unittest.TestCase):
+    def check(self, text, path='pkg/sub/main.py', **extra):
+        files={'pkg/__init__.py':b'', 'pkg/sub/__init__.py':b'', **extra}
+        return relative_python_resources(text.encode(),path,files,files.__getitem__)
+
+    def test_existing_modules_and_parent_levels(self):
+        for text,target in [('from . import helper','pkg/sub/helper.py'),
+                            ('from .helper import function','pkg/sub/helper.py'),
+                            ('from ..utils import tool','pkg/utils.py'),
+                            ('from .. import utils','pkg/utils/__init__.py')]:
+            with self.subTest(text=text):
+                self.assertIn(target,self.check(text,**{target:b'raise RuntimeError("never execute")'}))
+        self.assertIn('helper.py',self.check('from . import helper',path='main.py',**{
+            '__init__.py':b'', 'helper.py':b''}))
+
+    def test_absent_modules_are_not_satisfied_by_init_or_namesakes(self):
+        for text,files in [('from . import missing',{}),('from .missing import tool',{}),
+                           ('from ..utils import tool',{'pkg/sub/utils.py':b''}),
+                           ('from .helpers.child import tool',{'pkg/sub/helpers.py':b'','pkg/sub/helpers/child.py':b''}),
+                           ('from ... import missing',{})]:
+            with self.subTest(text=text),self.assertRaisesRegex(ValueError,'Dependência local'):
+                self.check(text,**files)
+
+    def test_package_precedes_module_and_namespace_is_physical(self):
+        result=self.check('from .helpers.child import tool',**{
+            'pkg/sub/helpers.py':b'', 'pkg/sub/helpers/__init__.py':b'', 'pkg/sub/helpers/child.py':b''})
+        self.assertIn('pkg/sub/helpers/__init__.py',result)
+        self.assertNotIn('pkg/sub/helpers.py',result)
+        self.assertIn('pkg/sub/ns/child.py',self.check('from . import ns',**{'pkg/sub/ns/child.py':b''}))
+        self.assertIn('pkg/sub/helpers/child.py',self.check('from .helpers import child',**{
+            'pkg/sub/helpers/__init__.py':b'', 'pkg/sub/helpers/child.py':b''}))
+
+    def test_static_exports_and_dynamic_uncertainty(self):
+        self.assertIn('pkg/sub/__init__.py',self.check('from . import helper',**{'pkg/sub/__init__.py':b'helper = 1'}))
+        self.assertIn('pkg/sub/__init__.py',self.check('from . import alias',**{
+            'pkg/sub/__init__.py':b'from . import helper as alias', 'pkg/sub/helper.py':b''}))
+        for init in (b'from . import missing',b'def __getattr__(name): return 1'):
+            with self.assertRaises(ValueError):
+                self.check('from . import missing',**{'pkg/sub/__init__.py':init})
+
+    def test_absolute_external_and_invalid_syntax_keep_existing_contract(self):
+        python_dependencies(b'',b'import local\nimport json',{'local'})
+        python_dependencies(b'import external',b'import external',set())
+        with self.assertRaises(ValueError):python_dependencies(b'',b'import external',set())
+        with self.assertRaises(SyntaxError):self.check('from . import')
 
 
 class UpdateTests(unittest.TestCase):
@@ -131,11 +178,46 @@ class UpdateTests(unittest.TestCase):
         self.assertEqual(tree(self.root / "Skills"), self.before)
         self.assertFalse((self.root / ".stacknauta-updates").exists())
 
+    def test_origin_does_not_disable_integrity_validation(self):
+        clone=self.base/'clone'
+        git(self.base,'clone','--quiet','--no-hardlinks',str(self.root),str(clone))
+        self.engine.validate(clone)  # origin local preservado pelo clone.
+        git(clone,'remote','remove','origin')
+        self.engine.validate(clone)
+        for url in (str(self.repos['fastapi']), 'git@example.org:team/library.git', 'https://example.org/team/library.git'):
+            with self.subTest(url=url):
+                git(self.root, 'config', 'remote.origin.url', url)
+                self.engine.validate(self.root)
+        path = self.root / 'Skills/Backend/fastapi/LICENSE'
+        path.write_bytes(path.read_bytes() + b'corrupt')
+        with self.assertRaises(ValueError):
+            self.engine.validate(self.root)
+
+    def test_update_rejects_missing_relative_python_with_init_present(self):
+        directory='fastapi/.agents/skills/fastapi/'
+        self.change(relative=directory+'__init__.py',text='')
+        self.change(relative=directory+'main.py',text='from . import absent\n')
+        result=self.engine.prepare({'fastapi'})
+        self.assertEqual(result['status'],'bloqueado',result)
+        self.assertIn('Dependência local Python',result['motivo'])
+        self.assertEqual(tree(self.root/'Skills'),self.before)
+
+    def test_update_accepts_existing_relative_modules_without_execution(self):
+        folder=self.repos['fastapi']/'fastapi/.agents/skills/fastapi'
+        (folder/'__init__.py').write_text('')
+        (folder/'main.py').write_text('from . import helper\nfrom .helper import tool\n')
+        (folder/'helper.py').write_text('raise RuntimeError("never execute")\n')
+        self.change()
+        plan=self.plan();self.apply(plan)
+        self.assertTrue((self.root/'Skills/Backend/fastapi/skills/fastapi/helper.py').is_file())
+
     def test_detect_commit_prepare_and_authorized_update(self):
         self.change(); plan = self.plan()
         self.assertEqual(tree(self.root / "Skills"), self.before)
         self.assertEqual(self.engine.check({"fastapi"})[0]["estado"], "atualizacao_disponivel")
-        self.assertEqual(self.apply(plan)["status"], "aplicado")
+        result=self.apply(plan)
+        self.assertEqual(result['status'],'aplicado')
+        self.assertEqual(result['origens'][0]['resultado'],'atualizada')
         self.assertEqual(self.engine.check({"fastapi"})[0]["estado"], "sem_alteracoes")
         self.engine.validator(self.root)
         self.assertEqual((self.consumer / "sentinel").read_text(), "intocado")

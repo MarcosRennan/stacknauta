@@ -56,6 +56,81 @@ def python_dependencies(before, after, local_modules):
     if added: raise ValueError('Nova dependência Python não atendida; revisão manual: '+', '.join(sorted(added)))
 
 
+def relative_python_resources(data, path, files, read_module):
+    """Resolve caminhos relativos sem executar código; exports dinâmicos exigem revisão."""
+    tree = ast.parse(data)
+    available = set(files)
+    required = set()
+    directories = {str(parent) for p in available for parent in Path(p).parents}
+
+    def module(base):
+        # Um pacote regular tem precedência sobre um módulo homônimo.
+        if base + '/__init__.py' in available:
+            return {base + '/__init__.py'}
+        if base + '.py' in available:
+            return {base + '.py'}
+        if base in directories:
+            return {p for p in available if p.startswith(base + '/') and p.endswith('.py')} or None
+        return None
+
+    def explicit_export(init, name):
+        if init not in available:
+            return False
+        for node in ast.parse(read_module(init)).body:
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)) and node.name == name:
+                return True
+            if isinstance(node, (ast.Import, ast.ImportFrom)):
+                if isinstance(node, ast.ImportFrom) and node.level and node.module is None:
+                    parent = Path(init).parent
+                    if node.level <= len(parent.parts) + int('__init__.py' in available):
+                        for _ in range(node.level - 1):
+                            parent = parent.parent
+                        if any((a.asname or a.name) == name and module((parent / a.name).as_posix()) is not None for a in node.names):
+                            return True
+                    continue  # O próprio import não prova que seu alvo existe.
+                if any((a.asname or (a.name.split('.')[0] if isinstance(node, ast.Import) else a.name)) == name for a in node.names):
+                    return True
+            targets = node.targets if isinstance(node, ast.Assign) else [node.target] if isinstance(node, ast.AnnAssign) and node.value is not None else []
+            if any(isinstance(t, ast.Name) and t.id == name for t in targets):
+                return True
+        return False
+
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.ImportFrom) or not node.level:
+            continue
+        parent = Path(path).parent
+        if node.level > len(parent.parts) + int('__init__.py' in available):
+            raise ValueError('Dependência local relativa fora do pacote: ' + path)
+        for _ in range(node.level - 1):
+            parent = parent.parent
+        names = [node.module] if node.module else [a.name for a in node.names]
+        for name in names:
+            base = parent.as_posix()
+            components = name.split('.')
+            resolved = None
+            for index, component in enumerate(components):
+                base = (Path(base) / component).as_posix()
+                resolved = module(base)
+                if resolved is None or (index < len(components)-1 and base + '/__init__.py' not in available and base + '.py' in available):
+                    resolved = None
+                    break
+            init = (parent / '__init__.py').as_posix()
+            if resolved is None:
+                if node.module is None and ((name == '*' and init in available) or explicit_export(init, name)):
+                    resolved = {init}
+                else:
+                    raise ValueError('Dependência local Python ausente/ambígua; revisão manual: ' + base)
+            required.update(resolved)
+            if node.module and (base + '/__init__.py' in available or base + '.py' not in available):
+                for alias in node.names:
+                    required.update(module(base + '/' + alias.name) or set())
+            for ancestor in Path(base).parents:
+                init_path = (ancestor / '__init__.py').as_posix()
+                if init_path in available:
+                    required.add(init_path)
+    return required
+
+
 def javascript_imports(data):
     groups = re.findall(r'''\b(?:require|import)\s*\(\s*["']([^"']+)["']|\bfrom\s*["']([^"']+)["']|\bimport\s*["']([^"']+)["']''', data.decode(errors='replace'))
     return {s for group in groups for s in group if s}
@@ -258,6 +333,8 @@ def refresh(root, source_ids, read_bytes, runtime, details=None, *, git_runner):
             before = before_path.read_bytes() if before_path.exists() else b""
             after = outputs[dest]
             python_dependencies(before, after, local_modules)
+            relative_python_resources(after, relative, package['files'],
+                                      lambda p: outputs[package['directory'] + '/' + p])
         package["commit"] = new_commit
         outputs[package["directory"] + "/PROVENANCE.json"] = json_bytes(package)
         descriptor["manifest_sha256"] = sha(outputs[package["directory"] + "/PROVENANCE.json"])

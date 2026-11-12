@@ -10,6 +10,7 @@ from unittest.mock import patch
 from test_bootstrap import Base, ROOT
 from stacknauta_core import BootstrapError
 from stacknauta_core.core import encoded
+from stacknauta_core.core import Bootstrap
 from stacknauta_core.filesystem import MANIFEST, directory, fingerprint
 from stacknauta_core.integration import AgentIntegration, additions, MARKER
 from stacknauta_core.library import digest
@@ -73,6 +74,51 @@ class LifecycleTests(Base):
         result = self.integration.verify(raw)
         self.assertEqual(result["verification_state"], "intact")
         self.assertFalse(result["lifecycle"]["modified"])
+
+    def test_unrelated_catalog_and_source_changes_preserve_pinned_consumer(self):
+        library=self.minimal_library()
+        self.engine=Bootstrap(library,home=self.home,resolver=self.engine.resolver)
+        self.integration=AgentIntegration(self.engine)
+        raw,_,report=self.start()
+        (self.destination/'pyproject.toml').write_text('# legitimate evolution\n')
+        before=self.full_snapshot()
+        cat_path=library/'Skills/catalogo.json';lock_path=library/'Skills/fontes.lock.json'
+        cat=json.loads(cat_path.read_bytes());lock=json.loads(lock_path.read_bytes())
+        import copy
+        row=copy.deepcopy(next(s for s in cat['skills'] if s['source_id']!='fastapi'))
+        row['id']='fixture:unrelated';row['name']='unrelated';row['distribution_status']='pending'
+        cat['skills'].append(row)
+        cat_path.write_bytes(encoded(cat))
+        self.assertEqual(self.integration.verify(raw)['status'],'verified')
+        sid=next(s['id'] for s in lock['sources'] if s['id']!='fastapi')
+        for source in cat['sources']+lock['sources']:
+            if source['id']==sid:source['commit']='a'*40
+        cat_path.write_bytes(encoded(cat));lock_path.write_bytes(encoded(lock))
+        self.assertEqual(self.integration.verify(raw)['status'],'verified')
+        self.assertEqual(self.integration.apply(raw,report['plan_id'])['core_result']['status'],'unchanged')
+        self.assertEqual(before,self.full_snapshot())
+
+    def test_schema_one_after_catalog_drift_preserves_original_ids(self):
+        library=self.minimal_library()
+        self.engine=Bootstrap(library,home=self.home,resolver=self.engine.resolver)
+        self.integration=AgentIntegration(self.engine)
+        raw,plan=self.legacy(integrated=True)
+        before=self.full_snapshot()
+        path=library/'Skills/catalogo.json';catalog=json.loads(path.read_bytes())
+        catalog['fixture_note']='Unrelated catalog revision'
+        path.write_bytes(encoded(catalog))
+        self.assertEqual(self.integration.verify(raw)['core_plan_id'],plan.plan_id)
+        self.assertEqual(self.engine.apply(raw,plan.plan_id)['status'],'unchanged')
+        self.assertEqual(before,self.full_snapshot())
+
+    def test_missing_historical_origin_evidence_blocks_without_writes(self):
+        raw,_,_=self.start()
+        path=self.destination/'.stacknauta/skills-lock.json'
+        lock=json.loads(path.read_bytes());lock.pop('files');path.write_bytes(encoded(lock))
+        before=self.full_snapshot()
+        with self.assertRaisesRegex(BootstrapError,'evidência histórica'):
+            self.integration.verify(raw)
+        self.assertEqual(before,self.full_snapshot())
 
     def test_pyproject_growth_shrink_and_same_size_are_evolution(self):
         raw, plan, report = self.start()

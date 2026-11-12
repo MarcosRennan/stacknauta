@@ -1,6 +1,5 @@
 """Descoberta e incorporação individual; promoção/recuperação pertencem a Updates."""
 import copy
-import ast
 import difflib
 import json
 import os
@@ -11,7 +10,7 @@ import subprocess
 from pathlib import Path
 
 from atualizacoes import atomic_json, load, read_bytes, safe, tree, sha, json_bytes, NODE_BUILTINS
-from atualizacao_receita import inventory, source_bytes, skill_prefix, recount, python_dependencies, javascript_imports, category_indexes
+from atualizacao_receita import inventory, source_bytes, skill_prefix, recount, python_dependencies, relative_python_resources, javascript_imports, category_indexes
 from origens import parse_url, resolve
 from stacknauta_core import BootstrapError
 from stacknauta_core.compatibility import declared_policy, policies, catalog_policies
@@ -109,15 +108,11 @@ class Inclusions:
                         targets.append([base,*[base+ext for ext in ('.js','.mjs','.cjs','.json')],*[base+'/index'+ext for ext in ('.js','.mjs','.cjs')]])
                 if Path(path).suffix=='.py':
                     try:
-                        for node in ast.walk(ast.parse(data)):
-                            if isinstance(node,ast.ImportFrom) and node.level:
-                                parent=Path(path).parent
-                                for _level in range(node.level-1):parent=parent.parent
-                                names=[node.module] if node.module else [a.name for a in node.names]
-                                for name in names:
-                                    base=(parent/name.replace('.','/')).as_posix()
-                                    targets.append([base+'.py',base+'/__init__.py',str(parent/'__init__.py')])
+                        expanded.update(relative_python_resources(data,path,
+                            [p for p,r in records.items() if r['type']=='file'],
+                            lambda p: source_bytes(root,source,records,p,read_bytes)))
                     except SyntaxError as exc: blockers.append('Sintaxe Python inválida: '+str(exc))
+                    except ValueError as exc: blockers.append(str(exc))
                 for alternatives in targets:
                     target=next((p for p in alternatives if p in records and records[p]['type']=='file'),None)
                     if target is None: blockers.append('Dependência local ausente/fora do escopo: '+alternatives[0])

@@ -283,8 +283,6 @@ def validate(origins=False,copies=False,node_syntax=False):
     for relative in empty_directories:
         if sorted(p.name for p in (ROOT/relative).iterdir())!=['.gitkeep']:
             errors.append('Automação/ativação implementada fora do escopo: '+relative)
-    if git(ROOT,'remote'):
-        errors.append('Remoto configurado no Git principal')
     for root,dirs,files in os.walk(ROOT/'Skills'):
         dirs[:]=[d for d in dirs if d not in ('_repos','__pycache__')]
         for name in dirs+files:

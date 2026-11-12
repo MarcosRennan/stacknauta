@@ -236,6 +236,29 @@ class Target:
         except (ValueError, KeyError, TypeError) as exc:
             raise BootstrapError("Manifesto protegido inválido ou schema não suportado") from exc
 
+    def pinned_inputs(self):
+        """Lê evidências originais sem seguir links; o plano reconstruído as sela."""
+        self.boundaries()
+        try:
+            with directory(self.path) as root:
+                marker = read(root, MANIFEST, 10_000_000)
+                if marker is None:
+                    return None, None
+                lock = read(root, '.stacknauta/skills-lock.json', 64_000_000)
+        except FileNotFoundError:
+            return None, None
+        except OSError as exc:
+            raise BootstrapError(f"Destino inválido ou inacessível: {exc.strerror}") from exc
+        try:
+            manifest = json.loads(marker)
+            if lock is not None:
+                expected = manifest['files']['.stacknauta/skills-lock.json']
+                if expected != {'sha256': hashlib.sha256(lock).hexdigest(), 'size': len(lock)}:
+                    raise ValueError('lock diverge do manifesto')
+            return manifest, lock
+        except (ValueError, KeyError, TypeError) as exc:
+            raise BootstrapError('Manifesto/lock protegido inválido; evidência histórica insuficiente') from exc
+
     def boundaries(self):
         for protected in self.protected:
             if self.path == protected or self.path.is_relative_to(protected) or protected.is_relative_to(self.path):

@@ -135,17 +135,37 @@ class Bootstrap:
         config = normalize(raw, self.home)
         target = Target(config["destination"], self.home / "Projetos", self.protected)
         target.boundaries()
+        schema = target.manifest_schema() or 2
+        pinned, pinned_lock = target.pinned_inputs()
         library = Library(self.library_root)
-        selection = library.select(config)
+        # A seleção original pertence ao bootstrap concluído, não ao catálogo futuro.
+        selection_config = config
+        if pinned is not None:
+            if not isinstance(pinned.get('skills'), list):
+                raise BootstrapError('Manifesto sem seleção original verificável; revisão manual necessária')
+            selection_config = {**config, 'skills': pinned['skills']}
+        selection = library.select(selection_config)
         runtimes = self.resolver.resolve(config["stack"]["languages"], config["runtime_versions"], extra_plugins=selection["extra_runtimes"])
         skill_files, origins, exported = library.export(selection)
         files = skeleton(config, runtimes, exported)
         if set(files) & set(skill_files):
             raise BootstrapError("Colisão entre esqueleto e recursos de skills")
         files.update(skill_files)
-        files[".stacknauta/skills-lock.json"] = encoded({"schema_version": 1, "catalog_sha256": digest(library.catalog_bytes),
-            "sources_lock_sha256": digest(library.lock_bytes), "skills": exported, "files": origins})
-        schema = target.manifest_schema() or 2
+        lock = {"schema_version": 1, "catalog_sha256": digest(library.catalog_bytes),
+                "sources_lock_sha256": digest(library.lock_bytes), "skills": exported, "files": origins}
+        if pinned_lock is not None:
+            try:
+                original = json.loads(pinned_lock)
+                global_hashes = {'catalog_sha256', 'sources_lock_sha256'}
+                if (set(original) != set(lock) or
+                    any(not isinstance(original[k], str) or len(original[k]) != 64 or
+                        any(c not in '0123456789abcdef' for c in original[k]) for k in global_hashes) or
+                    {k:v for k,v in original.items() if k not in global_hashes} !=
+                    {k:v for k,v in lock.items() if k not in global_hashes}):
+                    raise ValueError('origens/recursos fixados não reproduzíveis')
+            except (ValueError, KeyError, TypeError) as exc:
+                raise BootstrapError('Evidência histórica insuficiente ou divergente; revisão manual necessária, sem migração automática') from exc
+        files[".stacknauta/skills-lock.json"] = pinned_lock if pinned_lock is not None else encoded(lock)
         identity = {"schema_version": schema, "core_version": VERSION, "config": config, "runtimes": runtimes,
                     "skills": selection["selected"],
                     "files": {name: {"sha256": digest(data), "size": len(data)} for name, data in sorted(files.items())}}

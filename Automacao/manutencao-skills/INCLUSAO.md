@@ -175,10 +175,30 @@ imports dinâmicos, comandos em prose, SDKs ou serviços. TypeScript/Ruby/PowerS
 renderers especiais e mudanças manuais podem exigir preparação posterior. Licença
 é identificada por evidência textual para revisão, sem certificação jurídica.
 
-**Consumidores:** permanecem intocados. O verificador atual recompõe planos com o
-catálogo presente; depois de incorporação real, mesmo adicionar só pendentes muda
-seu hash. Para verificar/reaplicar consumidores antigos, guardar a revisão original
-do StackNauta em clone separado. Não se migram manifestos nem se aceitam hashes
-novos silenciosamente.
+Imports Python relativos usam o mesmo resolvedor estático nas inclusões e nas
+atualizações. `from . import helper` exige módulo/pacote físico ou definição
+explícita no `__init__.py`; um `__init__.py` vazio não satisfaz um módulo ausente.
+Os níveis relativos e a precedência de pacotes sobre módulos homônimos são
+respeitados. Inicializadores e recursos locais encontrados entram no fechamento.
+Namespaces exigem evidência física de arquivos Python no escopo adquirido.
+O pacote na raiz do escopo precisa de `__init__.py` para imports relativos na raiz.
+`from .helper import símbolo` verifica o módulo helper; não certifica que o
+símbolo exista em execução. `__getattr__`, exports condicionais/dinâmicos, `*` e
+alterações de `sys.path` não têm resolução semântica completa. Um nome incerto em
+`from . import nome` bloqueia para revisão, em vez de presumir um módulo existente.
+Imports absolutos mantêm a política anterior de dependências novas versus já
+declaradas no script anterior. Nenhum módulo analisado é executado.
+
+Resultados de promoção mantêm `status: aplicado`, com `resultado: incluida` para
+inclusão e `atualizada` para atualização. Sem mudanças, os comandos conservam
+`sem_alteracoes`/`sem_novas_candidatas`; reaplicar retorna `ja_aplicado`.
+Recusas anteriores à promoção continuam `bloqueado`. Falhas durante a promoção
+são relatadas pela CLI como `falha_aplicacao` (código 2); a API preserva o tipo da
+exceção. Após rollback bem-sucedido, `application-failed.json` registra a falha e
+nenhuma origem promovida. Falha na recuperação exige revisão manual.
+
+**Consumidores:** permanecem intocados. A seleção e o lock originais são fixados;
+mudanças globais não relacionadas não renovam os hashes do consumidor. Consulte
+[compatibilidade e limites históricos](../project-bootstrap/CICLO-DE-VIDA.md).
 
 Testes, demonstração e limites: [relatório 3B](../validacao-inclusoes/RELATORIO.md).

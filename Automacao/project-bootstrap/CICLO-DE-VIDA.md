@@ -88,3 +88,28 @@ Confiança na biblioteca e no executável local continua necessária. Manifestos
 são assinaturas contra invasor com controle do mesmo usuário. Renomeação concorrente
 de ancestrais pelo mesmo usuário permanece fora da garantia anterior; dirfd,
 O_NOFOLLOW e publicação exclusiva são mantidos.
+
+### Catálogos posteriores (4A.1)
+
+Em destinos existentes, a seleção original vem do manifesto, e o lock copiado
+precisa corresponder ao hash/tamanho protegido naquele manifesto. O núcleo
+reexporta exatamente essa seleção e confronta todos os registros de recursos,
+origens, commits e pré-requisitos com o lock fixado. Só os dois hashes globais
+históricos de catálogo/lock deixam de ser comparados aos arquivos globais atuais;
+seus valores e bytes originais são preservados. O restante do manifesto é
+reconstruído e comparado integralmente, inclusive política e conclusão.
+
+Isso permite adicionar skills (até compatíveis) e atualizar outras origens sem
+mudar o plano do consumidor. Nenhuma skill nova é selecionada numa reaplicação.
+Schemas 1 e 2 mantêm os mesmos IDs e não recebem migração ou regravação de hashes.
+Arquivos evolutivos continuam preservados; recursos protegidos adulterados ou
+ausentes continuam bloqueados.
+
+O tratamento é conservador: se a biblioteca atual não reproduz os recursos e a
+proveniência da seleção histórica, ou se faltam registros verificáveis, não se
+certifica integridade a partir de um hash inventado. É necessário usar uma revisão
+original confiável do StackNauta num clone separado e fazer revisão manual.
+Isso inclui alterações no pacote selecionado (por exemplo README/PROVENANCE
+renovados por outra inclusão na mesma origem), mesmo se o SKILL.md não mudou.
+Runtimes globais e gerador compatíveis continuam necessários. Não há independência
+completa da biblioteca histórica nem assinatura criptográfica dos manifestos.

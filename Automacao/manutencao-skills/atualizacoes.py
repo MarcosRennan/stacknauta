@@ -408,9 +408,22 @@ class Updates:
                 if hook: hook("new_published")
                 self.validator(self.root); phase("committed")
                 return {"status": "aplicado", "session_id": identifier, "plan_id": plan_id,
-                        "origens": [{**r, "resultado": "atualizada" if r["estado"] == "atualizacao_disponivel" else "nao_modificada"} for r in plan["origens"]], "backup": str(backup)}
-            except BaseException:
-                self._recover(session, plan)
+                        "origens": [{**r, "resultado": ({"inclusao_revisada": "incluida",
+                            "atualizacao_disponivel": "atualizada"}.get(r["estado"], "modificada")
+                            if plan["files"] and r["estado"] != "sem_alteracoes" else "nao_modificada")}
+                            for r in plan["origens"]], "backup": str(backup)}
+            except BaseException as exc:
+                # Mantém os tipos de exceção da API; a CLI distingue falha de
+                # promoção de uma recusa anterior às escritas (hash/aprovação).
+                exc.stacknauta_status = 'falha_aplicacao'
+                try:
+                    self._recover(session, plan)
+                except BaseException as recovery_error:
+                    recovery_error.stacknauta_status = 'falha_aplicacao'
+                    raise
+                atomic_json(session / 'application-failed.json', {'status': 'falha_aplicacao',
+                    'session_id': identifier, 'plan_id': plan_id, 'motivo': str(exc),
+                    'recuperacao': 'rolled_back', 'promovidas': []})
                 raise
 
     def _recover(self, session, plan):

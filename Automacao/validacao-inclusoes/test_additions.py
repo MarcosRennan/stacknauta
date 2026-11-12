@@ -9,7 +9,7 @@ import os
 import subprocess
 import unittest
 from types import SimpleNamespace
-from contextlib import redirect_stdout
+from contextlib import redirect_stdout, redirect_stderr
 from pathlib import Path
 from unittest.mock import patch
 
@@ -74,7 +74,8 @@ class AdditionTests(unittest.TestCase):
 
     def test_individual_approval_only_and_physical_export(self):
         report=self.add();plan=self.stage(report);self.assertEqual(tree(self.root/'Skills'),self.before)
-        self.apply(plan);self.engine.validate(self.root)
+        result=self.apply(plan);self.engine.validate(self.root)
+        self.assertEqual(result['origens'][0]['resultado'],'incluida')
         cat=load(self.root,'Skills/catalogo.json');new=[s for s in cat['skills'] if s['source_id']==report['source']['id']]
         self.assertEqual(sum(s['distribution_status']=='approved' for s in new),1)
         self.assertEqual(sum(s['distribution_status']=='pending' for s in new),2)
@@ -103,6 +104,26 @@ class AdditionTests(unittest.TestCase):
         self.assertTrue(any(s['id']==identifier for s in result['discovery_entries']))
         self.assertEqual(integration.verify(raw)['verification_state'],'intact')
         self.assertEqual(integration.apply(raw,proposal['plan_id'])['core_result']['status'],'unchanged')
+
+    def test_old_consumer_survives_new_compatible_inclusion_and_other_source_update(self):
+        integration=AgentIntegration(Bootstrap(self.root))
+        raw={'name':'old-project','destination':str(self.base/'old-project'),
+             'stack':{'languages':['python'],'frameworks':['fastapi']},'requirements':{'features':['api']}}
+        _,_,proposal=integration.plan(raw);integration.apply(raw,proposal['plan_id'])
+        destination=Path(raw['destination'])
+        before={p.relative_to(destination).as_posix():(p.read_bytes(),p.stat().st_ino,p.stat().st_mtime_ns)
+                for p in destination.rglob('*') if p.is_file()}
+        report=self.add();plan=self.stage(report);self.apply(plan)
+        self.assertEqual(integration.verify(raw)['plan_id'],proposal['plan_id'])
+        fixtures.git(self.root,'add','Skills');fixtures.git(self.root,'commit','--quiet','-m','fixture addition')
+        path=next(p for p in self.repos['remy'].rglob('*.md') if p.name!='SKILL.md')
+        fixtures.UpdateTests.change(self,'remy',path.relative_to(self.repos['remy']).as_posix())
+        update=self.engine.prepare({'remy'});self.assertEqual(update['status'],'preparado',update.get('motivo'))
+        self.apply(update)
+        self.assertEqual(integration.verify(raw)['plan_id'],proposal['plan_id'])
+        self.assertEqual(integration.apply(raw,proposal['plan_id'])['core_result']['status'],'unchanged')
+        self.assertEqual(before,{p.relative_to(destination).as_posix():(p.read_bytes(),p.stat().st_ino,p.stat().st_mtime_ns)
+                                for p in destination.rglob('*') if p.is_file()})
 
     def test_url_subdirectory_scope_and_root_license(self):
         report=self.add(path='skills/good')
@@ -133,6 +154,28 @@ class AdditionTests(unittest.TestCase):
         paths,_=lib.selected_files(row['id'],lib.catalog,package)
         for relative in ['vendor/assets/data.csv','vendor/skills/common/info.md','vendor/skills/shared/resource.mjs']:
             self.assertIn(relative,paths);self.assertTrue((self.root/package['directory']/relative).is_file())
+
+    def test_missing_relative_python_module_is_not_satisfied_by_init(self):
+        repo=self.repo([('skills/good','good-helper','Guia.')])
+        (repo/'skills/good/__init__.py').write_text('')
+        (repo/'skills/good/main.py').write_text('from . import absent\n')
+        fixtures.git(repo,'add','.');fixtures.git(repo,'commit','--quiet','-m','missing relative module')
+        report=self.add(repo)
+        self.assertTrue(any('Dependência local' in b for b in report['candidates'][0]['blockers']),report['candidates'][0]['blockers'])
+
+    def test_relative_python_closure_copies_parent_modules_without_execution(self):
+        repo=self.repo([('pkg/good','good-helper','Guia.')])
+        for path,text in {'pkg/__init__.py':'','pkg/good/__init__.py':'',
+                          'pkg/good/main.py':'from ..utils import tool\nfrom . import helper\n',
+                          'pkg/good/helper.py':'raise RuntimeError("never execute")\n',
+                          'pkg/utils.py':'def tool(): pass\n'}.items():
+            (repo/path).write_text(text)
+        fixtures.git(repo,'add','.');fixtures.git(repo,'commit','--quiet','-m','valid relative imports')
+        report=self.add(repo);plan=self.stage(report);self.apply(plan)
+        candidate=report['candidates'][0]
+        self.assertIn('pkg/utils.py',candidate['resources'])
+        self.assertIn('pkg/__init__.py',candidate['resources'])
+        self.engine.validate(self.root)
 
     def test_subdirectory_does_not_require_unselected_root_orchestrator(self):
         repo=self.repo([('.','orchestrator','Guia raiz.'),('skills/good','good-helper','Guia independente.')])
@@ -300,7 +343,11 @@ class AdditionTests(unittest.TestCase):
         report=self.add();plan=self.stage(report)
         def fail(phase):
             if phase=='new_published':raise OSError('falha após publicação')
-        with self.assertRaises(OSError):self.apply(plan,hook=fail)
+        with self.assertRaises(OSError) as caught:self.apply(plan,hook=fail)
+        self.assertEqual(caught.exception.stacknauta_status,'falha_aplicacao')
+        failure=load(self.engine.session(plan['session_id']),'application-failed.json')
+        self.assertEqual(failure['status'],'falha_aplicacao')
+        self.assertEqual(failure['promovidas'],[])
         self.assertEqual(tree(self.root/'Skills'),self.before);self.engine.validate(self.root)
 
     def test_companion_requires_its_own_approval_and_compatible_copy_closure(self):
@@ -416,6 +463,23 @@ class AdditionTests(unittest.TestCase):
         self.assertEqual(tree(self.root/'Skills'),self.before)
         result=call(['apply',report['session_id'],'--plan-id',plan['plan_id'],'--approve'])
         self.assertEqual(result['status'],'aplicado');self.engine.validate(self.root)
+        self.assertEqual(result['origens'][0]['resultado'],'incluida')
+
+    def test_cli_distinguishes_rejection_from_application_failure(self):
+        import skills_cli
+        report=self.add();plan=self.stage(report)
+        args=['skills','apply',plan['session_id'],'--plan-id',plan['plan_id']]
+        for approved in (False,True):
+            output=io.StringIO();errors=io.StringIO()
+            original=self.engine.apply
+            def apply(*args,**kwargs):
+                return original(*args,**kwargs,hook=lambda _: (_ for _ in ()).throw(OSError('fixture promotion failure')))
+            with patch.object(skills_cli,'ROOT',self.root),patch.object(skills_cli,'Updates',return_value=self.engine),\
+                 patch.object(self.engine,'apply',side_effect=apply),patch.object(sys,'argv',args+(['--approve'] if approved else [])),\
+                 redirect_stdout(output),redirect_stderr(errors):
+                self.assertEqual(skills_cli.main(),2)
+            self.assertEqual(json.loads(errors.getvalue())['status'],'falha_aplicacao' if approved else 'bloqueado')
+        self.assertEqual(tree(self.root/'Skills'),self.before)
 
 
 if __name__=='__main__':unittest.main()

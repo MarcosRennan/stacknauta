@@ -58,7 +58,7 @@ def main():
                 "diff_para_revisao": str(engine.session(result["session_id"]) / "review.diff")}
         print(json.dumps(result, ensure_ascii=False, indent=2)); return 2 if failed else 0
     except (ValueError, OSError, RuntimeError, BootstrapError, subprocess.SubprocessError, KeyError, TypeError) as exc:
-        print(json.dumps({"status": "bloqueado", "erro": str(exc)}, ensure_ascii=False), file=sys.stderr); return 2
+        print(json.dumps({"status": getattr(exc, 'stacknauta_status', 'bloqueado'), "erro": str(exc)}, ensure_ascii=False), file=sys.stderr); return 2
 
 
 if __name__ == "__main__": raise SystemExit(main())
