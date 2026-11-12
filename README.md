@@ -1,14 +1,27 @@
 # StackNauta
 
-**Etapa 1.5 — biblioteca versionada para cópia física.** São 101 skills aprovadas em nove pacotes autocontidos, 21 pendentes e duas excluídas. O `project-bootstrap` continua sem implementação. Nenhuma skill foi ativada em agentes ou em projetos consumidores.
+**Etapa 2A — núcleo do project-bootstrap implementado, independente de agente.** Prepara esqueleto, configurações, runtimes globais asdf e cópias físicas de skills compatíveis. Integração com agentes e certificação para produção permanecem para a Etapa 2B.
+
+A biblioteca 1.5 permanece preservada: 101 skills aprovadas em nove pacotes, 21 pendentes e duas excluídas. Nenhum projeto consumidor antigo ou configuração global de agentes foi modificado.
+
+## Núcleo do bootstrap
+
+```bash
+./Automacao/project-bootstrap/project-bootstrap plan --config Automacao/project-bootstrap/examples/python-fastapi.json
+./Automacao/project-bootstrap/project-bootstrap apply --config Automacao/project-bootstrap/examples/python-fastapi.json --plan-id HASH_RETORNADO_PELO_PLAN
+```
+
+O dry-run valida entradas, runtimes globais, compatibilidade de todo o fechamento e o destino antes de escrever. O destino padrão é `$HOME/Projetos/<name>`, com destino absoluto explicitamente configurável. A aplicação exige o hash revisado e não sobrescreve arquivos existentes. Não há geradores, instalação de dependências ou início de serviços automáticos.
+
+Ver [interface, arquitetura, exemplos e limites](Automacao/project-bootstrap/README.md) e [testes da Etapa 2A](Automacao/validacao-project-bootstrap/README.md). Os estados atuais do núcleo estão em [STATUS.json](Automacao/project-bootstrap/STATUS.json); o campo histórico do catálogo da biblioteca continua descrevendo a Etapa 1.5.
 
 ## Organização
 
 ```text
 StackNauta/
 ├── Automacao/
-│   ├── project-bootstrap/.gitkeep
-│   └── validacao-project-bootstrap/.gitkeep
+│   ├── project-bootstrap/           # launcher, CLI, núcleo e exemplos
+│   └── validacao-project-bootstrap/ # testes automatizados e evidências
 ├── Skills/
 │   ├── Frontend/ui-ux-pro-max/
 │   ├── Backend/{fastapi,remy,sentry}/
@@ -38,7 +51,7 @@ As 124 skills distintas vêm de 130 arquivos SKILL.md adquiridos: seis são cóp
 
 Os pacotes e seus recursos são rastreados pelo Git principal. Uma clonagem local limpa contém a biblioteca completa aprovada **sem depender de `_repos/`**, de ferramentas globais novas ou de download durante o consumo. O repositório principal não tem remoto configurado e nada foi publicado.
 
-A unidade autocontida é o pacote de origem/categoria. É possível copiar o pacote inteiro ou o conjunto fechado de uma skill. Para selecionar, usar o campo `distribution` de [catalogo.json](Skills/catalogo.json): `package`, `skill_directory` e `requires_skills`. `biblioteca.selected_files()` calcula esse fechamento transitivo e inclui os recursos comuns/licenças. Manter os caminhos relativos `skills/<nome>/` e os arquivos compartilhados do pacote. O mecanismo não configura agentes nem cria aplicações; ele é um contrato de dados para o bootstrap futuro.
+A unidade autocontida é o pacote de origem/categoria. É possível copiar o pacote inteiro ou o conjunto fechado de uma skill. Para selecionar, usar o campo `distribution` de [catalogo.json](Skills/catalogo.json): `package`, `skill_directory` e `requires_skills`. `biblioteca.selected_files()` calcula esse fechamento transitivo e inclui os recursos comuns/licenças. O núcleo 2A reutiliza essa função e preserva o layout em namespaces sob `.agents/skills/`. Ele não altera os arquivos aprovados nem configura integrações específicas de agentes.
 
 Skills com referências entre si são copiadas juntas quando necessárias. A família Expo inclui o router e as 23 skills estáveis no fechamento, seguindo o contrato do fornecedor. Licenças e recursos comuns são armazenados uma vez por pacote; não há links simbólicos, hardlinks de consumidores ou referências obrigatórias ao cache. O índice de proveniência completo pode descrever skills não selecionadas numa cópia parcial; validar essa cópia contra o plano selecionado, não exigir todos os arquivos do índice de pacote completo.
 
@@ -99,4 +112,4 @@ A aprovação cobre integridade, fechamento dos arquivos, licenças, cópia e fu
 
 [MANUTENCAO.md](Skills/manutencao/MANUTENCAO.md) descreve a preparação reproduzível e a atualização manual planejada. Não há aquisição/restauração automática nem atualização durante consumo. O cache pode ser necessário para uma nova preparação, mas não para copiar, validar ou usar os pacotes aprovados.
 
-A Etapa 2 poderá implementar uma única lógica de bootstrap com adaptações para Codex, OpenCode com DeepSeek e Gemini CLI. Ela deverá preparar somente o esqueleto inicial e os conjuntos compatíveis selecionados, copiar recursos fisicamente e validar todos os runtimes globais asdf antes de escrever no destino. Desenvolvimento da aplicação começa depois.
+A Etapa 2A implementa essa lógica única para esqueleto e conjuntos compatíveis, com validação global asdf antes de escrever. A Etapa 2B deverá testar descoberta e uso das skills por Codex, OpenCode com DeepSeek e Gemini CLI. Desenvolvimento da aplicação e operações tecnológicas conduzidas pelo agente começam em prompts posteriores; o núcleo não está certificado para produção.

@@ -242,7 +242,22 @@ def validate(origins=False,copies=False,node_syntax=False):
     for relative,record in catalog['template_inputs'].items():
         if sha((template_root/relative).read_bytes())!=record['sha256']:
             errors.append('Template oficial versionado divergente: '+relative)
-    for relative in ('Automacao/project-bootstrap','Automacao/validacao-project-bootstrap','.agents/skills'):
+    core_marker=ROOT/'Automacao/project-bootstrap/STATUS.json'
+    core_state={}
+    if core_marker.exists():
+        core_state=json.loads(core_marker.read_text())
+        if core_state!={'stage':'2A','core_implemented':True,'agent_integration_tested':False,'production_ready':False}:
+            errors.append('Estado do núcleo fora da etapa 2A declarada.')
+        for relative in ('Automacao/project-bootstrap/bootstrap.py','Automacao/project-bootstrap/project-bootstrap',
+                         'Automacao/project-bootstrap/stacknauta_core/core.py',
+                         'Automacao/validacao-project-bootstrap/test_bootstrap.py'):
+            path=ROOT/relative
+            if not path.is_file() or path.is_symlink():
+                errors.append('Artefato obrigatório do núcleo ausente/não físico: '+relative)
+        empty_directories=('.agents/skills',)
+    else:
+        empty_directories=('Automacao/project-bootstrap','Automacao/validacao-project-bootstrap','.agents/skills')
+    for relative in empty_directories:
         if sorted(p.name for p in (ROOT/relative).iterdir())!=['.gitkeep']:
             errors.append('Automação/ativação implementada fora do escopo: '+relative)
     if git(ROOT,'remote'):
@@ -271,7 +286,7 @@ def validate(origins=False,copies=False,node_syntax=False):
                    'Planos de cópia fechados sobre dependências; nenhum SKILL.md pendente/excluído nos pacotes.',
                    'Adaptações explícitas com hashes antes/depois e unified diff.',
                    'Sem links simbólicos, caminhos locais ou dependência de cache nos pacotes.',
-                   'Nenhuma ativação de agentes ou implementação do project-bootstrap.'])
+                   'Nenhuma ativação de agentes; estado do núcleo validado separadamente da biblioteca.'])
     return {'schema_version':2,'stage':'1.5','validated_at_utc':datetime.now(timezone.utc).isoformat(),
             'status':'failed' if errors else 'passed_with_documented_pending', 'python_executor':runtime,
             'counts':catalog['counts'],'package_files_verified':checked_files,'python_files_parsed':python_files,
@@ -280,7 +295,9 @@ def validate(origins=False,copies=False,node_syntax=False):
             'limits':['Packaging approval does not certify agent discovery or all application workflows.',
                       'Consumer SDKs, hardware, authenticated services and CLIs were not provisioned or exercised.',
                       'Frontmatter delimiters/name/description and declared licence paths checked; not full YAML schema validation.'],
-            'bootstrap_implemented':False}
+            'bootstrap_implemented':bool(core_state.get('core_implemented')),
+            'bootstrap_core_stage':core_state.get('stage'),
+            'agent_integration_tested':False,'production_ready':False}
 
 
 def main():

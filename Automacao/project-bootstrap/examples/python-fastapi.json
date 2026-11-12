@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "name": "api-exemplo",
+  "stack": {
+    "languages": ["python"],
+    "frameworks": ["fastapi"],
+    "architecture": "hexagonal-ddd"
+  },
+  "requirements": {
+    "features": ["api"],
+    "description": "Preparar a API; regras de negócio serão especificadas depois.",
+    "constraints": ["Não instalar dependências nem executar servidores."]
+  }
+}

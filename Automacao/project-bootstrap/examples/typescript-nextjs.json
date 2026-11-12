@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "name": "web-exemplo",
+  "stack": {"languages": ["typescript"], "frameworks": ["nextjs"]},
+  "requirements": {
+    "features": ["ui", "accessibility"],
+    "description": "Preparar a estrutura da interface; páginas serão desenvolvidas nos prompts seguintes."
+  }
+}

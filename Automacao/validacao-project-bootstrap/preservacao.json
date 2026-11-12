@@ -1,0 +1,18 @@
+{
+  "stage": "2A",
+  "verified_at_utc": "2026-11-12T11:07:58.252815+00:00",
+  "legacy_status": "unchanged",
+  "entries_before": 4251,
+  "entries_after": 4251,
+  "baseline_sha256": "b141addb431494fcc35909e65ff325b82e34fa7434aa5aba26c331bcc45dc1b4",
+  "after_sha256": "b141addb431494fcc35909e65ff325b82e34fa7434aa5aba26c331bcc45dc1b4",
+  "added": [],
+  "removed": [],
+  "changed": [],
+  "library_catalog_sha256": "3bb6b613a21d1103563ff2974206fbe66b39aa4ff355160a07e6bf8e945b6a4f",
+  "library_catalog_matches_1_5": true,
+  "skills_changes": [
+    "Skills/validacao/validar_biblioteca.py"
+  ],
+  "limits": "Atime não comparado. Projetos consumidores antigos não foram destinos de escrita; testes positivos somente em temporários."
+}

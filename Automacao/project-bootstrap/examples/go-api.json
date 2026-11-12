@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "name": "go-exemplo",
+  "stack": {
+    "languages": ["go"],
+    "frameworks": ["chi"],
+    "go_module": "example.org/equipe/go-exemplo",
+    "architecture": "hexagonal-ddd"
+  },
+  "requirements": {"features": ["api"]}
+}
