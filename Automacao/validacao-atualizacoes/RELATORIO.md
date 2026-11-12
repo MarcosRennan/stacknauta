@@ -115,7 +115,9 @@ bash Automacao/python-global Automacao/validacao-atualizacoes/testar_clone.py
 Evidências: [atualizacoes.json](atualizacoes.json), [nucleo.json](nucleo.json),
 [integracao.json](integracao.json), [biblioteca.json](biblioteca.json),
 [catalogo.json](catalogo.json), [fechamentos.json](fechamentos.json).
-Clonagem local limpa e verificações finais serão registradas após o commit candidato.
+Clonagem local limpa **passou**: repetiu os 146 testes, conferiu 958 arquivos e
+101 fechamentos, sem `_repos/`, rede ou execução de fornecedor. A árvore do clone
+permaneceu limpa. [clone-local.json](clone-local.json).
 
 Uma execução intermediária com fixtures completas esgotou a cota de `/tmp`.
 Somente fixtures desta etapa, com marcadores de propriedade e origens locais
@@ -169,3 +171,22 @@ continua com **101 aprovadas, 21 pendentes, duas excluídas e nove pacotes**.
 
 Próximo passo: revisar o mecanismo e, em autorização separada, preparar uma das
 atualizações reais disponíveis; revisar o plano/diff antes de autorizar promoção.
+
+## Fechamento e versionamento
+
+O código final validado no clone é `ecde760fb992cc13690ed5c66560514f1b52a358`.
+O commit `46199824ba60439558351311ba4d0085f8d84d86` contém a implementação inicial;
+o commit acima acrescenta os bloqueios de imports JS e seus testes. O commit
+posterior de evidências altera somente relatórios/documentação desta validação.
+
+A [conferência final](preservacao.json) confirmou 2.266 entradas do consumidor
+FastAPI e 4.259 de App-Web preservadas em bytes, inode, modo, mtime e ctime.
+Os 1.001 artefatos rastreados sob Skills fora da documentação/ferramenta editadas
+permaneceram idênticos: pacotes, catálogo, lock, política, proveniência, templates
+e índices originais. Configuração global asdf intacta; sem remotos Git e sem
+sessão real de atualização criada. O consumidor manteve os IDs originais e
+`verified_with_evolution`, sem apply nem qualquer escrita nele.
+
+Resultado consolidado: [resultado.json](resultado.json). Não há atualização real
+autorizada/aplicada nesta entrega, nem certificação de workflows de fornecedores
+ou de produção. Nenhum agente adicional, gerador ou instalador foi executado.

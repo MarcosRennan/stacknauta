@@ -1,0 +1,67 @@
+{
+  "stage": "3A",
+  "checked_at_utc": "2026-11-12T16:24:09.904045+00:00",
+  "checks": {
+    "consumer": {
+      "entries": 2266,
+      "bytes_inode_mode_mtime_ctime_preserved": true,
+      "changed": []
+    },
+    "legacy": {
+      "entries": 4259,
+      "bytes_inode_mode_mtime_ctime_preserved": true,
+      "changed": []
+    },
+    "library": {
+      "unchanged_tracked_artifacts": 1001,
+      "changed_tooling_and_documentation": [
+        "Skills/manutencao/MANUTENCAO.md",
+        "Skills/manutencao/README.md",
+        "Skills/validacao/validar_biblioteca.py"
+      ],
+      "counts": {
+        "sources": 7,
+        "physical_skill_files": 130,
+        "catalogued_skills": 124,
+        "distribution_aliases": 6,
+        "enabled_skills": 0,
+        "prepared_distribution_skills": 101,
+        "by_category": {
+          "Backend": 24,
+          "Frontend": 11,
+          "Mobile": 80,
+          "Seguranca": 9
+        },
+        "by_scope": {
+          "catalogued_source": 122,
+          "experimental_source": 1,
+          "internal_evaluation_not_distributable": 1
+        },
+        "approved_skills": 101,
+        "pending_skills": 21,
+        "excluded_skills": 2,
+        "distribution_packages": 9,
+        "approved_by_category": {
+          "Backend": 19,
+          "Frontend": 4,
+          "Mobile": 71,
+          "Seguranca": 7
+        }
+      },
+      "real_origins_updated": false
+    },
+    "global_asdf": {
+      "sha256": "49cf0e4e015b530bfa89b785451bbaca02acd35c066f3794e0863212557a72f0",
+      "preserved": true
+    },
+    "no_real_update_session": true,
+    "main_git_remotes": [],
+    "consumer_verification": {
+      "status": "verified",
+      "verification_state": "verified_with_evolution",
+      "plan_id": "aee4b7483f7e31e713007e099b95702a2f969ac9549513b8bf186ed94a45bc4e",
+      "core_plan_id": "8ba96293d5dccd45822e79e087aa9e22ad39c2b24c75e28fb693542c6b2d7a05"
+    }
+  },
+  "status": "passed"
+}

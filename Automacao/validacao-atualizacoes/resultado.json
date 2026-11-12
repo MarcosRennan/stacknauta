@@ -1,0 +1,35 @@
+{
+  "stage": "3A",
+  "status": "passed",
+  "tested_implementation_commit": "ecde760fb992cc13690ed5c66560514f1b52a358",
+  "tests": {
+    "core": 96,
+    "integration": 16,
+    "updates": 34,
+    "total": 146,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "clean_clone": "passed",
+  "package_files_verified": 958,
+  "static_skill_closures": 101,
+  "real_query": {
+    "sources": 7,
+    "updates_available": [
+      "expo",
+      "chrisbanes"
+    ],
+    "errors": 0,
+    "applied": []
+  },
+  "library_classifications": {
+    "approved": 101,
+    "pending": 21,
+    "excluded": 2
+  },
+  "preservation": "passed",
+  "production_certified": false,
+  "other_agents_executed": false,
+  "limitations_document": "RELATORIO.md"
+}
