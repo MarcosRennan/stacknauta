@@ -1,0 +1,17 @@
+{
+  "stage": "2B",
+  "checked_at_utc": "2026-11-12T12:13:45.371867+00:00",
+  "status": "passed",
+  "baseline_head": "b8cb42b6e8818132ad4a724e3778c0761cac313d",
+  "legacy_entries_compared": 4259,
+  "legacy_metadata_unchanged": true,
+  "preserved_library_files": 1003,
+  "preserved_core_files": 13,
+  "previous_tracked_files_changed": [
+    ".agents/skills/.gitkeep",
+    "Automacao/project-bootstrap/bootstrap.py",
+    "README.md",
+    "Skills/validacao/validar_biblioteca.py"
+  ],
+  "scope": "Legacy metadata (mode, size, mtime, ctime, symlink targets), all previous tracked library content and original core implementation hashes; only CLI dispatch, validator, root docs and placeholder changed. No consumer used as target."
+}

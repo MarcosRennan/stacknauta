@@ -1,19 +1,21 @@
 # StackNauta
 
-**Etapa 2A — núcleo do project-bootstrap implementado, independente de agente.** Prepara esqueleto, configurações, runtimes globais asdf e cópias físicas de skills compatíveis. Integração com agentes e certificação para produção permanecem para a Etapa 2B.
+**Etapa 2B — integração compartilhada com agentes.** O núcleo 2A prepara esqueleto, configurações, runtimes globais asdf e cópias físicas de skills compatíveis. A camada aditiva inclui descoberta portátil, contexto e verificação. A validação prática desta etapa utiliza apenas o Codex atual; OpenCode/DeepSeek e Gemini CLI permanecem pendentes. Não certificado para produção.
 
 A biblioteca 1.5 permanece preservada: 101 skills aprovadas em nove pacotes, 21 pendentes e duas excluídas. Nenhum projeto consumidor antigo ou configuração global de agentes foi modificado.
 
 ## Núcleo do bootstrap
 
 ```bash
-./Automacao/project-bootstrap/project-bootstrap plan --config Automacao/project-bootstrap/examples/python-fastapi.json
-./Automacao/project-bootstrap/project-bootstrap apply --config Automacao/project-bootstrap/examples/python-fastapi.json --plan-id HASH_RETORNADO_PELO_PLAN
+./Automacao/project-bootstrap/project-bootstrap agent-plan --config Automacao/project-bootstrap/examples/python-fastapi.json
+# Revisar arquivos, hashes e autorização antes da aplicação.
+./Automacao/project-bootstrap/project-bootstrap agent-apply --config Automacao/project-bootstrap/examples/python-fastapi.json --plan-id HASH_REVISADO
+./Automacao/project-bootstrap/project-bootstrap agent-verify --config Automacao/project-bootstrap/examples/python-fastapi.json
 ```
 
 O dry-run valida entradas, runtimes globais, compatibilidade de todo o fechamento e o destino antes de escrever. O destino padrão é `$HOME/Projetos/<name>`, com destino absoluto explicitamente configurável. A aplicação exige o hash revisado e não sobrescreve arquivos existentes. Não há geradores, instalação de dependências ou início de serviços automáticos.
 
-Ver [interface, arquitetura, exemplos e limites](Automacao/project-bootstrap/README.md) e [testes da Etapa 2A](Automacao/validacao-project-bootstrap/README.md). Os estados atuais do núcleo estão em [STATUS.json](Automacao/project-bootstrap/STATUS.json); o campo histórico do catálogo da biblioteca continua descrevendo a Etapa 1.5.
+Ver [integração compartilhada e exemplos](Automacao/integracao-agentes/README.md), [relatório da Etapa 2B](Automacao/validacao-integracao-agentes/RELATORIO.md) e [testes manuais posteriores](Automacao/integracao-agentes/TESTES-MANUAIS.md). A [interface original](Automacao/project-bootstrap/README.md), os [testes da Etapa 2A](Automacao/validacao-project-bootstrap/README.md) e STATUS.json preservam o contrato e estado histórico 2A; o catálogo continua descrevendo a biblioteca 1.5.
 
 ## Organização
 
@@ -21,7 +23,9 @@ Ver [interface, arquitetura, exemplos e limites](Automacao/project-bootstrap/REA
 StackNauta/
 ├── Automacao/
 │   ├── project-bootstrap/           # launcher, CLI, núcleo e exemplos
-│   └── validacao-project-bootstrap/ # testes automatizados e evidências
+│   ├── validacao-project-bootstrap/ # testes originais preservados
+│   ├── integracao-agentes/          # procedimento comum e testes manuais
+│   └── validacao-integracao-agentes/ # testes 2B e evidências
 ├── Skills/
 │   ├── Frontend/ui-ux-pro-max/
 │   ├── Backend/{fastapi,remy,sentry}/
@@ -32,7 +36,9 @@ StackNauta/
 │   ├── _repos/                     # cache opcional, ignorado pelo Git
 │   ├── catalogo.json
 │   └── fontes.lock.json
-├── .agents/skills/.gitkeep
+├── .agents/skills/project-bootstrap/SKILL.md
+├── AGENTS.md
+├── GEMINI.md                       # importa AGENTS.md
 └── README.md
 ```
 
@@ -112,4 +118,6 @@ A aprovação cobre integridade, fechamento dos arquivos, licenças, cópia e fu
 
 [MANUTENCAO.md](Skills/manutencao/MANUTENCAO.md) descreve a preparação reproduzível e a atualização manual planejada. Não há aquisição/restauração automática nem atualização durante consumo. O cache pode ser necessário para uma nova preparação, mas não para copiar, validar ou usar os pacotes aprovados.
 
-A Etapa 2A implementa essa lógica única para esqueleto e conjuntos compatíveis, com validação global asdf antes de escrever. A Etapa 2B deverá testar descoberta e uso das skills por Codex, OpenCode com DeepSeek e Gemini CLI. Desenvolvimento da aplicação e operações tecnológicas conduzidas pelo agente começam em prompts posteriores; o núcleo não está certificado para produção.
+A Etapa 2A implementa a lógica única de esqueleto e seleção, preservada na 2B. A CLI recebeu apenas encaminhamento para os comandos de integração; algoritmos, launcher e testes originais continuam preservados. A skill orienta o agente a revisar dois hashes e as duas listas de arquivos, aplicar somente quando autorizado e interpretar as operações tecnológicas pendentes. A integração não concede autorização nem executa geradores.
+
+Os aliases rasos `stacknauta-*` encaminham aos SKILL.md originais copiados fisicamente, preservando recursos e licenças sem duplicação. A descoberta nativa e o uso explícito no Codex atual têm evidências separadas; ativação automática numa nova sessão continua uma confirmação posterior. OpenCode/DeepSeek e Gemini CLI estão preparados estaticamente, sem aprovação prática nesta etapa.

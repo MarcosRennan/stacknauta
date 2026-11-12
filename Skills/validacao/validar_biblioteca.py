@@ -254,7 +254,21 @@ def validate(origins=False,copies=False,node_syntax=False):
             path=ROOT/relative
             if not path.is_file() or path.is_symlink():
                 errors.append('Artefato obrigatório do núcleo ausente/não físico: '+relative)
-        empty_directories=('.agents/skills',)
+        integration_skill=ROOT/'.agents/skills/project-bootstrap/SKILL.md'
+        if integration_skill.exists():
+            if integration_skill.is_symlink():
+                errors.append('Skill de integração não física')
+            metadata=frontmatter(integration_skill.read_text())
+            if metadata.get('name')!='project-bootstrap' or not metadata.get('description'):
+                errors.append('Metadados da skill de integração inválidos')
+            if sorted(p.name for p in (ROOT/'.agents/skills').iterdir())!=['project-bootstrap']:
+                errors.append('Skills de automação não registradas')
+            for relative in ('AGENTS.md','GEMINI.md','Automacao/project-bootstrap/stacknauta_core/integration.py'):
+                if not (ROOT/relative).is_file() or (ROOT/relative).is_symlink():
+                    errors.append('Integração incompleta: '+relative)
+            empty_directories=()
+        else:
+            empty_directories=('.agents/skills',)
     else:
         empty_directories=('Automacao/project-bootstrap','Automacao/validacao-project-bootstrap','.agents/skills')
     for relative in empty_directories:

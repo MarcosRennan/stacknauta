@@ -1,0 +1,220 @@
+{
+  "stage": "2B",
+  "tested_at_utc": "2026-11-12T12:12:09.998577+00:00",
+  "status": "passed_with_explicit_limits",
+  "agent": "current Codex CLI",
+  "codex_version": "codex-cli 0.167.2",
+  "new_model_session_started": false,
+  "authorization": "User explicitly authorized temporary integration tests. Reviewed hashes were applied without changing declared choices.",
+  "skill_usage": "Current Codex explicitly read project-bootstrap/SKILL.md, followed agent-plan/apply/verify, read copied FastAPI SKILL.md, execution contract and references/dependencies.md. This is explicit usage, not proof of automatic activation.",
+  "discovery": [
+    {
+      "scope": "StackNauta",
+      "expected": "project-bootstrap",
+      "native_metadata_line": "- project-bootstrap: Prepare o esqueleto inicial de um novo projeto com StackNauta quando o usuário pedir inicialização, scaffold ou bootstrap com tecnologias declaradas. Valida runtimes globais asdf, seleciona e copia skills compatíveis e integra sua descoberta; não desenvolve funcionalidades de negócio. (file: r5/project-bootstrap/SKILL.md)",
+      "render_sha256": "465d668f71cf5da92728eceae8416c43d15f54c9563ff5a24a44d5ca43636162",
+      "command": "codex debug prompt-input",
+      "status": "found_by_native_prompt_renderer",
+      "automatic_activation_in_new_session": "not_tested"
+    },
+    {
+      "scope": "api-codex",
+      "expected": "stacknauta-fastapi",
+      "native_metadata_line": "- stacknauta-fastapi: StackNauta: FastAPI best practices and conventions. Use when working with FastAPI APIs, Pydantic models, dependencies, streaming responses including Server-Sent Events (SSE), and serving frontend apps. Keeps FastAPI code clean and up to date with the latest features and patterns. (file: r5/stacknauta-fastapi/SKILL.md)",
+      "render_sha256": "212023f67355a8d2af636ccba8f043103cf4352a787035fe982fa672def65404",
+      "command": "codex debug prompt-input",
+      "status": "found_by_native_prompt_renderer",
+      "automatic_activation_in_new_session": "not_tested"
+    },
+    {
+      "scope": "web-codex",
+      "expected": "stacknauta-ui-ux-pro-max",
+      "native_metadata_line": "- stacknauta-ui-ux-pro-max: StackNauta: UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility, interaction, responsive layout, typography, color, charts, and stack-specific UI implementation. Searchable local data: 80 searchable styles (51 active), 192 product palettes and reasoning profiles, 74 font pairings, 120 UX guidelines, 105 icons, 17 GSAP presets, 25 chart types, and 22 stacks. (file: r5/stacknauta-ui-ux-pro-max/SKILL.md)",
+      "render_sha256": "f9fa87db244f45467b19df272305931b4bfafceaad13ce40952f325e70b4047e",
+      "command": "codex debug prompt-input",
+      "status": "found_by_native_prompt_renderer",
+      "automatic_activation_in_new_session": "not_tested"
+    }
+  ],
+  "cases": [
+    {
+      "case": "api",
+      "destination": "/tmp/stacknauta-2b-codex-4ggnmvht/api-codex",
+      "config": {
+        "name": "api-codex",
+        "stack": {
+          "languages": [
+            "python"
+          ],
+          "frameworks": [
+            "fastapi"
+          ]
+        },
+        "requirements": {
+          "features": [
+            "api"
+          ],
+          "description": "Teste de integração conduzido pelo Codex atual.",
+          "constraints": [
+            "Não instalar dependências nem executar geradores ou serviços."
+          ]
+        },
+        "destination": "/tmp/stacknauta-2b-codex-4ggnmvht/api-codex"
+      },
+      "reviewed_plan_id": "d224405c85ab4c26d3ffc0b6b46b95ae26fda842559759e9b4d2ec8754235e70",
+      "core_plan_id": "52c0ab806fe2db300d8bd9f748f5e4cf5568506e98eeb9069139224ad334a012",
+      "runtimes": {
+        "python": {
+          "version": "3.14.8",
+          "detected": {
+            "python": "3.14.8"
+          },
+          "roles": [
+            "executor",
+            "application"
+          ]
+        }
+      },
+      "selected": [
+        "fastapi:fastapi"
+      ],
+      "core_files_verified": 25,
+      "integration_files_verified": 4,
+      "files_snapshot_sha256": "6300b770f47575e388868b1663d9e44c88162f610d0aebec83f39f7ee11ce141",
+      "wrong_hash_blocked": {
+        "status": "blocked",
+        "error": "plan_id da integração difere do dry-run; revise agent-plan novamente",
+        "production_ready": false
+      },
+      "idempotent_bytes_inode_mtime": true,
+      "all_files_physical": true,
+      "pending_tasks": [
+        {
+          "executed": false,
+          "operations": [
+            "review official prerequisites for declared version",
+            "propose generator or manual configuration",
+            "review commands, outputs and network/install effects before execution"
+          ],
+          "status": "requires_explicit_version",
+          "technology": "fastapi",
+          "version": null
+        }
+      ],
+      "commands_executed": [
+        "agent-plan",
+        "agent-apply --plan-id REVIEWED_HASH",
+        "agent-verify",
+        "agent-apply --plan-id WRONG_HASH (blocked)",
+        "agent-apply --plan-id REVIEWED_HASH (unchanged)"
+      ]
+    },
+    {
+      "case": "web",
+      "destination": "/tmp/stacknauta-2b-codex-4ggnmvht/web-codex",
+      "config": {
+        "name": "web-codex",
+        "stack": {
+          "languages": [
+            "typescript"
+          ],
+          "frameworks": [
+            "nextjs"
+          ]
+        },
+        "requirements": {
+          "features": [
+            "ui",
+            "accessibility"
+          ],
+          "constraints": [
+            "Não desenvolver funcionalidades de negócio."
+          ]
+        },
+        "destination": "/tmp/stacknauta-2b-codex-4ggnmvht/web-codex"
+      },
+      "reviewed_plan_id": "c42af78578cdaa9d55302c3f790c91d01939003559aa30a1d10e0e07fe42b3cd",
+      "core_plan_id": "6d7bf989206095965572197bd100862a2b96be0de554708dfda9bd1dbab77973",
+      "runtimes": {
+        "nodejs": {
+          "version": "24.21.0",
+          "detected": {
+            "node": "24.21.0"
+          },
+          "roles": [
+            "application"
+          ]
+        },
+        "python": {
+          "version": "3.14.8",
+          "detected": {
+            "python": "3.14.8"
+          },
+          "roles": [
+            "executor"
+          ]
+        }
+      },
+      "selected": [
+        "ui-ux-pro-max:ui-ux-pro-max"
+      ],
+      "core_files_verified": 92,
+      "integration_files_verified": 4,
+      "files_snapshot_sha256": "16d8db66ad4dfbca237bbce71b864cb4edc0f5f03eb19f6ac28010af5558d9d8",
+      "wrong_hash_blocked": {
+        "status": "blocked",
+        "error": "plan_id da integração difere do dry-run; revise agent-plan novamente",
+        "production_ready": false
+      },
+      "idempotent_bytes_inode_mtime": true,
+      "all_files_physical": true,
+      "pending_tasks": [
+        {
+          "executed": false,
+          "operations": [
+            "review official prerequisites for declared version",
+            "propose generator or manual configuration",
+            "review commands, outputs and network/install effects before execution"
+          ],
+          "status": "requires_explicit_version",
+          "technology": "nextjs",
+          "version": null
+        },
+        {
+          "executed": false,
+          "status": "requires_explicit_compiler_version_before_installation",
+          "technology": "typescript-compiler"
+        }
+      ],
+      "commands_executed": [
+        "agent-plan",
+        "agent-apply --plan-id REVIEWED_HASH",
+        "agent-verify",
+        "agent-apply --plan-id WRONG_HASH (blocked)",
+        "agent-apply --plan-id REVIEWED_HASH (unchanged)"
+      ]
+    }
+  ],
+  "missing_global_runtime": {
+    "status": "blocked",
+    "error": "asdf global: java precisa de uma única versão instalada explícita; fallback/system/path/ref não aceitos",
+    "production_ready": false
+  },
+  "insufficient_permissions": {
+    "status": "blocked",
+    "error": "Aplicação interrompida sem substituir arquivos existentes. Reexecute o mesmo plano para completar arquivos ausentes; conflitos exigem revisão manual. Motivo: [Errno 13] Permission denied: 'denied'",
+    "production_ready": false
+  },
+  "business_code_generated": false,
+  "runtimes_installed": false,
+  "other_agents_executed_after_scope_correction": false,
+  "other_agents": {
+    "OpenCode_DeepSeek": "pending_user_manual_validation",
+    "Gemini_CLI": "pending_user_manual_validation"
+  },
+  "limits": [
+    "Native prompt rendering proves catalog discovery; a new model session and automatic activation remain pending per user instruction.",
+    "No application generator, dependency installation or service was exercised.",
+    "Framework versions were omitted deliberately and remain pending; no architecture was selected."
+  ]
+}

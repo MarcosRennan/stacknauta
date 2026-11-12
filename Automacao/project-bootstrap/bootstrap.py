@@ -1,4 +1,4 @@
-"""CLI JSON do núcleo 2A. Use o launcher para iniciar com Python global asdf."""
+"""CLI JSON compartilhada. Use o launcher para iniciar com Python global asdf."""
 import sys
 sys.dont_write_bytecode = True
 import argparse
@@ -13,18 +13,28 @@ from stacknauta_core.core import Bootstrap
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Prepara somente o esqueleto inicial; sem geradores, instalações ou serviços.")
-    parser.add_argument("command", choices=("plan", "apply"), help="plan é dry-run; apply exige o hash do plano revisado")
+    parser.add_argument("command", choices=("plan", "apply", "agent-plan", "agent-apply", "agent-verify"), help="plan/agent-plan são dry-run; apply/agent-apply exigem o hash revisado")
     parser.add_argument("--config", required=True, type=Path, help="Arquivo JSON declarativo")
-    parser.add_argument("--plan-id", help="Obrigatório em apply; obtido de plan")
+    parser.add_argument("--plan-id", help="Obrigatório em apply/agent-apply; hash do dry-run correspondente")
     args = parser.parse_args(argv)
-    if args.command == "apply" and not args.plan_id:
-        parser.error("apply exige --plan-id; execute e revise plan antes")
-    if args.command == "plan" and args.plan_id:
-        parser.error("--plan-id só se aplica a apply")
+    if args.command in ("apply", "agent-apply") and not args.plan_id:
+        parser.error("apply/agent-apply exige --plan-id; execute e revise o dry-run correspondente antes")
+    if args.command not in ("apply", "agent-apply") and args.plan_id:
+        parser.error("--plan-id só se aplica a apply/agent-apply")
     try:
         bootstrap = Bootstrap(Path(__file__).resolve().parents[2])
         config = load(args.config)
-        result = bootstrap.plan(config).report() if args.command == "plan" else bootstrap.apply(config, args.plan_id)
+        if args.command.startswith("agent-"):
+            from stacknauta_core.integration import AgentIntegration
+            integration = AgentIntegration(bootstrap)
+            if args.command == "agent-plan":
+                result = integration.plan(config)[2]
+            elif args.command == "agent-apply":
+                result = integration.apply(config, args.plan_id)
+            else:
+                result = integration.verify(config)
+        else:
+            result = bootstrap.plan(config).report() if args.command == "plan" else bootstrap.apply(config, args.plan_id)
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return 0
     except (BootstrapError, OSError, ValueError) as exc:
