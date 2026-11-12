@@ -16,15 +16,15 @@ def parse_url(value, *, allow_local=False):
         raise ValueError('URL de origem inválida')
     if allow_local and Path(value).is_absolute():
         return {'url':value, 'identity':str(Path(value).resolve()), 'owner':'fixture', 'repo':Path(value).name, 'tail':[], 'kind':None}
-    ssh = re.fullmatch(r'git@github\.com:([^/]+)/([^/]+?)/?', value)
+    ssh = re.fullmatch(r'git@(?i:github\.com):([^/]+)/([^/]+?)/?', value)
     if ssh:
         owner, repo = ssh.groups(); tail=[]; kind=None
         url='git@github.com:' + owner + '/' + repo.removesuffix('.git') + '.git'
     else:
         parsed=urlsplit(value)
-        if parsed.query or parsed.fragment or parsed.hostname!='github.com' or parsed.password or parsed.port not in (None,22):
+        if parsed.query or parsed.fragment or parsed.hostname not in {'github.com','www.github.com'} or parsed.password or parsed.port not in (None,22,443):
             raise ValueError('Somente URLs GitHub sem query, fragmento, senha ou porta personalizada')
-        if parsed.scheme=='https' and parsed.username is None and parsed.port is None:
+        if parsed.scheme=='https' and parsed.username is None and parsed.port in (None,443):
             parts=unquote(parsed.path).strip('/').split('/')
             if len(parts)<2: raise ValueError('Informe proprietário e repositório GitHub')
             owner,repo,*rest=parts
@@ -40,7 +40,7 @@ def parse_url(value, *, allow_local=False):
             url='git@github.com:' + owner + '/' + repo.removesuffix('.git') + '.git'
         else: raise ValueError('Use HTTPS ou SSH GitHub (usuário git)')
     repo=repo.removesuffix('.git')
-    if not re.fullmatch(r'[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})',owner) or not re.fullmatch(r'[A-Za-z0-9_][A-Za-z0-9_.-]{0,99}',repo) or repo in ('.','..'):
+    if not re.fullmatch(r'[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})',owner) or not re.fullmatch(r'[A-Za-z0-9_.-]{1,100}',repo) or repo in ('.','..'):
         raise ValueError('Proprietário/repositório GitHub inválido')
     return {'url':url,'identity':(owner+'/'+repo).lower(),'owner':owner,'repo':repo,'tail':tail,'kind':kind}
 

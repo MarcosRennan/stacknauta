@@ -335,6 +335,9 @@ class AdditionTests(unittest.TestCase):
     def test_url_formats_refs_with_slashes_and_ssh_no_config_changes(self):
         for url in ['https://github.com/Owner/Repo','git@github.com:Owner/Repo.git','ssh://git@github.com/Owner/Repo.git']:
             self.assertEqual(parse_url(url)['identity'],'owner/repo')
+        for url in ['https://github.com:443/owner/.github','https://www.github.com/owner/.github','git@GitHub.com:owner/.github.git']:
+            self.assertEqual(parse_url(url)['identity'],'owner/.github')
+        self.assertEqual(parse_url('https://github.com/owner/-skills')['repo'],'-skills')
         parsed=parse_url('https://github.com/Owner/Repo/tree/feature/topic/skills/good')
         result='ref: refs/heads/main\tHEAD\n'+'a'*40+'\trefs/heads/main\n'+'b'*40+'\trefs/heads/feature/topic\n'
         with patch.object(self.engine.git,'run',return_value=result):
