@@ -1,0 +1,973 @@
+{
+  "stage": "2D",
+  "status": "passed",
+  "tested_commit": "aa3fecae0ff38649ffb9713f8a259a2deff1954f",
+  "temporary_clone": "/tmp/stacknauta-clone-tpzsy187/StackNauta",
+  "cache_present": false,
+  "prior_validators": {
+    "stage": "2B",
+    "tested_at_utc": "2026-11-12T14:16:46.214034+00:00",
+    "status": "passed",
+    "tested_commit": "aa3fecae0ff38649ffb9713f8a259a2deff1954f",
+    "temporary_clone": "/tmp/stacknauta-clone-tpzsy187/StackNauta",
+    "previous_validators": {
+      "stage": "2A",
+      "tested_at_utc": "2026-11-12T14:16:43.864289+00:00",
+      "status": "passed",
+      "tested_commit": "aa3fecae0ff38649ffb9713f8a259a2deff1954f",
+      "core_file_fingerprints": {
+        "Automacao/project-bootstrap/STATUS.json": "ba6a62e652af187b661797b0c1ab2709f7ee9570ba88e9febdb267fab6ea0c5a",
+        "Automacao/project-bootstrap/bootstrap.py": "685aa835a9b12ac7d7a8e3e9f9dea97b31746924e9d10a7d6acb6a406066a207",
+        "Automacao/project-bootstrap/examples/go-api.json": "f0e7e85b34f84e56f833c2a801403758a55e4ff5a02c97ec417e92455877b517",
+        "Automacao/project-bootstrap/examples/python-fastapi.json": "aa395ea3068682ec77aeeebaca5ca00016abe5ee2f496a1d4e607dd63b1f1a38",
+        "Automacao/project-bootstrap/examples/typescript-nextjs.json": "c2f911f276d14e968d44c2bae2ecf250315c8c8708b6c3ee53a69d24ca9cf792",
+        "Automacao/project-bootstrap/project-bootstrap": "af8be6f143163c59f43050134b50331d9bfa153dc9b67b7f801554a426916853",
+        "Automacao/project-bootstrap/stacknauta_core/__init__.py": "84f80c09787dc5c6047f56e93fe4ed3f28b5e6b8141af802c629ab19051dafc3",
+        "Automacao/project-bootstrap/stacknauta_core/compatibility.py": "10ae1d3872a14edc008822d5029f9608bf6fac5c5709a65b9aa9cafbd9bed879",
+        "Automacao/project-bootstrap/stacknauta_core/config.py": "cf96bdb10df1e9e71941f37d139b7f64ca6594767a47df6ef78c4485fb3b4bd3",
+        "Automacao/project-bootstrap/stacknauta_core/core.py": "127586bf5e2582324b85bb4b64d010fe73ee8168afd4d85333e5b31e8dcadacf",
+        "Automacao/project-bootstrap/stacknauta_core/filesystem.py": "fdce5af70db027ecae5e3e4c7eddc2a34f595e603dfe0795b1c9b37e45f135e8",
+        "Automacao/project-bootstrap/stacknauta_core/integration.py": "d80ebd6bc2ded74ab91175e8886f9285f861b7e4df5d6314f2895e9c7d012770",
+        "Automacao/project-bootstrap/stacknauta_core/library.py": "6d053f3aedb9d9ea946c6cfde853de4bd74f31a5caab33c5fbe317df77338c38",
+        "Automacao/project-bootstrap/stacknauta_core/lifecycle.py": "91071aacf6d3e8ccae592255158c70a74491e10c0c93eba74fd84cbf3ae9fbad",
+        "Automacao/project-bootstrap/stacknauta_core/runtimes.py": "da89b4df3b3256bd6b63f5bad16b137752bf87cb05f03d29cf237623df102e6c",
+        "Automacao/validacao-ciclo-arquivos/testar_clone.py": "d9c0e3a125bf11bc5b75119eeb5d329ef2025ad971146dcfe5529f9183f78d66",
+        "Automacao/validacao-integracao-agentes/executar_testes.py": "f6cfa8a4aaab701e72342e40233764464835bda1802d37a49de6afb70b604d70",
+        "Automacao/validacao-integracao-agentes/test_integration.py": "c88604b9424630b11102014a4a0b90bba08aac624f626921d650e40f2d294103",
+        "Automacao/validacao-integracao-agentes/testar_clone.py": "21d050d7e0c4c34e97c86fe30afb7b26fa17505b5be6c772098e926af89d03db",
+        "Automacao/validacao-project-bootstrap/executar_testes.py": "4387be48b55baff43c61f428d600fc83d56667ff975cd2d8aaba03f98abdfd2a",
+        "Automacao/validacao-project-bootstrap/test_bootstrap.py": "7d5fb3e8aac9d4419a3edf6af146949b9262420e7487ea2ce0f6265f8dc45e25",
+        "Automacao/validacao-project-bootstrap/test_lifecycle.py": "d2f467628fef684da8140d20bf154f6d7b188c7724aa834f0262e6343e61e6a9",
+        "Automacao/validacao-project-bootstrap/testar_clone.py": "2af8b878686774c61b097107fb206114429a389b325bdb2325e165bd63ec9bb2"
+      },
+      "library": {
+        "schema_version": 1,
+        "stage": "1.5",
+        "tested_at_utc": "2026-11-12T14:16:38.014192+00:00",
+        "status": "passed",
+        "python_executor": {
+          "manager": "asdf",
+          "global_source": "~/.tool-versions",
+          "version": "3.14.8"
+        },
+        "tested_commit": "aa3fecae0ff38649ffb9713f8a259a2deff1954f",
+        "package_manifest_fingerprint": "e0210bebeaa874aa175547da78d77b3601d8160968b40d520f8d1d5a4fafaf93",
+        "temporary_clone": "/tmp/stacknauta-clone-tpzsy187/StackNauta",
+        "cache_present": false,
+        "remote_configured": false,
+        "object_alternates": false,
+        "git_tree_clean_after_validation": true,
+        "validation": {
+          "schema_version": 2,
+          "stage": "1.5",
+          "validated_at_utc": "2026-11-12T14:16:37.933952+00:00",
+          "status": "passed_with_documented_pending",
+          "python_executor": {
+            "manager": "asdf",
+            "global_source": "~/.tool-versions",
+            "version": "3.14.8"
+          },
+          "counts": {
+            "sources": 7,
+            "physical_skill_files": 130,
+            "catalogued_skills": 124,
+            "distribution_aliases": 6,
+            "enabled_skills": 0,
+            "prepared_distribution_skills": 101,
+            "by_category": {
+              "Backend": 24,
+              "Frontend": 11,
+              "Mobile": 80,
+              "Seguranca": 9
+            },
+            "by_scope": {
+              "catalogued_source": 122,
+              "experimental_source": 1,
+              "internal_evaluation_not_distributable": 1
+            },
+            "approved_skills": 101,
+            "pending_skills": 21,
+            "excluded_skills": 2,
+            "distribution_packages": 9,
+            "approved_by_category": {
+              "Backend": 19,
+              "Frontend": 4,
+              "Mobile": 71,
+              "Seguranca": 7
+            }
+          },
+          "package_files_verified": 958,
+          "python_files_parsed": 41,
+          "node_syntax": {
+            "status": "passed",
+            "files": 7,
+            "execution": "syntax parsing only, vendor code not executed"
+          },
+          "local_markdown_links_checked": 1095,
+          "adapted_files": 102,
+          "cache_validation": {
+            "status": "not_required_for_distribution"
+          },
+          "physical_copy_test": {
+            "status": "passed",
+            "temporary_directory": "/tmp/stacknauta-copy-y9mui2y9",
+            "physical_copy_cases": 101,
+            "files_copied": 4114,
+            "cases": [
+              {
+                "skill": "ui-ux-pro-max:banner-design",
+                "skills_in_closure": 1,
+                "files_copied": 5,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "ui-ux-pro-max:brand",
+                "skills_in_closure": 1,
+                "files_copied": 22,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "ui-ux-pro-max:ui-styling",
+                "skills_in_closure": 1,
+                "files_copied": 101,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "ui-ux-pro-max:ui-ux-pro-max",
+                "skills_in_closure": 1,
+                "files_copied": 78,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "fastapi:fastapi",
+                "skills_in_closure": 1,
+                "files_copied": 12,
+                "local_links_checked": 21
+              },
+              {
+                "skill": "remy:hexagonal-go",
+                "skills_in_closure": 1,
+                "files_copied": 23,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "remy:hexagonal-python",
+                "skills_in_closure": 1,
+                "files_copied": 19,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "remy:hexagonal-typescript",
+                "skills_in_closure": 1,
+                "files_copied": 22,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "expo:eas-app-stores",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:eas-hosting",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:eas-observe",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:eas-simulator",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:eas-update-insights",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:eas-update",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:eas-workflows",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:expo-animation",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:expo-app-clip",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:expo-brownfield",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:expo-data-fetching",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:expo-design-system",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:expo-dev-client",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:expo-dom",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:expo-examples",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:expo-module",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:expo-native-ui",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:expo-overview",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:expo-project-structure",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:expo-router",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:expo-ui",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:expo-upgrade",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "expo:expo-web-to-native",
+                "skills_in_closure": 23,
+                "files_copied": 118,
+                "local_links_checked": 135
+              },
+              {
+                "skill": "chrisbanes:android-benchmark-comparison",
+                "skills_in_closure": 1,
+                "files_copied": 4,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "chrisbanes:changelog",
+                "skills_in_closure": 3,
+                "files_copied": 16,
+                "local_links_checked": 12
+              },
+              {
+                "skill": "chrisbanes:compose-animations",
+                "skills_in_closure": 7,
+                "files_copied": 25,
+                "local_links_checked": 56
+              },
+              {
+                "skill": "chrisbanes:compose-component-design",
+                "skills_in_closure": 7,
+                "files_copied": 25,
+                "local_links_checked": 56
+              },
+              {
+                "skill": "chrisbanes:compose-focus-navigation",
+                "skills_in_closure": 2,
+                "files_copied": 6,
+                "local_links_checked": 5
+              },
+              {
+                "skill": "chrisbanes:compose-performance",
+                "skills_in_closure": 7,
+                "files_copied": 25,
+                "local_links_checked": 56
+              },
+              {
+                "skill": "chrisbanes:compose-state-and-effects",
+                "skills_in_closure": 7,
+                "files_copied": 25,
+                "local_links_checked": 56
+              },
+              {
+                "skill": "chrisbanes:compose-ui-testing-patterns",
+                "skills_in_closure": 2,
+                "files_copied": 6,
+                "local_links_checked": 5
+              },
+              {
+                "skill": "chrisbanes:gradle-run",
+                "skills_in_closure": 1,
+                "files_copied": 8,
+                "local_links_checked": 2
+              },
+              {
+                "skill": "chrisbanes:grounded-writing",
+                "skills_in_closure": 1,
+                "files_copied": 7,
+                "local_links_checked": 3
+              },
+              {
+                "skill": "chrisbanes:kotlin-api-design",
+                "skills_in_closure": 10,
+                "files_copied": 33,
+                "local_links_checked": 78
+              },
+              {
+                "skill": "chrisbanes:kotlin-concurrency-and-flow",
+                "skills_in_closure": 10,
+                "files_copied": 33,
+                "local_links_checked": 78
+              },
+              {
+                "skill": "chrisbanes:kotlin-control-flow",
+                "skills_in_closure": 10,
+                "files_copied": 33,
+                "local_links_checked": 78
+              },
+              {
+                "skill": "chrisbanes:release-kotlin-library",
+                "skills_in_closure": 3,
+                "files_copied": 16,
+                "local_links_checked": 12
+              },
+              {
+                "skill": "chrisbanes:shepherd",
+                "skills_in_closure": 1,
+                "files_copied": 9,
+                "local_links_checked": 8
+              },
+              {
+                "skill": "android:agp-9-upgrade",
+                "skills_in_closure": 1,
+                "files_copied": 10,
+                "local_links_checked": 9
+              },
+              {
+                "skill": "android:camerax",
+                "skills_in_closure": 1,
+                "files_copied": 16,
+                "local_links_checked": 14
+              },
+              {
+                "skill": "android:android-for-cars-parked-apps",
+                "skills_in_closure": 1,
+                "files_copied": 5,
+                "local_links_checked": 2
+              },
+              {
+                "skill": "android:appfunctions",
+                "skills_in_closure": 1,
+                "files_copied": 10,
+                "local_links_checked": 11
+              },
+              {
+                "skill": "android:litert-lm",
+                "skills_in_closure": 2,
+                "files_copied": 11,
+                "local_links_checked": 14
+              },
+              {
+                "skill": "android:litert-runtime",
+                "skills_in_closure": 2,
+                "files_copied": 11,
+                "local_links_checked": 14
+              },
+              {
+                "skill": "android:ml-kit-genai-prompt-api",
+                "skills_in_closure": 1,
+                "files_copied": 10,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "android:mlkit-agent-api",
+                "skills_in_closure": 1,
+                "files_copied": 6,
+                "local_links_checked": 3
+              },
+              {
+                "skill": "android:android-cli",
+                "skills_in_closure": 1,
+                "files_copied": 4,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "android:restore-credentials",
+                "skills_in_closure": 1,
+                "files_copied": 9,
+                "local_links_checked": 6
+              },
+              {
+                "skill": "android:verified-email",
+                "skills_in_closure": 1,
+                "files_copied": 11,
+                "local_links_checked": 11
+              },
+              {
+                "skill": "android:adaptive",
+                "skills_in_closure": 1,
+                "files_copied": 20,
+                "local_links_checked": 15
+              },
+              {
+                "skill": "android:ink-app-builder",
+                "skills_in_closure": 2,
+                "files_copied": 18,
+                "local_links_checked": 16
+              },
+              {
+                "skill": "android:ink-custom-brush-builder",
+                "skills_in_closure": 2,
+                "files_copied": 18,
+                "local_links_checked": 16
+              },
+              {
+                "skill": "android:jetpack-compose-performance",
+                "skills_in_closure": 1,
+                "files_copied": 13,
+                "local_links_checked": 18
+              },
+              {
+                "skill": "android:migrate-xml-views-to-jetpack-compose",
+                "skills_in_closure": 1,
+                "files_copied": 11,
+                "local_links_checked": 8
+              },
+              {
+                "skill": "android:media3-cast-integration",
+                "skills_in_closure": 1,
+                "files_copied": 7,
+                "local_links_checked": 5
+              },
+              {
+                "skill": "android:navigation-3",
+                "skills_in_closure": 1,
+                "files_copied": 31,
+                "local_links_checked": 28
+              },
+              {
+                "skill": "android:navigation-event",
+                "skills_in_closure": 1,
+                "files_copied": 8,
+                "local_links_checked": 5
+              },
+              {
+                "skill": "android:anr-audit-and-fix",
+                "skills_in_closure": 1,
+                "files_copied": 7,
+                "local_links_checked": 4
+              },
+              {
+                "skill": "android:engage-sdk-integration",
+                "skills_in_closure": 1,
+                "files_copied": 32,
+                "local_links_checked": 40
+              },
+              {
+                "skill": "android:play-billing-library-version-upgrade",
+                "skills_in_closure": 1,
+                "files_copied": 7,
+                "local_links_checked": 4
+              },
+              {
+                "skill": "android:play-policy-insights",
+                "skills_in_closure": 1,
+                "files_copied": 17,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "android:android-profiler",
+                "skills_in_closure": 1,
+                "files_copied": 29,
+                "local_links_checked": 4
+              },
+              {
+                "skill": "android:android-intent-security",
+                "skills_in_closure": 1,
+                "files_copied": 4,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "android:android-permissions-security",
+                "skills_in_closure": 1,
+                "files_copied": 8,
+                "local_links_checked": 4
+              },
+              {
+                "skill": "android:edge-to-edge",
+                "skills_in_closure": 1,
+                "files_copied": 4,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "android:glance-appwidget-updates-and-memory",
+                "skills_in_closure": 2,
+                "files_copied": 104,
+                "local_links_checked": 230
+              },
+              {
+                "skill": "android:glance-canonical-layouts",
+                "skills_in_closure": 1,
+                "files_copied": 91,
+                "local_links_checked": 204
+              },
+              {
+                "skill": "android:testing-setup",
+                "skills_in_closure": 1,
+                "files_copied": 8,
+                "local_links_checked": 5
+              },
+              {
+                "skill": "android:leanback-to-compose-tv-migration",
+                "skills_in_closure": 1,
+                "files_copied": 7,
+                "local_links_checked": 4
+              },
+              {
+                "skill": "android:wear-compose-m3",
+                "skills_in_closure": 1,
+                "files_copied": 56,
+                "local_links_checked": 308
+              },
+              {
+                "skill": "android:wear-widgets",
+                "skills_in_closure": 1,
+                "files_copied": 8,
+                "local_links_checked": 10
+              },
+              {
+                "skill": "android:display-glasses-with-jetpack-compose-glimmer",
+                "skills_in_closure": 1,
+                "files_copied": 29,
+                "local_links_checked": 24
+              },
+              {
+                "skill": "android:projected-hardware",
+                "skills_in_closure": 1,
+                "files_copied": 8,
+                "local_links_checked": 5
+              },
+              {
+                "skill": "sentry:agents-md",
+                "skills_in_closure": 1,
+                "files_copied": 6,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:code-review",
+                "skills_in_closure": 1,
+                "files_copied": 4,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:code-simplifier",
+                "skills_in_closure": 1,
+                "files_copied": 4,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:commit",
+                "skills_in_closure": 1,
+                "files_copied": 4,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:create-branch",
+                "skills_in_closure": 1,
+                "files_copied": 4,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:django-access-review",
+                "skills_in_closure": 1,
+                "files_copied": 8,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:django-perf-review",
+                "skills_in_closure": 1,
+                "files_copied": 5,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:doc-coauthoring",
+                "skills_in_closure": 1,
+                "files_copied": 4,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:find-bugs",
+                "skills_in_closure": 1,
+                "files_copied": 4,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:gh-review-requests",
+                "skills_in_closure": 1,
+                "files_copied": 5,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:gha-security-review",
+                "skills_in_closure": 1,
+                "files_copied": 13,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:iterate-pr",
+                "skills_in_closure": 1,
+                "files_copied": 10,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:pr-link-issue",
+                "skills_in_closure": 1,
+                "files_copied": 4,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:pr-screenshots",
+                "skills_in_closure": 1,
+                "files_copied": 5,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:pr-writer",
+                "skills_in_closure": 1,
+                "files_copied": 8,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:prompt-optimizer",
+                "skills_in_closure": 1,
+                "files_copied": 10,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:secret-serialization",
+                "skills_in_closure": 4,
+                "files_copied": 46,
+                "local_links_checked": 4
+              },
+              {
+                "skill": "sentry:security-model",
+                "skills_in_closure": 1,
+                "files_copied": 10,
+                "local_links_checked": 1
+              },
+              {
+                "skill": "sentry:security-review",
+                "skills_in_closure": 3,
+                "files_copied": 41,
+                "local_links_checked": 3
+              },
+              {
+                "skill": "sentry:typing-exclusion-worker",
+                "skills_in_closure": 1,
+                "files_copied": 4,
+                "local_links_checked": 1
+              }
+            ],
+            "ui_smoke_tests": [
+              {
+                "arguments": [
+                  "keyboard focus",
+                  "--domain",
+                  "ux",
+                  "--json"
+                ],
+                "status": "passed",
+                "result_count": 3
+              },
+              {
+                "arguments": [
+                  "server components",
+                  "--stack",
+                  "nextjs",
+                  "--json"
+                ],
+                "status": "passed",
+                "result_count": 3
+              },
+              {
+                "arguments": [
+                  "saas dashboard",
+                  "--design-system",
+                  "--json"
+                ],
+                "status": "passed",
+                "result_count": null
+              }
+            ],
+            "adversarial_checks": {
+              "changed_content_detected": true,
+              "missing_reference_detected": true,
+              "path_escape_rejected": true
+            }
+          },
+          "checks": [
+            "Revisões e proveniência de cada arquivo confrontadas com o lock e índices adquiridos.",
+            "Hashes, inventários completos, recursos, referências Markdown locais e licenças conferidos.",
+            "Planos de cópia fechados sobre dependências; nenhum SKILL.md pendente/excluído nos pacotes.",
+            "Adaptações explícitas com hashes antes/depois e unified diff.",
+            "Sem links simbólicos, caminhos locais ou dependência de cache nos pacotes.",
+            "Nenhuma ativação de agentes; estado do núcleo validado separadamente da biblioteca."
+          ],
+          "errors": [],
+          "limits": [
+            "Packaging approval does not certify agent discovery or all application workflows.",
+            "Consumer SDKs, hardware, authenticated services and CLIs were not provisioned or exercised.",
+            "Frontmatter delimiters/name/description and declared licence paths checked; not full YAML schema validation."
+          ],
+          "bootstrap_implemented": true,
+          "bootstrap_core_stage": "2A",
+          "agent_integration_tested": false,
+          "production_ready": false
+        },
+        "limits": "Commit de evidência pode apenas acrescentar este relatório; o fingerprint identifica exatamente os pacotes testados. Diretórios temporários mantidos, sem exclusão recursiva."
+      },
+      "core_tests": {
+        "stage": "2A",
+        "tested_at_utc": "2026-11-12T14:16:43.774813+00:00",
+        "status": "passed",
+        "tests_run": 96,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "python_executor": {
+          "version": "3.14.8",
+          "detected": {
+            "python": "3.14.8"
+          },
+          "roles": [
+            "executor"
+          ]
+        },
+        "limits": "Runtimes Go/JVM/Rust simulados sem execução; CLI real usa somente Python/Node globais já instalados. Projetos de teste são temporários; sem integração com agentes."
+      },
+      "cache_present": false,
+      "tree_clean_after_tests": true,
+      "agent_integration_tested": false,
+      "production_ready": false,
+      "limits": "Relatório pode ser incorporado por commit de evidência posterior; fingerprints identificam exatamente o código e os pacotes testados. Clone/temporários preservados."
+    },
+    "integration_tests": {
+      "stage": "2B",
+      "tested_at_utc": "2026-11-12T14:16:45.579105+00:00",
+      "status": "passed",
+      "tests_run": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "python_executor": {
+        "version": "3.14.8",
+        "detected": {
+          "python": "3.14.8"
+        },
+        "roles": [
+          "executor"
+        ]
+      },
+      "limits": "Tests validate shared code, not native agent activation. Only temporary projects; runtimes synthetic except CLI launcher precheck."
+    },
+    "real_cli": {
+      "request": {
+        "name": "portable-api",
+        "destination": "/tmp/stacknauta-2b-portable-wbkq3ulb/portable-api",
+        "stack": {
+          "languages": [
+            "python"
+          ],
+          "frameworks": [
+            "fastapi"
+          ]
+        },
+        "requirements": {
+          "features": [
+            "api"
+          ]
+        }
+      },
+      "core_plan_id": "4757e9cdaa6c0f6ed07896aed8aa1e5af15907f71a62835fb7200deb40870dbc",
+      "plan_id": "e5b7b47a7ea4e98a16e21db5df17dd0d311a018bcd2da8caa3871b4c5b3e7b16",
+      "apply": {
+        "status": "verified",
+        "mode": "apply",
+        "plan_id": "e5b7b47a7ea4e98a16e21db5df17dd0d311a018bcd2da8caa3871b4c5b3e7b16",
+        "core_plan_id": "4757e9cdaa6c0f6ed07896aed8aa1e5af15907f71a62835fb7200deb40870dbc",
+        "destination": "/tmp/stacknauta-2b-portable-wbkq3ulb/portable-api",
+        "core_files_verified": 26,
+        "integration_files_verified": 4,
+        "verification_state": "intact",
+        "lifecycle": {
+          "policy_version": "2D.1",
+          "initialization": "complete",
+          "modified": {},
+          "removed": [],
+          "unmanaged": [],
+          "content_validation": "Physical structure and protected hashes; application syntax/semantics are not certified."
+        },
+        "integration_lifecycle": {
+          "policy_version": "2D.1",
+          "initialization": "complete",
+          "modified": {},
+          "removed": [],
+          "unmanaged": [],
+          "content_validation": "Physical structure and protected hashes; application syntax/semantics are not certified."
+        },
+        "discovery_entries": [
+          {
+            "name": "stacknauta-fastapi",
+            "id": "fastapi:fastapi",
+            "path": ".agents/skills/stacknauta-fastapi/SKILL.md",
+            "original_path": ".agents/skills/backend-fastapi/skills/fastapi/SKILL.md",
+            "original_sha256": "3c92001d0d0be66c0e67613871ff2397f0d68b2d4c22850bf596b43317916144",
+            "repository": "https://github.com/fastapi/fastapi.git",
+            "commit": "5add7a458d629b07311d48261f696b5ac2bb9a5f"
+          }
+        ],
+        "production_ready": false,
+        "native_agent_discovery": "Must be tested in a fresh session of the selected agent; filesystem verification is not native discovery.",
+        "core_result": {
+          "status": "prepared",
+          "created_files": 26,
+          "unchanged_files": 0,
+          "plan_id": "4757e9cdaa6c0f6ed07896aed8aa1e5af15907f71a62835fb7200deb40870dbc",
+          "destination": "/tmp/stacknauta-2b-portable-wbkq3ulb/portable-api",
+          "skills": [
+            "fastapi:fastapi"
+          ],
+          "lifecycle": {
+            "policy_version": "2D.1",
+            "initialization": "complete",
+            "modified": {},
+            "removed": [],
+            "unmanaged": [],
+            "content_validation": "Physical structure and protected hashes; application syntax/semantics are not certified."
+          },
+          "production_ready": false,
+          "agent_integration_tested": false
+        }
+      },
+      "verify": {
+        "status": "verified",
+        "mode": "verify",
+        "plan_id": "e5b7b47a7ea4e98a16e21db5df17dd0d311a018bcd2da8caa3871b4c5b3e7b16",
+        "core_plan_id": "4757e9cdaa6c0f6ed07896aed8aa1e5af15907f71a62835fb7200deb40870dbc",
+        "destination": "/tmp/stacknauta-2b-portable-wbkq3ulb/portable-api",
+        "core_files_verified": 26,
+        "integration_files_verified": 4,
+        "verification_state": "intact",
+        "lifecycle": {
+          "policy_version": "2D.1",
+          "initialization": "complete",
+          "modified": {},
+          "removed": [],
+          "unmanaged": [],
+          "content_validation": "Physical structure and protected hashes; application syntax/semantics are not certified."
+        },
+        "integration_lifecycle": {
+          "policy_version": "2D.1",
+          "initialization": "complete",
+          "modified": {},
+          "removed": [],
+          "unmanaged": [],
+          "content_validation": "Physical structure and protected hashes; application syntax/semantics are not certified."
+        },
+        "discovery_entries": [
+          {
+            "name": "stacknauta-fastapi",
+            "id": "fastapi:fastapi",
+            "path": ".agents/skills/stacknauta-fastapi/SKILL.md",
+            "original_path": ".agents/skills/backend-fastapi/skills/fastapi/SKILL.md",
+            "original_sha256": "3c92001d0d0be66c0e67613871ff2397f0d68b2d4c22850bf596b43317916144",
+            "repository": "https://github.com/fastapi/fastapi.git",
+            "commit": "5add7a458d629b07311d48261f696b5ac2bb9a5f"
+          }
+        ],
+        "production_ready": false,
+        "native_agent_discovery": "Must be tested in a fresh session of the selected agent; filesystem verification is not native discovery."
+      },
+      "idempotent_bytes_inode_mtime": true
+    },
+    "cache_present": false,
+    "tree_clean_after_tests": true,
+    "remote_configured": false,
+    "limits": "No new model session or native activation. Evidence commit may add reports; tested_commit identifies the exact candidate. Temporary directories preserved."
+  },
+  "evolved_cli": {
+    "plan_id": "dbfc50c0b362e4cfdb1fa0234bb173e1ad0ed9c162bb3482b1abef7176a9218c",
+    "core_plan_id": "c1b8ef42b99af8838d5b2b9f759087513b56daba2173b920e133299c30fdbddf",
+    "verification_state": "verified_with_evolution",
+    "modified": {
+      "pyproject.toml": {
+        "classification": "evolutive",
+        "original": {
+          "sha256": "50dccdd1ae0e76d6e7fa1f59e069005b64198bf369da26bb705e6f7458cfe635",
+          "size": 115
+        },
+        "current": {
+          "sha256": "a2467588aa8d7aef2dd9c3f806e1a30048a978aa0253bd77b2a9cfb2a6b73562",
+          "size": 3215
+        }
+      }
+    },
+    "reapply_status": "unchanged",
+    "bytes_inode_mode_mtime_ctime_preserved": true
+  },
+  "tree_clean_after_tests": true,
+  "limits": "No dependencies installed, generators or other agents. Temporary projects preserved. Evidence commit may add reports only."
+}

@@ -1,0 +1,79 @@
+{
+  "stage": "2D",
+  "status": "passed_with_documented_limits",
+  "implementation_commit": "aa3fecae0ff38649ffb9713f8a259a2deff1954f",
+  "original_failure_reproduced": true,
+  "root_cause": "All generated files were compared as immutable; read limit was the original byte length, so expanded pyproject failed before comparison.",
+  "policy_version": "2D.1",
+  "new_manifest_schema": 2,
+  "legacy_manifest_schema": 1,
+  "legacy_migration_required": false,
+  "tests": {
+    "core": 96,
+    "integration": 16,
+    "total": 112,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "physical_copy_cases": 101,
+    "package_files_verified": 958,
+    "clone_cache_present": false,
+    "clone_tree_clean": true,
+    "clone_evolved_reapply": {
+      "plan_id": "dbfc50c0b362e4cfdb1fa0234bb173e1ad0ed9c162bb3482b1abef7176a9218c",
+      "core_plan_id": "c1b8ef42b99af8838d5b2b9f759087513b56daba2173b920e133299c30fdbddf",
+      "verification_state": "verified_with_evolution",
+      "modified": {
+        "pyproject.toml": {
+          "classification": "evolutive",
+          "original": {
+            "sha256": "50dccdd1ae0e76d6e7fa1f59e069005b64198bf369da26bb705e6f7458cfe635",
+            "size": 115
+          },
+          "current": {
+            "sha256": "a2467588aa8d7aef2dd9c3f806e1a30048a978aa0253bd77b2a9cfb2a6b73562",
+            "size": 3215
+          }
+        }
+      },
+      "reapply_status": "unchanged",
+      "bytes_inode_mode_mtime_ctime_preserved": true
+    }
+  },
+  "reference_consumer": {
+    "before_exit": 2,
+    "after_exit": 0,
+    "verification_state": "verified_with_evolution",
+    "modified_paths": [
+      "pyproject.toml"
+    ],
+    "removed_paths": [],
+    "unmanaged_entries": 2226,
+    "original_plan_ids_preserved": true,
+    "written": false
+  },
+  "preservation": {
+    "stage": "2D",
+    "checked_at_utc": "2026-11-12T14:19:25.114619+00:00",
+    "status": "passed",
+    "consumer_entries_compared": 2266,
+    "consumer_content_inode_mode_timestamps_unchanged": true,
+    "consumer_apply_executed": false,
+    "consumer_migration_performed": false,
+    "legacy_entries_compared": 4259,
+    "legacy_unchanged": true,
+    "previous_library_files_preserved": 1004,
+    "global_asdf_config_unchanged": true,
+    "remote_configured": false,
+    "tested_implementation_commit": "aa3fecae0ff38649ffb9713f8a259a2deff1954f",
+    "scope": "Full consumer and App-Web SHA-256/metadata/inode snapshots; previous tracked Skills hashes. Access times intentionally excluded because read-only inspection can update them."
+  },
+  "limits": [
+    "Legacy schema-1 incomplete protected state is blocked for manual diagnosis, not silently repaired.",
+    "File lifecycle validation does not certify application syntax, semantics or continued executability after allowed removals.",
+    "Full integration commands validate auxiliary integration paths; core-only commands validate their own managed set.",
+    "Unmanaged symlinks are inventoried but never followed or certified.",
+    "POSIX and concurrent same-user ancestor-renaming limitations unchanged; no signed manifests.",
+    "No application execution, dependencies, runtimes, generators, remote publishing, OpenCode or Gemini in this stage."
+  ]
+}

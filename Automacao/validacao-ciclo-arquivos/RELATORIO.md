@@ -101,8 +101,10 @@ Os IDs completos e hashes estão em [referencia-depois.json](referencia-depois.j
 - Reexecuções temporárias preservaram bytes, inode, mode, mtime e ctime. Durante
   recuperação parcial, diretórios que recebem novos arquivos mudam naturalmente;
   os arquivos já completos permanecem idênticos.
-- Clone local limpo sem `_repos/`: execução pendente no commit candidato; será
-  registrada em clone-local.json antes da conclusão da etapa.
+- Clone local limpo sem `_repos/`: **passou**, repetindo os 112 testes e os 101
+  casos de cópia. A CLI real aceitou crescimento de pyproject e arquivos novos,
+  verificou evolução e reaplicou sem alterar bytes, inode, mode, mtime ou ctime.
+  A árvore do clone permaneceu limpa. [clone-local.json](clone-local.json).
 
 Evidências: [nucleo.json](nucleo.json), [integracao.json](integracao.json),
 [biblioteca.json](biblioteca.json). Os runners antigos mantêm seus rótulos históricos
@@ -134,5 +136,8 @@ asdf exec python -I -B Automacao/validacao-ciclo-arquivos/testar_clone.py
 - A ocorrência histórica dos horários Git não é atribuída a um ator nesta etapa;
   não houve limpeza, reset, restauração ou publicação remota.
 
-Um commit candidato conterá código e testes. A evidência do clone identificará
-esse hash; um commit posterior acrescentará apenas relatórios e sua atualização.
+O commit de implementação validado no clone é
+`aa3fecae0ff38649ffb9713f8a259a2deff1954f`. O commit de evidências posterior
+acrescenta somente os relatórios e esta atualização, sem mudança de código após
+os testes. A conferência final está em [preservacao.json](preservacao.json) e o
+resultado consolidado em [resultado.json](resultado.json).

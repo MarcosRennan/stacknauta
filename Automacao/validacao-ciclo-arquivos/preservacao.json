@@ -1,0 +1,16 @@
+{
+  "stage": "2D",
+  "checked_at_utc": "2026-11-12T14:19:25.114619+00:00",
+  "status": "passed",
+  "consumer_entries_compared": 2266,
+  "consumer_content_inode_mode_timestamps_unchanged": true,
+  "consumer_apply_executed": false,
+  "consumer_migration_performed": false,
+  "legacy_entries_compared": 4259,
+  "legacy_unchanged": true,
+  "previous_library_files_preserved": 1004,
+  "global_asdf_config_unchanged": true,
+  "remote_configured": false,
+  "tested_implementation_commit": "aa3fecae0ff38649ffb9713f8a259a2deff1954f",
+  "scope": "Full consumer and App-Web SHA-256/metadata/inode snapshots; previous tracked Skills hashes. Access times intentionally excluded because read-only inspection can update them."
+}
