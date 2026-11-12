@@ -17,9 +17,15 @@ from pathlib import Path, PurePosixPath
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "Automacao/project-bootstrap"))
 from stacknauta_core.core import encoded as json_bytes
 from stacknauta_core.library import digest as sha
+from stacknauta_core import BootstrapError
 from atualizacao_receita import refresh
 
 SOURCES = {"ui-ux-pro-max", "fastapi", "remy", "expo", "chrisbanes", "android", "sentry"}
+NODE_BUILTINS = set(("assert assert/strict async_hooks buffer child_process cluster console constants crypto dgram diagnostics_channel "
+                     "dns dns/promises domain events fs fs/promises http http2 https module net os path path/posix path/win32 "
+                     "perf_hooks process punycode querystring readline readline/promises repl stream stream/consumers stream/promises "
+                     "stream/web string_decoder sys timers timers/promises tls trace_events tty url util util/types v8 vm wasi "
+                     "worker_threads zlib").split())
 
 
 def safe(root, relative):
@@ -243,6 +249,24 @@ class Updates:
                 environment["BASH_ENV"] = "/dev/null"
                 command = ["bash", "-n", str(candidate / relative)]
             else:
+                def imports(content):
+                    text = content.decode(errors="replace")
+                    return set(re.findall(r'''\b(?:require|import)\s*\(\s*["']([^"']+)["']|\bfrom\s*["']([^"']+)["']|\bimport\s*["']([^"']+)["']''', text))
+                before = read_bytes(self.root, relative) if relative in baseline else b""
+                previous = {s for group in imports(before) for s in group if s}
+                for specifier in {s for group in imports(data) for s in group if s} - previous:
+                    if specifier.removeprefix("node:") in NODE_BUILTINS: continue
+                    if not specifier.startswith(("./", "../")):
+                        raise ValueError("Nova dependência JavaScript exige revisão manual: " + specifier)
+                    target = (candidate / relative).parent / specifier
+                    parts = Path(relative).parts
+                    # Recurso novo entre skills/pacotes altera o fechamento:
+                    # não inferir aprovação dessa dependência por existir no repo.
+                    scope = candidate.joinpath(*parts[:5] if len(parts) > 5 and parts[3] == "skills" else parts[:3])
+                    choices = [target, *[Path(str(target) + ext) for ext in (".js", ".cjs", ".mjs", ".json")],
+                               *[target / ("index" + ext) for ext in (".js", ".cjs", ".mjs")]]
+                    if not any(p.resolve().is_relative_to(scope.resolve()) and p.suffix in {".js", ".cjs", ".mjs", ".json"} and p.is_file() and not p.is_symlink() for p in choices):
+                        raise ValueError("Recurso JavaScript local ausente/externo: " + specifier)
                 if node is None:
                     from stacknauta_core.runtimes import AsdfResolver
                     resolver = AsdfResolver(Path.home()); resolver.resolve([], extra_plugins=("nodejs",))
@@ -308,7 +332,7 @@ class Updates:
                 (session / "review.diff").write_text("".join(review))
                 atomic_json(session / "journal.json", {"phase": "prepared", "plan_id": plan["plan_id"]})
                 return plan
-            except (ValueError, OSError, SyntaxError, subprocess.SubprocessError) as exc:
+            except (ValueError, OSError, SyntaxError, BootstrapError, subprocess.SubprocessError) as exc:
                 result = {"status": "bloqueado", "session_id": session_id, "origens": checks, "details": details, "promovidas": [], "motivo": str(exc)}
                 atomic_json(session / "blocked.json", result); return result
 

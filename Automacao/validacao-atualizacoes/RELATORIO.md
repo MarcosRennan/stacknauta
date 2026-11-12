@@ -76,18 +76,18 @@ Python executor global asdf: **3.14.8**. Nenhum runtime ou pacote instalado.
 |---|---|
 | Núcleo e ciclo de vida | 96 passaram; zero falhas/erros/skips |
 | Integração compartilhada | 16 passaram; zero falhas/erros/skips |
-| Atualizações com Git local | 30 passaram; zero falhas/erros/skips |
+| Atualizações com Git local | 34 passaram; zero falhas/erros/skips |
 | Biblioteca completa | 958 arquivos verificados; zero erros |
 | Fechamento estático | 101 skills conferidas, incluindo referências selecionadas |
 | Sintaxe de recursos | 41 Python parseados; sete JavaScript com `--check` |
 | Catálogo offline | passou sem cache |
 | Consumidor FastAPI 2C por leitura | `verified_with_evolution`, mesmo plan ID |
 
-As 30 fixtures cobrem: origem sem alteração, novo commit, promoção individual e
+As 34 fixtures cobrem: origem sem alteração, novo commit, promoção individual e
 múltipla, fetch somente das alteradas, conexão/branch/repositório indisponíveis,
 nova skill pendente, nova skill fora do escopo esparso, alteração de licença,
 adaptação reaplicada, ambiente Git redirecionado, recursos ausentes e novos, blob
-adulterado, novas dependências e referências não atendidas, licença/proveniência,
+adulterado, imports JS externos/locais, runtime Node ausente e parsing sem executar corpo, novas dependências e referências não atendidas, licença/proveniência,
 falhas antes/depois da publicação e na validação final, recuperação com `Skills`
 ausente, reexecução sem escrita, inode/modos/timestamps preservados no no-op,
 autorização/hash/diário e módulos candidatos adulterados, Git sujo, escape e symlinks inseguros.

@@ -53,7 +53,8 @@ de ferramentas, execução de fornecedores ou atualização automática em segun
   uma distribuição alternativa incompatível.
 - Valida bytes de origem contra blobs Git, hashes distribuídos, licenças, links,
   proveniência e fechamento de todas as skills. Python passa por AST; alterações
-  JS por `node --check` usando Node global asdf; shell por `bash -n`. Não executa
+  JS por `node --check` usando Node global asdf; imports literais novos externos
+  ou recursos locais ausentes/fora da skill bloqueiam. Shell passa por `bash -n`. Não executa
   scripts de fornecedores. Alterações TS/TSX, Ruby e PowerShell exigem revisão
   específica. Análise de pré-requisitos é conservadora e não prova toda semântica.
 

@@ -18,6 +18,7 @@ sys.path.insert(0, str(ROOT / "Automacao/manutencao-skills"))
 from atualizacoes import Updates, tree, read_bytes, safe, atomic_json, move, SOURCES, load
 from atualizacao_receita import replay_patch
 from biblioteca import json_bytes, sha
+from stacknauta_core import BootstrapError
 
 
 def git(repo, *args):
@@ -118,7 +119,7 @@ class UpdateTests(unittest.TestCase):
 
     def plan(self, ids={"fastapi"}):
         result = self.engine.prepare(ids)
-        self.assertEqual(result["status"], "preparado", result)
+        self.assertEqual(result["status"], "preparado", {k:result[k] for k in ("status", "motivo", "origens") if k in result})
         return result
 
     def apply(self, plan, **kwargs):
@@ -240,6 +241,39 @@ class UpdateTests(unittest.TestCase):
         self.change()
         result = self.engine.prepare({"fastapi"}); self.assertEqual(result["status"], "bloqueado")
         self.assertIn("dependência Python", result["motivo"])
+
+    def test_new_javascript_external_dependency_requires_manual_review(self):
+        p = self.repos['fastapi'] / 'fastapi/.agents/skills/fastapi/helper.mjs'
+        p.write_text('import missing from "definitely-not-installed";\n')
+        self.change(); result = self.engine.prepare({'fastapi'})
+        self.assertEqual(result['status'], 'bloqueado')
+        self.assertIn('dependência JavaScript', result['motivo'])
+        self.assertEqual(tree(self.root / 'Skills'), self.before)
+
+    def test_new_javascript_local_import_requires_resource(self):
+        p = self.repos['fastapi'] / 'fastapi/.agents/skills/fastapi/helper.mjs'
+        p.write_text('import missing from "./missing-resource.mjs";\n')
+        self.change(); result = self.engine.prepare({'fastapi'})
+        self.assertEqual(result['status'], 'bloqueado')
+        self.assertIn('Recurso JavaScript local', result['motivo'])
+        self.assertEqual(tree(self.root / 'Skills'), self.before)
+
+    def test_javascript_local_resources_are_validated_without_execution(self):
+        folder = self.repos['fastapi'] / 'fastapi/.agents/skills/fastapi'
+        (folder / 'helper.mjs').write_text('import {value} from "./resource.mjs";\nthrow new Error("Never execute vendor");\n')
+        (folder / 'resource.mjs').write_text('export const value = 1;\n')
+        self.change(); plan = self.plan(); self.apply(plan)
+        self.engine.validator(self.root)
+        self.assertTrue((self.root / 'Skills/Backend/fastapi/skills/fastapi/resource.mjs').is_file())
+
+    def test_missing_node_runtime_records_pending_without_promotion(self):
+        p = self.repos['fastapi'] / 'fastapi/.agents/skills/fastapi/helper.mjs'
+        p.write_text('export const value = 1;\n'); self.change()
+        with patch('stacknauta_core.runtimes.AsdfResolver.resolve', side_effect=BootstrapError('Node global ausente')):
+            result = self.engine.prepare({'fastapi'})
+        self.assertEqual(result['status'], 'bloqueado'); self.assertIn('Node global ausente', result['motivo'])
+        self.assertTrue((self.engine.session(result['session_id']) / 'blocked.json').is_file())
+        self.assertEqual(tree(self.root / 'Skills'), self.before)
 
     def test_new_unresolved_reference_blocks(self):
         self.change(text="\n[Recurso obrigatório](missing-required.md)\n")
