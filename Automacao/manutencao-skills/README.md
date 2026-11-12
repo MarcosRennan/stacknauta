@@ -1,5 +1,10 @@
 # Atualização manual das sete origens — Etapa 3A
 
+A Etapa 3B acrescenta [inclusão controlada](INCLUSAO.md) com `add` e `review`.
+`check`/`update --all` passam a usar o registro extensível do lock; as sete origens
+iniciais e os contratos de apply/recover permanecem. As restrições de sete origens
+descritas abaixo representam o escopo histórico 3A.
+
 A partir da raiz do StackNauta:
 
 ```sh
@@ -11,8 +16,9 @@ A partir da raiz do StackNauta:
 `check` consulta as branches **configuradas** no lock, informa também a branch
 padrão remota e compara commits completos. Não escreve biblioteca, cache ou lock.
 Erros de consulta retornam código 2 e `erro_consulta`, nunca sucesso presumido.
-As origens aceitas são `ui-ux-pro-max`, `fastapi`, `remy`, `expo`, `chrisbanes`,
-`android` e `sentry`. Não há descoberta de novas origens nesta etapa.
+As origens iniciais são `ui-ux-pro-max`, `fastapi`, `remy`, `expo`, `chrisbanes`,
+`android` e `sentry`. Na 3B, novas origens só entram após descoberta, revisão e
+promoção explícitas; informar seu ID em `update` depois do registro.
 
 `update` é exclusivamente preparação/dry-run. Exige Git principal limpo e cria
 `.stacknauta-updates/SESSION/` (ignorado pelo Git), com candidato, aquisições,

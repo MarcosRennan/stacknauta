@@ -187,7 +187,7 @@ def build():
             fm = frontmatter(text)
             name = fm['name']
             identifier = source['id'] + ':' + name
-            prefix = skill.relative_to(repo).as_posix() + '/'
+            prefix = '' if skill == repo else skill.relative_to(repo).as_posix() + '/'
             files = sorted(p for p in source_files if p.startswith(prefix))
             licenses = []
             for parent in [skill, *skill.parents]:

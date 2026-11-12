@@ -6,7 +6,7 @@ import sys
 from pathlib import Path, PurePosixPath
 
 from . import BootstrapError
-from .compatibility import mismatch, policies
+from .compatibility import mismatch, catalog_policies
 from .filesystem import directory, read
 
 
@@ -50,7 +50,7 @@ class Library:
             self.descriptors = {p["id"]: p for p in self.catalog["distribution_packages"]}
         except (ValueError, KeyError, TypeError) as exc:
             raise BootstrapError("Catálogo/lock inválidos") from exc
-        self.rules = policies()
+        self.rules = catalog_policies(self.catalog["skills"])
         self.packages = {}
         sys.path.insert(0, str(self.root / "Skills/manutencao"))
         # Reutiliza o contrato de cópia da Etapa 1.5; função pura, sem acesso ao cache.
@@ -82,6 +82,11 @@ class Library:
     def select(self, config):
         selected, roots, skipped = set(), [], []
         explicit = config["skills"] is not None
+        if not explicit:
+            for identifier, skill in sorted(self.skills.items()):
+                if skill["distribution_status"] == "approved" and "compatibility" in skill:
+                    reason = mismatch(self.rules.get(identifier), config)
+                    if reason: skipped.append({"skill": identifier, "reason": reason})
         candidates = config["skills"] if explicit else sorted(s for s in self.skills if self.skills[s]["distribution_status"] == "approved" and not mismatch(self.rules.get(s), config))
         for identifier in candidates:
             try:

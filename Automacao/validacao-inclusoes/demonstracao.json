@@ -1,0 +1,277 @@
+{
+  "stage": "3B",
+  "status": "passed",
+  "scope": "Isolated local fixture, not the real library",
+  "temporary_directory": "/tmp/stacknauta-update-test-xdiskre7",
+  "discovery": {
+    "status": "descoberto",
+    "session_id": "aa5fb3f4d145489b9371e1cb97be3f45",
+    "review_id": "3790859c8fd0199e050917967ec354a0293dc39a1e6c68b79e524741b4f02d6f",
+    "source": {
+      "url": "/tmp/stacknauta-update-test-xdiskre7/remotes/candidates",
+      "default_branch": "main",
+      "branch": "main",
+      "commit": "1eed6d6bee25306538d3b368867a109191107013",
+      "revision_type": "branch",
+      "revision_ref": "main",
+      "id": "gh-fixture-candidates",
+      "directory": "Skills/_repos/gh-fixture-candidates",
+      "source_category": null,
+      "acquisition": "shallow-depth-1-no-checkout-manual-materialization",
+      "sparse_paths": []
+    },
+    "scope": null,
+    "candidates": [
+      {
+        "id": "gh-fixture-candidates:fastapi",
+        "name": "fastapi",
+        "description": "Guia local de validação.",
+        "repository": "/tmp/stacknauta-update-test-xdiskre7/remotes/candidates",
+        "commit": "1eed6d6bee25306538d3b368867a109191107013",
+        "source_path": "skills/conflict/SKILL.md",
+        "proposed_category": null,
+        "current_status": "pending",
+        "license": {
+          "identified": "MIT",
+          "evidence": [
+            {
+              "path": "LICENSE",
+              "identified": "MIT"
+            }
+          ],
+          "asset_licenses": [],
+          "licensing_metadata": [],
+          "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+        },
+        "resources": [
+          "LICENSE",
+          "skills/conflict/SKILL.md"
+        ],
+        "dependencies": [],
+        "dependency_evidence": [],
+        "conflicts": [
+          "fastapi:fastapi"
+        ],
+        "reference_checks": [],
+        "script_files": [],
+        "content_duplicates": [],
+        "blockers": [],
+        "enabled": false,
+        "discovery_status": "pending"
+      },
+      {
+        "id": "gh-fixture-candidates:good-helper",
+        "name": "good-helper",
+        "description": "Guia local de validação.",
+        "repository": "/tmp/stacknauta-update-test-xdiskre7/remotes/candidates",
+        "commit": "1eed6d6bee25306538d3b368867a109191107013",
+        "source_path": "skills/good/SKILL.md",
+        "proposed_category": null,
+        "current_status": "pending",
+        "license": {
+          "identified": "MIT",
+          "evidence": [
+            {
+              "path": "LICENSE",
+              "identified": "MIT"
+            }
+          ],
+          "asset_licenses": [],
+          "licensing_metadata": [],
+          "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+        },
+        "resources": [
+          "LICENSE",
+          "skills/good/SKILL.md"
+        ],
+        "dependencies": [],
+        "dependency_evidence": [],
+        "conflicts": [],
+        "reference_checks": [],
+        "script_files": [],
+        "content_duplicates": [],
+        "blockers": [],
+        "enabled": false,
+        "discovery_status": "pending"
+      },
+      {
+        "id": "gh-fixture-candidates:missing-helper",
+        "name": "missing-helper",
+        "description": "Guia local de validação.",
+        "repository": "/tmp/stacknauta-update-test-xdiskre7/remotes/candidates",
+        "commit": "1eed6d6bee25306538d3b368867a109191107013",
+        "source_path": "skills/missing/SKILL.md",
+        "proposed_category": null,
+        "current_status": "pending",
+        "license": {
+          "identified": "MIT",
+          "evidence": [
+            {
+              "path": "LICENSE",
+              "identified": "MIT"
+            }
+          ],
+          "asset_licenses": [],
+          "licensing_metadata": [],
+          "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+        },
+        "resources": [
+          "LICENSE",
+          "skills/missing/SKILL.md"
+        ],
+        "dependencies": [],
+        "dependency_evidence": [],
+        "conflicts": [],
+        "reference_checks": [
+          {
+            "document": "skills/missing/SKILL.md",
+            "target": "references/absent.md",
+            "kind": "markdown",
+            "status": "unresolved_requires_review",
+            "possible_matches": []
+          },
+          {
+            "document": "skills/missing/SKILL.md",
+            "target": "references/absent.md",
+            "kind": "resource_mention",
+            "status": "unresolved_requires_review",
+            "possible_matches": []
+          }
+        ],
+        "script_files": [],
+        "content_duplicates": [],
+        "blockers": [
+          "Recursos/referências ausentes ou fora do escopo adquirido"
+        ],
+        "enabled": false,
+        "discovery_status": "pending"
+      }
+    ],
+    "existing_source": false,
+    "active_library_modified": false
+  },
+  "plan_id": "31a1de7e7c0249e07a8891ae996c46a7cbe7284d3551f649354a3173cceb4b01",
+  "plan_file": "/tmp/stacknauta-update-test-xdiskre7/StackNauta/.stacknauta-updates/aa5fb3f4d145489b9371e1cb97be3f45/plan.json",
+  "diff_file": "/tmp/stacknauta-update-test-xdiskre7/StackNauta/.stacknauta-updates/aa5fb3f4d145489b9371e1cb97be3f45/review.diff",
+  "rejected_conflict": "Conflitos de nomes aprovados impedem aliases portáteis únicos: gh-fixture-candidates:fastapi",
+  "applied": {
+    "status": "aplicado",
+    "session_id": "aa5fb3f4d145489b9371e1cb97be3f45",
+    "plan_id": "31a1de7e7c0249e07a8891ae996c46a7cbe7284d3551f649354a3173cceb4b01",
+    "origens": [
+      {
+        "atual": null,
+        "branch": "main",
+        "disponivel": "1eed6d6bee25306538d3b368867a109191107013",
+        "estado": "inclusao_revisada",
+        "origem": "gh-fixture-candidates",
+        "resultado": "nao_modificada"
+      }
+    ],
+    "backup": "/tmp/stacknauta-update-test-xdiskre7/StackNauta/.stacknauta-updates/aa5fb3f4d145489b9371e1cb97be3f45/previous-Skills"
+  },
+  "skills": [
+    {
+      "id": "gh-fixture-candidates:fastapi",
+      "status": "pending",
+      "category": null,
+      "distributed": false,
+      "enabled": false
+    },
+    {
+      "id": "gh-fixture-candidates:good-helper",
+      "status": "approved",
+      "category": "Backend",
+      "distributed": true,
+      "enabled": false
+    },
+    {
+      "id": "gh-fixture-candidates:missing-helper",
+      "status": "pending",
+      "category": null,
+      "distributed": false,
+      "enabled": false
+    }
+  ],
+  "validation": {
+    "status": "passed_with_documented_pending",
+    "arquivos": 71,
+    "fechamentos": 5,
+    "codigo_fornecedor_executado": false
+  },
+  "bootstrap": {
+    "status": "verified",
+    "mode": "apply",
+    "plan_id": "bfa45ed51476dcc2f31767964bfee3cd2bc6a39f157c8f4daedb3ca33b377722",
+    "core_plan_id": "67b11bde4341e54b1b33230368e0b7edca8a84661054ca9e64bb8b2e24088bfe",
+    "destination": "/tmp/stacknauta-update-test-xdiskre7/demo-api",
+    "core_files_verified": 30,
+    "integration_files_verified": 5,
+    "verification_state": "intact",
+    "lifecycle": {
+      "policy_version": "2D.1",
+      "initialization": "complete",
+      "modified": {},
+      "removed": [],
+      "unmanaged": [],
+      "content_validation": "Physical structure and protected hashes; application syntax/semantics are not certified."
+    },
+    "integration_lifecycle": {
+      "policy_version": "2D.1",
+      "initialization": "complete",
+      "modified": {},
+      "removed": [],
+      "unmanaged": [],
+      "content_validation": "Physical structure and protected hashes; application syntax/semantics are not certified."
+    },
+    "discovery_entries": [
+      {
+        "name": "stacknauta-fastapi",
+        "id": "fastapi:fastapi",
+        "path": ".agents/skills/stacknauta-fastapi/SKILL.md",
+        "original_path": ".agents/skills/backend-fastapi/skills/fastapi/SKILL.md",
+        "original_sha256": "3c92001d0d0be66c0e67613871ff2397f0d68b2d4c22850bf596b43317916144",
+        "repository": "/tmp/stacknauta-update-test-xdiskre7/remotes/fastapi",
+        "commit": "a95cb975c7ce40957cf3813e12ed26a19310e820"
+      },
+      {
+        "name": "stacknauta-good-helper",
+        "id": "gh-fixture-candidates:good-helper",
+        "path": ".agents/skills/stacknauta-good-helper/SKILL.md",
+        "original_path": ".agents/skills/backend-gh-fixture-candidates/vendor/skills/good/SKILL.md",
+        "original_sha256": "b2436406f3517a59ecd4e2283f2284affc9f13e9264b28ffd221edaec3a9242c",
+        "repository": "/tmp/stacknauta-update-test-xdiskre7/remotes/candidates",
+        "commit": "1eed6d6bee25306538d3b368867a109191107013"
+      }
+    ],
+    "production_ready": false,
+    "native_agent_discovery": "Must be tested in a fresh session of the selected agent; filesystem verification is not native discovery.",
+    "core_result": {
+      "status": "prepared",
+      "created_files": 30,
+      "unchanged_files": 0,
+      "plan_id": "67b11bde4341e54b1b33230368e0b7edca8a84661054ca9e64bb8b2e24088bfe",
+      "destination": "/tmp/stacknauta-update-test-xdiskre7/demo-api",
+      "skills": [
+        "fastapi:fastapi",
+        "gh-fixture-candidates:good-helper"
+      ],
+      "lifecycle": {
+        "policy_version": "2D.1",
+        "initialization": "complete",
+        "modified": {},
+        "removed": [],
+        "unmanaged": [],
+        "content_validation": "Physical structure and protected hashes; application syntax/semantics are not certified."
+      },
+      "production_ready": false,
+      "agent_integration_tested": false
+    }
+  },
+  "reapply": "unchanged",
+  "existing_fixture_consumer_preserved": true,
+  "real_origins_added": false,
+  "vendor_code_executed": false,
+  "native_agent_activation_tested": false,
+  "temporary_environment_retained": true
+}

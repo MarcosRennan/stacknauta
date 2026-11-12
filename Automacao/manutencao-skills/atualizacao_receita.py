@@ -31,19 +31,71 @@ def replay_patch(data, patch):
     return text.encode()
 
 
-def refresh(root, source_ids, read_bytes, runtime, details=None, *, git_runner):
-    """root é exclusivamente uma cópia isolada. read_bytes recusa links/hardlinks."""
-    from biblioteca import json_bytes, sha
+def skill_prefix(source_path):
+    parent = Path(source_path).parent.as_posix()
+    return "" if parent == "." else parent + "/"
+
+
+def source_bytes(root, source, records, path, read_bytes):
+    from biblioteca import sha
+    row = records.get(path)
+    if not row or row['type'] != 'file': raise ValueError('Recurso ausente/não regular: '+path)
+    data = read_bytes(root, source['directory']+'/'+path)
+    if sha(data) != row['sha256']: raise ValueError('Hash incompatível com a aquisição: '+path)
+    if __import__('hashlib').sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest() != row['git_blob']:
+        raise ValueError('Blob Git incompatível: '+path)
+    return data
+
+
+def python_dependencies(before, after, local_modules):
+    def imports(data):
+        return {name for node in ast.walk(ast.parse(data)) for name in
+                ([a.name.split('.')[0] for a in node.names] if isinstance(node, ast.Import) else
+                 [node.module.split('.')[0]] if isinstance(node, ast.ImportFrom) and node.level == 0 and node.module else [])}
+    added = imports(after) - imports(before) - set(sys.stdlib_module_names) - set(local_modules)
+    if added: raise ValueError('Nova dependência Python não atendida; revisão manual: '+', '.join(sorted(added)))
+
+
+def javascript_imports(data):
+    groups = re.findall(r'''\b(?:require|import)\s*\(\s*["']([^"']+)["']|\bfrom\s*["']([^"']+)["']|\bimport\s*["']([^"']+)["']''', data.decode(errors='replace'))
+    return {s for group in groups for s in group if s}
+
+
+def category_indexes(cat, categories):
+    from biblioteca import DOMAINS
+    outputs={}
+    for category in set(DOMAINS) & set(categories):
+        lines=['# '+category,'','Biblioteca versionada; atualizações manuais. Nenhuma skill ativada.','',
+               '| Skill | Status | Pacote ou impedimento |','|---|---|---|']
+        for skill in cat['skills']:
+            if skill['category']!=category: continue
+            dist=skill['distribution'];name=skill['name']
+            if dist: name=f"[{name}]({dist['package'].split('/',1)[1]}/{dist['skill_directory']}/SKILL.md)"
+            lines.append(f"| {name} | {skill['distribution_status']} | {dist['package'] if dist else skill['decision_reason']} |")
+        outputs['Skills/'+category+'/README.md']=('\n'.join(lines)+'\n').encode()
+    return outputs
+
+
+def recount(cat):
+    counts = cat["counts"]
+    counts.update(sources=len(cat["sources"]), catalogued_skills=len(cat["skills"]),
+                  physical_skill_files=sum(s["physical_skill_files"] for s in cat["sources"]),
+                  distribution_aliases=len(cat["distribution_aliases"]), distribution_packages=len(cat["distribution_packages"]),
+                  by_category=dict(sorted(Counter(s["category"] for s in cat["skills"] if s["category"] is not None).items())),
+                  by_scope=dict(sorted(Counter(s["scope"] for s in cat["skills"]).items())),
+                  approved_by_category=dict(sorted(Counter(s["category"] for s in cat["skills"] if s["distribution_status"]=="approved").items())))
+    unclassified = sum(s["category"] is None for s in cat["skills"])
+    if unclassified: counts["unclassified_skills"] = unclassified
+    else: counts.pop("unclassified_skills", None)
+    for state in ("approved", "pending", "excluded"):
+        counts[state+"_skills"] = sum(s["distribution_status"] == state for s in cat["skills"])
+    counts["prepared_distribution_skills"] = counts["approved_skills"]
+
+
+def inventory(root, source_ids, read_bytes, runtime, git_runner):
+    from biblioteca import json_bytes
     import inventariar
-    details = details if details is not None else {}
-    cat = json.loads(read_bytes(root, "Skills/catalogo.json"))
     lock = json.loads(read_bytes(root, "Skills/fontes.lock.json"))
-    policy = json.loads(read_bytes(root, "Skills/manutencao/distribuicao-politica.json"))
-    indexes = json.loads(read_bytes(root, "Skills/validacao/arquivos.json"))
-    references = json.loads(read_bytes(root, "Skills/validacao/recursos.json"))
-    patches = json.loads(read_bytes(root, "Skills/validacao/adaptacoes.json"))
-    old_skills = {s["id"]: s for s in cat["skills"]}
-    old_sources = {s["id"]: s for s in cat["sources"]}
     # O inventário existente já aceita a lista de origens do lock. Só o lock da
     # cópia isolada é temporariamente filtrado; o ativo nunca é alterado aqui.
     full_lock = (root / "Skills/fontes.lock.json").read_bytes()
@@ -57,6 +109,24 @@ def refresh(root, source_ids, read_bytes, runtime, details=None, *, git_runner):
     finally:
         inventariar.ROOT, inventariar.require_asdf_python, inventariar.git = previous_root, previous_runtime, previous_git
         (root / "Skills/fontes.lock.json").write_bytes(full_lock)
+    return raw, fresh_indexes, fresh_refs
+
+
+def refresh(root, source_ids, read_bytes, runtime, details=None, *, git_runner):
+    """root é exclusivamente uma cópia isolada. read_bytes recusa links/hardlinks."""
+    from biblioteca import json_bytes, sha
+    import inventariar
+    details = details if details is not None else {}
+    cat = json.loads(read_bytes(root, "Skills/catalogo.json"))
+    lock = json.loads(read_bytes(root, "Skills/fontes.lock.json"))
+    policy = json.loads(read_bytes(root, "Skills/manutencao/distribuicao-politica.json"))
+    indexes = json.loads(read_bytes(root, "Skills/validacao/arquivos.json"))
+    references = json.loads(read_bytes(root, "Skills/validacao/recursos.json"))
+    patches = json.loads(read_bytes(root, "Skills/validacao/adaptacoes.json"))
+    old_skills = {s["id"]: s for s in cat["skills"]}
+    old_sources = {s["id"]: s for s in cat["sources"]}
+    full_lock = read_bytes(root, "Skills/fontes.lock.json")
+    raw, fresh_indexes, fresh_refs = inventory(root, source_ids, read_bytes, runtime, git_runner)
     details["new_skill_paths_outside_scope"] = {
         sid: sorted(p for p in set(fresh_indexes[sid]["sparse_omitted_paths"]) - set(indexes[sid]["sparse_omitted_paths"])
                     if Path(p).name == "SKILL.md") for sid in source_ids
@@ -115,16 +185,8 @@ def refresh(root, source_ids, read_bytes, runtime, details=None, *, git_runner):
     outputs, affected_packages, replacement_patches = {}, [], []
 
     def source_data(sid, path):
-        row = fresh_records[sid].get(path)
-        if not row or row["type"] != "file":
-            raise ValueError("Recurso ausente ou não regular: " + sid + ":" + path)
         source = next(s for s in lock["sources"] if s["id"] == sid)
-        data = read_bytes(root, source["directory"] + "/" + path)
-        if sha(data) != row["sha256"]:
-            raise ValueError("Hash incompatível com a aquisição: " + path)
-        if __import__("hashlib").sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest() != row["git_blob"]:
-            raise ValueError("Blob Git incompatível: " + path)
-        return data
+        return source_bytes(root, source, fresh_records[sid], path, read_bytes)
 
     # O inventário também registra pendentes: validar todos os blobs materiais,
     # não só os recursos que serão distribuídos. skip-worktree não prova bytes.
@@ -168,7 +230,7 @@ def refresh(root, source_ids, read_bytes, runtime, details=None, *, git_runner):
         # Novos recursos dentro das skills aprovadas: cópia integral e física.
         for identifier in package["skills"]:
             skill = old_skills[identifier]
-            source_prefix = str(Path(skill["source_path"]).parent) + "/"
+            source_prefix = skill_prefix(skill["source_path"])
             mappings = [(source_prefix, skill["distribution"]["skill_directory"] + "/")]
             if identifier == "ui-ux-pro-max:ui-ux-pro-max":
                 mappings += [("src/ui-ux-pro-max/" + p + "/", skill["distribution"]["skill_directory"] + "/" + p + "/") for p in ("scripts", "data")]
@@ -195,12 +257,7 @@ def refresh(root, source_ids, read_bytes, runtime, details=None, *, git_runner):
             before_path = root / dest
             before = before_path.read_bytes() if before_path.exists() else b""
             after = outputs[dest]
-            def imports(data):
-                return {name for node in ast.walk(ast.parse(data)) for name in
-                        ([a.name.split('.')[0] for a in node.names] if isinstance(node, ast.Import) else
-                         [node.module.split('.')[0]] if isinstance(node, ast.ImportFrom) and node.level == 0 and node.module else [])}
-            added = imports(after) - imports(before) - set(sys.stdlib_module_names) - local_modules
-            if added: raise ValueError("Nova dependência Python não atendida; revisão manual: " + ", ".join(sorted(added)))
+            python_dependencies(before, after, local_modules)
         package["commit"] = new_commit
         outputs[package["directory"] + "/PROVENANCE.json"] = json_bytes(package)
         descriptor["manifest_sha256"] = sha(outputs[package["directory"] + "/PROVENANCE.json"])
@@ -211,6 +268,9 @@ def refresh(root, source_ids, read_bytes, runtime, details=None, *, git_runner):
                        acquisition_validation=new.pop("validation"), distribution_status=old["distribution_status"],
                        decision_reason=old["decision_reason"], pending=old["pending"], validation=old["validation"],
                        distribution=copy.deepcopy(old["distribution"]))
+            for field in ("compatibility", "inclusion_review"):
+                if field in old: new[field] = copy.deepcopy(old[field])
+            if 'inclusion_review' in old: new['required_files']=sorted(set(old['required_files']) | set(new['required_files']))
             if new["distribution"]:
                 new["distribution"]["runtime_requirements"] = new["dependency_evidence"]
         else:
@@ -225,16 +285,12 @@ def refresh(root, source_ids, read_bytes, runtime, details=None, *, git_runner):
     sources = {s["id"]: s for s in raw["sources"]}
     cat["sources"] = [sources.get(s["id"], s) for s in cat["sources"]]
     cat["distribution_aliases"] = [a for a in cat["distribution_aliases"] if a["source_id"] not in source_ids] + raw["distribution_aliases"]
-    cat["counts"].update(catalogued_skills=len(cat["skills"]), physical_skill_files=sum(s["physical_skill_files"] for s in cat["sources"]),
-        distribution_aliases=len(cat["distribution_aliases"]), by_category=dict(sorted(Counter(s["category"] for s in cat["skills"]).items())),
-        by_scope=dict(sorted(Counter(s["scope"] for s in cat["skills"]).items())))
-    for state in ("approved", "pending", "excluded"):
-        cat["counts"][state + "_skills"] = sum(s["distribution_status"] == state for s in cat["skills"])
+    recount(cat)
     for sid in source_ids:
         indexes[sid] = fresh_indexes[sid]
     references = {k: v for k, v in references.items() if k.split(":", 1)[0] not in source_ids}
     references.update(fresh_refs)
-    patches = [p for p in patches if p["package"].split("/", 1)[1] not in source_ids] + replacement_patches
+    patches = [p for p in patches if p["package"] not in affected_packages] + replacement_patches
     reviews = json.loads(read_bytes(root, "Skills/validacao/revisao-recursos.json"))
     # Uma nova referência não resolvida de skill aprovada nunca recebe exceção automática.
     for identifier, refs in fresh_refs.items():
@@ -253,17 +309,6 @@ def refresh(root, source_ids, read_bytes, runtime, details=None, *, git_runner):
         source_lock_sha256=sha(full_lock))
     outputs["Skills/catalogo.json"] = json_bytes(cat)
     affected_categories = {s["category"] for s in cat["skills"] if s["source_id"] in source_ids}
-    for category in set(__import__("biblioteca").DOMAINS) & affected_categories:
-        lines = ["# " + category, "", "Biblioteca versionada; atualizações manuais. Nenhuma skill ativada.", "",
-                 "| Skill | Status | Pacote ou impedimento |", "|---|---|---|"]
-        for skill in cat["skills"]:
-            if skill["category"] != category:
-                continue
-            dist = skill["distribution"]
-            name = skill["name"]
-            if dist:
-                name = f"[{name}]({dist['package'].split('/', 1)[1]}/{dist['skill_directory']}/SKILL.md)"
-            lines.append(f"| {name} | {skill['distribution_status']} | {dist['package'] if dist else skill['decision_reason']} |")
-        outputs["Skills/" + category + "/README.md"] = ("\n".join(lines) + "\n").encode()
+    outputs.update(category_indexes(cat,affected_categories))
     details.update(new_skills_pending=discovered, affected_packages=affected_packages, source_changes=source_changes)
     return outputs, details

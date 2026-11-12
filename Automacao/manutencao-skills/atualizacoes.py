@@ -18,7 +18,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "Automacao/project-
 from stacknauta_core.core import encoded as json_bytes
 from stacknauta_core.library import digest as sha
 from stacknauta_core import BootstrapError
-from atualizacao_receita import refresh
+from atualizacao_receita import refresh, python_dependencies, javascript_imports
+from origens import parse_url
 
 SOURCES = {"ui-ux-pro-max", "fastapi", "remy", "expo", "chrisbanes", "android", "sentry"}
 NODE_BUILTINS = set(("assert assert/strict async_hooks buffer child_process cluster console constants crypto dgram diagnostics_channel "
@@ -93,9 +94,16 @@ class Git:
     def run(self, repo, *args, data=None, binary=False):
         environment = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
         environment.update(GIT_OPTIONAL_LOCKS="0", GIT_TERMINAL_PROMPT="0", GIT_CONFIG_GLOBAL="/dev/null",
-                           GIT_CONFIG_NOSYSTEM="1", GIT_ALLOW_PROTOCOL="https:file" if self.allow_local else "https")
+                           GIT_CONFIG_NOSYSTEM="1", GIT_ALLOW_PROTOCOL="https:ssh:file" if self.allow_local else "https:ssh",
+                           GIT_SSH_COMMAND="ssh -oBatchMode=yes -oStrictHostKeyChecking=yes -oUpdateHostKeys=no")
+        if not self.allow_local and args and args[0] in {'fetch','ls-remote'}:
+            # Usar credenciais/proxy existentes, sem gravar config ou iniciar login.
+            # Hooks/fsmonitor continuam desativados; não há checkout/filtros.
+            environment.pop('GIT_CONFIG_GLOBAL');environment.pop('GIT_CONFIG_NOSYSTEM')
+            environment.update(GCM_INTERACTIVE='never',GH_PROMPT_DISABLED='1')
         command = ["git", "-c", "core.hooksPath=/dev/null", "-c", "core.fsmonitor=false", "-c", "gc.auto=0",
-                   "-c", "maintenance.auto=false", "-c", "http.lowSpeedLimit=100", "-c", "http.lowSpeedTime=15", "-C", str(repo), *args]
+                   "-c", "maintenance.auto=false", "-c", "http.sslVerify=true", "-c", "fetch.fsckObjects=true",
+                   "-c", "http.lowSpeedLimit=100", "-c", "http.lowSpeedTime=15", "-C", str(repo), *args]
         r = subprocess.run(command, input=data, capture_output=True, text=not binary, env=environment, timeout=45)
         if r.returncode:
             detail = r.stderr.decode(errors="replace") if binary else r.stderr
@@ -106,7 +114,7 @@ class Git:
 
     def remote(self, source):
         url, branch = source["url"], source["branch"]
-        if not self.allow_local and not re.fullmatch(r"https://github\.com/[\w.-]+/[\w.-]+(?:\.git)?", url):
+        if parse_url(url, allow_local=self.allow_local)["tail"]:
             raise ValueError("URL não permitida para origem cadastrada")
         self.run(Path.home(), "check-ref-format", "refs/heads/" + branch)
         output = self.run(Path.home(), "ls-remote", "--symref", url, "HEAD", "refs/heads/" + branch)
@@ -117,7 +125,7 @@ class Git:
         default = next((r.split()[1].removeprefix("refs/heads/") for r in output.splitlines() if r.startswith("ref: ") and r.endswith("\tHEAD")), source["default_branch"])
         return commit, default
 
-    def acquire(self, source, repo):
+    def acquire(self, source, repo, *, discover=False):
         repo.mkdir(parents=True)
         self.run(repo, "init", "--quiet", "--template=")
         self.run(repo, "config", "core.fsmonitor", "false")
@@ -126,6 +134,10 @@ class Git:
         self.run(repo, "update-ref", "HEAD", source["commit"])
         self.run(repo, "read-tree", source["commit"])
         entries = self.run(repo, "ls-tree", "-r", "-z", source["commit"]).split("\0")
+        if discover and source.get("sparse_paths"):
+            source["sparse_paths"] = sorted(set(source["sparse_paths"]) | {
+                str(PurePosixPath(e.split("\t",1)[1]).parent) for e in entries if e and PurePosixPath(e.split("\t",1)[1]).name == "SKILL.md"})
+            if "." in source["sparse_paths"]: source["sparse_paths"] = []
         paths, links = [], []
         for entry in entries:
             if not entry: continue
@@ -133,7 +145,9 @@ class Git:
             dest = safe(repo, path); paths.append(path)
             if mode == "160000": continue  # Nunca inicializar submódulos.
             sparse = source.get("sparse_paths", [])
-            if sparse and "/" in path and not any(path == prefix or path.startswith(prefix + "/") for prefix in sparse): continue
+            ancestor_license = PurePosixPath(path).name.upper().startswith(("LICENSE", "COPYING", "NOTICE")) and any(
+                PurePosixPath(path).parent == PurePosixPath(prefix).parent or str(PurePosixPath(prefix)).startswith(str(PurePosixPath(path).parent) + "/") for prefix in sparse)
+            if sparse and "/" in path and not ancestor_license and not any(path == prefix or path.startswith(prefix + "/") for prefix in sparse): continue
             if mode not in {"100644", "100755", "120000"}: raise ValueError("Modo Git não permitido: " + path)
             data = self.run(repo, "cat-file", "blob", oid, binary=True)
             if len(data) > 64_000_000: raise ValueError("Recurso excessivamente grande: " + path)
@@ -167,20 +181,26 @@ class Updates:
     def sources(self):
         lock = load(self.root, "Skills/fontes.lock.json")
         catalog = load(self.root, "Skills/catalogo.json")
-        if {s["id"] for s in lock["sources"]} != SOURCES or len(lock["sources"]) != 7:
-            raise ValueError("Somente as sete origens cadastradas são aceitas nesta etapa")
-        if {s["id"]: (s["commit"], s["url"]) for s in lock["sources"]} != {s["id"]: (s["commit"], s["url"]) for s in catalog["sources"]}:
+        ids=[s["id"] for s in lock["sources"]]
+        if not ids or len(set(ids))!=len(ids) or any(not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", sid) for sid in ids):
+            raise ValueError("Registro de origens vazio ou com IDs duplicados/inválidos")
+        if len(catalog['sources'])!=len(ids) or {s["id"]: (s["commit"], s["url"]) for s in lock["sources"]} != {s["id"]: (s["commit"], s["url"]) for s in catalog["sources"]}:
             raise ValueError("Catálogo e lock divergem")
         for source in lock["sources"]:
             if not re.fullmatch(r"[0-9a-f]{40}", source["commit"]): raise ValueError("Commit inválido no lock")
             if not source["directory"].startswith("Skills/_repos/"): raise ValueError("Cache fora do caminho permitido")
             safe(self.root, source["directory"])
+        identities=[parse_url(s['url'],allow_local=self.git.allow_local)['identity'] for s in lock['sources']]
+        if len(set(identities))!=len(identities) or len({s['directory'] for s in lock['sources']})!=len(ids):
+            raise ValueError("Origens ou diretórios duplicados no registro")
         return lock["sources"]
 
     def check(self, selected=None):
         sources = [s for s in self.sources() if selected is None or s["id"] in selected]
         def query(source):
             row = {"origem": source["id"], "branch": source["branch"], "atual": source["commit"], "disponivel": None}
+            if source.get('revision_type') in {'commit','tag'}:
+                return {**row,'estado':'revisao_fixada','motivo':'Revisão explícita; sem consulta de atualização nem seguimento automático de branch'}
             try:
                 commit, default = self.git.remote(source)
                 row.update(disponivel=commit, default_branch=default, estado="sem_alteracoes" if commit == source["commit"] else "atualizacao_disponivel")
@@ -241,6 +261,11 @@ class Updates:
         for relative, data in outputs.items():
             if relative in baseline and sha(data) == baseline[relative]["sha256"]: continue
             suffix = Path(relative).suffix
+            if suffix == '.py':
+                before = read_bytes(self.root, relative) if relative in baseline else b''
+                package = candidate.joinpath(*Path(relative).parts[:3])
+                python_dependencies(before, data, {p.stem for p in package.rglob('*.py')})
+                continue
             if suffix in {".ts", ".tsx", ".rb", ".ps1"}:
                 raise ValueError("Script alterado exige validação manual específica: " + relative)
             if suffix not in {".js", ".cjs", ".mjs", ".sh"}: continue
@@ -249,12 +274,8 @@ class Updates:
                 environment["BASH_ENV"] = "/dev/null"
                 command = ["bash", "-n", str(candidate / relative)]
             else:
-                def imports(content):
-                    text = content.decode(errors="replace")
-                    return set(re.findall(r'''\b(?:require|import)\s*\(\s*["']([^"']+)["']|\bfrom\s*["']([^"']+)["']|\bimport\s*["']([^"']+)["']''', text))
                 before = read_bytes(self.root, relative) if relative in baseline else b""
-                previous = {s for group in imports(before) for s in group if s}
-                for specifier in {s for group in imports(data) for s in group if s} - previous:
+                for specifier in javascript_imports(data) - javascript_imports(before):
                     if specifier.removeprefix("node:") in NODE_BUILTINS: continue
                     if not specifier.startswith(("./", "../")):
                         raise ValueError("Nova dependência JavaScript exige revisão manual: " + specifier)
@@ -275,23 +296,61 @@ class Updates:
             r = subprocess.run(command, cwd=Path.home(), env=environment, capture_output=True, text=True, timeout=20)
             if r.returncode: raise ValueError("Sintaxe de script inválida: " + relative + ": " + r.stderr[:1000])
 
+    def begin(self):
+        """Chamar sob exclusive; snapshot verificado de arquivos rastreados."""
+        head = self.clean()
+        self.validator(self.root)
+        baseline = self.tracked(); session_id = uuid.uuid4().hex
+        session = self.state_root() / session_id; session.mkdir()
+        candidate = session / "candidate"
+        self.copy_snapshot(candidate, baseline)
+        return session, candidate, head, baseline
+
+    def copy_snapshot(self, candidate, baseline):
+        candidate.mkdir()
+        for relative, record in baseline.items():
+            source = safe(self.root, relative); dest = safe(candidate, relative)
+            data = read_bytes(self.root, relative)
+            if sha(data) != record["sha256"]: raise ValueError("Arquivo mudou durante preparação: " + relative)
+            dest.parent.mkdir(parents=True, exist_ok=True); dest.write_bytes(data); dest.chmod(record["mode"])
+
+    def finish(self, session, candidate, head, baseline, checks, details, validation):
+        """Sela plano e diff compartilhados por atualização e inclusão."""
+        session_id = session.name
+        new_tree = tree(candidate / "Skills")
+        diffs = []
+        review = []
+        for path, record in sorted(new_tree.items()):
+            relative = "Skills/" + path
+            if baseline.get(relative) == record: continue
+            before = read_bytes(self.root, relative) if relative in baseline else b""
+            after = read_bytes(candidate, relative)
+            diffs.append({"path": relative, "before": baseline.get(relative), "after": record})
+            try:
+                review.extend(difflib.unified_diff(before.decode().splitlines(True), after.decode().splitlines(True),
+                                                  fromfile="atual/" + relative, tofile="candidato/" + relative))
+            except UnicodeError: review.append("Binário alterado: " + relative + "\n")
+        identity = {"schema_version": 1, "head": head, "baseline": baseline, "candidate_tree": new_tree,
+                    "origens": checks, "details": details, "files": diffs}
+        plan = {**identity, "plan_id": sha(json_bytes(identity)), "session_id": session_id,
+                "status": "preparado", "validacao": validation,
+                "autorizacao": "Revisar plano e review.diff; apply exige --approve e hash revisado.",
+                "atomicidade": "Global por troca da pasta Skills, com janela de indisponibilidade e rollback/backup; nunca mistura arquivos de revisões."}
+        atomic_json(session / "plan.json", plan)
+        (session / "review.diff").write_text("".join(review))
+        atomic_json(session / "journal.json", {"phase": "prepared", "plan_id": plan["plan_id"]})
+        return plan
+
     def prepare(self, selected):
-        if not selected or not set(selected) <= SOURCES: raise ValueError("Origem desconhecida")
+        if not selected or not set(selected) <= {s['id'] for s in self.sources()}: raise ValueError("Origem desconhecida")
         head = self.clean(); checks = self.check(set(selected))
         if any(r["estado"] == "erro_consulta" for r in checks):
             return {"status": "bloqueado", "origens": checks, "motivo": "Consulta incompleta; nenhuma promoção possível"}
         changed = {r["origem"] for r in checks if r["estado"] == "atualizacao_disponivel"}
         if not changed: return {"status": "sem_alteracoes", "origens": checks}
         with self.exclusive():
-            self.validator(self.root)
-            baseline = self.tracked(); session_id = uuid.uuid4().hex
-            session = self.state_root() / session_id; session.mkdir()
-            candidate = session / "candidate"; candidate.mkdir()
-            for relative, record in baseline.items():
-                source = safe(self.root, relative); dest = safe(candidate, relative)
-                data = read_bytes(self.root, relative)
-                if sha(data) != record["sha256"]: raise ValueError("Arquivo mudou durante preparação: " + relative)
-                dest.parent.mkdir(parents=True, exist_ok=True); dest.write_bytes(data); dest.chmod(record["mode"])
+            session, candidate, head, baseline = self.begin()
+            session_id = session.name
             details = {}
             try:
                 lock = load(candidate, "Skills/fontes.lock.json")
@@ -309,29 +368,7 @@ class Updates:
                 validation = self.validator(candidate)
                 acquired = candidate / "Skills/_repos"
                 if acquired.exists(): os.rename(acquired, session / "acquired")
-                new_tree = tree(candidate / "Skills")
-                diffs = []
-                review = []
-                for path, record in sorted(new_tree.items()):
-                    relative = "Skills/" + path
-                    if baseline.get(relative) == record: continue
-                    before = read_bytes(self.root, relative) if relative in baseline else b""
-                    after = read_bytes(candidate, relative)
-                    diffs.append({"path": relative, "before": baseline.get(relative), "after": record})
-                    try:
-                        review.extend(difflib.unified_diff(before.decode().splitlines(True), after.decode().splitlines(True),
-                                                          fromfile="atual/" + relative, tofile="candidato/" + relative))
-                    except UnicodeError: review.append("Binário alterado: " + relative + "\n")
-                identity = {"schema_version": 1, "head": head, "baseline": baseline, "candidate_tree": new_tree,
-                            "origens": checks, "details": details, "files": diffs}
-                plan = {**identity, "plan_id": sha(json_bytes(identity)), "session_id": session_id,
-                        "status": "preparado", "validacao": validation,
-                        "autorizacao": "Revisar plano e review.diff; apply exige --approve e hash revisado.",
-                        "atomicidade": "Global por troca da pasta Skills, com janela de indisponibilidade e rollback/backup; nunca mistura arquivos de revisões."}
-                atomic_json(session / "plan.json", plan)
-                (session / "review.diff").write_text("".join(review))
-                atomic_json(session / "journal.json", {"phase": "prepared", "plan_id": plan["plan_id"]})
-                return plan
+                return self.finish(session, candidate, head, baseline, checks, details, validation)
             except (ValueError, OSError, SyntaxError, BootstrapError, subprocess.SubprocessError) as exc:
                 result = {"status": "bloqueado", "session_id": session_id, "origens": checks, "details": details, "promovidas": [], "motivo": str(exc)}
                 atomic_json(session / "blocked.json", result); return result

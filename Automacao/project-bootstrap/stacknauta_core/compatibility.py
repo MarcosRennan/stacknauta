@@ -1,5 +1,59 @@
 """Política explícita de compatibilidade; sem inferência de texto livre ou tecnologias."""
 
+from . import BootstrapError
+
+
+def declared_policy(value):
+    """Formato declarativo 3B; vocabulários do bootstrap, sem executar fornecedores."""
+    from .config import keys, strings, LANGUAGES, FRAMEWORKS, FEATURES, ARCHITECTURES, VERSION
+    import re
+    allowed = {"languages_any", "frameworks_any", "frameworks_all", "features_all", "architecture",
+               "tools", "runtimes", "framework_versions", "blocked", "languages_all"}
+    keys(value, allowed, "compatibilidade")
+    if not {"languages_any", "frameworks_any", "frameworks_all", "features_all", "architecture", "tools", "runtimes"} <= set(value):
+        raise BootstrapError("Compatibilidade exige todas as condições explícitas, inclusive listas vazias")
+    result = rule(strings(value["languages_any"], "linguagens", LANGUAGES),
+                  strings(value["frameworks_any"], "frameworks", set(FRAMEWORKS)),
+                  strings(value["features_all"], "funcionalidades", FEATURES),
+                  architecture=value["architecture"], all_frameworks=strings(value["frameworks_all"], "frameworks obrigatórios", set(FRAMEWORKS)),
+                  tools=strings(value["tools"], "ferramentas"),
+                  runtimes=strings(value["runtimes"], "runtimes", {"python", "nodejs", "java", "golang", "rust"}))
+    if not isinstance(value['architecture'],(str,type(None))) or value["architecture"] not in ARCHITECTURES:
+        raise BootstrapError("Arquitetura de compatibilidade não suportada")
+    if any(not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._+-]*", t) for t in result["tools"]):
+        raise BootstrapError("Ferramenta deve ser nome de executável, nunca caminho ou comando")
+    if result['tools'] & {'python','python3','node','nodejs','java','javac','go','rustc','cargo','bun','deno'}:
+        raise BootstrapError('Executável de runtime deve ser declarado em runtimes, para resolução global asdf')
+    languages_all=strings(value.get('languages_all',[]),'linguagens obrigatórias',LANGUAGES)
+    if languages_all: result['languages_all']=set(languages_all)
+    if not languages_all and not any(result[k] for k in ("languages_any", "frameworks_any", "frameworks_all", "features_all")):
+        raise BootstrapError("Compatibilidade precisa de ao menos uma condição de aplicabilidade")
+    blocked = value.get("blocked")
+    if blocked is not None and (not isinstance(blocked, str) or not blocked.strip()):
+        raise BootstrapError("Restrição de compatibilidade inválida")
+    result["blocked"] = blocked
+    versions = value.get("framework_versions", {})
+    keys(versions, result["frameworks_any"] | result["frameworks_all"], "versões de frameworks")
+    for name, choices in versions.items():
+        strings(choices, "versões de " + name)
+        if not choices or any(not VERSION.fullmatch(v) for v in choices):
+            raise BootstrapError("Versões compatíveis devem ser explícitas, sem intervalos")
+    if versions: result["framework_versions"] = versions
+    return result
+
+
+def catalog_policies(skills):
+    result = policies()
+    for skill in skills:
+        if "compatibility" in skill:
+            declared = declared_policy(skill["compatibility"])
+            if skill["id"] in result and declared != result[skill["id"]]:
+                raise BootstrapError("Não substituir política legada: " + skill["id"])
+            result[skill["id"]] = declared
+        if skill.get("distribution_status") == "approved" and skill["id"] not in result:
+            raise BootstrapError("Skill aprovada sem compatibilidade explícita: " + skill["id"])
+    return result
+
 
 def rule(languages=(), frameworks=(), features=(), *, architecture=None, all_frameworks=(), blocked=None, tools=(), runtimes=()):
     return {"languages_any": set(languages), "frameworks_any": set(frameworks), "features_all": set(features),
@@ -95,6 +149,8 @@ def mismatch(policy, config):
     languages = set(config["stack"]["languages"])
     frameworks = {f["name"] for f in config["stack"]["frameworks"]}
     features = set(config["requirements"]["features"])
+    if policy.get('languages_all',set()) - languages:
+        return 'Linguagens obrigatórias não declaradas: '+', '.join(sorted(policy['languages_all']-languages))
     if policy["languages_any"] and not policy["languages_any"] & languages:
         return "Linguagem exigida não declarada: "+", ".join(sorted(policy["languages_any"]))
     if policy["frameworks_any"] and not policy["frameworks_any"] & frameworks:
@@ -105,4 +161,8 @@ def mismatch(policy, config):
         return "Funcionalidades obrigatórias não declaradas: "+", ".join(sorted(policy["features_all"] - features))
     if policy["architecture"] and config["stack"]["architecture"] != policy["architecture"]:
         return "Arquitetura explícita exigida: "+policy["architecture"]
+    for name, choices in policy.get("framework_versions", {}).items():
+        version = next((f["version"] for f in config["stack"]["frameworks"] if f["name"] == name), None)
+        if version not in choices:
+            return "Versão explícita compatível exigida para " + name + ": " + ", ".join(choices)
     return policy["blocked"]

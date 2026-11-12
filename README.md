@@ -1,6 +1,21 @@
 # StackNauta
 
-**Etapa 3A — atualização manual das skills.** Consulta das sete origens e preparação isolada de atualizações, com revisão de diff, hash e autorização explícita antes de promover. A biblioteca aprovada permanece na revisão anterior; nenhuma atualização real foi aplicada nesta etapa. OpenCode/DeepSeek e Gemini CLI continuam pendentes de validação prática. Não certificado para produção.
+**Etapa 3B — inclusão controlada de skills e origens.** Descoberta isolada por URL,
+revisão e classificação individual, compatibilidade declarativa e promoção pelo
+mesmo hash/apply/recuperação da Etapa 3A. Nenhuma origem ou skill real foi adicionada
+ou atualizada nesta etapa. A biblioteca permanece com sete origens, 101 aprovadas,
+21 pendentes, duas excluídas e nove pacotes. Não certificado para produção.
+
+```sh
+./Automacao/manutencao-skills/skills add https://github.com/usuario/repositorio
+./Automacao/manutencao-skills/skills review SESSION
+./Automacao/manutencao-skills/skills review SESSION --decisions decisoes.json --review-id HASH_DA_DESCOBERTA
+# Revisar plan.json/review.diff e obter autorização antes do apply.
+```
+
+[Inclusão, decisões e compatibilidade](Automacao/manutencao-skills/INCLUSAO.md)
+e [relatório 3B](Automacao/validacao-inclusoes/RELATORIO.md). OpenCode/DeepSeek e
+Gemini CLI continuam pendentes de validação prática; não foram executados.
 
 ```sh
 ./Automacao/manutencao-skills/skills check
@@ -49,6 +64,7 @@ StackNauta/
 │   ├── integracao-agentes/          # procedimento comum e testes manuais
 │   ├── manutencao-skills/           # consulta, preparação, promoção e recuperação
 │   ├── validacao-atualizacoes/      # fixtures Git e evidências 3A
+│   ├── validacao-inclusoes/         # fixtures, demonstração e clone 3B
 │   ├── python-global               # executor asdf compartilhado pelos launchers
 │   ├── validacao-ciclo-arquivos/    # investigação, compatibilidade e evidências 2D
 │   └── validacao-integracao-agentes/ # testes 2B e evidências

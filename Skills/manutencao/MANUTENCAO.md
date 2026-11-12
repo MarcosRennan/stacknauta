@@ -1,5 +1,13 @@
 # Manutenção da biblioteca
 
+## Inclusão controlada — Etapa 3B
+
+O [guia de inclusão](../../Automacao/manutencao-skills/INCLUSAO.md) documenta
+`skills add URL`, `skills review`, decisões individuais e o apply por hash.
+Descoberta não altera catálogo/pacotes ativos. Nada é aprovado automaticamente;
+origens existentes são reconhecidas sem duplicação. A biblioteca real permanece
+nas sete origens e 101 skills aprovadas durante a validação 3B.
+
 ## Atualização incremental — Etapa 3A
 
 Usar a [CLI de manutenção](../../Automacao/manutencao-skills/README.md):

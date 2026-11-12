@@ -10,3 +10,6 @@ Diretório reservado às ferramentas e evidências da biblioteca; os pacotes de 
 A Etapa 3A oferece [consulta e atualização manual](../../Automacao/manutencao-skills/README.md)
 das sete origens, com candidato isolado, revisão, hash e autorização antes de
 promover. A receita histórica de preparação permanece preservada.
+
+A Etapa 3B acrescenta [inclusão e revisão individual](../../Automacao/manutencao-skills/INCLUSAO.md),
+sem aprovar automaticamente novas origens ou skills.

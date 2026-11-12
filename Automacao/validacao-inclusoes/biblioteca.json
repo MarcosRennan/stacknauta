@@ -1,0 +1,73 @@
+{
+  "schema_version": 2,
+  "stage": "1.5",
+  "validated_at_utc": "2026-11-12T19:12:56.218465+00:00",
+  "status": "passed_with_documented_pending",
+  "python_executor": {
+    "manager": "asdf",
+    "global_source": "~/.tool-versions",
+    "version": "3.14.8"
+  },
+  "counts": {
+    "sources": 7,
+    "physical_skill_files": 130,
+    "catalogued_skills": 124,
+    "distribution_aliases": 6,
+    "enabled_skills": 0,
+    "prepared_distribution_skills": 101,
+    "by_category": {
+      "Backend": 24,
+      "Frontend": 11,
+      "Mobile": 80,
+      "Seguranca": 9
+    },
+    "by_scope": {
+      "catalogued_source": 122,
+      "experimental_source": 1,
+      "internal_evaluation_not_distributable": 1
+    },
+    "approved_skills": 101,
+    "pending_skills": 21,
+    "excluded_skills": 2,
+    "distribution_packages": 9,
+    "approved_by_category": {
+      "Backend": 19,
+      "Frontend": 4,
+      "Mobile": 71,
+      "Seguranca": 7
+    }
+  },
+  "package_files_verified": 958,
+  "python_files_parsed": 41,
+  "node_syntax": {
+    "status": "passed",
+    "files": 7,
+    "execution": "syntax parsing only, vendor code not executed"
+  },
+  "local_markdown_links_checked": 1095,
+  "adapted_files": 102,
+  "cache_validation": {
+    "status": "not_required_for_distribution"
+  },
+  "physical_copy_test": {
+    "status": "not_requested"
+  },
+  "checks": [
+    "Revisões e proveniência de cada arquivo confrontadas com o lock e índices adquiridos.",
+    "Hashes, inventários completos, recursos, referências Markdown locais e licenças conferidos.",
+    "Planos de cópia fechados sobre dependências; nenhum SKILL.md pendente/excluído nos pacotes.",
+    "Adaptações explícitas com hashes antes/depois e unified diff.",
+    "Sem links simbólicos, caminhos locais ou dependência de cache nos pacotes.",
+    "Nenhuma ativação de agentes; estado do núcleo validado separadamente da biblioteca."
+  ],
+  "errors": [],
+  "limits": [
+    "Packaging approval does not certify agent discovery or all application workflows.",
+    "Consumer SDKs, hardware, authenticated services and CLIs were not provisioned or exercised.",
+    "Frontmatter delimiters/name/description and declared licence paths checked; not full YAML schema validation."
+  ],
+  "bootstrap_implemented": true,
+  "bootstrap_core_stage": "2A",
+  "agent_integration_tested": false,
+  "production_ready": false
+}

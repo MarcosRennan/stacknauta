@@ -1,0 +1,20 @@
+{
+  "stage": "2B",
+  "tested_at_utc": "2026-11-12T19:25:37.719913+00:00",
+  "status": "passed",
+  "tests_run": 16,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "python_executor": {
+    "version": "3.14.8",
+    "detected": {
+      "python": "3.14.8"
+    },
+    "roles": [
+      "executor"
+    ]
+  },
+  "log": "test_all_approved_alias_names_and_descriptions_are_valid (test_integration.IntegrationTests.test_all_approved_alias_names_and_descriptions_are_valid) ... ok\ntest_apply_copies_full_originals_and_portable_entries (test_integration.IntegrationTests.test_apply_copies_full_originals_and_portable_entries) ... ok\ntest_changed_configuration_requires_review (test_integration.IntegrationTests.test_changed_configuration_requires_review) ... ok\ntest_cli_requires_reviewed_hash (test_integration.IntegrationTests.test_cli_requires_reviewed_hash) ... ok\ntest_conflicting_gemini_file_blocks_before_core_changes (test_integration.IntegrationTests.test_conflicting_gemini_file_blocks_before_core_changes) ... ok\ntest_dangerous_symlink_and_hardlink_block (test_integration.IntegrationTests.test_dangerous_symlink_and_hardlink_block) ... ok\ntest_dry_run_has_two_hashes_and_no_destination (test_integration.IntegrationTests.test_dry_run_has_two_hashes_and_no_destination) ... ok\ntest_idempotence_preserves_bytes_inode_mtime_and_original_core (test_integration.IntegrationTests.test_idempotence_preserves_bytes_inode_mtime_and_original_core) ... ok\ntest_missing_runtime_blocks_before_writes (test_integration.IntegrationTests.test_missing_runtime_blocks_before_writes) ... ok\ntest_no_skills_no_invented_aliases (test_integration.IntegrationTests.test_no_skills_no_invented_aliases) ... ok\ntest_partial_failure_resumes_without_overwrite (test_integration.IntegrationTests.test_partial_failure_resumes_without_overwrite) ... ok\ntest_pending_and_incompatible_skills_block (test_integration.IntegrationTests.test_pending_and_incompatible_skills_block) ... ok\ntest_permission_failure_preserves_existing_files (test_integration.IntegrationTests.test_permission_failure_preserves_existing_files) ... ok\ntest_portable_without_cache_and_personal_root (test_integration.IntegrationTests.test_portable_without_cache_and_personal_root) ... ok\ntest_verify_rejects_absent_or_damaged_files (test_integration.IntegrationTests.test_verify_rejects_absent_or_damaged_files) ... ok\ntest_wrong_hash_and_core_hash_cannot_authorize_integration (test_integration.IntegrationTests.test_wrong_hash_and_core_hash_cannot_authorize_integration) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 1.896s\n\nOK\n",
+  "limits": "Tests validate shared code, not native agent activation. Only temporary projects; runtimes synthetic except CLI launcher precheck."
+}

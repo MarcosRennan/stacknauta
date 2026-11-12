@@ -164,8 +164,10 @@ def validate(origins=False,copies=False,node_syntax=False):
             errors.append('Receita/política/lock mudou sem regeneração: '+relative)
     if catalog['stage']!='1.5' or catalog.get('bootstrap_implemented') is not False:
         errors.append('Etapa/estado do bootstrap incorretos')
-    if len(lock['sources'])!=7 or {s['id']:s['commit'] for s in lock['sources']}!={s['id']:s['commit'] for s in catalog['sources']}:
-        errors.append('Lock e catálogo divergem nas sete revisões')
+    if (not lock['sources'] or len({s['id'] for s in lock['sources']})!=len(lock['sources']) or
+        len({s['id'] for s in catalog['sources']})!=len(catalog['sources']) or
+        {s['id']:(s['commit'],s['url']) for s in lock['sources']}!={s['id']:(s['commit'],s['url']) for s in catalog['sources']}):
+        errors.append('Lock e catálogo divergem nas origens/revisões ou possuem IDs duplicados')
     decisions={r['id']:r for r in policy['rows']}
     skills={s['id']:s for s in catalog['skills']}
     if set(decisions)!=set(skills) or len(skills)!=len(catalog['skills']):
@@ -217,7 +219,7 @@ def validate(origins=False,copies=False,node_syntax=False):
         count,broken=check_links(root)
         local_links+=count
         errors.extend('Link local obrigatório inválido: '+package['id']+':'+b for b in broken)
-        if not any(p.startswith('LICENSE') for p in package['shared_files']):
+        if not any(Path(p).name.upper().startswith(('LICENSE','COPYING','NOTICE')) for p in package['shared_files']):
             errors.append('Licença raiz não compartilhada: '+package['id'])
     expected_paths=set()
     for identifier,skill in skills.items():
@@ -249,6 +251,9 @@ def validate(origins=False,copies=False,node_syntax=False):
     core_marker=ROOT/'Automacao/project-bootstrap/STATUS.json'
     core_state={}
     if core_marker.exists():
+        sys.path.insert(0,str(ROOT/'Automacao/project-bootstrap'))
+        from stacknauta_core.compatibility import catalog_policies
+        catalog_policies(catalog['skills'])
         core_state=json.loads(core_marker.read_text())
         if core_state!={'stage':'2A','core_implemented':True,'agent_integration_tested':False,'production_ready':False}:
             errors.append('Estado do núcleo fora da etapa 2A declarada.')
