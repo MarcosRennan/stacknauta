@@ -131,7 +131,9 @@ Biblioteca completa: 958 arquivos, 101 fechamentos estáticos e sete JS parseado
 zero erros. Não se usou o modo histórico `--copias`, pois ele executa buscas de
 fornecedor. As cópias são cobertas pelos testes do núcleo e pelos novos casos,
 sem executar fornecedores. O wrapper de clone reutiliza os testes 3A e acrescenta
-a suíte e demonstração 3B; validação final de clone será registrada após o commit.
+a suíte e demonstração 3B. O clone limpo **passou**, repetindo os 188 testes,
+os 958 arquivos e 101 fechamentos, sem `_repos/`. A árvore permaneceu limpa.
+[clone-local.json](clone-local.json) contém os resultados completos.
 
 ```sh
 bash Automacao/python-global Automacao/validacao-inclusoes/executar_testes.py
@@ -178,3 +180,24 @@ Relatórios: [inclusoes.json](inclusoes.json), [atualizacoes.json](atualizacoes.
 
 O próximo passo é revisar esta implementação antes de escolher uma origem real;
 descoberta, decisões e promoção deverão seguir as autorizações separadas descritas.
+
+## Fechamento e preservação
+
+O commit de implementação inicial é `06df65c587068658c2d3a297d2aea4edb09f8dc1`.
+A revisão final de código testada no clone é `3a7bea86eaaf660e3a18054303a397a652accfeb`;
+ela acrescenta a aceitação de repositórios como `.github`, porta HTTPS padrão
+e respectivos testes. O commit posterior de evidências altera apenas arquivos
+de relatório/documentação desta validação, sem código novo depois dos testes.
+
+A [conferência de preservação](preservacao.json) compara 4.259 entradas de App-Web
+e 2.266 do consumidor FastAPI: bytes, inode, modo, mtime e ctime idênticos.
+Os 1.000 artefatos rastreados de Skills fora das quatro ferramentas/documentações
+editadas também permaneceram idênticos, incluindo pacotes, catálogo, lock, política,
+proveniência, templates e índices de aquisição. A configuração global asdf
+permaneceu idêntica; nenhum remoto foi configurado e nenhuma sessão real de
+inclusão/atualização foi criada.
+
+O consumidor existente foi somente verificado, sem apply: `verified_with_evolution`,
+plan ID `aee4b7483f7e31e713007e099b95702a2f969ac9549513b8bf186ed94a45bc4e`
+e core ID `8ba96293d5dccd45822e79e087aa9e22ad39c2b24c75e28fb693542c6b2d7a05`,
+sem migração ou alteração de bytes. Consolidado: [resultado.json](resultado.json).

@@ -1,0 +1,469 @@
+{
+  "stage": "3B",
+  "status": "passed",
+  "tested_commit": "3a7bea86eaaf660e3a18054303a397a652accfeb",
+  "temporary_clone": "/tmp/stacknauta-3a-clone-0mt5hf7p/StackNauta",
+  "cache_present": false,
+  "tree_clean_after_tests": true,
+  "prior_validators": {
+    "stage": "3A",
+    "status": "passed",
+    "tested_commit": "3a7bea86eaaf660e3a18054303a397a652accfeb",
+    "temporary_clone": "/tmp/stacknauta-3a-clone-0mt5hf7p/StackNauta",
+    "runtime": {
+      "version": "3.14.8",
+      "detected": {
+        "python": "3.14.8"
+      },
+      "roles": [
+        "executor"
+      ]
+    },
+    "cache_present": false,
+    "tree_clean_after_tests": true,
+    "real_origins_updated": false,
+    "vendor_code_executed": false,
+    "results": {
+      "nucleo": {
+        "stage": "2A",
+        "tested_at_utc": "2026-11-12T19:45:48.009898+00:00",
+        "status": "passed",
+        "tests_run": 96,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "python_executor": {
+          "version": "3.14.8",
+          "detected": {
+            "python": "3.14.8"
+          },
+          "roles": [
+            "executor"
+          ]
+        },
+        "limits": "Runtimes Go/JVM/Rust simulados sem execução; CLI real usa somente Python/Node globais já instalados. Projetos de teste são temporários; sem integração com agentes."
+      },
+      "integracao": {
+        "stage": "2B",
+        "tested_at_utc": "2026-11-12T19:45:49.725384+00:00",
+        "status": "passed",
+        "tests_run": 16,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "python_executor": {
+          "version": "3.14.8",
+          "detected": {
+            "python": "3.14.8"
+          },
+          "roles": [
+            "executor"
+          ]
+        },
+        "limits": "Tests validate shared code, not native agent activation. Only temporary projects; runtimes synthetic except CLI launcher precheck."
+      },
+      "atualizacoes": {
+        "stage": "3A",
+        "status": "passed",
+        "tests_run": 34,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "runtime": {
+          "python": {
+            "version": "3.14.8",
+            "detected": {
+              "python": "3.14.8"
+            },
+            "roles": [
+              "executor"
+            ]
+          }
+        },
+        "real_origins_updated": false
+      },
+      "biblioteca": {
+        "schema_version": 2,
+        "stage": "1.5",
+        "validated_at_utc": "2026-11-12T19:46:13.771622+00:00",
+        "status": "passed_with_documented_pending",
+        "python_executor": {
+          "manager": "asdf",
+          "global_source": "~/.tool-versions",
+          "version": "3.14.8"
+        },
+        "counts": {
+          "sources": 7,
+          "physical_skill_files": 130,
+          "catalogued_skills": 124,
+          "distribution_aliases": 6,
+          "enabled_skills": 0,
+          "prepared_distribution_skills": 101,
+          "by_category": {
+            "Backend": 24,
+            "Frontend": 11,
+            "Mobile": 80,
+            "Seguranca": 9
+          },
+          "by_scope": {
+            "catalogued_source": 122,
+            "experimental_source": 1,
+            "internal_evaluation_not_distributable": 1
+          },
+          "approved_skills": 101,
+          "pending_skills": 21,
+          "excluded_skills": 2,
+          "distribution_packages": 9,
+          "approved_by_category": {
+            "Backend": 19,
+            "Frontend": 4,
+            "Mobile": 71,
+            "Seguranca": 7
+          }
+        },
+        "package_files_verified": 958,
+        "python_files_parsed": 41,
+        "node_syntax": {
+          "status": "passed",
+          "files": 7,
+          "execution": "syntax parsing only, vendor code not executed"
+        },
+        "local_markdown_links_checked": 1095,
+        "adapted_files": 102,
+        "cache_validation": {
+          "status": "not_required_for_distribution"
+        },
+        "physical_copy_test": {
+          "status": "not_requested"
+        },
+        "checks": [
+          "Revisões e proveniência de cada arquivo confrontadas com o lock e índices adquiridos.",
+          "Hashes, inventários completos, recursos, referências Markdown locais e licenças conferidos.",
+          "Planos de cópia fechados sobre dependências; nenhum SKILL.md pendente/excluído nos pacotes.",
+          "Adaptações explícitas com hashes antes/depois e unified diff.",
+          "Sem links simbólicos, caminhos locais ou dependência de cache nos pacotes.",
+          "Nenhuma ativação de agentes; estado do núcleo validado separadamente da biblioteca."
+        ],
+        "errors": [],
+        "limits": [
+          "Packaging approval does not certify agent discovery or all application workflows.",
+          "Consumer SDKs, hardware, authenticated services and CLIs were not provisioned or exercised.",
+          "Frontmatter delimiters/name/description and declared licence paths checked; not full YAML schema validation."
+        ],
+        "bootstrap_implemented": true,
+        "bootstrap_core_stage": "2A",
+        "agent_integration_tested": false,
+        "production_ready": false
+      },
+      "fechamentos": {
+        "status": "passed_with_documented_pending",
+        "arquivos": 958,
+        "fechamentos": 101,
+        "codigo_fornecedor_executado": false
+      }
+    },
+    "limits": "Local fixture updates only; no other agents, network or vendor workflows. Clone retained."
+  },
+  "inclusions": {
+    "stage": "3B",
+    "status": "passed",
+    "tests_run": 42,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runtime": {
+      "python": {
+        "version": "3.14.8",
+        "detected": {
+          "python": "3.14.8"
+        },
+        "roles": [
+          "executor"
+        ]
+      }
+    },
+    "log": "test_acknowledgment_cannot_bypass_approved_alias_collision (test_additions.AdditionTests.test_acknowledgment_cannot_bypass_approved_alias_collision) ... ok\ntest_blob_url_and_pinned_revisions (test_additions.AdditionTests.test_blob_url_and_pinned_revisions) ... ok\ntest_category_and_applicability_are_mandatory (test_additions.AdditionTests.test_category_and_applicability_are_mandatory) ... ok\ntest_cli_add_review_apply_end_to_end (test_additions.AdditionTests.test_cli_add_review_apply_end_to_end) ... ok\ntest_cli_review_and_3a_check_are_compatible (test_additions.AdditionTests.test_cli_review_and_3a_check_are_compatible) ... ok\ntest_companion_requires_its_own_approval_and_compatible_copy_closure (test_additions.AdditionTests.test_companion_requires_its_own_approval_and_compatible_copy_closure) ... ok\ntest_discovery_isolated_multiple_skills_all_pending (test_additions.AdditionTests.test_discovery_isolated_multiple_skills_all_pending) ... ok\ntest_duplicate_content_and_name_conflicts_reported (test_additions.AdditionTests.test_duplicate_content_and_name_conflicts_reported) ... ok\ntest_duplicate_identifiers_block_registration (test_additions.AdditionTests.test_duplicate_identifiers_block_registration) ... ok\ntest_existing_full_acquisition_is_never_narrowed (test_additions.AdditionTests.test_existing_full_acquisition_is_never_narrowed) ... ok\ntest_existing_origin_reuses_identity_and_pending_metadata (test_additions.AdditionTests.test_existing_origin_reuses_identity_and_pending_metadata) ... ok\ntest_existing_revision_cannot_update_implicitly (test_additions.AdditionTests.test_existing_revision_cannot_update_implicitly) ... ok\ntest_explicit_exclusion_and_prior_classifications (test_additions.AdditionTests.test_explicit_exclusion_and_prior_classifications) ... ok\ntest_external_relative_assets_and_scripts_have_complete_closure (test_additions.AdditionTests.test_external_relative_assets_and_scripts_have_complete_closure) ... ok\ntest_failure_after_new_publication_recovers_original_library (test_additions.AdditionTests.test_failure_after_new_publication_recovers_original_library) ... ok\ntest_framework_versions_and_incompatible_explicit_selection (test_additions.AdditionTests.test_framework_versions_and_incompatible_explicit_selection) ... ok\ntest_idempotent_review_apply_and_rediscovery (test_additions.AdditionTests.test_idempotent_review_apply_and_rediscovery) ... ok\ntest_incompatible_license_is_pending (test_additions.AdditionTests.test_incompatible_license_is_pending) ... ok\ntest_individual_approval_only_and_physical_export (test_additions.AdditionTests.test_individual_approval_only_and_physical_export) ... ok\ntest_missing_declared_tool_and_unreviewed_prerequisite_block (test_additions.AdditionTests.test_missing_declared_tool_and_unreviewed_prerequisite_block) ... ok\ntest_missing_license_cannot_be_approved (test_additions.AdditionTests.test_missing_license_cannot_be_approved) ... ok\ntest_missing_requested_subdirectory_is_not_silently_ignored (test_additions.AdditionTests.test_missing_requested_subdirectory_is_not_silently_ignored) ... ok\ntest_missing_resource_stays_pending_and_cannot_be_approved (test_additions.AdditionTests.test_missing_resource_stays_pending_and_cannot_be_approved) ... ok\ntest_network_failure_and_unavailable_repo (test_additions.AdditionTests.test_network_failure_and_unavailable_repo) ... ok\ntest_new_skill_bootstrap_plan_apply_and_verify (test_additions.AdditionTests.test_new_skill_bootstrap_plan_apply_and_verify) ... ok\ntest_no_approvals_registers_only_pending (test_additions.AdditionTests.test_no_approvals_registers_only_pending) ... ok\ntest_paths_symlinks_and_production_local_urls_are_rejected (test_additions.AdditionTests.test_paths_symlinks_and_production_local_urls_are_rejected) ... ok\ntest_real_local_branch_with_slash_and_annotated_tag (test_additions.AdditionTests.test_real_local_branch_with_slash_and_annotated_tag) ... ok\ntest_recovery_and_consumer_preservation (test_additions.AdditionTests.test_recovery_and_consumer_preservation) ... ok\ntest_reject_unknown_compatibility_and_runtime_as_tool (test_additions.AdditionTests.test_reject_unknown_compatibility_and_runtime_as_tool) ... ok\ntest_renderer_templates_and_long_alias_remain_pending (test_additions.AdditionTests.test_renderer_templates_and_long_alias_remain_pending) ... ok\ntest_review_hash_and_apply_authorization (test_additions.AdditionTests.test_review_hash_and_apply_authorization) ... ok\ntest_root_skill_layout_and_resources (test_additions.AdditionTests.test_root_skill_layout_and_resources) ... ok\ntest_same_vendor_bytes_are_detected_as_duplicate (test_additions.AdditionTests.test_same_vendor_bytes_are_detected_as_duplicate) ... ok\ntest_source_identifier_collision_is_rejected (test_additions.AdditionTests.test_source_identifier_collision_is_rejected) ... ok\ntest_ssh_transport_is_noninteractive_without_configuration_writes (test_additions.AdditionTests.test_ssh_transport_is_noninteractive_without_configuration_writes) ... ok\ntest_subdirectory_does_not_require_unselected_root_orchestrator (test_additions.AdditionTests.test_subdirectory_does_not_require_unselected_root_orchestrator) ... ok\ntest_tampered_source_and_analysis_are_rejected (test_additions.AdditionTests.test_tampered_source_and_analysis_are_rejected) ... ok\ntest_unexpected_candidate_changes_block_apply (test_additions.AdditionTests.test_unexpected_candidate_changes_block_apply) ... ok\ntest_update_new_registered_origin_preserves_compatibility (test_additions.AdditionTests.test_update_new_registered_origin_preserves_compatibility) ... ok\ntest_url_formats_refs_with_slashes_and_ssh_no_config_changes (test_additions.AdditionTests.test_url_formats_refs_with_slashes_and_ssh_no_config_changes) ... ok\ntest_url_subdirectory_scope_and_root_license (test_additions.AdditionTests.test_url_subdirectory_scope_and_root_license) ... ok\n\n----------------------------------------------------------------------\nRan 42 tests in 35.070s\n\nOK\n",
+    "real_origins_added": false,
+    "vendor_code_executed": false
+  },
+  "demonstration": {
+    "stage": "3B",
+    "status": "passed",
+    "scope": "Isolated local fixture, not the real library",
+    "temporary_directory": "/tmp/stacknauta-update-test-p3uc55lt",
+    "discovery": {
+      "status": "descoberto",
+      "session_id": "5de10f0cc2bf4bc3b1ff6a36ec3b0c6a",
+      "review_id": "5b33b6e6f0222a2139a54fe85075caac6258b9cb40f90549cfa4406ab3d1c9bd",
+      "source": {
+        "url": "/tmp/stacknauta-update-test-p3uc55lt/remotes/candidates",
+        "default_branch": "main",
+        "branch": "main",
+        "commit": "106f63147ab97f5cb696e977d931a341d0d84ac3",
+        "revision_type": "branch",
+        "revision_ref": "main",
+        "id": "gh-fixture-candidates",
+        "directory": "Skills/_repos/gh-fixture-candidates",
+        "source_category": null,
+        "acquisition": "shallow-depth-1-no-checkout-manual-materialization",
+        "sparse_paths": []
+      },
+      "scope": null,
+      "candidates": [
+        {
+          "id": "gh-fixture-candidates:fastapi",
+          "name": "fastapi",
+          "description": "Guia local de validação.",
+          "repository": "/tmp/stacknauta-update-test-p3uc55lt/remotes/candidates",
+          "commit": "106f63147ab97f5cb696e977d931a341d0d84ac3",
+          "source_path": "skills/conflict/SKILL.md",
+          "proposed_category": null,
+          "current_status": "pending",
+          "license": {
+            "identified": "MIT",
+            "evidence": [
+              {
+                "path": "LICENSE",
+                "identified": "MIT"
+              }
+            ],
+            "asset_licenses": [],
+            "licensing_metadata": [],
+            "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+          },
+          "resources": [
+            "LICENSE",
+            "skills/conflict/SKILL.md"
+          ],
+          "dependencies": [],
+          "dependency_evidence": [],
+          "conflicts": [
+            "fastapi:fastapi"
+          ],
+          "reference_checks": [],
+          "script_files": [],
+          "content_duplicates": [],
+          "blockers": [],
+          "enabled": false,
+          "discovery_status": "pending"
+        },
+        {
+          "id": "gh-fixture-candidates:good-helper",
+          "name": "good-helper",
+          "description": "Guia local de validação.",
+          "repository": "/tmp/stacknauta-update-test-p3uc55lt/remotes/candidates",
+          "commit": "106f63147ab97f5cb696e977d931a341d0d84ac3",
+          "source_path": "skills/good/SKILL.md",
+          "proposed_category": null,
+          "current_status": "pending",
+          "license": {
+            "identified": "MIT",
+            "evidence": [
+              {
+                "path": "LICENSE",
+                "identified": "MIT"
+              }
+            ],
+            "asset_licenses": [],
+            "licensing_metadata": [],
+            "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+          },
+          "resources": [
+            "LICENSE",
+            "skills/good/SKILL.md"
+          ],
+          "dependencies": [],
+          "dependency_evidence": [],
+          "conflicts": [],
+          "reference_checks": [],
+          "script_files": [],
+          "content_duplicates": [],
+          "blockers": [],
+          "enabled": false,
+          "discovery_status": "pending"
+        },
+        {
+          "id": "gh-fixture-candidates:missing-helper",
+          "name": "missing-helper",
+          "description": "Guia local de validação.",
+          "repository": "/tmp/stacknauta-update-test-p3uc55lt/remotes/candidates",
+          "commit": "106f63147ab97f5cb696e977d931a341d0d84ac3",
+          "source_path": "skills/missing/SKILL.md",
+          "proposed_category": null,
+          "current_status": "pending",
+          "license": {
+            "identified": "MIT",
+            "evidence": [
+              {
+                "path": "LICENSE",
+                "identified": "MIT"
+              }
+            ],
+            "asset_licenses": [],
+            "licensing_metadata": [],
+            "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+          },
+          "resources": [
+            "LICENSE",
+            "skills/missing/SKILL.md"
+          ],
+          "dependencies": [],
+          "dependency_evidence": [],
+          "conflicts": [],
+          "reference_checks": [
+            {
+              "document": "skills/missing/SKILL.md",
+              "target": "references/absent.md",
+              "kind": "markdown",
+              "status": "unresolved_requires_review",
+              "possible_matches": []
+            },
+            {
+              "document": "skills/missing/SKILL.md",
+              "target": "references/absent.md",
+              "kind": "resource_mention",
+              "status": "unresolved_requires_review",
+              "possible_matches": []
+            }
+          ],
+          "script_files": [],
+          "content_duplicates": [],
+          "blockers": [
+            "Recursos/referências ausentes ou fora do escopo adquirido"
+          ],
+          "enabled": false,
+          "discovery_status": "pending"
+        }
+      ],
+      "existing_source": false,
+      "active_library_modified": false
+    },
+    "plan_id": "81777b60102ea63d562631bfbac14ce77f8e60b32462f01b63922fa7fb838307",
+    "plan_file": "/tmp/stacknauta-update-test-p3uc55lt/StackNauta/.stacknauta-updates/5de10f0cc2bf4bc3b1ff6a36ec3b0c6a/plan.json",
+    "diff_file": "/tmp/stacknauta-update-test-p3uc55lt/StackNauta/.stacknauta-updates/5de10f0cc2bf4bc3b1ff6a36ec3b0c6a/review.diff",
+    "rejected_conflict": "Conflitos de nomes aprovados impedem aliases portáteis únicos: gh-fixture-candidates:fastapi",
+    "applied": {
+      "status": "aplicado",
+      "session_id": "5de10f0cc2bf4bc3b1ff6a36ec3b0c6a",
+      "plan_id": "81777b60102ea63d562631bfbac14ce77f8e60b32462f01b63922fa7fb838307",
+      "origens": [
+        {
+          "atual": null,
+          "branch": "main",
+          "disponivel": "106f63147ab97f5cb696e977d931a341d0d84ac3",
+          "estado": "inclusao_revisada",
+          "origem": "gh-fixture-candidates",
+          "resultado": "nao_modificada"
+        }
+      ],
+      "backup": "/tmp/stacknauta-update-test-p3uc55lt/StackNauta/.stacknauta-updates/5de10f0cc2bf4bc3b1ff6a36ec3b0c6a/previous-Skills"
+    },
+    "skills": [
+      {
+        "id": "gh-fixture-candidates:fastapi",
+        "status": "pending",
+        "category": null,
+        "distributed": false,
+        "enabled": false
+      },
+      {
+        "id": "gh-fixture-candidates:good-helper",
+        "status": "approved",
+        "category": "Backend",
+        "distributed": true,
+        "enabled": false
+      },
+      {
+        "id": "gh-fixture-candidates:missing-helper",
+        "status": "pending",
+        "category": null,
+        "distributed": false,
+        "enabled": false
+      }
+    ],
+    "validation": {
+      "status": "passed_with_documented_pending",
+      "arquivos": 71,
+      "fechamentos": 5,
+      "codigo_fornecedor_executado": false
+    },
+    "bootstrap": {
+      "status": "verified",
+      "mode": "apply",
+      "plan_id": "229d56ac7125c24a4ea8c2c272ffda98c1ff156c9ee05c62b112976ffb9e7363",
+      "core_plan_id": "c9fb747820e790c1a20e00836ca5487036fe6413a536b5934c602cc4209570bf",
+      "destination": "/tmp/stacknauta-update-test-p3uc55lt/demo-api",
+      "core_files_verified": 30,
+      "integration_files_verified": 5,
+      "verification_state": "intact",
+      "lifecycle": {
+        "policy_version": "2D.1",
+        "initialization": "complete",
+        "modified": {},
+        "removed": [],
+        "unmanaged": [],
+        "content_validation": "Physical structure and protected hashes; application syntax/semantics are not certified."
+      },
+      "integration_lifecycle": {
+        "policy_version": "2D.1",
+        "initialization": "complete",
+        "modified": {},
+        "removed": [],
+        "unmanaged": [],
+        "content_validation": "Physical structure and protected hashes; application syntax/semantics are not certified."
+      },
+      "discovery_entries": [
+        {
+          "name": "stacknauta-fastapi",
+          "id": "fastapi:fastapi",
+          "path": ".agents/skills/stacknauta-fastapi/SKILL.md",
+          "original_path": ".agents/skills/backend-fastapi/skills/fastapi/SKILL.md",
+          "original_sha256": "3c92001d0d0be66c0e67613871ff2397f0d68b2d4c22850bf596b43317916144",
+          "repository": "/tmp/stacknauta-update-test-p3uc55lt/remotes/fastapi",
+          "commit": "10618ab446dd0f120d19f6e40ad79e1be9c5a305"
+        },
+        {
+          "name": "stacknauta-good-helper",
+          "id": "gh-fixture-candidates:good-helper",
+          "path": ".agents/skills/stacknauta-good-helper/SKILL.md",
+          "original_path": ".agents/skills/backend-gh-fixture-candidates/vendor/skills/good/SKILL.md",
+          "original_sha256": "b2436406f3517a59ecd4e2283f2284affc9f13e9264b28ffd221edaec3a9242c",
+          "repository": "/tmp/stacknauta-update-test-p3uc55lt/remotes/candidates",
+          "commit": "106f63147ab97f5cb696e977d931a341d0d84ac3"
+        }
+      ],
+      "production_ready": false,
+      "native_agent_discovery": "Must be tested in a fresh session of the selected agent; filesystem verification is not native discovery.",
+      "core_result": {
+        "status": "prepared",
+        "created_files": 30,
+        "unchanged_files": 0,
+        "plan_id": "c9fb747820e790c1a20e00836ca5487036fe6413a536b5934c602cc4209570bf",
+        "destination": "/tmp/stacknauta-update-test-p3uc55lt/demo-api",
+        "skills": [
+          "fastapi:fastapi",
+          "gh-fixture-candidates:good-helper"
+        ],
+        "lifecycle": {
+          "policy_version": "2D.1",
+          "initialization": "complete",
+          "modified": {},
+          "removed": [],
+          "unmanaged": [],
+          "content_validation": "Physical structure and protected hashes; application syntax/semantics are not certified."
+        },
+        "production_ready": false,
+        "agent_integration_tested": false
+      }
+    },
+    "reapply": "unchanged",
+    "existing_fixture_consumer_preserved": true,
+    "real_origins_added": false,
+    "vendor_code_executed": false,
+    "native_agent_activation_tested": false,
+    "temporary_environment_retained": true
+  },
+  "real_origins_added": false,
+  "vendor_code_executed": false,
+  "other_agents_executed": false
+}

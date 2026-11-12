@@ -1,0 +1,43 @@
+{
+  "stage": "3B",
+  "status": "passed",
+  "tested_code_commit": "3a7bea86eaaf660e3a18054303a397a652accfeb",
+  "tests": {
+    "core": 96,
+    "integration": 16,
+    "updates": 34,
+    "inclusions": 42,
+    "total": 188,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "clean_clone_without_repos": "passed",
+  "library_files_verified": 958,
+  "static_skill_closures": 101,
+  "demonstration": {
+    "approved": [
+      "good-helper"
+    ],
+    "pending": [
+      "missing-helper",
+      "fastapi"
+    ],
+    "only_explicitly_approved_distributed": true,
+    "bootstrap_verified": true,
+    "reapply": "unchanged"
+  },
+  "real_library": {
+    "sources": 7,
+    "packages": 9,
+    "approved": 101,
+    "pending": 21,
+    "excluded": 2,
+    "added_or_updated": false
+  },
+  "preservation": "passed",
+  "live_ssh_or_private_https_auth_tested": false,
+  "vendor_code_executed": false,
+  "other_agents_executed": false,
+  "production_certified": false
+}

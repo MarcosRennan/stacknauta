@@ -2,16 +2,16 @@
   "stage": "3B",
   "status": "passed",
   "scope": "Isolated local fixture, not the real library",
-  "temporary_directory": "/tmp/stacknauta-update-test-xdiskre7",
+  "temporary_directory": "/tmp/stacknauta-update-test-p3uc55lt",
   "discovery": {
     "status": "descoberto",
-    "session_id": "aa5fb3f4d145489b9371e1cb97be3f45",
-    "review_id": "3790859c8fd0199e050917967ec354a0293dc39a1e6c68b79e524741b4f02d6f",
+    "session_id": "5de10f0cc2bf4bc3b1ff6a36ec3b0c6a",
+    "review_id": "5b33b6e6f0222a2139a54fe85075caac6258b9cb40f90549cfa4406ab3d1c9bd",
     "source": {
-      "url": "/tmp/stacknauta-update-test-xdiskre7/remotes/candidates",
+      "url": "/tmp/stacknauta-update-test-p3uc55lt/remotes/candidates",
       "default_branch": "main",
       "branch": "main",
-      "commit": "1eed6d6bee25306538d3b368867a109191107013",
+      "commit": "106f63147ab97f5cb696e977d931a341d0d84ac3",
       "revision_type": "branch",
       "revision_ref": "main",
       "id": "gh-fixture-candidates",
@@ -26,8 +26,8 @@
         "id": "gh-fixture-candidates:fastapi",
         "name": "fastapi",
         "description": "Guia local de validação.",
-        "repository": "/tmp/stacknauta-update-test-xdiskre7/remotes/candidates",
-        "commit": "1eed6d6bee25306538d3b368867a109191107013",
+        "repository": "/tmp/stacknauta-update-test-p3uc55lt/remotes/candidates",
+        "commit": "106f63147ab97f5cb696e977d931a341d0d84ac3",
         "source_path": "skills/conflict/SKILL.md",
         "proposed_category": null,
         "current_status": "pending",
@@ -63,8 +63,8 @@
         "id": "gh-fixture-candidates:good-helper",
         "name": "good-helper",
         "description": "Guia local de validação.",
-        "repository": "/tmp/stacknauta-update-test-xdiskre7/remotes/candidates",
-        "commit": "1eed6d6bee25306538d3b368867a109191107013",
+        "repository": "/tmp/stacknauta-update-test-p3uc55lt/remotes/candidates",
+        "commit": "106f63147ab97f5cb696e977d931a341d0d84ac3",
         "source_path": "skills/good/SKILL.md",
         "proposed_category": null,
         "current_status": "pending",
@@ -98,8 +98,8 @@
         "id": "gh-fixture-candidates:missing-helper",
         "name": "missing-helper",
         "description": "Guia local de validação.",
-        "repository": "/tmp/stacknauta-update-test-xdiskre7/remotes/candidates",
-        "commit": "1eed6d6bee25306538d3b368867a109191107013",
+        "repository": "/tmp/stacknauta-update-test-p3uc55lt/remotes/candidates",
+        "commit": "106f63147ab97f5cb696e977d931a341d0d84ac3",
         "source_path": "skills/missing/SKILL.md",
         "proposed_category": null,
         "current_status": "pending",
@@ -150,25 +150,25 @@
     "existing_source": false,
     "active_library_modified": false
   },
-  "plan_id": "31a1de7e7c0249e07a8891ae996c46a7cbe7284d3551f649354a3173cceb4b01",
-  "plan_file": "/tmp/stacknauta-update-test-xdiskre7/StackNauta/.stacknauta-updates/aa5fb3f4d145489b9371e1cb97be3f45/plan.json",
-  "diff_file": "/tmp/stacknauta-update-test-xdiskre7/StackNauta/.stacknauta-updates/aa5fb3f4d145489b9371e1cb97be3f45/review.diff",
+  "plan_id": "81777b60102ea63d562631bfbac14ce77f8e60b32462f01b63922fa7fb838307",
+  "plan_file": "/tmp/stacknauta-update-test-p3uc55lt/StackNauta/.stacknauta-updates/5de10f0cc2bf4bc3b1ff6a36ec3b0c6a/plan.json",
+  "diff_file": "/tmp/stacknauta-update-test-p3uc55lt/StackNauta/.stacknauta-updates/5de10f0cc2bf4bc3b1ff6a36ec3b0c6a/review.diff",
   "rejected_conflict": "Conflitos de nomes aprovados impedem aliases portáteis únicos: gh-fixture-candidates:fastapi",
   "applied": {
     "status": "aplicado",
-    "session_id": "aa5fb3f4d145489b9371e1cb97be3f45",
-    "plan_id": "31a1de7e7c0249e07a8891ae996c46a7cbe7284d3551f649354a3173cceb4b01",
+    "session_id": "5de10f0cc2bf4bc3b1ff6a36ec3b0c6a",
+    "plan_id": "81777b60102ea63d562631bfbac14ce77f8e60b32462f01b63922fa7fb838307",
     "origens": [
       {
         "atual": null,
         "branch": "main",
-        "disponivel": "1eed6d6bee25306538d3b368867a109191107013",
+        "disponivel": "106f63147ab97f5cb696e977d931a341d0d84ac3",
         "estado": "inclusao_revisada",
         "origem": "gh-fixture-candidates",
         "resultado": "nao_modificada"
       }
     ],
-    "backup": "/tmp/stacknauta-update-test-xdiskre7/StackNauta/.stacknauta-updates/aa5fb3f4d145489b9371e1cb97be3f45/previous-Skills"
+    "backup": "/tmp/stacknauta-update-test-p3uc55lt/StackNauta/.stacknauta-updates/5de10f0cc2bf4bc3b1ff6a36ec3b0c6a/previous-Skills"
   },
   "skills": [
     {
@@ -202,9 +202,9 @@
   "bootstrap": {
     "status": "verified",
     "mode": "apply",
-    "plan_id": "bfa45ed51476dcc2f31767964bfee3cd2bc6a39f157c8f4daedb3ca33b377722",
-    "core_plan_id": "67b11bde4341e54b1b33230368e0b7edca8a84661054ca9e64bb8b2e24088bfe",
-    "destination": "/tmp/stacknauta-update-test-xdiskre7/demo-api",
+    "plan_id": "229d56ac7125c24a4ea8c2c272ffda98c1ff156c9ee05c62b112976ffb9e7363",
+    "core_plan_id": "c9fb747820e790c1a20e00836ca5487036fe6413a536b5934c602cc4209570bf",
+    "destination": "/tmp/stacknauta-update-test-p3uc55lt/demo-api",
     "core_files_verified": 30,
     "integration_files_verified": 5,
     "verification_state": "intact",
@@ -231,8 +231,8 @@
         "path": ".agents/skills/stacknauta-fastapi/SKILL.md",
         "original_path": ".agents/skills/backend-fastapi/skills/fastapi/SKILL.md",
         "original_sha256": "3c92001d0d0be66c0e67613871ff2397f0d68b2d4c22850bf596b43317916144",
-        "repository": "/tmp/stacknauta-update-test-xdiskre7/remotes/fastapi",
-        "commit": "a95cb975c7ce40957cf3813e12ed26a19310e820"
+        "repository": "/tmp/stacknauta-update-test-p3uc55lt/remotes/fastapi",
+        "commit": "10618ab446dd0f120d19f6e40ad79e1be9c5a305"
       },
       {
         "name": "stacknauta-good-helper",
@@ -240,8 +240,8 @@
         "path": ".agents/skills/stacknauta-good-helper/SKILL.md",
         "original_path": ".agents/skills/backend-gh-fixture-candidates/vendor/skills/good/SKILL.md",
         "original_sha256": "b2436406f3517a59ecd4e2283f2284affc9f13e9264b28ffd221edaec3a9242c",
-        "repository": "/tmp/stacknauta-update-test-xdiskre7/remotes/candidates",
-        "commit": "1eed6d6bee25306538d3b368867a109191107013"
+        "repository": "/tmp/stacknauta-update-test-p3uc55lt/remotes/candidates",
+        "commit": "106f63147ab97f5cb696e977d931a341d0d84ac3"
       }
     ],
     "production_ready": false,
@@ -250,8 +250,8 @@
       "status": "prepared",
       "created_files": 30,
       "unchanged_files": 0,
-      "plan_id": "67b11bde4341e54b1b33230368e0b7edca8a84661054ca9e64bb8b2e24088bfe",
-      "destination": "/tmp/stacknauta-update-test-xdiskre7/demo-api",
+      "plan_id": "c9fb747820e790c1a20e00836ca5487036fe6413a536b5934c602cc4209570bf",
+      "destination": "/tmp/stacknauta-update-test-p3uc55lt/demo-api",
       "skills": [
         "fastapi:fastapi",
         "gh-fixture-candidates:good-helper"
