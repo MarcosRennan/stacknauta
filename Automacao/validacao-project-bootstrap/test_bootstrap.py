@@ -429,12 +429,11 @@ class FilesystemTests(Base):
         self.assertEqual(p.read_text(), "foreign")
         self.assertFalse((self.destination / ".stacknauta").exists())
 
-    def test_modified_managed_file_prevents_all_further_writes(self):
+    def test_modified_evolutive_file_is_preserved_on_reapplication(self):
         request = self.request(); _, plan = self.apply(request)
         (self.destination / "README.md").write_text("user changes")
         before = self.snapshot()
-        with self.assertRaises(BootstrapError):
-            self.engine.apply(request, plan.plan_id)
+        self.assertEqual(self.engine.apply(request, plan.plan_id)["status"], "unchanged")
         self.assertEqual(before, self.snapshot())
 
     def test_wrong_preview_id_and_changed_runtime_have_no_writes(self):

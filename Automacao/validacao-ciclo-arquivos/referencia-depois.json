@@ -1,0 +1,63 @@
+{
+  "stage": "2D",
+  "status": "verified_with_evolution",
+  "return_code": 0,
+  "reference_consumer": "/home/marcosrennan/Projetos/stacknauta-teste-fastapi-e2e",
+  "plan_id_unchanged": "aee4b7483f7e31e713007e099b95702a2f969ac9549513b8bf186ed94a45bc4e",
+  "core_plan_id_unchanged": "8ba96293d5dccd45822e79e087aa9e22ad39c2b24c75e28fb693542c6b2d7a05",
+  "modified": {
+    "pyproject.toml": {
+      "classification": "evolutive",
+      "original": {
+        "sha256": "8902532a7557e4d8cb8ed67f108b7f2fc8256976171106fedc6b35af413104a8",
+        "size": 131
+      },
+      "current": {
+        "sha256": "1c59001d8ea8a9a2e184f571652b5a454f09af6ec354ef2d395a8c4dab45f237",
+        "size": 535
+      }
+    }
+  },
+  "removed": [],
+  "unmanaged_entries": 2226,
+  "unmanaged_examples": [
+    {
+      "path": "DEVELOPMENT.md",
+      "kind": "file"
+    },
+    {
+      "path": "src/app",
+      "kind": "directory"
+    },
+    {
+      "path": "src/app/__init__.py",
+      "kind": "file"
+    },
+    {
+      "path": "src/app/main.py",
+      "kind": "file"
+    },
+    {
+      "path": "tests/test_app.py",
+      "kind": "file"
+    },
+    {
+      "path": "tests/test_live_http.py",
+      "kind": "file"
+    },
+    {
+      "path": "validation/RELATORIO-FINAL.md",
+      "kind": "file"
+    }
+  ],
+  "core_files_verified": 25,
+  "integration_files_verified": 4,
+  "consumer_bytes_inode_mode_timestamps_unchanged": true,
+  "consumer_entries_compared": 2266,
+  "legacy_entries_compared": 4259,
+  "library_files_preserved": 1004,
+  "global_asdf_unchanged": true,
+  "migration_performed": false,
+  "apply_run_on_reference": false,
+  "application_executed": false
+}

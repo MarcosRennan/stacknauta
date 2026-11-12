@@ -1,6 +1,11 @@
-# project-bootstrap — núcleo 2A
+# project-bootstrap — núcleo e ciclo de vida 2D
 
-Prepara somente um esqueleto inicial. Não desenvolve regras de negócio, não executa geradores, não instala dependências/runtimes, não inicia serviços e não faz operações Git nos consumidores. A integração com Codex, OpenCode/DeepSeek e Gemini CLI permanece para a Etapa 2B. **Não certificado para produção.**
+Prepara somente um esqueleto inicial. Não desenvolve regras de negócio, não executa geradores, não instala dependências/runtimes, não inicia serviços e não faz operações Git nos consumidores. A integração compartilhada está na Etapa 2B; a política 2D permite evolução posterior sem sobrescritas. **Não certificado para produção.**
+
+Consulte [CICLO-DE-VIDA.md](CICLO-DE-VIDA.md): classificação explícita, relatórios,
+schema 2 para novas inicializações e compatibilidade sem migração dos manifestos
+schema 1. O identificador de geração `2A.1` e os bytes iniciais são preservados
+para reproduzir planos antigos; a política tem versão própria `2D.1`.
 
 ## Interface
 
@@ -60,7 +65,8 @@ Chaves desconhecidas, duplicadas, tipos incorretos, configurações especiais/li
 | `stacknauta_core/compatibility.py` | Política explícita para as 101 skills aprovadas; padrão fechado |
 | `stacknauta_core/library.py` | Reutilizar planos da biblioteca 1.5 e conferir hashes/proveniência |
 | `stacknauta_core/core.py` | Esqueleto, plano determinístico, identidade e coordenação |
-| `stacknauta_core/filesystem.py` | Inspeção, publicação exclusiva e retomada segura com dirfd |
+| `stacknauta_core/filesystem.py` | Inspeção, hash em streaming, publicação exclusiva e retomada com dirfd |
+| `stacknauta_core/lifecycle.py` | Classificação explícita e relatórios de evolução/preservação |
 | `STATUS.json` | Núcleo 2A implementado; integração e produção ainda falsas |
 
 No consumidor são preparados README, AGENTS genérico, `.gitignore`, requisitos, diretórios de fonte/testes, `.tool-versions` e metadados em `.stacknauta/`. Python recebe metadados PEP 621; Node recebe package.json; TypeScript recebe tsconfig mínimo; Go recebe go.mod; Rust recebe Cargo.toml e arquivo de biblioteca vazio. A versão 0.0.0 é apenas marcador inicial. Não há build backend Python, bundler, compilador TypeScript, edição Rust, build tool/DSL JVM ou versões de plugins escolhidos automaticamente. JVM recebe um plano de build e diretórios vazios; wrappers/SDKs/configuração específica ficam para o agente após escolhas explícitas.
@@ -96,7 +102,7 @@ O destino precisa ser novo/vazio ou conter exatamente o manifesto esperado. Uma 
 
 O manifesto imutável `.stacknauta/manifest.json` é a reserva do conjunto esperado. Publicação usa temporário exclusivo, fsync e link atômico interno sem sobrescrita; o temporário próprio é removido e o resultado tem nlink=1. Não existe rename/replace sobre um arquivo existente. Diretórios e arquivos de terceiros não são removidos ou substituídos. Estado final é verificado antes do sucesso.
 
-Em falha após a reserva, os arquivos completos já publicados permanecem. A reexecução do mesmo plano completa apenas arquivos ausentes, preservando os existentes. Conteúdo diferente, manifesto alterado ou links perigosos bloqueiam a operação para revisão manual. Arquivos extras do usuário são preservados. Mudanças de stack, requisitos ou versões não são tratadas como atualização/migração de projeto existente.
+Em falha durante inicialização schema 2, o mesmo plano autorizado completa ausências até publicar o marcador final, preservando arquivos já completos. Após conclusão, conteúdo evolutivo alterado ou removido é relatado e preservado, sem restauração automática. Conteúdo protegido diferente/ausente e links em caminhos geridos bloqueiam. Adicionais são inventariados sem execução ou remoção. Mudanças de stack, requisitos ou versões não são tratadas como atualização/migração. Schema 1 é reconhecido conservadoramente como concluído, sem marcador ou migração automática; ausências protegidas antigas exigem diagnóstico. Veja a política 2D para os limites completos.
 
 Limites: implementação POSIX/Fedora; não certifica Windows, filesystems sem publicação por link atômico, ataques de processos com controle do mesmo usuário renomeando ancestrais continuamente, nem recuperação automática de SIGKILL antes da primeira reserva se restarem temporários sem proprietário demonstrável. Nesses estados ambíguos, preserva arquivos e para. Não há rollback destrutivo, exclusão recursiva ou limpeza automática de evidências.
 

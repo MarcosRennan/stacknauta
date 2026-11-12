@@ -1,5 +1,12 @@
 # Integração com agentes — Etapa 2B
 
+Atualização 2D: [ciclo de vida](../project-bootstrap/CICLO-DE-VIDA.md) distingue
+conteúdo protegido, evolutivo, sementes de desenvolvimento e adicionais.
+`agent-verify` agora relata evolução permitida, mantendo status verified;
+verification_state e lifecycle detalham alterações/remoções. GEMINI.md pode evoluir
+após conclusão da integração. Os manifestos e aliases permanecem protegidos.
+Os relatórios históricos 2B descrevem o contrato anterior de igualdade total.
+
 O procedimento está em `../../.agents/skills/project-bootstrap/SKILL.md`.
 O launcher `../project-bootstrap/project-bootstrap` continua resolvendo o Python
 global do asdf. `stacknauta_core/integration.py` delega ao Bootstrap 2A; não há
@@ -25,7 +32,8 @@ pertence à conversa e às permissões do ambiente, como no núcleo original.
 
 As tarefas tecnológicas em `.stacknauta/agent-plan.json` exigem análise e
 autorização próprias. O código não executa geradores, dependências ou serviços.
-`agent-verify` verifica o estado inicial byte a byte, não o desenvolvimento futuro.
+`agent-verify` verifica hashes protegidos e estrutura física e relata evolução;
+não certifica sintaxe, semântica, testes ou dependências da aplicação.
 
 ## Descoberta comum
 

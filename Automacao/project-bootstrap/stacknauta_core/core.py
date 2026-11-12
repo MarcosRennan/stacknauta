@@ -8,6 +8,7 @@ from .config import FRAMEWORKS, normalize
 from .filesystem import MANIFEST, Target
 from .library import Library, digest
 from .runtimes import AsdfResolver
+from . import lifecycle
 
 
 def encoded(value):
@@ -106,14 +107,19 @@ class Plan:
     target: Target
     diagnostics: list
     state: dict
+    completion: tuple | None = None
+
+    def expected_files(self):
+        return {MANIFEST: self.manifest, **self.files, **(dict([self.completion]) if self.completion else {})}
 
     def report(self):
         return {"schema_version": 1, "core_version": VERSION, "mode": "dry-run", "plan_id": self.plan_id,
                 "destination": self.config["destination"], "config": self.config, "runtimes": self.runtimes,
                 "runtime_resolution": self.diagnostics, "skills": self.selection,
                 "files": [{"path": name, "sha256": digest(data), "size": len(data),
-                           "action": "create" if name in self.state["create"] else "unchanged"}
-                          for name, data in sorted({MANIFEST: self.manifest, **self.files}.items())],
+                           "classification": lifecycle.classification(name), "action": lifecycle.action(name, self.state)}
+                          for name, data in sorted(self.expected_files().items())],
+                "lifecycle": lifecycle.report(self.state),
                 "agent_plan": json.loads(self.files[".stacknauta/agent-plan.json"]),
                 "production_ready": False, "agent_integration_tested": False}
 
@@ -139,19 +145,27 @@ class Bootstrap:
         files.update(skill_files)
         files[".stacknauta/skills-lock.json"] = encoded({"schema_version": 1, "catalog_sha256": digest(library.catalog_bytes),
             "sources_lock_sha256": digest(library.lock_bytes), "skills": exported, "files": origins})
-        identity = {"schema_version": 1, "core_version": VERSION, "config": config, "runtimes": runtimes,
+        schema = target.manifest_schema() or 2
+        identity = {"schema_version": schema, "core_version": VERSION, "config": config, "runtimes": runtimes,
                     "skills": selection["selected"],
                     "files": {name: {"sha256": digest(data), "size": len(data)} for name, data in sorted(files.items())}}
+        if schema == 2:
+            identity["lifecycle"] = {"policy_version": lifecycle.VERSION, "completion": lifecycle.COMPLETION,
+                                     "files": {name: lifecycle.classification(name) for name in sorted(files)}}
         plan_id = digest(encoded(identity))
         manifest = encoded({**identity, "plan_id": plan_id})
-        state = target.inspect(manifest, files)
+        completion = (lifecycle.COMPLETION, encoded({"schema_version": 1, "policy_version": lifecycle.VERSION,
+                      "core_plan_id": plan_id, "manifest_sha256": digest(manifest)})) if schema == 2 else None
+        state = target.inspect(manifest, files, completion=completion)
         return Plan(config, runtimes, selection, files, manifest, plan_id, target,
-                    list(getattr(self.resolver, "diagnostics", [])), state)
+                    list(getattr(self.resolver, "diagnostics", [])), state, completion)
 
     def apply(self, raw, expected_plan_id, *, hook=None):
         plan = self.plan(raw)
         if expected_plan_id != plan.plan_id:
             raise BootstrapError("plan_id não corresponde ao dry-run atual; gere e revise o plano novamente")
-        result = plan.target.apply(plan.manifest, plan.files, hook)
+        result = plan.target.apply(plan.manifest, plan.files, hook, completion=plan.completion)
+        plan.state = plan.target.inspect(plan.manifest, plan.files, completion=plan.completion)
         return {**result, "plan_id": plan.plan_id, "destination": plan.config["destination"],
-                "skills": plan.selection["selected"], "production_ready": False, "agent_integration_tested": False}
+                "skills": plan.selection["selected"], "lifecycle": lifecycle.report(plan.state),
+                "production_ready": False, "agent_integration_tested": False}

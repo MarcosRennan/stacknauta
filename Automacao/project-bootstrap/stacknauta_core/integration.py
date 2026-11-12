@@ -9,8 +9,9 @@ import re
 
 from . import BootstrapError
 from .core import encoded
-from .filesystem import MANIFEST, directory, publish, read
+from .filesystem import MANIFEST, directory, publish, read, fingerprint, inspect_files, inventory
 from .library import Library, digest
+from . import lifecycle
 
 MARKER = ".stacknauta/agent-integration.json"
 
@@ -61,7 +62,7 @@ def additions(plan, library_root):
                 "skills": entries, "files": {p: {"sha256": digest(b), "size": len(b)} for p, b in sorted(files.items())}}
     plan_id = digest(encoded(identity))
     files[MARKER] = encoded({**identity, "plan_id": plan_id})
-    if set(files) & (set(plan.files) | {MANIFEST}):
+    if set(files) & (set(plan.files) | {MANIFEST, lifecycle.COMPLETION}):
         raise BootstrapError("Colisão entre integração e arquivos do núcleo")
     return plan_id, files, entries
 
@@ -70,24 +71,25 @@ def inspect(plan, files, *, complete=False):
     # Core.inspect already checks boundaries, hardlinks, symlinks and conflicts.
     if complete and plan.state["create"]:
         raise BootstrapError("Esqueleto incompleto; reaplique o mesmo plano autorizado antes de verificar")
-    new, unchanged = [], []
     try:
         with directory(plan.target.path) as root:
-            for path, data in files.items():
-                current = read(root, path, len(data))
-                if current is None:
-                    new.append(path)
-                elif current == data:
-                    unchanged.append(path)
-                else:
-                    raise BootstrapError(f"Integração preexistente diferente; preservada: {path}")
+            completed = fingerprint(root, MARKER, expected={"sha256": digest(files[MARKER]), "size": len(files[MARKER])}) is not None
+            try:
+                state = inspect_files(root, files, completed=completed)
+            except BootstrapError as exc:
+                raise BootstrapError(f"Integração preexistente diferente; preservada: {exc}") from exc
+            state["initialization"] = "complete" if completed else "initializing"
+            state["unmanaged"] = inventory(root, set(plan.expected_files()) | set(files))
+            for entry in state["unmanaged"]:
+                if entry["path"].startswith((".agents/skills/", ".stacknauta/")):
+                    raise BootstrapError(f"Adicional proibido em área protegida: {entry['path']}")
     except FileNotFoundError:
-        new = list(files)
+        state = {"create": sorted(files), "unchanged": [], "modified": {}, "removed": [], "unmanaged": [], "initialization": "new"}
     except OSError as exc:
         raise BootstrapError(f"Destino da integração inacessível: {exc.strerror}") from exc
-    if complete and new:
-        raise BootstrapError("Integração incompleta: " + ", ".join(sorted(new)))
-    return {"create": sorted(new), "unchanged": sorted(unchanged)}
+    if complete and state["create"]:
+        raise BootstrapError("Integração incompleta: " + ", ".join(state["create"]))
+    return state
 
 
 class AgentIntegration:
@@ -102,9 +104,11 @@ class AgentIntegration:
         report.update({"plan_id": plan_id, "core_plan_id": plan.plan_id,
                        "integration_version": "2B.1", "discovery_entries": entries,
                        "integration_files": [{"path": p, "sha256": digest(b), "size": len(b),
-                                              "action": "create" if p in state["create"] else "unchanged"}
+                                              "classification": lifecycle.classification(p), "action": lifecycle.action(p, state)}
                                              for p, b in sorted(files.items())],
+                       "integration_lifecycle": lifecycle.report(state),
                        "authorization": "Review both file lists and both hashes. A hash is not user authorization."})
+        report["lifecycle"]["unmanaged"] = state["unmanaged"]
         return plan, files, report
 
     def apply(self, raw, expected_plan_id):
@@ -118,12 +122,9 @@ class AgentIntegration:
                 # Recheck core ownership using the exact descriptor used to write.
                 if read(root, MANIFEST, len(plan.manifest)) != plan.manifest:
                     raise BootstrapError("Manifesto do núcleo mudou antes da integração")
+                state = inspect_files(root, files, completed=fingerprint(root, MARKER, expected={"sha256": digest(files[MARKER]), "size": len(files[MARKER])}) is not None)
                 for path, data in files.items():
-                    current = read(root, path, len(data))
-                    if current is not None and current != data:
-                        raise BootstrapError(f"Conflito concorrente preservado: {path}")
-                for path, data in files.items():
-                    if read(root, path, len(data)) is None:
+                    if path in state["create"]:
                         publish(root, path, data)
         except (OSError, BootstrapError) as exc:
             raise BootstrapError(f"Integração interrompida; arquivos existentes preservados. Reexecute o mesmo plano para completar ausências. Motivo: {exc}") from exc
@@ -132,9 +133,12 @@ class AgentIntegration:
 
     def verify(self, raw):
         plan, files, report = self.plan(raw)
-        inspect(plan, files, complete=True)
+        state = inspect(plan, files, complete=True)
         return {"status": "verified", "mode": "verify", "plan_id": report["plan_id"],
                 "core_plan_id": plan.plan_id, "destination": plan.config["destination"],
-                "core_files_verified": len(plan.files) + 1, "integration_files_verified": len(files),
+                "core_files_verified": len(plan.expected_files()) - len(plan.state["removed"]),
+                "integration_files_verified": len(files) - len(state["removed"]),
+                "verification_state": "verified_with_evolution" if plan.state["modified"] or plan.state["removed"] or state["modified"] or state["removed"] else "intact",
+                "lifecycle": report["lifecycle"], "integration_lifecycle": lifecycle.report(state),
                 "discovery_entries": report["discovery_entries"], "production_ready": False,
                 "native_agent_discovery": "Must be tested in a fresh session of the selected agent; filesystem verification is not native discovery."}

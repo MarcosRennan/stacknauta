@@ -124,7 +124,7 @@ def normalize(raw, home):
         raise BootstrapError("requirements.description inválido")
     if any(len(s) > 10_000 or "\x00" in s for s in constraints):
         raise BootstrapError("Restrição inválida")
-    skills = strings(raw["skills"], "skills") if "skills" in raw else None
+    skills = strings(raw["skills"], "skills") if raw.get("skills") is not None else None
     versions = raw.get("runtime_versions", {})
     keys(versions, {"python", "nodejs", "golang", "java", "rust"}, "runtime_versions")
     for plugin, version in versions.items():

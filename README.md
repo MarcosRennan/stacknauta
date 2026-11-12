@@ -1,6 +1,12 @@
 # StackNauta
 
-**Etapa 2B — integração compartilhada com agentes.** O núcleo 2A prepara esqueleto, configurações, runtimes globais asdf e cópias físicas de skills compatíveis. A camada aditiva inclui descoberta portátil, contexto e verificação. A validação prática desta etapa utiliza apenas o Codex atual; OpenCode/DeepSeek e Gemini CLI permanecem pendentes. Não certificado para produção.
+**Etapa 2D — ciclo de vida dos arquivos.** O núcleo prepara esqueleto, runtimes globais asdf e cópias físicas de skills compatíveis. Arquivos evolutivos podem mudar ou ser removidos após inicialização sem sobrescritas; manifestos, runtimes registrados e skills continuam protegidos. A integração compartilhada permanece disponível; OpenCode/DeepSeek e Gemini CLI continuam pendentes de validação prática. Não certificado para produção.
+
+Consulte a [política de arquivos e compatibilidade](Automacao/project-bootstrap/CICLO-DE-VIDA.md)
+e o [relatório 2D](Automacao/validacao-ciclo-arquivos/RELATORIO.md). Novos projetos
+usam manifesto schema 2 e marcador final de inicialização. Projetos schema 1
+continuam reconhecidos sem migração nem reescrita. Conteúdo originalmente gerado
+e hashes são preservados para rastreabilidade; não se atualizam para aceitar edições.
 
 A biblioteca 1.5 permanece preservada: 101 skills aprovadas em nove pacotes, 21 pendentes e duas excluídas. Nenhum projeto consumidor antigo ou configuração global de agentes foi modificado.
 
@@ -25,6 +31,7 @@ StackNauta/
 │   ├── project-bootstrap/           # launcher, CLI, núcleo e exemplos
 │   ├── validacao-project-bootstrap/ # testes originais preservados
 │   ├── integracao-agentes/          # procedimento comum e testes manuais
+│   ├── validacao-ciclo-arquivos/    # investigação, compatibilidade e evidências 2D
 │   └── validacao-integracao-agentes/ # testes 2B e evidências
 ├── Skills/
 │   ├── Frontend/ui-ux-pro-max/

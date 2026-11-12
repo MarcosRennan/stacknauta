@@ -39,15 +39,19 @@ resolvido a partir desse diretório, independentemente do cwd. Consulte
 6. Execute `project-bootstrap agent-verify --config <config.json>` e confira a
    estrutura, `.tool-versions`, configurações, lock de skills e recursos copiados.
    Repetir agent-plan/agent-apply com o mesmo hash deve preservar os arquivos.
+   Consulte [a política de ciclo de vida](../../../Automacao/project-bootstrap/CICLO-DE-VIDA.md):
+   alterações/remoções evolutivas são relatadas e preservadas; arquivos protegidos
+   permanecem sujeitos aos hashes originais. Não restaure conteúdo evolutivo nem
+   altere manifestos para aceitar divergências. Reporte lifecycle e verification_state.
 7. Leia `.stacknauta/agent-plan.json`. Tarefas nesse arquivo não autorizam execução.
    Para cada operação tecnológica solicitada, confirme versão concreta, comandos,
    recursos, efeitos de rede/instalação e pré-requisitos oficiais. Execute somente
    operações explicitamente autorizadas e viáveis, sob as permissões do agente.
    Geradores, instalações e serviços sem essa autorização ficam pendentes. Não
-   implemente negócio. Não altere arquivos geridos sem plano de desenvolvimento;
-   o verificador inicial compara seus hashes e deve rodar antes dessas alterações.
+   implemente negócio. Alterações evolutivas exigem o escopo de desenvolvimento
+   autorizado; preserve o conteúdo originalmente rastreado nos manifestos.
    Após operações tecnológicas autorizadas, use as verificações próprias da stack
-   e relate os arquivos alterados; agent-verify verifica somente o estado inicial.
+   e relate os arquivos alterados; agent-verify não certifica conteúdo da aplicação.
 8. Verifique descoberta em uma nova sessão aberta no projeto consumidor. As
    entradas rasas `.agents/skills/stacknauta-*/SKILL.md` encaminham às instruções
    originais; os caminhos de recursos são relativos ao SKILL.md original.

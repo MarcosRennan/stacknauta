@@ -1,11 +1,14 @@
 """Operações POSIX ancoradas em dirfd: não seguir symlinks nem substituir arquivos."""
 import contextlib
+import hashlib
+import json
 import os
 import secrets
 import stat
 from pathlib import Path, PurePosixPath
 
 from . import BootstrapError
+from .lifecycle import classification
 
 DIR_FLAGS = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW | os.O_CLOEXEC
 READ_FLAGS = os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK | os.O_CLOEXEC
@@ -83,6 +86,94 @@ def read(root_fd, relative, limit):
         raise BootstrapError(f"Caminho perigoso ou ilegível: {relative} ({exc.strerror})") from exc
 
 
+def fingerprint(root_fd, relative, *, expected=None):
+    """Hash em streaming: tamanho original não é limite para arquivo evolutivo."""
+    components = parts(relative)
+    try:
+        with relative_directory(root_fd, components[:-1]) as parent:
+            fd = os.open(components[-1], READ_FLAGS, dir_fd=parent)
+            try:
+                info = os.fstat(fd)
+                if not stat.S_ISREG(info.st_mode) or info.st_nlink != 1:
+                    raise BootstrapError(f"Arquivo não regular ou hardlink perigoso: {relative}")
+                if expected is not None and info.st_size != expected["size"]:
+                    current = {"size": info.st_size, "sha256": "not_read_size_mismatch"}
+                    raise BootstrapError(f"Conflito de integridade; arquivo preexistente diferente, preservado: {relative} "
+                                         f"(classe={classification(relative)}; esperado={expected}; atual={current})")
+                digest = hashlib.sha256()
+                size = 0
+                remaining = info.st_size
+                while remaining:
+                    chunk = os.read(fd, min(65536, remaining))
+                    if not chunk:
+                        break
+                    digest.update(chunk)
+                    size += len(chunk)
+                    remaining -= len(chunk)
+                end = os.fstat(fd)
+                if (info.st_size, info.st_mtime_ns, info.st_ctime_ns) != (end.st_size, end.st_mtime_ns, end.st_ctime_ns) or size != end.st_size:
+                    raise BootstrapError(f"Arquivo mudou durante verificação: {relative}")
+                return {"sha256": digest.hexdigest(), "size": size}
+            finally:
+                os.close(fd)
+    except FileNotFoundError:
+        return None
+    except OSError as exc:
+        raise BootstrapError(f"Caminho perigoso ou ilegível: {relative} ({exc.strerror})") from exc
+
+
+def inspect_files(root_fd, files, *, completed):
+    state = {"create": [], "unchanged": [], "modified": {}, "removed": []}
+    for relative, data in files.items():
+        category = classification(relative)
+        original = {"sha256": hashlib.sha256(data).hexdigest(), "size": len(data)}
+        current = fingerprint(root_fd, relative, expected=original if category == "protected" or not completed else None)
+        if current is None:
+            if completed and category != "protected":
+                state["removed"].append(relative)
+            elif completed:
+                raise BootstrapError(f"Arquivo protegido ausente: {relative}; restauração automática recusada")
+            else:
+                state["create"].append(relative)
+        elif current == original:
+            state["unchanged"].append(relative)
+        elif completed and category != "protected":
+            state["modified"][relative] = {"classification": category, "original": original, "current": current}
+        else:
+            raise BootstrapError(f"Conflito de integridade; arquivo preexistente diferente, preservado: {relative} "
+                                 f"(classe={category}; esperado={original}; atual={current})")
+    for key in ("create", "unchanged", "removed"):
+        state[key].sort()
+    return state
+
+
+def inventory(root_fd, managed):
+    """Lista adicionais sem ler conteúdo nem seguir links, inclusive em diretórios."""
+    known_dirs = {"/".join(parts(path)[:i]) for path in managed for i in range(1, len(parts(path)))}
+    result = []
+    def visit(fd, prefix="", depth=0):
+        if depth > 128:
+            raise BootstrapError("Inventário excede profundidade segura de 128 diretórios")
+        for name in sorted(os.listdir(fd)):
+            path = prefix + name
+            info = os.stat(name, dir_fd=fd, follow_symlinks=False)
+            is_dir = stat.S_ISDIR(info.st_mode)
+            if path not in managed and path not in known_dirs:
+                kind = "directory" if is_dir else "file" if stat.S_ISREG(info.st_mode) else "symlink_not_followed" if stat.S_ISLNK(info.st_mode) else "special_not_opened"
+                result.append({"path": path, "kind": kind})
+            if is_dir:
+                child = os.open(name, DIR_FLAGS, dir_fd=fd)
+                try:
+                    visit(child, path + "/", depth + 1)
+                finally:
+                    os.close(child)
+    try:
+        visit(root_fd)
+    except OSError as exc:
+        raise BootstrapError(f"Inventário adicional inacessível: {exc.strerror}") from exc
+    return result
+
+
 def publish(root_fd, relative, data, hook=None):
     """Publica arquivo novo completo, sem rename/replace e sem link para a biblioteca.
 
@@ -126,6 +217,25 @@ class Target:
         self.default_parent = Path(default_parent)
         self.protected = tuple(Path(p).resolve() for p in protected)
 
+    def manifest_schema(self):
+        self.boundaries()
+        try:
+            with directory(self.path) as root:
+                marker = read(root, MANIFEST, 10_000_000)
+        except FileNotFoundError:
+            return None
+        except OSError as exc:
+            raise BootstrapError(f"Destino inválido ou inacessível: {exc.strerror}") from exc
+        if marker is None:
+            return None
+        try:
+            schema = json.loads(marker)["schema_version"]
+            if type(schema) is not int or schema not in (1, 2):
+                raise ValueError("schema não suportado")
+            return schema
+        except (ValueError, KeyError, TypeError) as exc:
+            raise BootstrapError("Manifesto protegido inválido ou schema não suportado") from exc
+
     def boundaries(self):
         for protected in self.protected:
             if self.path == protected or self.path.is_relative_to(protected) or protected.is_relative_to(self.path):
@@ -145,9 +255,9 @@ class Target:
         except OSError as exc:
             raise BootstrapError("Ancestral do destino não é diretório físico acessível (symlinks são recusados)") from exc
 
-    def inspect(self, manifest, files):
+    def inspect(self, manifest, files, *, completion=None):
         self.boundaries()
-        expected = {MANIFEST: manifest, **files}
+        expected = {MANIFEST: manifest, **files, **(dict([completion]) if completion else {})}
         try:
             with directory(self.path) as root:
                 marker = read(root, MANIFEST, max(len(manifest), 10_000_000))
@@ -162,24 +272,19 @@ class Target:
                                 raise BootstrapError("Metadados preexistentes sem manifesto; revisão manual necessária")
                 elif marker != manifest:
                     raise BootstrapError("Manifesto preexistente difere do plano; atualização/migração não faz parte desta etapa")
-                new, unchanged = [], []
-                for relative, data in expected.items():
-                    existing = read(root, relative, len(data))
-                    if existing is None:
-                        new.append(relative)
-                    elif existing == data:
-                        unchanged.append(relative)
-                    else:
-                        raise BootstrapError(f"Arquivo preexistente diferente; preservado: {relative}")
-                return {"create": sorted(new), "unchanged": sorted(unchanged)}
+                completed = marker is not None and (completion is None or fingerprint(root, completion[0], expected={"sha256": hashlib.sha256(completion[1]).hexdigest(), "size": len(completion[1])}) is not None)
+                state = inspect_files(root, expected, completed=completed)
+                state["initialization"] = "legacy_complete" if marker is not None and completion is None else "complete" if completed else "initializing"
+                state["unmanaged"] = inventory(root, expected)
+                return state
         except FileNotFoundError:
-            return {"create": sorted(expected), "unchanged": []}
+            return {"create": sorted(expected), "unchanged": [], "modified": {}, "removed": [], "unmanaged": [], "initialization": "new"}
         except OSError as exc:
             raise BootstrapError(f"Destino inválido ou inacessível: {exc.strerror}") from exc
 
-    def apply(self, manifest, files, hook=None):
+    def apply(self, manifest, files, hook=None, *, completion=None):
         # Repete pré-check antes de qualquer escrita, para detectar alterações após o dry-run.
-        state = self.inspect(manifest, files)
+        state = self.inspect(manifest, files, completion=completion)
         if not state["create"]:
             return {"status": "unchanged", "created_files": 0, "unchanged_files": len(state["unchanged"])}
         parent = self.path.parent
@@ -208,14 +313,13 @@ class Target:
                                     raise BootstrapError("Metadados concorrentes preservados")
                     elif existing != manifest:
                         raise BootstrapError("Manifesto concorrente divergente")
-                    for relative, data in {MANIFEST: manifest, **files}.items():
-                        previous = read(root, relative, len(data))
-                        if previous is not None:
-                            if previous != data:
-                                raise BootstrapError(f"Conflito preservado: {relative}")
-                            continue
-                        publish(root, relative, data, hook)
-            verified = self.inspect(manifest, files)
+                    expected = {MANIFEST: manifest, **files, **(dict([completion]) if completion else {})}
+                    completed = existing is not None and (completion is None or fingerprint(root, completion[0], expected={"sha256": hashlib.sha256(completion[1]).hexdigest(), "size": len(completion[1])}) is not None)
+                    anchored = inspect_files(root, expected, completed=completed)
+                    for relative, data in expected.items():
+                        if relative in anchored["create"]:
+                            publish(root, relative, data, hook)
+            verified = self.inspect(manifest, files, completion=completion)
             if verified["create"]:
                 raise BootstrapError("Estado final mudou durante a aplicação; revisão necessária")
             return {"status": "prepared", "created_files": len(state["create"]), "unchanged_files": len(state["unchanged"])}

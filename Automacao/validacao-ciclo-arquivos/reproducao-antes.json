@@ -1,0 +1,13 @@
+{
+  "status": "reproduced_read_only",
+  "return_code": 2,
+  "error": {
+    "status": "blocked",
+    "error": "Arquivo inesperadamente grande: pyproject.toml",
+    "production_ready": false
+  },
+  "original_size": 131,
+  "current_size": 535,
+  "config": "Original raw request used in Stage 2C, unchanged.",
+  "auxiliary_observation": "Using the normalized generated config directly fails on skills:null; the existing raw-config contract was used for reproduction."
+}
