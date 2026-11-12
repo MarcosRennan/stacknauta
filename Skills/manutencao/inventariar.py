@@ -255,6 +255,9 @@ def build():
 
 
 def main():
+    current = json.loads((ROOT/'Skills/catalogo.json').read_text())
+    if current.get('stage') != 1:
+        raise SystemExit('Catálogo de distribuição existente: use preparar_biblioteca.py; inventariar.py não sobrescreve a Etapa 1.5.')
     catalog, indexes, references = build()
     # Nenhuma escrita ocorre antes de asdf, revisões e todas as fontes serem verificadas.
     for rel, data in [('Skills/catalogo.json',catalog), ('Skills/validacao/arquivos.json',indexes), ('Skills/validacao/recursos.json',references)]:

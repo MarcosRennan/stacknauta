@@ -1,0 +1,155 @@
+{
+  "id": "Backend/fastapi",
+  "directory": "Skills/Backend/fastapi",
+  "source_id": "fastapi",
+  "repository": "https://github.com/fastapi/fastapi.git",
+  "commit": "5add7a458d629b07311d48261f696b5ac2bb9a5f",
+  "skills": [
+    "fastapi:fastapi"
+  ],
+  "files": {
+    "skills/fastapi/SKILL.md": {
+      "sha256": "3c92001d0d0be66c0e67613871ff2397f0d68b2d4c22850bf596b43317916144",
+      "size": 12378,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "fastapi/.agents/skills/fastapi/SKILL.md",
+          "sha256": "21849afb5d399e3305fe776a65649e5e6337ae41d2bd85a948afc661eaa55773"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/fastapi/references/dependencies.md": {
+      "sha256": "60e92fc8544fd326f7d112d0994cbaa9b860282d440ad2dd8e3629a466cb9dd0",
+      "size": 3270,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "fastapi/.agents/skills/fastapi/references/dependencies.md",
+          "sha256": "60e92fc8544fd326f7d112d0994cbaa9b860282d440ad2dd8e3629a466cb9dd0"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/fastapi/references/fastapi-cloud.md": {
+      "sha256": "3f579d755c71129d40fb6dc296e13884281677ec48c16cdd597d267315970f6d",
+      "size": 986,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "fastapi/.agents/skills/fastapi/references/fastapi-cloud.md",
+          "sha256": "3f579d755c71129d40fb6dc296e13884281677ec48c16cdd597d267315970f6d"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/fastapi/references/other-tools.md": {
+      "sha256": "2daf0c09ec6f77d90d9c0dcfec448b4133b05302dc3a574dafce0216bf4d6339",
+      "size": 1566,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "fastapi/.agents/skills/fastapi/references/other-tools.md",
+          "sha256": "2daf0c09ec6f77d90d9c0dcfec448b4133b05302dc3a574dafce0216bf4d6339"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/fastapi/references/parameter-models.md": {
+      "sha256": "195eadd8a57ac6a00d7b886c23c210f97fa6da0626b11a6b4103b0f4a42bd17e",
+      "size": 2985,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "fastapi/.agents/skills/fastapi/references/parameter-models.md",
+          "sha256": "195eadd8a57ac6a00d7b886c23c210f97fa6da0626b11a6b4103b0f4a42bd17e"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/fastapi/references/path-operations.md": {
+      "sha256": "ed8d2a21123bcf63dd1e9aa61cc8e4e33a878cbbf1d09498a556a420302995ca",
+      "size": 1583,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "fastapi/.agents/skills/fastapi/references/path-operations.md",
+          "sha256": "ed8d2a21123bcf63dd1e9aa61cc8e4e33a878cbbf1d09498a556a420302995ca"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/fastapi/references/pydantic.md": {
+      "sha256": "840ab962739861aed2ea77805dc46979c9a96abd8fc0043f197b3bd5d638e84b",
+      "size": 1844,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "fastapi/.agents/skills/fastapi/references/pydantic.md",
+          "sha256": "840ab962739861aed2ea77805dc46979c9a96abd8fc0043f197b3bd5d638e84b"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/fastapi/references/responses.md": {
+      "sha256": "7c921508bbd093697301ca9612038976cfb5b65bdc2dc42a0c02e2809d3652a7",
+      "size": 1856,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "fastapi/.agents/skills/fastapi/references/responses.md",
+          "sha256": "7c921508bbd093697301ca9612038976cfb5b65bdc2dc42a0c02e2809d3652a7"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/fastapi/references/streaming.md": {
+      "sha256": "3ff148c6d153affa960f421d13d27eb8225b70e579ed833c61c6b1a9ff17fa87",
+      "size": 2582,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "fastapi/.agents/skills/fastapi/references/streaming.md",
+          "sha256": "3ff148c6d153affa960f421d13d27eb8225b70e579ed833c61c6b1a9ff17fa87"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "LICENSE": {
+      "sha256": "4ec89ffc81485b97fec584b2d4a961032eeffe834453894fd9c1274906cc744e",
+      "size": 1086,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "LICENSE",
+          "sha256": "4ec89ffc81485b97fec584b2d4a961032eeffe834453894fd9c1274906cc744e"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "README.md": {
+      "sha256": "e2fdc235ce984811c331b60ec1ae3d60f2502a23dfe8f3addfaedbbb044e064c",
+      "size": 1861,
+      "mode": "100644",
+      "inputs": [],
+      "adaptation": null,
+      "origin": "StackNauta"
+    }
+  },
+  "shared_files": [
+    "LICENSE",
+    "README.md"
+  ],
+  "skill_extra_files": {}
+}

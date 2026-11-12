@@ -1,10 +1,8 @@
 # StackNauta
 
-Base independente para um futuro bootstrap de projetos. **Etapa 1: aquisição e catálogo de skills. O project-bootstrap ainda não está implementado nem funcional.**
+**Etapa 1.5 — biblioteca versionada para cópia física.** São 101 skills aprovadas em nove pacotes autocontidos, 21 pendentes e duas excluídas. O `project-bootstrap` continua sem implementação. Nenhuma skill foi ativada em agentes ou em projetos consumidores.
 
-As sete fontes foram adquiridas novamente do GitHub. Nenhum script, skill ou arquivo da implementação anterior foi usado como base. Os diretórios antigos e os projetos consumidores ficaram fora das escritas desta instalação. A conferência de preservação está em [Skills/validacao/preservacao.json](Skills/validacao/preservacao.json).
-
-## Estrutura
+## Organização
 
 ```text
 StackNauta/
@@ -12,36 +10,43 @@ StackNauta/
 │   ├── project-bootstrap/.gitkeep
 │   └── validacao-project-bootstrap/.gitkeep
 ├── Skills/
-│   ├── Frontend/README.md
-│   ├── Backend/README.md
-│   ├── Mobile/README.md
-│   ├── Seguranca/README.md
-│   ├── manutencao/
-│   │   ├── README.md
-│   │   ├── MANUTENCAO.md
-│   │   └── inventariar.py
-│   ├── validacao/
-│   │   ├── README.md
-│   │   ├── PRECHECK.md
-│   │   ├── INSPECAO.md
-│   │   ├── arquivos.json
-│   │   ├── recursos.json
-│   │   ├── resultado.json
-│   │   ├── preservacao.json
-│   │   └── validar_catalogo.py
-│   ├── _repos/                 # sete clones independentes, sem alterações
-│   ├── fontes.lock.json
-│   └── catalogo.json
-├── .agents/skills/.gitkeep      # nenhuma skill habilitada
-├── .gitignore
+│   ├── Frontend/ui-ux-pro-max/
+│   ├── Backend/{fastapi,remy,sentry}/
+│   ├── Mobile/{expo,chrisbanes,android}/
+│   ├── Seguranca/{android,sentry}/
+│   ├── manutencao/                 # política, renderer e empacotador
+│   ├── validacao/                  # validadores, auditorias e relatórios
+│   ├── _repos/                     # cache opcional, ignorado pelo Git
+│   ├── catalogo.json
+│   └── fontes.lock.json
+├── .agents/skills/.gitkeep
 └── README.md
 ```
 
-Os índices por categoria apontam para os arquivos originais; não existem cópias locais adicionais nem links simbólicos criados para distribuição. Os quatro links relativos já presentes nos fornecedores foram preservados e conferidos. Os `.gitkeep` mantêm apenas os três diretórios reservados sem implementação.
+Cada pacote contém `skills/<nome>/`, licença(s) comuns, README de consumo e `PROVENANCE.json`. O manifesto registra cada arquivo, hash SHA-256, commit/caminho original e adaptações. Pastas de categoria mantêm índices de aprovadas e impedimentos. Fontes de terceiros permanecem intactas no cache.
 
-## Fontes e revisões adquiridas
+| Categoria | Skills aprovadas |
+|---|---:|
+| Frontend | 4 |
+| Backend | 19 |
+| Mobile | 71 |
+| Seguranca | 7 |
 
-Branch padrão conferida com `git ls-remote --symref URL HEAD` antes da aquisição. Todos os clones são rasos (`depth=1`, uma branch), sem checkout de submódulos. FastAPI também usa filtro `blob:none` e sparse-checkout de `fastapi/.agents/skills/fastapi`, mantendo a skill inteira, suas oito referências e a licença da raiz.
+As 124 skills distintas vêm de 130 arquivos SKILL.md adquiridos: seis são cópias de distribuição UI/UX, sem contagem duplicada. Duas exclusões são o avaliador interno Expo e o plugin experimental Expo. A justificativa individual das outras 21 está em [PENDENCIAS.md](Skills/validacao/PENDENCIAS.md) e no catálogo.
+
+## Consumo físico
+
+Os pacotes e seus recursos são rastreados pelo Git principal. Uma clonagem local limpa contém a biblioteca completa aprovada **sem depender de `_repos/`**, de ferramentas globais novas ou de download durante o consumo. O repositório principal não tem remoto configurado e nada foi publicado.
+
+A unidade autocontida é o pacote de origem/categoria. É possível copiar o pacote inteiro ou o conjunto fechado de uma skill. Para selecionar, usar o campo `distribution` de [catalogo.json](Skills/catalogo.json): `package`, `skill_directory` e `requires_skills`. `biblioteca.selected_files()` calcula esse fechamento transitivo e inclui os recursos comuns/licenças. Manter os caminhos relativos `skills/<nome>/` e os arquivos compartilhados do pacote. O mecanismo não configura agentes nem cria aplicações; ele é um contrato de dados para o bootstrap futuro.
+
+Skills com referências entre si são copiadas juntas quando necessárias. A família Expo inclui o router e as 23 skills estáveis no fechamento, seguindo o contrato do fornecedor. Licenças e recursos comuns são armazenados uma vez por pacote; não há links simbólicos, hardlinks de consumidores ou referências obrigatórias ao cache. O índice de proveniência completo pode descrever skills não selecionadas numa cópia parcial; validar essa cópia contra o plano selecionado, não exigir todos os arquivos do índice de pacote completo.
+
+Antes de usar comandos das skills, ler o README do pacote. Os runtimes devem ser as versões globais instaladas do asdf, com caminho absoluto verificado. Ausência/override local deve interromper a operação; não usar runtime do sistema nem instalar ferramentas automaticamente. SDKs, CLIs autenticadas e hardware do consumidor são pré-requisitos de execução, não recursos que a biblioteca fornece ou autorização para instalá-los.
+
+## Fontes fixadas
+
+As revisões da Etapa 1 foram preservadas integralmente; não houve fetch ou atualização silenciosa na Etapa 1.5. A tabela mostra a contagem adquirida, incluindo entradas pendentes/excluídas, não apenas aprovadas.
 
 | Origem | Branch padrão/adquirida | Commit completo | Skills distintas |
 |---|---|---|---:|
@@ -53,41 +58,45 @@ Branch padrão conferida com `git ls-remote --symref URL HEAD` antes da aquisiç
 | [Android](https://github.com/android/skills) | main | `5815d27fda564aa9f07ebdcb5e57ed3e8d904e0d` | 36 |
 | [Sentry](https://github.com/getsentry/skills) | main | `e94f22214528d69899d09c627b3315ddc3544816` | 31 |
 
-São **124 skills distintas, 130 arquivos físicos SKILL.md**: seis são cópias de distribuição de subskills UI/UX já representadas por seus caminhos canônicos. Entre as 124 há uma skill interna de avaliação Expo, excluída de distribuição, e uma experimental. As demais 122 estão catalogadas como fontes; isso não significa distribuição preparada ou compatibilidade confirmada. **Zero skills habilitadas e zero distribuições preparadas.**
+## UI/UX Pro Max e adaptações
 
-Classificação individual: Frontend 8, Backend 6, Mobile 65, Seguranca 9, manutencao 29 e validacao 7. Categoria da origem e categoria efetiva da skill são registradas separadamente; Sentry inclui várias rotinas de manutenção e Android inclui segurança.
+O orquestrador `ui-ux-pro-max` foi renderizado a partir do template oficial `universal`, com renderer Python da biblioteca padrão. A saída anterior às adaptações foi comparada byte a byte à função oficial `renderSkillFile` nas configurações universal, Codex, OpenCode e Gemini: todas idênticas. Nenhuma CLI de instalação, build, dependência npm/Bun ou atualização global foi usada.
 
-## Catálogo e evidências
+O pacote inclui os dados/scripts oficiais completos do orquestrador, referências, `banner-design`, `brand`, `ui-styling`, fontes de canvas e suas 27 licenças OFL. O único helper de tokens exigido por `brand` foi incluído como recurso compartilhado, sem criar SKILL.md para `design-system`. Os fluxos completos `design-system`, `slides` e `design` continuam pendentes porque a origem referencia assets de slides não fornecidos e fluxos dependentes. Nenhum asset foi fabricado.
 
-- [catalogo.json](Skills/catalogo.json): identificação de cada skill, URL, commit completo, caminho original, categoria, arquivos necessários, evidências de licença e dependências, menções a skills irmãs, status e pendências. Todos os caminhos de armazenamento são relativos ao StackNauta.
-- [fontes.lock.json](Skills/fontes.lock.json): sete URLs, branches, revisões e modalidade de aquisição. Nenhuma atualização automática.
-- [arquivos.json](Skills/validacao/arquivos.json): tamanho, SHA-256, modo e blob Git de cada arquivo materializado; links e omissões do sparse-checkout explicitados.
-- [recursos.json](Skills/validacao/recursos.json): conferência estática de links Markdown e menções a references, scripts, assets, templates, data e agents.
-- [INSPECAO.md](Skills/validacao/INSPECAO.md): peculiaridades de distribuição, licenças e dependências; interpretação dos limites da conferência.
-- [resultado.json](Skills/validacao/resultado.json): resultado da validação local; [preservacao.json](Skills/validacao/preservacao.json): comparação das duas árvores legadas com o baseline anterior à criação.
+Toda skill aprovada recebeu um contrato explícito de execução/cópia. Correções pontuais incluem caminhos de licença compartilhada, a referência Expo iOS, a rota Expo ausente, cópia física de entrypoints em `agents-md` e herança do executável Node no helper `brand`. Ver [adaptacoes.json](Skills/validacao/adaptacoes.json) para os diffs completos e [DISTRIBUICAO.md](Skills/validacao/DISTRIBUICAO.md) para escopo e limites.
 
-`required_files` preserva o diretório completo de cada skill, recursos resolvidos e licenças ancestrais. É um inventário conservador, **não um plano de cópia validado**. Dependências condicionais, exemplos e referências externas ainda exigem interpretação. Nenhum arquivo do fornecedor foi corrigido, renderizado ou executado.
+## Validação
 
-## Verificação local
-
-Execute a partir desta pasta, com o Python global do asdf instalado:
+Executar a partir da raiz, com Python global asdf instalado:
 
 ```bash
-asdf current python
-asdf which python
 asdf exec python Skills/validacao/validar_catalogo.py
+asdf exec python Skills/validacao/validar_biblioteca.py --copias --sintaxe-node
 ```
 
-O validador usa apenas a biblioteca padrão, não acessa rede, não instala nada, não escreve no projeto e não executa scripts de terceiros. Compara o catálogo regenerado em memória, commits, URLs, branches, recursos, licenças, hashes e blobs originais; também executa `git fsck` nas origens. A checagem de frontmatter cobre delimitadores, nome e descrição; não é validação YAML completa. Links externos não são testados. O relatório salvo registra a execução desta etapa; uma nova execução imprime um novo resultado em JSON.
+O primeiro comando valida offline a distribuição e não exige cache. O segundo testa os planos de cópia física de todas as 101 skills, verifica sintaxe JS sem executar os scripts e faz buscas locais UI/UX previamente analisadas, sem persistir design systems ou criar aplicações. As cópias ficam em diretórios temporários novos. Nenhum projeto existente é usado como destino.
 
-O resultado `passed_with_documented_pending` significa integridade e inventário aprovados, com pendências documentadas. Não certifica scripts, comportamento das skills, renderização nem compatibilidade com agentes.
+Para conferir também as sete origens locais:
 
-## Manutenção e próximos passos
+```bash
+asdf exec python Skills/validacao/validar_biblioteca.py --origens
+```
 
-O Git principal é local, sem remoto. `Skills/_repos/` é ignorado para evitar repositórios aninhados como gitlinks acidentais; cada origem conserva seu próprio Git. **Copiar apenas o Git principal não transporta a biblioteca**: preserve também os sete clones. O lock e os hashes permitem conferir revisões e conteúdo. Não existe comando de restauração/aquisição automatizada nesta etapa.
+Para repetir a clonagem local, primeiro manter um commit com árvore limpa e então executar:
 
-[MANUTENCAO.md](Skills/manutencao/MANUTENCAO.md) descreve a política ainda planejada de atualização manual, comparação de commits, validação e reversão. O inventariador local disponível apenas registra fontes já adquiridas; não atualiza nem habilita skills.
+```bash
+asdf exec python Skills/validacao/testar_clone.py
+```
 
-Para a Etapa 2, implementar uma única lógica de bootstrap com adaptações para Codex, OpenCode com DeepSeek e Gemini CLI. Ela deverá preparar somente o esqueleto inicial a partir da stack informada. Desenvolvimento da aplicação, geradores e integrações não fazem parte desta entrega.
+O teste imprime o relatório sem escrever no Git principal; o origin local criado automaticamente pelo clone é removido no repositório temporário. Nenhum remoto é adicionado ao StackNauta original.
 
-A operação futura deverá validar antes de qualquer escrita no destino que os runtimes e o executor Python vêm das versões globais válidas e instaladas do asdf. Ausência deve interromper a operação, sem fallback para runtimes do sistema e sem instalação automática. Skills selecionadas e todos os seus recursos deverão ser copiados fisicamente para novos consumidores, sem links simbólicos. Não haverá atualização silenciosa durante o bootstrap. A lógica usará caminhos relativos à própria instalação.
+Os relatórios estão em [resultado.json](Skills/validacao/resultado.json), [clone-local.json](Skills/validacao/clone-local.json), [renderizacao-ui.json](Skills/validacao/renderizacao-ui.json) e [preservacao-etapa15.json](Skills/validacao/preservacao-etapa15.json). `arquivos.json` e `recursos.json` preservam o inventário de aquisição; [revisao-recursos.json](Skills/validacao/revisao-recursos.json) classifica as 28 menções antes não resolvidas. O relatório de preservação original da Etapa 1 continua disponível.
+
+A aprovação cobre integridade, fechamento dos arquivos, licenças, cópia e funcionamento das buscas UI/UX testadas. Não certifica todos os scripts/fluxos de fornecedores, descoberta nos agentes ou execução de SDKs, autenticação e hardware. Frontmatter tem conferência estrutural básica e de licença, sem dependência PyYAML nova.
+
+## Manutenção e próxima etapa
+
+[MANUTENCAO.md](Skills/manutencao/MANUTENCAO.md) descreve a preparação reproduzível e a atualização manual planejada. Não há aquisição/restauração automática nem atualização durante consumo. O cache pode ser necessário para uma nova preparação, mas não para copiar, validar ou usar os pacotes aprovados.
+
+A Etapa 2 poderá implementar uma única lógica de bootstrap com adaptações para Codex, OpenCode com DeepSeek e Gemini CLI. Ela deverá preparar somente o esqueleto inicial e os conjuntos compatíveis selecionados, copiar recursos fisicamente e validar todos os runtimes globais asdf antes de escrever no destino. Desenvolvimento da aplicação começa depois.

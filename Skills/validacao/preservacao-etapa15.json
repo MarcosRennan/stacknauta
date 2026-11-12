@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "stage": "1.5",
+  "verified_at_utc": "2026-11-12T03:20:42.988897+00:00",
+  "scope": "Duas árvores legadas, sem seguir links; escritas desta etapa confinadas ao StackNauta e diretórios temporários próprios.",
+  "entries_before": 4251,
+  "entries_after": 4251,
+  "baseline_sha256": "b141addb431494fcc35909e65ff325b82e34fa7434aa5aba26c331bcc45dc1b4",
+  "after_sha256": "b141addb431494fcc35909e65ff325b82e34fa7434aa5aba26c331bcc45dc1b4",
+  "added": [],
+  "removed": [],
+  "changed": [],
+  "limits": "Sem comparação de atime; projetos consumidores não foram destinos de escrita.",
+  "status": "unchanged"
+}

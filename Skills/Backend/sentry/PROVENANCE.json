@@ -1,0 +1,520 @@
+{
+  "id": "Backend/sentry",
+  "directory": "Skills/Backend/sentry",
+  "source_id": "sentry",
+  "repository": "https://github.com/getsentry/skills.git",
+  "commit": "e94f22214528d69899d09c627b3315ddc3544816",
+  "skills": [
+    "sentry:agents-md",
+    "sentry:code-review",
+    "sentry:code-simplifier",
+    "sentry:commit",
+    "sentry:create-branch",
+    "sentry:django-perf-review",
+    "sentry:doc-coauthoring",
+    "sentry:find-bugs",
+    "sentry:gh-review-requests",
+    "sentry:iterate-pr",
+    "sentry:pr-link-issue",
+    "sentry:pr-screenshots",
+    "sentry:pr-writer",
+    "sentry:prompt-optimizer",
+    "sentry:typing-exclusion-worker"
+  ],
+  "files": {
+    "skills/agents-md/SKILL.md": {
+      "sha256": "e6a54511b78645447997e8da5735ed420d7952ae98616808184e3592ff3b654e",
+      "size": 3642,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/agents-md/SKILL.md",
+          "sha256": "8a91ada35068f43ef7ee03e38937863bac4f407878b06f0a4f1ddb4af24bec7e"
+        }
+      ],
+      "adaptation": "Physical agent entrypoint copies replace consumer symlink guidance. Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/agents-md/SOURCES.md": {
+      "sha256": "14ac842801b7bc938dfbb9efee072fc4e9ab43b456e40f3235fee503544a0721",
+      "size": 4307,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/agents-md/SOURCES.md",
+          "sha256": "14ac842801b7bc938dfbb9efee072fc4e9ab43b456e40f3235fee503544a0721"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/agents-md/SPEC.md": {
+      "sha256": "4f8cff992ca96fa4d369227051cd3f5aa8b34974c81bf814aa3a1cf18541e74a",
+      "size": 4160,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/agents-md/SPEC.md",
+          "sha256": "4f8cff992ca96fa4d369227051cd3f5aa8b34974c81bf814aa3a1cf18541e74a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/code-review/SKILL.md": {
+      "sha256": "92cc0473c307301e340b1789f1535796257041c5c503f74d6490178ced72794d",
+      "size": 3180,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/code-review/SKILL.md",
+          "sha256": "ec5fc8855cb4648b4f2c79b608f8c8824a2da6a683330524c4d6283e4a3954c4"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/code-simplifier/SKILL.md": {
+      "sha256": "033e8418fd70b15cc9e7eda424e4c74e0160b7e18ebc81d29fd63df550fde2ce",
+      "size": 4375,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/code-simplifier/SKILL.md",
+          "sha256": "ad4ce00d2759e0773bee88f267f4ae0f52684979d7fbceb14dffd5efefbce141"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/commit/SKILL.md": {
+      "sha256": "478c30acac1d3ef654e8f63ba44aa6cf4bb6f8cf9cc08d3f70b2447480e3bd8c",
+      "size": 2277,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/commit/SKILL.md",
+          "sha256": "0307d3ecfe3b3e70246cbd88b19dc5853340b624b6ee3cd935c7bffc45b64279"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/create-branch/SKILL.md": {
+      "sha256": "c212586ef24d51d3fa3022c0fa7938e93bc0184d3d14ceb6ee7f80314900283f",
+      "size": 2940,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/create-branch/SKILL.md",
+          "sha256": "0e017d30c6031477fe147a39e7f40603acb6588ed2a00145c5cd46980a43c6cf"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/django-perf-review/LICENSE": {
+      "sha256": "6498709ced00a7f52d527da0af674d5c83ac4f6364e2197ecdc0057834f6151a",
+      "size": 102,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/django-perf-review/LICENSE",
+          "sha256": "6498709ced00a7f52d527da0af674d5c83ac4f6364e2197ecdc0057834f6151a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/django-perf-review/SKILL.md": {
+      "sha256": "fffc7310269d46c92b65a8c384d4cc99b2d9dea69e7402e0fadbba7fcdb59f25",
+      "size": 11838,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/django-perf-review/SKILL.md",
+          "sha256": "52283bff7b23f06f94bbb413d174fd1cbcf497f8e8a63d4f0d569ba6bfd949d4"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/doc-coauthoring/SKILL.md": {
+      "sha256": "e80a3243a1ddca200fb8fe5fea9334dfc9c622caf3ca37624186f3247e9c2e00",
+      "size": 16379,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/doc-coauthoring/SKILL.md",
+          "sha256": "819ad219b7e3f3fd8bc4b0a224dce9cf3b177df6f311b640831b87fb3b5d7730"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/find-bugs/SKILL.md": {
+      "sha256": "b3a2d35f6382569ef7cb0be846a983f9dfd84aad3c69d3431f3a159746aa2f09",
+      "size": 3242,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/find-bugs/SKILL.md",
+          "sha256": "08664c3698f89116a4b04d12f699f95cff1aadb725da353b7f24f8ad73b02003"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/gh-review-requests/SKILL.md": {
+      "sha256": "44ddb35502d969f6e028c9e6a292236b0c57d7ec8f7f1057607d0e3fa47510e4",
+      "size": 2907,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gh-review-requests/SKILL.md",
+          "sha256": "c03fa31242d4dfa9002c1610376954cd6455a500931b054e13ba6fa6cde235bb"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/gh-review-requests/scripts/fetch_review_requests.py": {
+      "sha256": "2a00e3bc1face15a739980b7b797f0c0e41c5f88b432a6ae299803bb88973c17",
+      "size": 3539,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gh-review-requests/scripts/fetch_review_requests.py",
+          "sha256": "2a00e3bc1face15a739980b7b797f0c0e41c5f88b432a6ae299803bb88973c17"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/iterate-pr/SKILL.md": {
+      "sha256": "918d9cb325c1821bf67fc6ac758992e29389a782652f366313f15849a744a40b",
+      "size": 5448,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/iterate-pr/SKILL.md",
+          "sha256": "d57ecb10e3f0619796a2b71045fbe6725b4ba6cf60aaf63d4c8860a83a83279e"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/iterate-pr/SPEC.md": {
+      "sha256": "0e7a049e467052a29b14731cd434221aff393541c2bd689acda17f164ac43ca6",
+      "size": 5355,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/iterate-pr/SPEC.md",
+          "sha256": "0e7a049e467052a29b14731cd434221aff393541c2bd689acda17f164ac43ca6"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/iterate-pr/agents/openai.yaml": {
+      "sha256": "5db7b84a710647dc2f349f89c0e1d14fb2005fece3c9cbef0bb0e23baa2c4555",
+      "size": 292,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/iterate-pr/agents/openai.yaml",
+          "sha256": "5db7b84a710647dc2f349f89c0e1d14fb2005fece3c9cbef0bb0e23baa2c4555"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/iterate-pr/scripts/fetch_pr_checks.py": {
+      "sha256": "f028ff19a20317039238851bcfb4e7caff1847f4a1f717790ec01c1b63379fa9",
+      "size": 9901,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/iterate-pr/scripts/fetch_pr_checks.py",
+          "sha256": "f028ff19a20317039238851bcfb4e7caff1847f4a1f717790ec01c1b63379fa9"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/iterate-pr/scripts/fetch_pr_feedback.py": {
+      "sha256": "f38cbcb2900fb90e54be2d66146dd34c6a59db02dcf235a36616c71bfeffd5d4",
+      "size": 14742,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/iterate-pr/scripts/fetch_pr_feedback.py",
+          "sha256": "f38cbcb2900fb90e54be2d66146dd34c6a59db02dcf235a36616c71bfeffd5d4"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/iterate-pr/scripts/monitor_pr_checks.py": {
+      "sha256": "9b1b7bcbb3a9f7b068f225f4c1546344ae4945098f8f4b5d819667ee4b64ca36",
+      "size": 6699,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/iterate-pr/scripts/monitor_pr_checks.py",
+          "sha256": "9b1b7bcbb3a9f7b068f225f4c1546344ae4945098f8f4b5d819667ee4b64ca36"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/iterate-pr/scripts/reply_to_thread.py": {
+      "sha256": "7117ea36cf230e9df9227756d7c4d903c8d88a05dda0684b3a83f2af6437aab9",
+      "size": 4610,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/iterate-pr/scripts/reply_to_thread.py",
+          "sha256": "7117ea36cf230e9df9227756d7c4d903c8d88a05dda0684b3a83f2af6437aab9"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/pr-link-issue/SKILL.md": {
+      "sha256": "70010cf47e731aec071abd316c563f6892525ee75b009102c877d06d2135d380",
+      "size": 3147,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/pr-link-issue/SKILL.md",
+          "sha256": "ae3fff3e5bec03c993ca8059669c785f675982e6bd71c8f09bcc095230f6535b"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/pr-screenshots/SKILL.md": {
+      "sha256": "7c13efff65983da02f42529e932da23d925b016a88728896f5869e3fab4d2681",
+      "size": 7388,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/pr-screenshots/SKILL.md",
+          "sha256": "b2e2b7a6d8af7d6659751e4cac246aba634d664623304c220048c65fdbe633f6"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/pr-screenshots/SPEC.md": {
+      "sha256": "f2b5f9e2c6623416e3f2bbf50285d20e3cdb7d30a709345ca56a93bb679420ae",
+      "size": 1188,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/pr-screenshots/SPEC.md",
+          "sha256": "f2b5f9e2c6623416e3f2bbf50285d20e3cdb7d30a709345ca56a93bb679420ae"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/pr-writer/EVAL.md": {
+      "sha256": "12230c3aa3a8a8ca5a26a00b9b9113709f897bf9a85a32eb097390c6cdf879d3",
+      "size": 1589,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/pr-writer/EVAL.md",
+          "sha256": "12230c3aa3a8a8ca5a26a00b9b9113709f897bf9a85a32eb097390c6cdf879d3"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/pr-writer/SKILL.md": {
+      "sha256": "856fa6874ab4a0bca94fd58029a46a05455dbae077e3fca5f638a02b85c8636f",
+      "size": 5714,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/pr-writer/SKILL.md",
+          "sha256": "785a2b1f084407e42f61661f83c7b0c621889865a483774f44c893c0cbcf57bc"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/pr-writer/SPEC.md": {
+      "sha256": "e566e80684b4eec9433200816cf61dd1e93c7b6c1612f6271d076acf110969f6",
+      "size": 12584,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/pr-writer/SPEC.md",
+          "sha256": "e566e80684b4eec9433200816cf61dd1e93c7b6c1612f6271d076acf110969f6"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/pr-writer/evals/axis.config.json": {
+      "sha256": "55bee95f6d59923b2a52765989324a0ed9af9762f7d860a101e9708f6ac8363d",
+      "size": 318,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/pr-writer/evals/axis.config.json",
+          "sha256": "55bee95f6d59923b2a52765989324a0ed9af9762f7d860a101e9708f6ac8363d"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/pr-writer/evals/scenarios/concise-docs-pr.json": {
+      "sha256": "ecc431edd40f4cd7541ce2f00a4821e8f6a4d8ed660e3d63551968cc372edeac",
+      "size": 1753,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/pr-writer/evals/scenarios/concise-docs-pr.json",
+          "sha256": "ecc431edd40f4cd7541ce2f00a4821e8f6a4d8ed660e3d63551968cc372edeac"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/prompt-optimizer/SKILL.md": {
+      "sha256": "bf4dc46c2c1dfcd1c403f28cac25699c33a8070f7e07478e875ecd68fbf677b4",
+      "size": 5025,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/prompt-optimizer/SKILL.md",
+          "sha256": "b5ba1525d7964004d8664fea9d5028972cca599f346ff4662152479b94e25cb3"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/prompt-optimizer/SOURCES.md": {
+      "sha256": "2effb8172cb365ca7c6e0312c9ecb2aa6761ba00b3269637ada10daa284566a4",
+      "size": 11614,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/prompt-optimizer/SOURCES.md",
+          "sha256": "2effb8172cb365ca7c6e0312c9ecb2aa6761ba00b3269637ada10daa284566a4"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/prompt-optimizer/SPEC.md": {
+      "sha256": "b56cdc168549dc916a29dc2c360fff95ecc0db8618eb43839c1eef9a11f1d499",
+      "size": 5219,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/prompt-optimizer/SPEC.md",
+          "sha256": "b56cdc168549dc916a29dc2c360fff95ecc0db8618eb43839c1eef9a11f1d499"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/prompt-optimizer/references/core-patterns.md": {
+      "sha256": "508199c575439e3d021848df67cb8a8be7675f0e1f2e8c77438e0e4734ca415c",
+      "size": 5514,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/prompt-optimizer/references/core-patterns.md",
+          "sha256": "508199c575439e3d021848df67cb8a8be7675f0e1f2e8c77438e0e4734ca415c"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/prompt-optimizer/references/meta-optimization-loop.md": {
+      "sha256": "9489e6ee08a184319a3ac3e88de54ea9f91bc2da74e4ee2dd8ada662291a9e71",
+      "size": 3710,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/prompt-optimizer/references/meta-optimization-loop.md",
+          "sha256": "9489e6ee08a184319a3ac3e88de54ea9f91bc2da74e4ee2dd8ada662291a9e71"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/prompt-optimizer/references/model-family-notes.md": {
+      "sha256": "57a5292ec6e68c846136599c8a424e95330aecc3d2443831fa0a4283fa0f2f04",
+      "size": 3397,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/prompt-optimizer/references/model-family-notes.md",
+          "sha256": "57a5292ec6e68c846136599c8a424e95330aecc3d2443831fa0a4283fa0f2f04"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/prompt-optimizer/references/transformed-examples.md": {
+      "sha256": "3cfb92aadc7b30ca4ad4e9bb02204a92c2366b0483b8023115ad2a1e614d235e",
+      "size": 3603,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/prompt-optimizer/references/transformed-examples.md",
+          "sha256": "3cfb92aadc7b30ca4ad4e9bb02204a92c2366b0483b8023115ad2a1e614d235e"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/typing-exclusion-worker/SKILL.md": {
+      "sha256": "009b34a4c44c11615296f38b9e5dd370d1415e5a657597ea62df7830b8eaa55a",
+      "size": 3733,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/typing-exclusion-worker/SKILL.md",
+          "sha256": "0ec48152ced06a0322978d2f677cfcff2f37fd3ce4a0801e852fb6ec219ae861"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "LICENSE": {
+      "sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
+      "size": 10785,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "LICENSE",
+          "sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "README.md": {
+      "sha256": "d431757a610dda041d66ac348d516c4c6d444bdbdfddcda415c672c33b6c6f22",
+      "size": 2595,
+      "mode": "100644",
+      "inputs": [],
+      "adaptation": null,
+      "origin": "StackNauta"
+    }
+  },
+  "shared_files": [
+    "LICENSE",
+    "README.md"
+  ],
+  "skill_extra_files": {}
+}

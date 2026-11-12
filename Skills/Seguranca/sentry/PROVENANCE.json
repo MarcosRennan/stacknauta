@@ -1,0 +1,692 @@
+{
+  "id": "Seguranca/sentry",
+  "directory": "Skills/Seguranca/sentry",
+  "source_id": "sentry",
+  "repository": "https://github.com/getsentry/skills.git",
+  "commit": "e94f22214528d69899d09c627b3315ddc3544816",
+  "skills": [
+    "sentry:django-access-review",
+    "sentry:gha-security-review",
+    "sentry:secret-serialization",
+    "sentry:security-model",
+    "sentry:security-review"
+  ],
+  "files": {
+    "skills/django-access-review/SKILL.md": {
+      "sha256": "495a2c30f1091bf4ae09149e003db1e33608b32845031fd24386d6a09496383e",
+      "size": 10687,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/django-access-review/SKILL.md",
+          "sha256": "0b0891f6335b84bd557e92022db197ed7d948406e2389ed6d09fd2f45b695a03"
+        }
+      ],
+      "adaptation": "Missing local LICENSE reference resolves to preserved bundle root licence. Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/django-access-review/references/django-orm.md": {
+      "sha256": "49a020090e74bf62e7a56e01d26014ee90f0ac7e2307b5e98a4e17b7b60cf040",
+      "size": 1786,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/django-access-review/references/django-orm.md",
+          "sha256": "49a020090e74bf62e7a56e01d26014ee90f0ac7e2307b5e98a4e17b7b60cf040"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/django-access-review/references/django-views.md": {
+      "sha256": "bad2439e5dcc09da183ebaf057f30c7b4dbcf815eac752c7ab2b8e262a80671a",
+      "size": 1800,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/django-access-review/references/django-views.md",
+          "sha256": "bad2439e5dcc09da183ebaf057f30c7b4dbcf815eac752c7ab2b8e262a80671a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/django-access-review/references/drf-permissions.md": {
+      "sha256": "784771b0007ea7aa5b3592ea880fa6956cee11c3acc490666a43799b064f431a",
+      "size": 2035,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/django-access-review/references/drf-permissions.md",
+          "sha256": "784771b0007ea7aa5b3592ea880fa6956cee11c3acc490666a43799b064f431a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/django-access-review/references/tenant-isolation.md": {
+      "sha256": "eda676bb7923a86769fc26e92ef0370761ebc2d210ff931e4319f451b81eb0ab",
+      "size": 1565,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/django-access-review/references/tenant-isolation.md",
+          "sha256": "eda676bb7923a86769fc26e92ef0370761ebc2d210ff931e4319f451b81eb0ab"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/gha-security-review/SKILL.md": {
+      "sha256": "484186adf2ae9a70f3c615d8ddce46006d19042d2f500ecf03e81052489c46e5",
+      "size": 9378,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gha-security-review/SKILL.md",
+          "sha256": "b75c6c43ff99c82b3cf44519bd30723917de97064f225e392ecfd6fdcd7455bd"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/gha-security-review/references/ai-prompt-injection-via-ci.md": {
+      "sha256": "9177d24968ac5b8d719b9f6748f91751d5e157ae0afa4d41cd0bb760356f23a2",
+      "size": 5452,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gha-security-review/references/ai-prompt-injection-via-ci.md",
+          "sha256": "9177d24968ac5b8d719b9f6748f91751d5e157ae0afa4d41cd0bb760356f23a2"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/gha-security-review/references/comment-triggered-commands.md": {
+      "sha256": "243526302999b7cbcbff4bbdd01c7d16377b1c60a86ee8877326c2b2b040a0b3",
+      "size": 5608,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gha-security-review/references/comment-triggered-commands.md",
+          "sha256": "243526302999b7cbcbff4bbdd01c7d16377b1c60a86ee8877326c2b2b040a0b3"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/gha-security-review/references/credential-escalation.md": {
+      "sha256": "7febad6c0e4073dabfb338ee4646c2dd484251ad7d18b500ea83ad6fd9ac1a1d",
+      "size": 6659,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gha-security-review/references/credential-escalation.md",
+          "sha256": "7febad6c0e4073dabfb338ee4646c2dd484251ad7d18b500ea83ad6fd9ac1a1d"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/gha-security-review/references/expression-injection.md": {
+      "sha256": "f701049355e4758207f77efc53c8e4a42f377eaa15240a2c867446154041d4f0",
+      "size": 8644,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gha-security-review/references/expression-injection.md",
+          "sha256": "f701049355e4758207f77efc53c8e4a42f377eaa15240a2c867446154041d4f0"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/gha-security-review/references/permissions-and-secrets.md": {
+      "sha256": "6b6837c5f37ff85cf18c1f611f882202ce0ce41cb006b55dd49c4da52f976779",
+      "size": 7917,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gha-security-review/references/permissions-and-secrets.md",
+          "sha256": "6b6837c5f37ff85cf18c1f611f882202ce0ce41cb006b55dd49c4da52f976779"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/gha-security-review/references/pwn-request.md": {
+      "sha256": "6dd84c91ce77d57883059edf95c2f1c64ea1ec39551c5c8208e0cadb9c3ca673",
+      "size": 5902,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gha-security-review/references/pwn-request.md",
+          "sha256": "6dd84c91ce77d57883059edf95c2f1c64ea1ec39551c5c8208e0cadb9c3ca673"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/gha-security-review/references/real-world-attacks.md": {
+      "sha256": "761260977a220264a1ee30e0b961618495723c2e6cc4e91893b7d9d4a9408718",
+      "size": 9468,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gha-security-review/references/real-world-attacks.md",
+          "sha256": "761260977a220264a1ee30e0b961618495723c2e6cc4e91893b7d9d4a9408718"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/gha-security-review/references/runner-infrastructure.md": {
+      "sha256": "cb427fa29c34c10aef18766441e0be8e0123632bb87c307bdb8d1c40b47fc81e",
+      "size": 8040,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gha-security-review/references/runner-infrastructure.md",
+          "sha256": "cb427fa29c34c10aef18766441e0be8e0123632bb87c307bdb8d1c40b47fc81e"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/gha-security-review/references/supply-chain.md": {
+      "sha256": "1f80df872a1be8f70ccf1be0bb25b2e24ee1ec2ac6a9f3d7a53800cb361bfa86",
+      "size": 9616,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gha-security-review/references/supply-chain.md",
+          "sha256": "1f80df872a1be8f70ccf1be0bb25b2e24ee1ec2ac6a9f3d7a53800cb361bfa86"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/secret-serialization/SKILL.md": {
+      "sha256": "aa90f0979ae4edc918b66471306ccca247df9d52ac2cf79bbd4fb95cc5bde42b",
+      "size": 10836,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/secret-serialization/SKILL.md",
+          "sha256": "fcff1bc1e5f38bdbe9dccccd21a39846bd45e2423307fda971c9cc1e53a39d3b"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/secret-serialization/SOURCES.md": {
+      "sha256": "f69fa9c62580bb8b2e1a6e37452aed01a06401c97566d3569f95c624532d79d0",
+      "size": 6974,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/secret-serialization/SOURCES.md",
+          "sha256": "f69fa9c62580bb8b2e1a6e37452aed01a06401c97566d3569f95c624532d79d0"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/secret-serialization/SPEC.md": {
+      "sha256": "451a87e0aaa66fe83114f5b8b49ed73db32b062ebbc9dcaeef9939a229c4e7e2",
+      "size": 5228,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/secret-serialization/SPEC.md",
+          "sha256": "451a87e0aaa66fe83114f5b8b49ed73db32b062ebbc9dcaeef9939a229c4e7e2"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/secret-serialization/references/javascript-typescript.md": {
+      "sha256": "14d6a47cf0c36d4a724381ef43f76549ffddb9c4bd5c4648b39b7ec6a732e1b0",
+      "size": 5182,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/secret-serialization/references/javascript-typescript.md",
+          "sha256": "14d6a47cf0c36d4a724381ef43f76549ffddb9c4bd5c4648b39b7ec6a732e1b0"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/secret-serialization/references/python.md": {
+      "sha256": "d5e9b673d8ef8dada8d5d18403a8e74cca5e2f7c98c5d7ae1a2135716ef3f2b6",
+      "size": 10108,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/secret-serialization/references/python.md",
+          "sha256": "d5e9b673d8ef8dada8d5d18403a8e74cca5e2f7c98c5d7ae1a2135716ef3f2b6"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-model/SKILL.md": {
+      "sha256": "46e33c4ab56f5da3f007968df48d3df63040544be1e81f6f5ff1bdee9e8fdde6",
+      "size": 18819,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-model/SKILL.md",
+          "sha256": "ae7bab80af7fca8c8cf65231631a082c7eb462e75f354aa9c040142508671c89"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/security-model/SOURCES.md": {
+      "sha256": "9a3902dab2806d919609c48394ef38b67a3f682c89e19a638e19d826884f50c0",
+      "size": 7394,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-model/SOURCES.md",
+          "sha256": "9a3902dab2806d919609c48394ef38b67a3f682c89e19a638e19d826884f50c0"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-model/SPEC.md": {
+      "sha256": "f6b6aca4b0d7ad47d7081b905a806e2c16ea5fc81010954ce84b8dfd17a6ad4b",
+      "size": 6443,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-model/SPEC.md",
+          "sha256": "f6b6aca4b0d7ad47d7081b905a806e2c16ea5fc81010954ce84b8dfd17a6ad4b"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-model/agents/openai.yaml": {
+      "sha256": "67c12399714ebe2a7ed8fe5d9891700abd5a6c51f40ed50b1f0e8063091371f1",
+      "size": 294,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-model/agents/openai.yaml",
+          "sha256": "67c12399714ebe2a7ed8fe5d9891700abd5a6c51f40ed50b1f0e8063091371f1"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-model/references/consuming-policy.md": {
+      "sha256": "9a3b5b4100877475dd99e074b3413247c60f7691ca26088f5979943f4f81212a",
+      "size": 2827,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-model/references/consuming-policy.md",
+          "sha256": "9a3b5b4100877475dd99e074b3413247c60f7691ca26088f5979943f4f81212a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-model/scripts/resolve_security_model.py": {
+      "sha256": "0aa4908a8de81cbecbcc4da2d1135a7f93113bae816a82932015c7b283234828",
+      "size": 17684,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-model/scripts/resolve_security_model.py",
+          "sha256": "0aa4908a8de81cbecbcc4da2d1135a7f93113bae816a82932015c7b283234828"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-model/scripts/selftest_resolve_security_model.py": {
+      "sha256": "c0ca76f3aeee60b0cda0332efc3e74125a0bed19d4d2bad97334ce94f771d70f",
+      "size": 10197,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-model/scripts/selftest_resolve_security_model.py",
+          "sha256": "c0ca76f3aeee60b0cda0332efc3e74125a0bed19d4d2bad97334ce94f771d70f"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/LICENSE": {
+      "sha256": "0fc858d87f467971ee612fc183896257a1c160a1610a443896b33ae4d2a44ef7",
+      "size": 884,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/LICENSE",
+          "sha256": "0fc858d87f467971ee612fc183896257a1c160a1610a443896b33ae4d2a44ef7"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/SKILL.md": {
+      "sha256": "758224f30e88fb1c49936b80529af2a9aab9d7cdb5eb0255d2d4e1021063b86f",
+      "size": 12220,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/SKILL.md",
+          "sha256": "26db9a5b1999adc19c4bf6eb7fbe37b56f0135b79f3054f33fd03baefa8e93ed"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/security-review/SPEC.md": {
+      "sha256": "e8dcb0a851bc70a99f7fcab3e10da0045c615415245463d808e08104b1917b42",
+      "size": 8974,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/SPEC.md",
+          "sha256": "e8dcb0a851bc70a99f7fcab3e10da0045c615415245463d808e08104b1917b42"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/infrastructure/docker.md": {
+      "sha256": "84bd49469c5a0cbd42fecdcce752de98cf6821b601dfef6a1920df61f030ae62",
+      "size": 9400,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/infrastructure/docker.md",
+          "sha256": "84bd49469c5a0cbd42fecdcce752de98cf6821b601dfef6a1920df61f030ae62"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/languages/javascript.md": {
+      "sha256": "f4226c82de13da9dec9be7b509932d74a4ade2c8d46b98a078a5b38bf8aa3319",
+      "size": 10028,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/languages/javascript.md",
+          "sha256": "f4226c82de13da9dec9be7b509932d74a4ade2c8d46b98a078a5b38bf8aa3319"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/languages/python.md": {
+      "sha256": "32d0b1304d132fc582320d584d54bbaea566d51700cd16b3f0be723ed834a556",
+      "size": 9492,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/languages/python.md",
+          "sha256": "32d0b1304d132fc582320d584d54bbaea566d51700cd16b3f0be723ed834a556"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/api-security.md": {
+      "sha256": "65b2456b4c5ae0d6d9849eac8196ac03fbefbf88657c5e069a8aa5063dd6afbf",
+      "size": 12741,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/api-security.md",
+          "sha256": "65b2456b4c5ae0d6d9849eac8196ac03fbefbf88657c5e069a8aa5063dd6afbf"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/authentication.md": {
+      "sha256": "7bc598cd4af33bb62406f5a0e8ff7adebff83c04e5fb449e6738f96ae0e26be6",
+      "size": 9071,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/authentication.md",
+          "sha256": "7bc598cd4af33bb62406f5a0e8ff7adebff83c04e5fb449e6738f96ae0e26be6"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/authorization.md": {
+      "sha256": "5ccfd579a1eca4d9d374eb00b04ba33cc9a2918e14e5cb7620c136a6feaeffff",
+      "size": 10007,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/authorization.md",
+          "sha256": "5ccfd579a1eca4d9d374eb00b04ba33cc9a2918e14e5cb7620c136a6feaeffff"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/business-logic.md": {
+      "sha256": "fc8ec30eb19f73759e8901e58d7ca66fc87035703325cc8a844298102fa6298a",
+      "size": 12660,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/business-logic.md",
+          "sha256": "fc8ec30eb19f73759e8901e58d7ca66fc87035703325cc8a844298102fa6298a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/cryptography.md": {
+      "sha256": "1e1301624e0c9b1699e1d95af11df06a67d104ff06443e93711bb656152f364c",
+      "size": 8703,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/cryptography.md",
+          "sha256": "1e1301624e0c9b1699e1d95af11df06a67d104ff06443e93711bb656152f364c"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/csrf.md": {
+      "sha256": "7b57ba0a45a291eee24578af8b0c69515c76e452c33d8c2d717c66ee3bbdda20",
+      "size": 9943,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/csrf.md",
+          "sha256": "7b57ba0a45a291eee24578af8b0c69515c76e452c33d8c2d717c66ee3bbdda20"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/data-protection.md": {
+      "sha256": "920b7dfb86dc696002d31022c1f7665ef602dd1ed76f1124ad937d488ce2b381",
+      "size": 9565,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/data-protection.md",
+          "sha256": "920b7dfb86dc696002d31022c1f7665ef602dd1ed76f1124ad937d488ce2b381"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/deserialization.md": {
+      "sha256": "be9946daf389ad594fbc4065246ff334c389da1e2cf593180ca150b0204287fb",
+      "size": 10234,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/deserialization.md",
+          "sha256": "be9946daf389ad594fbc4065246ff334c389da1e2cf593180ca150b0204287fb"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/error-handling.md": {
+      "sha256": "e12d3c9f713614223ce797935f3a4c2ac1a7f1fcf0ea24e865a1a70efeab4fb9",
+      "size": 11632,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/error-handling.md",
+          "sha256": "e12d3c9f713614223ce797935f3a4c2ac1a7f1fcf0ea24e865a1a70efeab4fb9"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/file-security.md": {
+      "sha256": "a0a001fb79fe9f1169fa3ba523225164744c42d8779341f15d3d0fc349185f2a",
+      "size": 12344,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/file-security.md",
+          "sha256": "a0a001fb79fe9f1169fa3ba523225164744c42d8779341f15d3d0fc349185f2a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/injection.md": {
+      "sha256": "d3989e97af773f521170b430a0e629b26c6ff2051cd826fa62a895523f268178",
+      "size": 6813,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/injection.md",
+          "sha256": "d3989e97af773f521170b430a0e629b26c6ff2051cd826fa62a895523f268178"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/logging.md": {
+      "sha256": "acca4eeebfc451bb62a7c085d1121ffa443e8cd0831548c2ae6f7fc606056cbc",
+      "size": 12012,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/logging.md",
+          "sha256": "acca4eeebfc451bb62a7c085d1121ffa443e8cd0831548c2ae6f7fc606056cbc"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/misconfiguration.md": {
+      "sha256": "919c44e309eaa6427a8bb44a2ed645fbf2b46d9dfe86a0fcdb2d084201898390",
+      "size": 10305,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/misconfiguration.md",
+          "sha256": "919c44e309eaa6427a8bb44a2ed645fbf2b46d9dfe86a0fcdb2d084201898390"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/modern-threats.md": {
+      "sha256": "d2ac69d91ade6df9c4bf89b2be0d203651d1a0cc5a67d03db8013af52c8ffe6b",
+      "size": 13269,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/modern-threats.md",
+          "sha256": "d2ac69d91ade6df9c4bf89b2be0d203651d1a0cc5a67d03db8013af52c8ffe6b"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/ssrf.md": {
+      "sha256": "646a8244fa61997b9b4f093169be1af4f94e6a3d04dcae8d426bb821870b2bff",
+      "size": 10734,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/ssrf.md",
+          "sha256": "646a8244fa61997b9b4f093169be1af4f94e6a3d04dcae8d426bb821870b2bff"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/supply-chain.md": {
+      "sha256": "ef3000d91763ccdddfbce2660943c4090b4c16b3b33afe980f4e10947729e1f1",
+      "size": 9149,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/supply-chain.md",
+          "sha256": "ef3000d91763ccdddfbce2660943c4090b4c16b3b33afe980f4e10947729e1f1"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/security-review/references/xss.md": {
+      "sha256": "4735df1e581b757b078605fbc27d37e85cfe182c45ab326c9e536c71a930680c",
+      "size": 7599,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/security-review/references/xss.md",
+          "sha256": "4735df1e581b757b078605fbc27d37e85cfe182c45ab326c9e536c71a930680c"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "LICENSE": {
+      "sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd",
+      "size": 10785,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "LICENSE",
+          "sha256": "96e78a9ce85795b117c8929887bdb78f88bf23f7b85a31f0872cde4dff7e92cd"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "README.md": {
+      "sha256": "66e144e0fd64e2f0f06d92a89bc4eaedb03bb5a09a9147cc324330d1627ef2b9",
+      "size": 2125,
+      "mode": "100644",
+      "inputs": [],
+      "adaptation": null,
+      "origin": "StackNauta"
+    }
+  },
+  "shared_files": [
+    "LICENSE",
+    "README.md"
+  ],
+  "skill_extra_files": {}
+}

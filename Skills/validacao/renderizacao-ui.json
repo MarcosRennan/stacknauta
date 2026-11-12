@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "official_function": "renderSkillFile (local, read-only)",
+  "installer_executed": false,
+  "dependency_installation": false,
+  "parity": [
+    {
+      "platform": "universal",
+      "identical": true,
+      "bytes": 28917
+    },
+    {
+      "platform": "codex",
+      "identical": true,
+      "bytes": 56716
+    },
+    {
+      "platform": "opencode",
+      "identical": true,
+      "bytes": 28951
+    },
+    {
+      "platform": "gemini",
+      "identical": true,
+      "bytes": 28917
+    }
+  ]
+}

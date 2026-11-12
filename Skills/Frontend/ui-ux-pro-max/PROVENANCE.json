@@ -1,0 +1,2571 @@
+{
+  "id": "Frontend/ui-ux-pro-max",
+  "directory": "Skills/Frontend/ui-ux-pro-max",
+  "source_id": "ui-ux-pro-max",
+  "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git",
+  "commit": "6ae86f61f520d6ca229d2f40e070410638c908c5",
+  "skills": [
+    "ui-ux-pro-max:banner-design",
+    "ui-ux-pro-max:brand",
+    "ui-ux-pro-max:ui-styling",
+    "ui-ux-pro-max:ui-ux-pro-max"
+  ],
+  "files": {
+    "skills/banner-design/SKILL.md": {
+      "sha256": "3fd5402b00b9593f2500dfada5593c4fd3d2cb9e3e2ae558a088eb68c8eeffe6",
+      "size": 7483,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/banner-design/SKILL.md",
+          "sha256": "ccb89ddc848f60bfe630cb19dfe3e062df94a029467a9b15259f2761019ac5c4"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/banner-design/references/banner-sizes-and-styles.md": {
+      "sha256": "c8906fb1073a576ee8c680d9bc8586249cbc4ed36690da960d65a1c9c37143b7",
+      "size": 4993,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/banner-design/references/banner-sizes-and-styles.md",
+          "sha256": "c8906fb1073a576ee8c680d9bc8586249cbc4ed36690da960d65a1c9c37143b7"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/brand/SKILL.md": {
+      "sha256": "d42b0372b73351619a41b6a4870ebce748f238b16b95c3c5ae89dd616f345f1b",
+      "size": 4338,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/SKILL.md",
+          "sha256": "1c24139633e2ebf11da4f97eaeb1c0564f8658a40b3ad779387a5b8c6cb76dbc"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/brand/references/approval-checklist.md": {
+      "sha256": "1cbf5f0fb3aa780c1a1406f56afe16f6af8e2e59165b8efc40038c7c0847f5b6",
+      "size": 4224,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/references/approval-checklist.md",
+          "sha256": "1cbf5f0fb3aa780c1a1406f56afe16f6af8e2e59165b8efc40038c7c0847f5b6"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/brand/references/asset-organization.md": {
+      "sha256": "de98123417e9c5a1cc71a78131bba979c4c8ed2e5289e6c7a7f166576e488101",
+      "size": 5110,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/references/asset-organization.md",
+          "sha256": "de98123417e9c5a1cc71a78131bba979c4c8ed2e5289e6c7a7f166576e488101"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/brand/references/brand-guideline-template.md": {
+      "sha256": "392db8cf10fef492221c15a86e68590074bf5716de1f2982f41c01fbe30567cc",
+      "size": 3572,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/references/brand-guideline-template.md",
+          "sha256": "392db8cf10fef492221c15a86e68590074bf5716de1f2982f41c01fbe30567cc"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/brand/references/color-palette-management.md": {
+      "sha256": "c429298ffe3955edb8b22c9f51426fef75e83d02848cd4300e89c0d3fc34b44a",
+      "size": 4254,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/references/color-palette-management.md",
+          "sha256": "c429298ffe3955edb8b22c9f51426fef75e83d02848cd4300e89c0d3fc34b44a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/brand/references/consistency-checklist.md": {
+      "sha256": "56d8b2d4852cda11e600adec4b9dd68fc89a1b8265382359953bec5c5e5e2c36",
+      "size": 1926,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/references/consistency-checklist.md",
+          "sha256": "56d8b2d4852cda11e600adec4b9dd68fc89a1b8265382359953bec5c5e5e2c36"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/brand/references/logo-usage-rules.md": {
+      "sha256": "044c5ddf30cfe0eea047451cfce6ea654939198ffdd8968a19161c97066a5a26",
+      "size": 5464,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/references/logo-usage-rules.md",
+          "sha256": "044c5ddf30cfe0eea047451cfce6ea654939198ffdd8968a19161c97066a5a26"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/brand/references/messaging-framework.md": {
+      "sha256": "24b2500a72867b55dd10f4bf359178b0eb347fddd852659ce47b69d9f597d4e6",
+      "size": 1763,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/references/messaging-framework.md",
+          "sha256": "24b2500a72867b55dd10f4bf359178b0eb347fddd852659ce47b69d9f597d4e6"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/brand/references/typography-specifications.md": {
+      "sha256": "921c3d9e6ddfde2677b9a3e32eee94c7922f54f22c1f380c5ed2eb25a7d5bfa9",
+      "size": 5042,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/references/typography-specifications.md",
+          "sha256": "921c3d9e6ddfde2677b9a3e32eee94c7922f54f22c1f380c5ed2eb25a7d5bfa9"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/brand/references/update.md": {
+      "sha256": "26c23af628869bbbc0ec55929e7f087374606218cff32ecaa864a772e477d28e",
+      "size": 3842,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/references/update.md",
+          "sha256": "26c23af628869bbbc0ec55929e7f087374606218cff32ecaa864a772e477d28e"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/brand/references/visual-identity.md": {
+      "sha256": "63f0cfc5d95403d8e12aca4d839cc28471515574d9a431334bfbb96c15407c31",
+      "size": 1884,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/references/visual-identity.md",
+          "sha256": "63f0cfc5d95403d8e12aca4d839cc28471515574d9a431334bfbb96c15407c31"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/brand/references/voice-framework.md": {
+      "sha256": "08c15ac79f81cd964c5efbe593131b61a093c7e1b060d5dd28b17f3cc5b331fb",
+      "size": 1997,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/references/voice-framework.md",
+          "sha256": "08c15ac79f81cd964c5efbe593131b61a093c7e1b060d5dd28b17f3cc5b331fb"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/brand/scripts/extract-colors.cjs": {
+      "sha256": "f09e049d24f26aeb1daccc552e24de4bb112d12a45da4eeb14f55a72554c93ef",
+      "size": 9182,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/scripts/extract-colors.cjs",
+          "sha256": "f09e049d24f26aeb1daccc552e24de4bb112d12a45da4eeb14f55a72554c93ef"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/brand/scripts/inject-brand-context.cjs": {
+      "sha256": "5b98abdeb5c636f247102cd235f1d3421db7a4de53fd853360feaa0c471b5c96",
+      "size": 9677,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/scripts/inject-brand-context.cjs",
+          "sha256": "5b98abdeb5c636f247102cd235f1d3421db7a4de53fd853360feaa0c471b5c96"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/brand/scripts/sync-brand-to-tokens.cjs": {
+      "sha256": "5ab49e33ab668bc4cdc7f9aad1f93a2eeba2a1488f36e31c484bdeb511959698",
+      "size": 15243,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/scripts/sync-brand-to-tokens.cjs",
+          "sha256": "c774f2fff9646ccee994aea0f00608a076b2c880756558f5a437ed9b45c10fd4"
+        }
+      ],
+      "adaptation": "Child Node inherits the verified parent executable instead of a PATH/system fallback.",
+      "origin": "vendor"
+    },
+    "skills/brand/scripts/tests/test_sync_brand_to_tokens.py": {
+      "sha256": "d9fd2b4adb9f7c94cff1e839207167a3cabdffc6ac20a27e2a89670060ee9bde",
+      "size": 14370,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/scripts/tests/test_sync_brand_to_tokens.py",
+          "sha256": "d9fd2b4adb9f7c94cff1e839207167a3cabdffc6ac20a27e2a89670060ee9bde"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/brand/scripts/validate-asset.cjs": {
+      "sha256": "4546c9109fb0f4f767426508cb29e60d02b301f8897cf16d8e378b7ce9d997fc",
+      "size": 10173,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/scripts/validate-asset.cjs",
+          "sha256": "4546c9109fb0f4f767426508cb29e60d02b301f8897cf16d8e378b7ce9d997fc"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/brand/templates/brand-guidelines-starter.md": {
+      "sha256": "d157a57b15f0b458c79636d11de42f3c89f03d8c0bbea1bdd3cf1c3542b2140d",
+      "size": 6638,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/brand/templates/brand-guidelines-starter.md",
+          "sha256": "d157a57b15f0b458c79636d11de42f3c89f03d8c0bbea1bdd3cf1c3542b2140d"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/LICENSE.txt": {
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "size": 11357,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/LICENSE.txt",
+          "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/SKILL.md": {
+      "sha256": "1b2077de399c02b4e23e2abf93c9d54dddf2753d261b2113fab0403cb884135b",
+      "size": 11357,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/SKILL.md",
+          "sha256": "625e302c60ee8f2e22d56cbe638c4a739e2657f566dae42689503ad517c30f1e"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/ArsenalSC-OFL.txt": {
+      "sha256": "8ddd61b18ba2c0d0dbe4a691cf5f1a0673f473d02fa0546e67ee88c006aeff6e",
+      "size": 4373,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/ArsenalSC-OFL.txt",
+          "sha256": "8ddd61b18ba2c0d0dbe4a691cf5f1a0673f473d02fa0546e67ee88c006aeff6e"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/ArsenalSC-Regular.ttf": {
+      "sha256": "65e6f89df58f68fd905b3add34a79dd6106aa3b3044df0dad9676fff53d504b9",
+      "size": 165848,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/ArsenalSC-Regular.ttf",
+          "sha256": "65e6f89df58f68fd905b3add34a79dd6106aa3b3044df0dad9676fff53d504b9"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/BigShoulders-Bold.ttf": {
+      "sha256": "b43bcd198b9fdf717dd42aa61a34dba32e01aceaeae659d689afd0ca52c37ea2",
+      "size": 94528,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/BigShoulders-Bold.ttf",
+          "sha256": "b43bcd198b9fdf717dd42aa61a34dba32e01aceaeae659d689afd0ca52c37ea2"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/BigShoulders-OFL.txt": {
+      "sha256": "fbc746aabf0eb1847dfd92e2efc4596d79fa897d60b8e64062a22f585508fb3f",
+      "size": 4397,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/BigShoulders-OFL.txt",
+          "sha256": "fbc746aabf0eb1847dfd92e2efc4596d79fa897d60b8e64062a22f585508fb3f"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/BigShoulders-Regular.ttf": {
+      "sha256": "18a879fc71978a4447150705caf880a9da3860083c259fd29e6dc03057b6842a",
+      "size": 94396,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/BigShoulders-Regular.ttf",
+          "sha256": "18a879fc71978a4447150705caf880a9da3860083c259fd29e6dc03057b6842a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Boldonse-OFL.txt": {
+      "sha256": "45cc82ab4032273c0924025ffcf8f0665a68e1a5955e3f7247e5daf1deeb1326",
+      "size": 4390,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Boldonse-OFL.txt",
+          "sha256": "45cc82ab4032273c0924025ffcf8f0665a68e1a5955e3f7247e5daf1deeb1326"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Boldonse-Regular.ttf": {
+      "sha256": "cc2e540604565c0f90a7d8d46194a2f42fc9c45512cd2e39bf03b50eb68c35a4",
+      "size": 77168,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Boldonse-Regular.ttf",
+          "sha256": "cc2e540604565c0f90a7d8d46194a2f42fc9c45512cd2e39bf03b50eb68c35a4"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/BricolageGrotesque-Bold.ttf": {
+      "sha256": "a737b146fe0d77ffe8a86e3cd16700dd431d3b1e420d4fd80e142cd68a1cb50d",
+      "size": 90952,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/BricolageGrotesque-Bold.ttf",
+          "sha256": "a737b146fe0d77ffe8a86e3cd16700dd431d3b1e420d4fd80e142cd68a1cb50d"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/BricolageGrotesque-OFL.txt": {
+      "sha256": "0e4f4eb8534bc66a76aca13dd19c1f9731b2008866b29ccff182b764649df9b4",
+      "size": 4403,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/BricolageGrotesque-OFL.txt",
+          "sha256": "0e4f4eb8534bc66a76aca13dd19c1f9731b2008866b29ccff182b764649df9b4"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/BricolageGrotesque-Regular.ttf": {
+      "sha256": "972a6d098c9867ae131d0ea99e221e63976b11a19d4b931c2c7ace525674e4f6",
+      "size": 90920,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/BricolageGrotesque-Regular.ttf",
+          "sha256": "972a6d098c9867ae131d0ea99e221e63976b11a19d4b931c2c7ace525674e4f6"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/CrimsonPro-Bold.ttf": {
+      "sha256": "48f191e38355c8db100eb3ce157c20f9302a3b9a37b44a660f77ecfce3986609",
+      "size": 107352,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/CrimsonPro-Bold.ttf",
+          "sha256": "48f191e38355c8db100eb3ce157c20f9302a3b9a37b44a660f77ecfce3986609"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/CrimsonPro-Italic.ttf": {
+      "sha256": "52318db3526b644e6efa60be0b3ca5a50e40fbe8bd026c261e0aa206f0772267",
+      "size": 108828,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/CrimsonPro-Italic.ttf",
+          "sha256": "52318db3526b644e6efa60be0b3ca5a50e40fbe8bd026c261e0aa206f0772267"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/CrimsonPro-OFL.txt": {
+      "sha256": "35680d14547b6748b6f362a052a46d22764ce5eccf96e18b74f567bb2ee58114",
+      "size": 4394,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/CrimsonPro-OFL.txt",
+          "sha256": "35680d14547b6748b6f362a052a46d22764ce5eccf96e18b74f567bb2ee58114"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/CrimsonPro-Regular.ttf": {
+      "sha256": "48fad08cb1917a7b2f2c6fe5135d6c07743a6663cf7631ec4481108aaf081422",
+      "size": 106696,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/CrimsonPro-Regular.ttf",
+          "sha256": "48fad08cb1917a7b2f2c6fe5135d6c07743a6663cf7631ec4481108aaf081422"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/DMMono-OFL.txt": {
+      "sha256": "bfe7842fcb88323e2981e24710c25202677385a8c75fb6a87217b275a0247ae3",
+      "size": 4392,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/DMMono-OFL.txt",
+          "sha256": "bfe7842fcb88323e2981e24710c25202677385a8c75fb6a87217b275a0247ae3"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/DMMono-Regular.ttf": {
+      "sha256": "f98ada968dc3b6b2c08d3f5caaf266977df0bfe0929372b93df5a06cf2ace450",
+      "size": 48852,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/DMMono-Regular.ttf",
+          "sha256": "f98ada968dc3b6b2c08d3f5caaf266977df0bfe0929372b93df5a06cf2ace450"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/EricaOne-OFL.txt": {
+      "sha256": "e0de629968b52255548d5fafcf30b24ff9edae0eda362380755a75816404d0fa",
+      "size": 4410,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/EricaOne-OFL.txt",
+          "sha256": "e0de629968b52255548d5fafcf30b24ff9edae0eda362380755a75816404d0fa"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/EricaOne-Regular.ttf": {
+      "sha256": "db1d89e80e33a8a01beaaac7a85df582857d24a43f1e181461aa7ff5d701476a",
+      "size": 24872,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/EricaOne-Regular.ttf",
+          "sha256": "db1d89e80e33a8a01beaaac7a85df582857d24a43f1e181461aa7ff5d701476a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/GeistMono-Bold.ttf": {
+      "sha256": "75c0828d5c1ee44b9ef9f4df577bf41595ec362e2ea3f1e558590c9e92c7949d",
+      "size": 78304,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/GeistMono-Bold.ttf",
+          "sha256": "75c0828d5c1ee44b9ef9f4df577bf41595ec362e2ea3f1e558590c9e92c7949d"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/GeistMono-OFL.txt": {
+      "sha256": "6a873c900f584109b13ae0aaf81d6e3cf0a68751a216b03f7b6c68d547057bb4",
+      "size": 4388,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/GeistMono-OFL.txt",
+          "sha256": "6a873c900f584109b13ae0aaf81d6e3cf0a68751a216b03f7b6c68d547057bb4"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/GeistMono-Regular.ttf": {
+      "sha256": "a55c1b51cda4afeab9e471e7947b85a20f7c8831d7e6b1470c1b7fbdc0f0f15e",
+      "size": 78232,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/GeistMono-Regular.ttf",
+          "sha256": "a55c1b51cda4afeab9e471e7947b85a20f7c8831d7e6b1470c1b7fbdc0f0f15e"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Gloock-OFL.txt": {
+      "sha256": "c0a3f3125ac491ef3d1f09f401be4834c646562f647e44f2bcbc49f0466c656d",
+      "size": 4381,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Gloock-OFL.txt",
+          "sha256": "c0a3f3125ac491ef3d1f09f401be4834c646562f647e44f2bcbc49f0466c656d"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Gloock-Regular.ttf": {
+      "sha256": "e86b4ce66dbd3f1f83eee8db99ec96e0da1128c3f53df0e9b3b7472025dfe960",
+      "size": 95156,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Gloock-Regular.ttf",
+          "sha256": "e86b4ce66dbd3f1f83eee8db99ec96e0da1128c3f53df0e9b3b7472025dfe960"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/IBMPlexMono-Bold.ttf": {
+      "sha256": "dbd2a2fb024579438d6400a84e57579bfd2dbe67c306c8fd9fde92a61e4f2eea",
+      "size": 136008,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/IBMPlexMono-Bold.ttf",
+          "sha256": "dbd2a2fb024579438d6400a84e57579bfd2dbe67c306c8fd9fde92a61e4f2eea"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/IBMPlexMono-OFL.txt": {
+      "sha256": "5294ce778857e1eb02e830b6ab06435537d38f43055327e73d03a2d4d57d5123",
+      "size": 4363,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/IBMPlexMono-OFL.txt",
+          "sha256": "5294ce778857e1eb02e830b6ab06435537d38f43055327e73d03a2d4d57d5123"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/IBMPlexMono-Regular.ttf": {
+      "sha256": "ab08018ccd276b79fb2c636bb95b9c543598f9d50505fe92506fcb4dae7810cd",
+      "size": 133796,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/IBMPlexMono-Regular.ttf",
+          "sha256": "ab08018ccd276b79fb2c636bb95b9c543598f9d50505fe92506fcb4dae7810cd"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/IBMPlexSerif-Bold.ttf": {
+      "sha256": "b8d294e9b5c5a0940f167c3ced0f7ef2e3f57082ca3ff096ef30e86e26c1c159",
+      "size": 161000,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/IBMPlexSerif-Bold.ttf",
+          "sha256": "b8d294e9b5c5a0940f167c3ced0f7ef2e3f57082ca3ff096ef30e86e26c1c159"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/IBMPlexSerif-BoldItalic.ttf": {
+      "sha256": "da64b75f4284f53e7b5c71fa190a35b8bf3494fe19f1804c81c3a53340bca570",
+      "size": 169840,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/IBMPlexSerif-BoldItalic.ttf",
+          "sha256": "da64b75f4284f53e7b5c71fa190a35b8bf3494fe19f1804c81c3a53340bca570"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/IBMPlexSerif-Italic.ttf": {
+      "sha256": "b11f1048745e715a55c9d837b3f10226ca3d78867b7db7251ddad8f98dcf0f38",
+      "size": 170004,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/IBMPlexSerif-Italic.ttf",
+          "sha256": "b11f1048745e715a55c9d837b3f10226ca3d78867b7db7251ddad8f98dcf0f38"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/IBMPlexSerif-Regular.ttf": {
+      "sha256": "77cd233a2af8dc6b1022faea3bb3b01f3c75af68bcf530cb6aeb15982ff3dbb7",
+      "size": 160380,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/IBMPlexSerif-Regular.ttf",
+          "sha256": "77cd233a2af8dc6b1022faea3bb3b01f3c75af68bcf530cb6aeb15982ff3dbb7"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/InstrumentSans-Bold.ttf": {
+      "sha256": "444f85bf1c4b0e1ce1ca624f6be54bcd832207714ccaf4ea99ee531341683bdf",
+      "size": 68084,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/InstrumentSans-Bold.ttf",
+          "sha256": "444f85bf1c4b0e1ce1ca624f6be54bcd832207714ccaf4ea99ee531341683bdf"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/InstrumentSans-BoldItalic.ttf": {
+      "sha256": "3762f6cef95d6039489ad5ba5787d4c30f17a1ad01e9ac3c816ed69692722a68",
+      "size": 70004,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/InstrumentSans-BoldItalic.ttf",
+          "sha256": "3762f6cef95d6039489ad5ba5787d4c30f17a1ad01e9ac3c816ed69692722a68"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/InstrumentSans-Italic.ttf": {
+      "sha256": "78e85858e371b2cb4e18f617c10f0f937c0e12a0887ffee98555b24ed305b3a7",
+      "size": 69900,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/InstrumentSans-Italic.ttf",
+          "sha256": "78e85858e371b2cb4e18f617c10f0f937c0e12a0887ffee98555b24ed305b3a7"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/InstrumentSans-OFL.txt": {
+      "sha256": "bf4dc6d13a8cccd4807133c77a1ee9619a16b92cb23322258725ab6731c2f6e5",
+      "size": 4403,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/InstrumentSans-OFL.txt",
+          "sha256": "bf4dc6d13a8cccd4807133c77a1ee9619a16b92cb23322258725ab6731c2f6e5"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/InstrumentSans-Regular.ttf": {
+      "sha256": "a22cb26e48fd79bcb01bf2fc92d36785474dce36d9c544ab0a8868c2657c4a87",
+      "size": 68028,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/InstrumentSans-Regular.ttf",
+          "sha256": "a22cb26e48fd79bcb01bf2fc92d36785474dce36d9c544ab0a8868c2657c4a87"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/InstrumentSerif-Italic.ttf": {
+      "sha256": "9c86e4d5a47b50224a2463a9eca8535835257c8e85c470c2c6b454b1af6f046e",
+      "size": 70868,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/InstrumentSerif-Italic.ttf",
+          "sha256": "9c86e4d5a47b50224a2463a9eca8535835257c8e85c470c2c6b454b1af6f046e"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/InstrumentSerif-Regular.ttf": {
+      "sha256": "56ac3be03ac3ba283196b3e77850ab2ffcf56cfb6fd3212c5620109a972f8c99",
+      "size": 69312,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/InstrumentSerif-Regular.ttf",
+          "sha256": "56ac3be03ac3ba283196b3e77850ab2ffcf56cfb6fd3212c5620109a972f8c99"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Italiana-OFL.txt": {
+      "sha256": "8373b11312ace78c4cec2e8f9f6aa9f2330601107dac7bcf899c6f2dbd40c5a5",
+      "size": 4394,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Italiana-OFL.txt",
+          "sha256": "8373b11312ace78c4cec2e8f9f6aa9f2330601107dac7bcf899c6f2dbd40c5a5"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Italiana-Regular.ttf": {
+      "sha256": "15c4dd6ab8cf4a29ba8826f65edcbe2f6c266c557d34d081f25072dfd5605fd2",
+      "size": 27184,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Italiana-Regular.ttf",
+          "sha256": "15c4dd6ab8cf4a29ba8826f65edcbe2f6c266c557d34d081f25072dfd5605fd2"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/JetBrainsMono-Bold.ttf": {
+      "sha256": "a2349098b9e45419e7bf0e2958d6c4937a049dded37387b08be725be4c7615f3",
+      "size": 114828,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/JetBrainsMono-Bold.ttf",
+          "sha256": "a2349098b9e45419e7bf0e2958d6c4937a049dded37387b08be725be4c7615f3"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/JetBrainsMono-OFL.txt": {
+      "sha256": "a76abf002c49097d146e86740a3105a5d00450b1592e820a1109a8c5680cd697",
+      "size": 4399,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/JetBrainsMono-OFL.txt",
+          "sha256": "a76abf002c49097d146e86740a3105a5d00450b1592e820a1109a8c5680cd697"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/JetBrainsMono-Regular.ttf": {
+      "sha256": "b6b1ff4ddefe36d7f2a6174e1d001cab374e594519ee9049af028d577b64c5f5",
+      "size": 114904,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/JetBrainsMono-Regular.ttf",
+          "sha256": "b6b1ff4ddefe36d7f2a6174e1d001cab374e594519ee9049af028d577b64c5f5"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Jura-Light.ttf": {
+      "sha256": "c891a381df056b2c4dfe85841e911bf45da0890fa21a7b2692cbe5ea1f505e1e",
+      "size": 154308,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Jura-Light.ttf",
+          "sha256": "c891a381df056b2c4dfe85841e911bf45da0890fa21a7b2692cbe5ea1f505e1e"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Jura-Medium.ttf": {
+      "sha256": "c72965cb732a92872643819fd1734128238583cc36b116313859137a51d3368a",
+      "size": 154488,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Jura-Medium.ttf",
+          "sha256": "c72965cb732a92872643819fd1734128238583cc36b116313859137a51d3368a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Jura-OFL.txt": {
+      "sha256": "eaf9bdb675f6d87e5feb88199ab3ea581d3bd2082f426e384fa9c394576d7260",
+      "size": 4380,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Jura-OFL.txt",
+          "sha256": "eaf9bdb675f6d87e5feb88199ab3ea581d3bd2082f426e384fa9c394576d7260"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/LibreBaskerville-OFL.txt": {
+      "sha256": "55959eef5b0c3b2e3c1c7631b8ff0f9447d75de20f29cfa7db5bcfb026763343",
+      "size": 4449,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/LibreBaskerville-OFL.txt",
+          "sha256": "55959eef5b0c3b2e3c1c7631b8ff0f9447d75de20f29cfa7db5bcfb026763343"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/LibreBaskerville-Regular.ttf": {
+      "sha256": "2101302538d9e88adb679031c04623e4578b5745e89566284fd2c508d79acae0",
+      "size": 147584,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/LibreBaskerville-Regular.ttf",
+          "sha256": "2101302538d9e88adb679031c04623e4578b5745e89566284fd2c508d79acae0"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Lora-Bold.ttf": {
+      "sha256": "7d74015e950c2fb66519c7295b8155621d22200ae2ca2a4c6b43ce3c490cac87",
+      "size": 133828,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Lora-Bold.ttf",
+          "sha256": "7d74015e950c2fb66519c7295b8155621d22200ae2ca2a4c6b43ce3c490cac87"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Lora-BoldItalic.ttf": {
+      "sha256": "152f87e71f5ddb60d5c57ecd9132807c947e65c42977193c9164e7c5a6690081",
+      "size": 140332,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Lora-BoldItalic.ttf",
+          "sha256": "152f87e71f5ddb60d5c57ecd9132807c947e65c42977193c9164e7c5a6690081"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Lora-Italic.ttf": {
+      "sha256": "be627e595184e8afe521f08da0607eee613f1997d423bc8dadc5798995581377",
+      "size": 139328,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Lora-Italic.ttf",
+          "sha256": "be627e595184e8afe521f08da0607eee613f1997d423bc8dadc5798995581377"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Lora-OFL.txt": {
+      "sha256": "62e37a82d3f1ef2a70712885fa8b3144b65fd144d8e748d6196b690a354d792c",
+      "size": 4423,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Lora-OFL.txt",
+          "sha256": "62e37a82d3f1ef2a70712885fa8b3144b65fd144d8e748d6196b690a354d792c"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Lora-Regular.ttf": {
+      "sha256": "7ed00e7c9cdf16ab7e2fd2361fe45d4f0b61263cd60aae398b27b7ee08108827",
+      "size": 133888,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Lora-Regular.ttf",
+          "sha256": "7ed00e7c9cdf16ab7e2fd2361fe45d4f0b61263cd60aae398b27b7ee08108827"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/NationalPark-Bold.ttf": {
+      "sha256": "69ac4c301c4a7233c6e602d12a92c54d7967b575f4449951c45ce773f7acff53",
+      "size": 79208,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/NationalPark-Bold.ttf",
+          "sha256": "69ac4c301c4a7233c6e602d12a92c54d7967b575f4449951c45ce773f7acff53"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/NationalPark-OFL.txt": {
+      "sha256": "81c6c71d83b5b45d7344f96df12bb4a2477a5b092a9144757ee1d0f50f855175",
+      "size": 4399,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/NationalPark-OFL.txt",
+          "sha256": "81c6c71d83b5b45d7344f96df12bb4a2477a5b092a9144757ee1d0f50f855175"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/NationalPark-Regular.ttf": {
+      "sha256": "a477338b7e18308d476650dfe31235ef86a883572665e56ffb5fb80f82009b58",
+      "size": 76424,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/NationalPark-Regular.ttf",
+          "sha256": "a477338b7e18308d476650dfe31235ef86a883572665e56ffb5fb80f82009b58"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/NothingYouCouldDo-OFL.txt": {
+      "sha256": "7c2a6970584ddad04919816163746f83b378078015899b18468b40f05e9ce128",
+      "size": 4363,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/NothingYouCouldDo-OFL.txt",
+          "sha256": "7c2a6970584ddad04919816163746f83b378078015899b18468b40f05e9ce128"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/NothingYouCouldDo-Regular.ttf": {
+      "sha256": "d866f985896d3280f4fce72db7e17302c24a0c1fdb0699b6b5ed3af14f944d57",
+      "size": 32020,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/NothingYouCouldDo-Regular.ttf",
+          "sha256": "d866f985896d3280f4fce72db7e17302c24a0c1fdb0699b6b5ed3af14f944d57"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Outfit-Bold.ttf": {
+      "sha256": "6654b93d21301ec61887d3cedd6c11d9df1b1dfb63f9cf45ac7995f6e2235ab1",
+      "size": 55392,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Outfit-Bold.ttf",
+          "sha256": "6654b93d21301ec61887d3cedd6c11d9df1b1dfb63f9cf45ac7995f6e2235ab1"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Outfit-OFL.txt": {
+      "sha256": "1945b62cd76da9a3051a1660dde72afaa64ffc2666d30e7a78356d651653ba2f",
+      "size": 4389,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Outfit-OFL.txt",
+          "sha256": "1945b62cd76da9a3051a1660dde72afaa64ffc2666d30e7a78356d651653ba2f"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Outfit-Regular.ttf": {
+      "sha256": "f24945365147c9e783e91d8649959b59be6b00c9ee4ecd2f6b33afbb2dd871fe",
+      "size": 54912,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Outfit-Regular.ttf",
+          "sha256": "f24945365147c9e783e91d8649959b59be6b00c9ee4ecd2f6b33afbb2dd871fe"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/PixelifySans-Medium.ttf": {
+      "sha256": "38397504f71c122b03d234ea6f55118e3d5bdbddffd82bedddbd7755d3b3be82",
+      "size": 51072,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/PixelifySans-Medium.ttf",
+          "sha256": "38397504f71c122b03d234ea6f55118e3d5bdbddffd82bedddbd7755d3b3be82"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/PixelifySans-OFL.txt": {
+      "sha256": "7f54d1d9f1ae1ba9f2722f978145f90324fea34ca3c2304b3a29cfa96ac6037e",
+      "size": 4395,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/PixelifySans-OFL.txt",
+          "sha256": "7f54d1d9f1ae1ba9f2722f978145f90324fea34ca3c2304b3a29cfa96ac6037e"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/PoiretOne-OFL.txt": {
+      "sha256": "2eaf541f7eb8b512e4c757a5212060abf5b6edfef230e9d7640bf736b315c33a",
+      "size": 4366,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/PoiretOne-OFL.txt",
+          "sha256": "2eaf541f7eb8b512e4c757a5212060abf5b6edfef230e9d7640bf736b315c33a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/PoiretOne-Regular.ttf": {
+      "sha256": "9cf265b139648b36b6c0afdfeb0bf27f7e66db9a16094bc40f644d8da05bc318",
+      "size": 45244,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/PoiretOne-Regular.ttf",
+          "sha256": "9cf265b139648b36b6c0afdfeb0bf27f7e66db9a16094bc40f644d8da05bc318"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/RedHatMono-Bold.ttf": {
+      "sha256": "7ef48353f4be5ddb90f000f6fad48f2b62b3e8c27d9818d8d45ff46c201065e0",
+      "size": 34420,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/RedHatMono-Bold.ttf",
+          "sha256": "7ef48353f4be5ddb90f000f6fad48f2b62b3e8c27d9818d8d45ff46c201065e0"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/RedHatMono-OFL.txt": {
+      "sha256": "435fbfb7e66988b2a06686a4cb966faec733f35d8fe100a1601573c27f3e0bb8",
+      "size": 4394,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/RedHatMono-OFL.txt",
+          "sha256": "435fbfb7e66988b2a06686a4cb966faec733f35d8fe100a1601573c27f3e0bb8"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/RedHatMono-Regular.ttf": {
+      "sha256": "452fe826871b37539f5212b20c87cf30f82f58dd2741f1c96edd1dcbdc0db6b4",
+      "size": 34488,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/RedHatMono-Regular.ttf",
+          "sha256": "452fe826871b37539f5212b20c87cf30f82f58dd2741f1c96edd1dcbdc0db6b4"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Silkscreen-OFL.txt": {
+      "sha256": "6b849745119bbe85ec01fd080c9cd50234da9f52ac6e48b55d1a424a0c4d7ca9",
+      "size": 4394,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Silkscreen-OFL.txt",
+          "sha256": "6b849745119bbe85ec01fd080c9cd50234da9f52ac6e48b55d1a424a0c4d7ca9"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Silkscreen-Regular.ttf": {
+      "sha256": "49567408600809e25147e9225ac4f37f410e2df45a750696c45027531fb65f1b",
+      "size": 31960,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Silkscreen-Regular.ttf",
+          "sha256": "49567408600809e25147e9225ac4f37f410e2df45a750696c45027531fb65f1b"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/SmoochSans-Medium.ttf": {
+      "sha256": "dd76e6e77cce82f827a8654cd906e9ce58f3aaf78adda63c4a7f655b8ecb41f0",
+      "size": 59704,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/SmoochSans-Medium.ttf",
+          "sha256": "dd76e6e77cce82f827a8654cd906e9ce58f3aaf78adda63c4a7f655b8ecb41f0"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/SmoochSans-OFL.txt": {
+      "sha256": "74c9c4eb88e891483e1b7bc54780b452cbf4f4df66d4e71881d7569aa2130749",
+      "size": 4396,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/SmoochSans-OFL.txt",
+          "sha256": "74c9c4eb88e891483e1b7bc54780b452cbf4f4df66d4e71881d7569aa2130749"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Tektur-Medium.ttf": {
+      "sha256": "52bbe8c9b057b3d2da4eeace31a524b1ea26a1375ae34319cf6900ccc57a4c82",
+      "size": 76248,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Tektur-Medium.ttf",
+          "sha256": "52bbe8c9b057b3d2da4eeace31a524b1ea26a1375ae34319cf6900ccc57a4c82"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Tektur-OFL.txt": {
+      "sha256": "3f1466cb5438f31782eeb6e895f3a655bc4d090e24263e331f555357d1cb734e",
+      "size": 4385,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Tektur-OFL.txt",
+          "sha256": "3f1466cb5438f31782eeb6e895f3a655bc4d090e24263e331f555357d1cb734e"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/Tektur-Regular.ttf": {
+      "sha256": "162e1b36c4718c5b051b36c971ad7e50d341944f35618f480422ebbe72988f98",
+      "size": 75604,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/Tektur-Regular.ttf",
+          "sha256": "162e1b36c4718c5b051b36c971ad7e50d341944f35618f480422ebbe72988f98"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/WorkSans-Bold.ttf": {
+      "sha256": "240d125fc9f8561363dc1ea3f513501253bd70942f41468f48f0b0cafb0c82e2",
+      "size": 191304,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/WorkSans-Bold.ttf",
+          "sha256": "240d125fc9f8561363dc1ea3f513501253bd70942f41468f48f0b0cafb0c82e2"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/WorkSans-BoldItalic.ttf": {
+      "sha256": "a5b2cad813df0aaa7d16621f2e93b5117c25e9bc788bc9a3ad218e9d6348ce34",
+      "size": 175772,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/WorkSans-BoldItalic.ttf",
+          "sha256": "a5b2cad813df0aaa7d16621f2e93b5117c25e9bc788bc9a3ad218e9d6348ce34"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/WorkSans-Italic.ttf": {
+      "sha256": "6b7f7002e0b0c8b261fe878658ef5551e3e59d9f6b609b04efb90dde1e2c1ada",
+      "size": 174280,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/WorkSans-Italic.ttf",
+          "sha256": "6b7f7002e0b0c8b261fe878658ef5551e3e59d9f6b609b04efb90dde1e2c1ada"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/WorkSans-OFL.txt": {
+      "sha256": "ace8c22a3326318b54e67c3691857929634205533f454a70ef5a3473ddb2e2ba",
+      "size": 4397,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/WorkSans-OFL.txt",
+          "sha256": "ace8c22a3326318b54e67c3691857929634205533f454a70ef5a3473ddb2e2ba"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/WorkSans-Regular.ttf": {
+      "sha256": "e67985a843df0d3cdee51a3d0f329eb1774a344ad9ff0c9ab923751f1577e2a4",
+      "size": 188916,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/WorkSans-Regular.ttf",
+          "sha256": "e67985a843df0d3cdee51a3d0f329eb1774a344ad9ff0c9ab923751f1577e2a4"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/YoungSerif-OFL.txt": {
+      "sha256": "cdcb8039606b40a027a6d24586ec62d5fe29c701343d82a048c829cb28a3dd28",
+      "size": 4398,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/YoungSerif-OFL.txt",
+          "sha256": "cdcb8039606b40a027a6d24586ec62d5fe29c701343d82a048c829cb28a3dd28"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/canvas-fonts/YoungSerif-Regular.ttf": {
+      "sha256": "f8dc08f77abad753a00670af70756a8ace938e5c3f0b770f4f4c2071c4bd8fc6",
+      "size": 105136,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/canvas-fonts/YoungSerif-Regular.ttf",
+          "sha256": "f8dc08f77abad753a00670af70756a8ace938e5c3f0b770f4f4c2071c4bd8fc6"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/references/canvas-design-system.md": {
+      "sha256": "f5de85ff39d9f3a8275c4164b921ba72d5e1d34b8d7a9243d9ee34b3870a4f5f",
+      "size": 7888,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/references/canvas-design-system.md",
+          "sha256": "f5de85ff39d9f3a8275c4164b921ba72d5e1d34b8d7a9243d9ee34b3870a4f5f"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/references/shadcn-accessibility.md": {
+      "sha256": "a22cd4ccf82b635b2b2c4f12416a0c4f7edcd825d219d6089450fa797a0d9511",
+      "size": 9976,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/references/shadcn-accessibility.md",
+          "sha256": "a22cd4ccf82b635b2b2c4f12416a0c4f7edcd825d219d6089450fa797a0d9511"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/references/shadcn-components.md": {
+      "sha256": "79c4f91cbf68993a43fa3a95889c35db73de45bdd3dfd83a6830863c01aa598a",
+      "size": 11155,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/references/shadcn-components.md",
+          "sha256": "79c4f91cbf68993a43fa3a95889c35db73de45bdd3dfd83a6830863c01aa598a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/references/shadcn-theming.md": {
+      "sha256": "d17d641474221123ff0e0288043ca2f2dab3ac96908a19eed28d82f9e58865ed",
+      "size": 8672,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/references/shadcn-theming.md",
+          "sha256": "d17d641474221123ff0e0288043ca2f2dab3ac96908a19eed28d82f9e58865ed"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/references/tailwind-customization.md": {
+      "sha256": "4c5adeed6263a274f74f6eb2c816ca420fd6ef4f35683582988bacd404799afe",
+      "size": 10171,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/references/tailwind-customization.md",
+          "sha256": "4c5adeed6263a274f74f6eb2c816ca420fd6ef4f35683582988bacd404799afe"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/references/tailwind-responsive.md": {
+      "sha256": "8d00ae620df26daea4623c7bf996d6e612e09d359305fcfa2b40cab757ed840c",
+      "size": 8270,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/references/tailwind-responsive.md",
+          "sha256": "8d00ae620df26daea4623c7bf996d6e612e09d359305fcfa2b40cab757ed840c"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/references/tailwind-utilities.md": {
+      "sha256": "aba1c40ef84f43beea142ae310371e332541f39d973df90a71f1854823effda1",
+      "size": 9980,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/references/tailwind-utilities.md",
+          "sha256": "aba1c40ef84f43beea142ae310371e332541f39d973df90a71f1854823effda1"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/scripts/.coverage": {
+      "sha256": "a1f68d7a1d6322975c40c893004bc5e811d455d3ab124dab5154aad7060e66f5",
+      "size": 53248,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/scripts/.coverage",
+          "sha256": "a1f68d7a1d6322975c40c893004bc5e811d455d3ab124dab5154aad7060e66f5"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/scripts/requirements.txt": {
+      "sha256": "09402d2d274248e18bb5fd0a0267fd7cbf99b7a2440e73e87f054aa8f259f9da",
+      "size": 444,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/scripts/requirements.txt",
+          "sha256": "09402d2d274248e18bb5fd0a0267fd7cbf99b7a2440e73e87f054aa8f259f9da"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/scripts/shadcn_add.py": {
+      "sha256": "c634302efce1ec3aaecf7262c6782280cee6de68177ef11dd2a17fb70b4e3dfc",
+      "size": 8969,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/scripts/shadcn_add.py",
+          "sha256": "c634302efce1ec3aaecf7262c6782280cee6de68177ef11dd2a17fb70b4e3dfc"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/scripts/tailwind_config_gen.py": {
+      "sha256": "7d9f7f459783526baae118e7e6f11c46d1fe039502ec402f31544b520d999bc5",
+      "size": 15730,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/scripts/tailwind_config_gen.py",
+          "sha256": "7d9f7f459783526baae118e7e6f11c46d1fe039502ec402f31544b520d999bc5"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/scripts/tests/coverage-ui.json": {
+      "sha256": "33bdc1f5998db9a38cac8e6128a82711f8f8b65fbb3dcb0c1680ae260441cbce",
+      "size": 35121,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/scripts/tests/coverage-ui.json",
+          "sha256": "33bdc1f5998db9a38cac8e6128a82711f8f8b65fbb3dcb0c1680ae260441cbce"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/scripts/tests/requirements.txt": {
+      "sha256": "80846c98ee02a7e9651ec4eee6709f840b785646b469aad5284ab7ab9b344f17",
+      "size": 52,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/scripts/tests/requirements.txt",
+          "sha256": "80846c98ee02a7e9651ec4eee6709f840b785646b469aad5284ab7ab9b344f17"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/scripts/tests/test_shadcn_add.py": {
+      "sha256": "35f60ac5d74c4a7f950854a0337883c3e8dd812c58fcf6c5153876e43a6effa2",
+      "size": 9919,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/scripts/tests/test_shadcn_add.py",
+          "sha256": "35f60ac5d74c4a7f950854a0337883c3e8dd812c58fcf6c5153876e43a6effa2"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-styling/scripts/tests/test_tailwind_config_gen.py": {
+      "sha256": "2d044e1a9e67d358e8f7f664eeaa588dbd0ef150daa91cdea71519d8d686e470",
+      "size": 19154,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-styling/scripts/tests/test_tailwind_config_gen.py",
+          "sha256": "2d044e1a9e67d358e8f7f664eeaa588dbd0ef150daa91cdea71519d8d686e470"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/SKILL.md": {
+      "sha256": "3bb738cea6710a5ff8a1d64f0742dcf555c28865fa92d379a4c9a0bece13643b",
+      "size": 28596,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/templates/base/skill-content.md",
+          "sha256": "17962bd4e02809ee8bf093d4b28fcdbd44057b7bd2abb6cba4e7fc37187ec589"
+        },
+        {
+          "path": "src/ui-ux-pro-max/templates/platforms/universal.json",
+          "sha256": "bade7cc91a1aa5790a3908da935d683757cb411cf0fee836dcbe4beb549eb859"
+        }
+      ],
+      "adaptation": "Official universal template rendering; portable skill path; asdf global prerequisite replaces system fallbacks. Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/app-interface.csv": {
+      "sha256": "331e7cf2c0b222d80c566c5f255c63cb339f65bfd02e471a720f28e4864a9f08",
+      "size": 11046,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/app-interface.csv",
+          "sha256": "331e7cf2c0b222d80c566c5f255c63cb339f65bfd02e471a720f28e4864a9f08"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/catalog-summary.json": {
+      "sha256": "b27655fbce8fec64b7ab7ec6ac11f079a0e6ab29a5c2785d624cedc96dd0742f",
+      "size": 2392,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/catalog-summary.json",
+          "sha256": "b27655fbce8fec64b7ab7ec6ac11f079a0e6ab29a5c2785d624cedc96dd0742f"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/charts.csv": {
+      "sha256": "4115cf1120680f2cedef0676cb648f30c7ef4699e2a947535d4113e71ed3b12a",
+      "size": 23365,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/charts.csv",
+          "sha256": "4115cf1120680f2cedef0676cb648f30c7ef4699e2a947535d4113e71ed3b12a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/colors.csv": {
+      "sha256": "8162429222bce22df62b564085946a30d07cc9722c58d0a3a494bd0d1d00841c",
+      "size": 37940,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/colors.csv",
+          "sha256": "8162429222bce22df62b564085946a30d07cc9722c58d0a3a494bd0d1d00841c"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/data-provenance.json": {
+      "sha256": "e29a3aab8d8418a23f67e00a8e8f3064afe4eea1183540ec4af374ec6f4fc938",
+      "size": 38203,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/data-provenance.json",
+          "sha256": "e29a3aab8d8418a23f67e00a8e8f3064afe4eea1183540ec4af374ec6f4fc938"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/google-font-licenses.json": {
+      "sha256": "35688523f2955795caa1a47c53b83099e60c1708461476f9cc3a050cf3b0148a",
+      "size": 433127,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/google-font-licenses.json",
+          "sha256": "35688523f2955795caa1a47c53b83099e60c1708461476f9cc3a050cf3b0148a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/google-fonts.csv": {
+      "sha256": "1c8c3b2ea1faf6a1012da463756def8b3889db33f2226f0343bb4daa80307d03",
+      "size": 747241,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/google-fonts.csv",
+          "sha256": "1c8c3b2ea1faf6a1012da463756def8b3889db33f2226f0343bb4daa80307d03"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/icons.csv": {
+      "sha256": "50816c6012030178195a16ee481ebf58b47bd985d70e8ec58886cc83f6eddafc",
+      "size": 57945,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/icons.csv",
+          "sha256": "50816c6012030178195a16ee481ebf58b47bd985d70e8ec58886cc83f6eddafc"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/landing.csv": {
+      "sha256": "9a2edd3bb676c2a58f00ade7a062e285222d4297bfd847c8d5b056f0dbbf52d0",
+      "size": 25449,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/landing.csv",
+          "sha256": "9a2edd3bb676c2a58f00ade7a062e285222d4297bfd847c8d5b056f0dbbf52d0"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/motion.csv": {
+      "sha256": "381affe8df8ea1f66fbbda2598827f9f54299107bbe6a1b4e9b68f6b62091ceb",
+      "size": 14679,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/motion.csv",
+          "sha256": "381affe8df8ea1f66fbbda2598827f9f54299107bbe6a1b4e9b68f6b62091ceb"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/phosphor-icons-upstream.json": {
+      "sha256": "2399325233b277b5c97a80e6a5e8941154f5d057beee4e7613db87c87d700236",
+      "size": 823933,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/phosphor-icons-upstream.json",
+          "sha256": "2399325233b277b5c97a80e6a5e8941154f5d057beee4e7613db87c87d700236"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/products.csv": {
+      "sha256": "5756125e2b0e0d2360926f175d0975c8cd846c7589e5e2ce02631ff645e66361",
+      "size": 76959,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/products.csv",
+          "sha256": "5756125e2b0e0d2360926f175d0975c8cd846c7589e5e2ce02631ff645e66361"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/react-performance.csv": {
+      "sha256": "3d925802539abac5afeb63ae8aa1960b7229ad271b3a47caed40ab2d97ad0734",
+      "size": 15080,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/react-performance.csv",
+          "sha256": "3d925802539abac5afeb63ae8aa1960b7229ad271b3a47caed40ab2d97ad0734"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/angular.csv": {
+      "sha256": "704be83f2bad30c7e6de01afb113ffa01e0c458762f48b7102f31ba2367b5553",
+      "size": 19863,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/angular.csv",
+          "sha256": "704be83f2bad30c7e6de01afb113ffa01e0c458762f48b7102f31ba2367b5553"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/astro.csv": {
+      "sha256": "2c2f55fadaafc05e04cc321c8194a1a28b656e6757fe2ba316f41b16428299c6",
+      "size": 14591,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/astro.csv",
+          "sha256": "2c2f55fadaafc05e04cc321c8194a1a28b656e6757fe2ba316f41b16428299c6"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/avalonia.csv": {
+      "sha256": "442fca14675a020683473e7e49f08abb27b9df0765c80efe54aef61f1a4ac258",
+      "size": 27327,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/avalonia.csv",
+          "sha256": "442fca14675a020683473e7e49f08abb27b9df0765c80efe54aef61f1a4ac258"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/flutter.csv": {
+      "sha256": "64dba0ac17349f28bce517a0f5f48c54d9ed2e487ec0c0258303463b382f41a0",
+      "size": 14192,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/flutter.csv",
+          "sha256": "64dba0ac17349f28bce517a0f5f48c54d9ed2e487ec0c0258303463b382f41a0"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/html-tailwind.csv": {
+      "sha256": "d05a581d20af57b8ca0104a6d31d90a07c437d500662a96c3029fc2f9a4678ee",
+      "size": 16551,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/html-tailwind.csv",
+          "sha256": "d05a581d20af57b8ca0104a6d31d90a07c437d500662a96c3029fc2f9a4678ee"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/javafx.csv": {
+      "sha256": "2e819b8d5abdd23ad4dae0991650fdb57af497aabd68b37463aa9c442944c869",
+      "size": 33577,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/javafx.csv",
+          "sha256": "2e819b8d5abdd23ad4dae0991650fdb57af497aabd68b37463aa9c442944c869"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/jetpack-compose.csv": {
+      "sha256": "699de218b286948eaec7d15767b6e1350ee299167e49bf476d82e3ff58724e0a",
+      "size": 12295,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/jetpack-compose.csv",
+          "sha256": "699de218b286948eaec7d15767b6e1350ee299167e49bf476d82e3ff58724e0a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/laravel.csv": {
+      "sha256": "854ea4daa5fc61292d22235ad33b49ba3fe22423c3de8d3cb03758ffed3b59f9",
+      "size": 20163,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/laravel.csv",
+          "sha256": "854ea4daa5fc61292d22235ad33b49ba3fe22423c3de8d3cb03758ffed3b59f9"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/nextjs.csv": {
+      "sha256": "ecd2c27b2ea0127d203ae726060efcdd7335b5e83f96b99e4f3befbbfeebd5a4",
+      "size": 18687,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/nextjs.csv",
+          "sha256": "ecd2c27b2ea0127d203ae726060efcdd7335b5e83f96b99e4f3befbbfeebd5a4"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/nuxt-ui.csv": {
+      "sha256": "9c0179d559abe39ad63b958b54cb29c82be1dd20706430476096ea8967bfa328",
+      "size": 32292,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/nuxt-ui.csv",
+          "sha256": "9c0179d559abe39ad63b958b54cb29c82be1dd20706430476096ea8967bfa328"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/nuxtjs.csv": {
+      "sha256": "3d9b54ed2d151bd9c86e9e5609b8a6f88a00c4c52fa601a30af96c49b2c4d176",
+      "size": 23014,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/nuxtjs.csv",
+          "sha256": "3d9b54ed2d151bd9c86e9e5609b8a6f88a00c4c52fa601a30af96c49b2c4d176"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/react-native.csv": {
+      "sha256": "ba31dd9c0c04da6bc02a74448bf121f9c0728ae5ba3b4d47b487778b0a1135b5",
+      "size": 14049,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/react-native.csv",
+          "sha256": "ba31dd9c0c04da6bc02a74448bf121f9c0728ae5ba3b4d47b487778b0a1135b5"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/react.csv": {
+      "sha256": "4dd176a9787e5c6306b5df94158d75955adcdc6edab41ce5286641a5842303c1",
+      "size": 21166,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/react.csv",
+          "sha256": "4dd176a9787e5c6306b5df94158d75955adcdc6edab41ce5286641a5842303c1"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/shadcn.csv": {
+      "sha256": "e56cfde5b74907836ac3582a4779d5b7f3d206a702ab81b8669a1b668c3eeb51",
+      "size": 23184,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/shadcn.csv",
+          "sha256": "e56cfde5b74907836ac3582a4779d5b7f3d206a702ab81b8669a1b668c3eeb51"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/svelte.csv": {
+      "sha256": "f6e379ba802941ba26b01d4ffbe3cd39120f2587659a1d93851c707f66bc13db",
+      "size": 15078,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/svelte.csv",
+          "sha256": "f6e379ba802941ba26b01d4ffbe3cd39120f2587659a1d93851c707f66bc13db"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/swiftui.csv": {
+      "sha256": "bdd9231ff3ad658f4e7c063e1eb49df2fd09ac8d90631a86df899b39833b9623",
+      "size": 15323,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/swiftui.csv",
+          "sha256": "bdd9231ff3ad658f4e7c063e1eb49df2fd09ac8d90631a86df899b39833b9623"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/threejs.csv": {
+      "sha256": "155d583b9c64da0df4b6c6cb060c02eab222505e0734d6353da02c9e2b5d982b",
+      "size": 46769,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/threejs.csv",
+          "sha256": "155d583b9c64da0df4b6c6cb060c02eab222505e0734d6353da02c9e2b5d982b"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/uno.csv": {
+      "sha256": "a0474363e4225b5367214d5675fd3e075f137026f9500f0d04357882ef4f6d48",
+      "size": 30091,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/uno.csv",
+          "sha256": "a0474363e4225b5367214d5675fd3e075f137026f9500f0d04357882ef4f6d48"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/uwp.csv": {
+      "sha256": "c409f08c1fbba1f1029f1acaa554e7b4471cc85517a5751c9f2e62465badcd5c",
+      "size": 24692,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/uwp.csv",
+          "sha256": "c409f08c1fbba1f1029f1acaa554e7b4471cc85517a5751c9f2e62465badcd5c"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/vue.csv": {
+      "sha256": "b655f1ebb9dff2652d15981f31b1784c8a6d4759efd2815a14f3088257569f95",
+      "size": 12813,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/vue.csv",
+          "sha256": "b655f1ebb9dff2652d15981f31b1784c8a6d4759efd2815a14f3088257569f95"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/winui.csv": {
+      "sha256": "e676dc1c13ee6c205c40b0746f1335150a346c7a49a0616d2545bc3d2c930c85",
+      "size": 27890,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/winui.csv",
+          "sha256": "e676dc1c13ee6c205c40b0746f1335150a346c7a49a0616d2545bc3d2c930c85"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/stacks/wpf.csv": {
+      "sha256": "9781a9950b20333637b30a02e498b7efca21b618a3eeb8665836f3ac6e974da7",
+      "size": 24158,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/stacks/wpf.csv",
+          "sha256": "9781a9950b20333637b30a02e498b7efca21b618a3eeb8665836f3ac6e974da7"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/styles.csv": {
+      "sha256": "a9b6cadbd1cb9e7cb8398a3b445e0691d01e42ed5e5efa60a5d0c08c99c8100d",
+      "size": 152958,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/styles.csv",
+          "sha256": "a9b6cadbd1cb9e7cb8398a3b445e0691d01e42ed5e5efa60a5d0c08c99c8100d"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/typography.csv": {
+      "sha256": "321fc446e89024488ebae96dda93efc4d2307bd8bddb240857ad51364f6782c8",
+      "size": 49997,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/typography.csv",
+          "sha256": "321fc446e89024488ebae96dda93efc4d2307bd8bddb240857ad51364f6782c8"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/ui-reasoning.csv": {
+      "sha256": "f0774dd741cecdad5eec842034bd6d5e9ea50e9f220a1910069748daa0bb8e9a",
+      "size": 77360,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/ui-reasoning.csv",
+          "sha256": "f0774dd741cecdad5eec842034bd6d5e9ea50e9f220a1910069748daa0bb8e9a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/data/ux-guidelines.csv": {
+      "sha256": "d63dc39439cf615cdccfdf7acd2301e0c3ce5e1e56a89b60617fa190f7511512",
+      "size": 28310,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/data/ux-guidelines.csv",
+          "sha256": "d63dc39439cf615cdccfdf7acd2301e0c3ce5e1e56a89b60617fa190f7511512"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/references/pro-rules.md": {
+      "sha256": "d28442d61c310b49c054a4ea736f89fb3008beebdbbc38c4b3a540b8f7fadf23",
+      "size": 10909,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-ux-pro-max/references/pro-rules.md",
+          "sha256": "d28442d61c310b49c054a4ea736f89fb3008beebdbbc38c4b3a540b8f7fadf23"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/references/quick-reference.md": {
+      "sha256": "fc53ccfafaa08d40d7326e34e88e9387df60b4256cd649d34dcae0284f247949",
+      "size": 24773,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/ui-ux-pro-max/references/quick-reference.md",
+          "sha256": "fc53ccfafaa08d40d7326e34e88e9387df60b4256cd649d34dcae0284f247949"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/core.py": {
+      "sha256": "caf92bdcf2579c9a7d6af4f53c54ee9d3c8f05472cfab77aaec38bef120ec63e",
+      "size": 43933,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/core.py",
+          "sha256": "caf92bdcf2579c9a7d6af4f53c54ee9d3c8f05472cfab77aaec38bef120ec63e"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/design_system.py": {
+      "sha256": "e7d1c94c4b2eada17c5551157668362659ccf9626d34dbd58e68142410f90103",
+      "size": 71537,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/design_system.py",
+          "sha256": "e7d1c94c4b2eada17c5551157668362659ccf9626d34dbd58e68142410f90103"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/reasoning_contract.py": {
+      "sha256": "b8bac1af82aa280d3e06f00aabaeac4337e632996b07fed874e2b6ee6e9c5913",
+      "size": 5824,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/reasoning_contract.py",
+          "sha256": "b8bac1af82aa280d3e06f00aabaeac4337e632996b07fed874e2b6ee6e9c5913"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/search.py": {
+      "sha256": "9fd5acc991142fd43c3afe7be0f6720911b668f3988b34e74b5cbc41d58e7947",
+      "size": 10642,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/search.py",
+          "sha256": "9fd5acc991142fd43c3afe7be0f6720911b668f3988b34e74b5cbc41d58e7947"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-api.json": {
+      "sha256": "22d8dc81a7d6827b7e8b64b53e7d184210fb9759e8e294e0d5133c81cc460176",
+      "size": 1079,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-api.json",
+          "sha256": "22d8dc81a7d6827b7e8b64b53e7d184210fb9759e8e294e0d5133c81cc460176"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-catalog.json": {
+      "sha256": "c608ad5c4084ebc50a4bbbfb69ea2456c01fd5519c457e18410fffd250ae948f",
+      "size": 1772,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-catalog.json",
+          "sha256": "c608ad5c4084ebc50a4bbbfb69ea2456c01fd5519c457e18410fffd250ae948f"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-existing.csv": {
+      "sha256": "4e0761b839dc6b2187a370e82eddc0aed8a7ff10c09e28dd814bb3656dac595b",
+      "size": 480,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-existing.csv",
+          "sha256": "4e0761b839dc6b2187a370e82eddc0aed8a7ff10c09e28dd814bb3656dac595b"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-metadata.json": {
+      "sha256": "30bffc29ae348416a2de2f9c6c418e768e4578f136b0f4bac5d2f70124f2e9ba",
+      "size": 328,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-metadata.json",
+          "sha256": "30bffc29ae348416a2de2f9c6c418e768e4578f136b0f4bac5d2f70124f2e9ba"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-overrides.json": {
+      "sha256": "6243a48a4619986768c4628e2d0c98ff195beba71ba9be5df8f0c52fc6d90c0b",
+      "size": 97,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/google-overrides.json",
+          "sha256": "6243a48a4619986768c4628e2d0c98ff195beba71ba9be5df8f0c52fc6d90c0b"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/icons-curated.csv": {
+      "sha256": "68362c9a700c13b96f000784a0198c1c7e117a7088a01c85744e44233038fe9d",
+      "size": 495,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/icons-curated.csv",
+          "sha256": "68362c9a700c13b96f000784a0198c1c7e117a7088a01c85744e44233038fe9d"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/phosphor-core.json": {
+      "sha256": "ae4d0bb076240824e1b643c2270d1f8cc0952a69502ec1e622b7dedd85b930bb",
+      "size": 571,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/phosphor-core.json",
+          "sha256": "ae4d0bb076240824e1b643c2270d1f8cc0952a69502ec1e622b7dedd85b930bb"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/phosphor-package.json": {
+      "sha256": "500588c757d6de03e3d7e69b27a8b8b1f88ccf6bb0333e4c1e9b0d6a4f112475",
+      "size": 370,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/phosphor-package.json",
+          "sha256": "500588c757d6de03e3d7e69b27a8b8b1f88ccf6bb0333e4c1e9b0d6a4f112475"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/phosphor-react-exports.json": {
+      "sha256": "d79f2ee0afdbc2f87776733e145df3538a16a25d7c2fba0056bb48295dad0ded",
+      "size": 87,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/phosphor-react-exports.json",
+          "sha256": "d79f2ee0afdbc2f87776733e145df3538a16a25d7c2fba0056bb48295dad0ded"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/fixtures/catalogs/phosphor-react-package.json": {
+      "sha256": "1c57a1d76bcc0cdd3632d4c18b9c0e79576b4591df39831c9607e5d0eb4f2cec",
+      "size": 81,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/fixtures/catalogs/phosphor-react-package.json",
+          "sha256": "1c57a1d76bcc0cdd3632d4c18b9c0e79576b4591df39831c9607e5d0eb4f2cec"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/fixtures/relevance-baseline.json": {
+      "sha256": "0df200fc54c1cb97a52d6775e7f501509163cea8f8b73fd7268429bc1f835afe",
+      "size": 89426,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/fixtures/relevance-baseline.json",
+          "sha256": "0df200fc54c1cb97a52d6775e7f501509163cea8f8b73fd7268429bc1f835afe"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/fixtures/relevance-cases.json": {
+      "sha256": "e77d36eebbf6ddc2860946a02cdb659351da6c09f2688f1ed30939a418099646",
+      "size": 36734,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/fixtures/relevance-cases.json",
+          "sha256": "e77d36eebbf6ddc2860946a02cdb659351da6c09f2688f1ed30939a418099646"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/fixtures/relevance-thresholds.json": {
+      "sha256": "8b1d1c87cecb51db673b7d50e5f6cf29169edfa857853accd1ed80fce3fb4e09",
+      "size": 5079,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/fixtures/relevance-thresholds.json",
+          "sha256": "8b1d1c87cecb51db673b7d50e5f6cf29169edfa857853accd1ed80fce3fb4e09"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/test_catalog_refresh.py": {
+      "sha256": "3e2ca5d12702318f641ae62d0c14f22a3bcc84d84e79b863c0e947d475604adb",
+      "size": 19466,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/test_catalog_refresh.py",
+          "sha256": "3e2ca5d12702318f641ae62d0c14f22a3bcc84d84e79b863c0e947d475604adb"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/test_catalog_summary_line_endings.py": {
+      "sha256": "fa6ff09f0ec2c99013588c77397f5082dddebe8f467e94c5f8378ec9595f4989",
+      "size": 2947,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/test_catalog_summary_line_endings.py",
+          "sha256": "fa6ff09f0ec2c99013588c77397f5082dddebe8f467e94c5f8378ec9595f4989"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/test_core.py": {
+      "sha256": "3527fe2f4b852f69f07c17ddc0d615d9a6e025c924e45a33985579a94a8d2118",
+      "size": 16680,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/test_core.py",
+          "sha256": "3527fe2f4b852f69f07c17ddc0d615d9a6e025c924e45a33985579a94a8d2118"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/test_core_data_quality.py": {
+      "sha256": "3ffc6b4905c9ea26d7ac4527ab154d153584231aee71b2ae4bd017977fa09cc5",
+      "size": 8954,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/test_core_data_quality.py",
+          "sha256": "3ffc6b4905c9ea26d7ac4527ab154d153584231aee71b2ae4bd017977fa09cc5"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/test_data_contracts.py": {
+      "sha256": "0360d6e10080c0bca214f2b0bbad582ba50702a542ce21013351aca54938df3a",
+      "size": 19513,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/test_data_contracts.py",
+          "sha256": "0360d6e10080c0bca214f2b0bbad582ba50702a542ce21013351aca54938df3a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/test_design_system_mode.py": {
+      "sha256": "95ad2c154349f7021f55a558f8dcdd71df1a24fcf531a4364a8e49526a0865ef",
+      "size": 9815,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/test_design_system_mode.py",
+          "sha256": "95ad2c154349f7021f55a558f8dcdd71df1a24fcf531a4364a8e49526a0865ef"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/test_design_system_stack.py": {
+      "sha256": "83d09ffe8cfbf7b265f362129f061dfe8e5e167ce5db43adaead197cabc9ca38",
+      "size": 2261,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/test_design_system_stack.py",
+          "sha256": "83d09ffe8cfbf7b265f362129f061dfe8e5e167ce5db43adaead197cabc9ca38"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/test_ime_composition.py": {
+      "sha256": "6718a0420a5c791c912763ad9d1b66e824b3b55240bc91242a5cccf13482416d",
+      "size": 4675,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/test_ime_composition.py",
+          "sha256": "6718a0420a5c791c912763ad9d1b66e824b3b55240bc91242a5cccf13482416d"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/test_native_desktop_stack_freshness.py": {
+      "sha256": "3942845712b9a829323cd3568511483135f2a8c7cd79ccf61679da4b0f624dbb",
+      "size": 8375,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/test_native_desktop_stack_freshness.py",
+          "sha256": "3942845712b9a829323cd3568511483135f2a8c7cd79ccf61679da4b0f624dbb"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/test_relevance_evaluator.py": {
+      "sha256": "2fe56a4d6fe5fff15ff592274b0eeaba925146cefea6c0fa29d8f1b77c9aca1f",
+      "size": 8430,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/test_relevance_evaluator.py",
+          "sha256": "2fe56a4d6fe5fff15ff592274b0eeaba925146cefea6c0fa29d8f1b77c9aca1f"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/test_rtl_support.py": {
+      "sha256": "fb1c42f782d1929959c5adaefb8169b187b1446a17720ed4f0691b1cd3bb7898",
+      "size": 6836,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/test_rtl_support.py",
+          "sha256": "fb1c42f782d1929959c5adaefb8169b187b1446a17720ed4f0691b1cd3bb7898"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/test_skill_script_paths.py": {
+      "sha256": "7cec24b94be771bc60bc84f8993e614bb16d4047930e1dd3d3bed91628311d44",
+      "size": 4305,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/test_skill_script_paths.py",
+          "sha256": "7cec24b94be771bc60bc84f8993e614bb16d4047930e1dd3d3bed91628311d44"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/test_style_taxonomy.py": {
+      "sha256": "58c14be6c741de5382e3aeca858480570ba96d374532c3b22f44851a02d3076b",
+      "size": 7425,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/test_style_taxonomy.py",
+          "sha256": "58c14be6c741de5382e3aeca858480570ba96d374532c3b22f44851a02d3076b"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/test_text_layout_resilience.py": {
+      "sha256": "b51d32ee8a15505b87cb81957fb2d1b385e041e8beb4463c311d236bfd29ebd4",
+      "size": 5874,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/test_text_layout_resilience.py",
+          "sha256": "b51d32ee8a15505b87cb81957fb2d1b385e041e8beb4463c311d236bfd29ebd4"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/tests/test_web_stack_freshness.py": {
+      "sha256": "83a6d597410f442441cdb17d0913be151404a608ada6a2487dd2bfe2fbf31e5d",
+      "size": 8288,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/tests/test_web_stack_freshness.py",
+          "sha256": "83a6d597410f442441cdb17d0913be151404a608ada6a2487dd2bfe2fbf31e5d"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/ui-ux-pro-max/scripts/validate_data.py": {
+      "sha256": "a599aa256049cf30954d1f164721b99e453eb7e4cb8241bcab2d5573e6cf58b8",
+      "size": 52230,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "src/ui-ux-pro-max/scripts/validate_data.py",
+          "sha256": "a599aa256049cf30954d1f164721b99e453eb7e4cb8241bcab2d5573e6cf58b8"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/design-system/scripts/generate-tokens.cjs": {
+      "sha256": "aac8a0f4ec4dccf0d371f9ee5a9111e44977bb0cad7e40a3754aba5571aa1231",
+      "size": 4968,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": ".claude/skills/design-system/scripts/generate-tokens.cjs",
+          "sha256": "aac8a0f4ec4dccf0d371f9ee5a9111e44977bb0cad7e40a3754aba5571aa1231"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "LICENSE": {
+      "sha256": "738f69dfa83db5c347c678fb9d90e560877059f0de93a327c39001bff92dc014",
+      "size": 1075,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "LICENSE",
+          "sha256": "738f69dfa83db5c347c678fb9d90e560877059f0de93a327c39001bff92dc014"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "README.md": {
+      "sha256": "b7008d079587ca505dcae5a299000c868b2f3faac7c125672ad98969efb17303",
+      "size": 2032,
+      "mode": "100644",
+      "inputs": [],
+      "adaptation": null,
+      "origin": "StackNauta"
+    }
+  },
+  "shared_files": [
+    "LICENSE",
+    "README.md"
+  ],
+  "skill_extra_files": {
+    "ui-ux-pro-max:brand": [
+      "skills/design-system/scripts/generate-tokens.cjs"
+    ]
+  }
+}

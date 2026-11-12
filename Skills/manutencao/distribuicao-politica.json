@@ -1,0 +1,875 @@
+{
+  "schema_version": 1,
+  "stage": "1.5",
+  "approval_scope": "Physical distribution integrity and closure; not certification of every vendor workflow or agent integration.",
+  "rows": [
+    {
+      "id": "ui-ux-pro-max:banner-design",
+      "status": "approved",
+      "category": "Frontend",
+      "bundle": "ui-ux-pro-max",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "ui-ux-pro-max:brand",
+      "status": "approved",
+      "category": "Frontend",
+      "bundle": "ui-ux-pro-max",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "ui-ux-pro-max:design-system",
+      "status": "pending",
+      "category": "Frontend",
+      "bundle": "ui-ux-pro-max",
+      "reason": "A revisão cita biblioteca assets/css/slide-animations.css e exemplo de slides não fornecidos; necessário esclarecer o contrato completo de slides."
+    },
+    {
+      "id": "ui-ux-pro-max:design",
+      "status": "pending",
+      "category": "Frontend",
+      "bundle": "ui-ux-pro-max",
+      "reason": "Orquestrador inclui os fluxos design-system e slides ainda pendentes, além de provedores de imagem; a distribuição integral não está fechada."
+    },
+    {
+      "id": "ui-ux-pro-max:slides",
+      "status": "pending",
+      "category": "Frontend",
+      "bundle": "ui-ux-pro-max",
+      "reason": "Depende do fluxo de design-system/slides com biblioteca de animação ausente na origem; não fabricar recurso."
+    },
+    {
+      "id": "ui-ux-pro-max:ui-styling",
+      "status": "approved",
+      "category": "Frontend",
+      "bundle": "ui-ux-pro-max",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "ui-ux-pro-max:ui-ux-pro-max",
+      "status": "approved",
+      "category": "Frontend",
+      "bundle": "ui-ux-pro-max",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "fastapi:fastapi",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "fastapi",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "remy:hexagonal-go",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "remy",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "remy:hexagonal-python",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "remy",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "remy:hexagonal-typescript",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "remy",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-skill-eval",
+      "status": "excluded",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Ferramenta interna de avaliação do fornecedor; depende de eval-harness não adquirido e executa geradores/avaliações. Excluída da distribuição."
+    },
+    {
+      "id": "expo:expo-migrate-module",
+      "status": "excluded",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Plugin expo-experiments, explicitamente experimental. Excluído desta distribuição estável, sem habilitação automática."
+    },
+    {
+      "id": "expo:eas-app-stores",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:eas-hosting",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:eas-observe",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:eas-simulator",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:eas-update-insights",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:eas-update",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:eas-workflows",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-animation",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-app-clip",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-brownfield",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-data-fetching",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-design-system",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-dev-client",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-dom",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-examples",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-module",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-native-ui",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-overview",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-project-structure",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-router",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-ui",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-upgrade",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "expo:expo-web-to-native",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "expo",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "chrisbanes:android-benchmark-comparison",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "chrisbanes:changelog",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "chrisbanes:compose-animations",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "chrisbanes:compose-component-design",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "chrisbanes:compose-focus-navigation",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "chrisbanes:compose-performance",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "chrisbanes:compose-state-and-effects",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "chrisbanes:compose-ui-testing-patterns",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "chrisbanes:deliver-spec",
+      "status": "pending",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Contrato de orquestração com run-github-project e capacidades de revisão/delegação específicas dos agentes ainda precisa ser integrado."
+    },
+    {
+      "id": "chrisbanes:gradle-run",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "chrisbanes:grounded-writing",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "chrisbanes:implement-with-subagents",
+      "status": "pending",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Modo de implementação exige a skill externa tdd (Matt Pocock), fora das sete fontes."
+    },
+    {
+      "id": "chrisbanes:kotlin-api-design",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "chrisbanes:kotlin-concurrency-and-flow",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "chrisbanes:kotlin-control-flow",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "chrisbanes:release-kotlin-library",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "chrisbanes:run-github-project",
+      "status": "pending",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Modos triage/Wayfinder/research dependem de provedores externos não adquiridos; pacote completo de orquestração não fechado."
+    },
+    {
+      "id": "chrisbanes:shepherd",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "chrisbanes:subagent-delegation",
+      "status": "pending",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Playbooks por runtime e implementação com providers externos requerem adaptação aos agentes planejados."
+    },
+    {
+      "id": "chrisbanes:to-plan",
+      "status": "pending",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Planejamento integrado a orquestração/provedores externos ainda pendentes; não disponibilizar um fluxo parcial como completo."
+    },
+    {
+      "id": "chrisbanes:using-chrisbanes-skills",
+      "status": "pending",
+      "category": "Mobile",
+      "bundle": "chrisbanes",
+      "reason": "Router da coleção encaminha a rotinas de orquestração ainda pendentes; skills Kotlin/Compose podem ser selecionadas diretamente."
+    },
+    {
+      "id": "android:agp-9-upgrade",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:camerax",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:android-for-cars-parked-apps",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:appfunctions",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:litert-lm",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:litert-runtime",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:ml-kit-genai-prompt-api",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:mlkit-agent-api",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:android-cli",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:restore-credentials",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:verified-email",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:adaptive",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:ink-app-builder",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:ink-custom-brush-builder",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:jetpack-compose-performance",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:migrate-xml-views-to-jetpack-compose",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:media3-cast-integration",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:navigation-3",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:navigation-event",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:anr-audit-and-fix",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:r8-analyzer",
+      "status": "pending",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Helper obrigatório exige protobuf>=6.33.4, ausente no Python global. Não instalar nem apresentar execução do analisador como pronta."
+    },
+    {
+      "id": "android:engage-sdk-integration",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:play-billing-library-version-upgrade",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:play-policy-insights",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:android-profiler",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:android-intent-security",
+      "status": "approved",
+      "category": "Seguranca",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:android-permissions-security",
+      "status": "approved",
+      "category": "Seguranca",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:edge-to-edge",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:glance-appwidget-updates-and-memory",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:glance-canonical-layouts",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:testing-setup",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:leanback-to-compose-tv-migration",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:wear-compose-m3",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:wear-widgets",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:display-glasses-with-jetpack-compose-glimmer",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "android:projected-hardware",
+      "status": "approved",
+      "category": "Mobile",
+      "bundle": "android",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:agents-md",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:blog-writing-guide",
+      "status": "pending",
+      "category": "Frontend",
+      "bundle": "sentry",
+      "reason": "Fluxo específico da organização Sentry (marca, repositório, serviços ou acesso interno); faltam contexto e adaptação para distribuição genérica. Não autenticar serviços nesta etapa."
+    },
+    {
+      "id": "sentry:brand-guidelines",
+      "status": "pending",
+      "category": "Frontend",
+      "bundle": "sentry",
+      "reason": "Fluxo específico da organização Sentry (marca, repositório, serviços ou acesso interno); faltam contexto e adaptação para distribuição genérica. Não autenticar serviços nesta etapa."
+    },
+    {
+      "id": "sentry:browse-local-sentry",
+      "status": "pending",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Fluxo específico da organização Sentry (marca, repositório, serviços ou acesso interno); faltam contexto e adaptação para distribuição genérica. Não autenticar serviços nesta etapa."
+    },
+    {
+      "id": "sentry:claude-settings-audit",
+      "status": "pending",
+      "category": "Seguranca",
+      "bundle": "sentry",
+      "reason": "Gera permissões settings.json específicas de Claude Code, fora dos três agentes planejados; exige adaptação específica."
+    },
+    {
+      "id": "sentry:code-review",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:code-simplifier",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:commit",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:create-branch",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:django-access-review",
+      "status": "approved",
+      "category": "Seguranca",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:django-perf-review",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:doc-coauthoring",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:document-api-endpoint",
+      "status": "pending",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Fluxo específico da organização Sentry (marca, repositório, serviços ou acesso interno); faltam contexto e adaptação para distribuição genérica. Não autenticar serviços nesta etapa."
+    },
+    {
+      "id": "sentry:find-bugs",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:gh-review-requests",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:gha-security-review",
+      "status": "approved",
+      "category": "Seguranca",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:iterate-pr",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:pr-link-issue",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:pr-screenshots",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:pr-writer",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:presentation-creator",
+      "status": "pending",
+      "category": "Frontend",
+      "bundle": "sentry",
+      "reason": "Fluxo específico da organização Sentry (marca, repositório, serviços ou acesso interno); faltam contexto e adaptação para distribuição genérica. Não autenticar serviços nesta etapa."
+    },
+    {
+      "id": "sentry:prompt-optimizer",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:secret-serialization",
+      "status": "approved",
+      "category": "Seguranca",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:security-model",
+      "status": "approved",
+      "category": "Seguranca",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:security-review",
+      "status": "approved",
+      "category": "Seguranca",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    },
+    {
+      "id": "sentry:skill-scanner",
+      "status": "pending",
+      "category": "Seguranca",
+      "bundle": "sentry",
+      "reason": "Script obrigatório depende de PyYAML e usa uv; PyYAML não está instalado no Python global. Não instalar dependência automaticamente."
+    },
+    {
+      "id": "sentry:skill-writer",
+      "status": "pending",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Validação obrigatória depende de PyYAML, ausente no Python global; exige decisão posterior sobre dependência e escopo de autoria."
+    },
+    {
+      "id": "sentry:sred-project-organizer",
+      "status": "pending",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Fluxo específico da organização Sentry (marca, repositório, serviços ou acesso interno); faltam contexto e adaptação para distribuição genérica. Não autenticar serviços nesta etapa."
+    },
+    {
+      "id": "sentry:sred-work-summary",
+      "status": "pending",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Fluxo específico da organização Sentry (marca, repositório, serviços ou acesso interno); faltam contexto e adaptação para distribuição genérica. Não autenticar serviços nesta etapa."
+    },
+    {
+      "id": "sentry:triage-frontend-issues",
+      "status": "pending",
+      "category": "Frontend",
+      "bundle": "sentry",
+      "reason": "Fluxo específico da organização Sentry (marca, repositório, serviços ou acesso interno); faltam contexto e adaptação para distribuição genérica. Não autenticar serviços nesta etapa."
+    },
+    {
+      "id": "sentry:typing-exclusion-worker",
+      "status": "approved",
+      "category": "Backend",
+      "bundle": "sentry",
+      "reason": "Diretório completo e recursos de runtime presentes; requisitos do projeto consumidor permanecem explícitos. Aprovação de empacotamento, sem ativação automática."
+    }
+  ]
+}

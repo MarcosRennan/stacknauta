@@ -1,0 +1,291 @@
+[
+  {
+    "document": ".claude/skills/brand/SKILL.md",
+    "target": "assets/design-tokens.css",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "ui-ux-pro-max:brand",
+    "disposition": "consumer_output_or_example",
+    "reason": "Tokens, CSS e banners são arquivos do projeto consumidor/exemplos, não dependências locais da biblioteca."
+  },
+  {
+    "document": ".claude/skills/brand/SKILL.md",
+    "target": "assets/design-tokens.json",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "ui-ux-pro-max:brand",
+    "disposition": "consumer_output_or_example",
+    "reason": "Tokens, CSS e banners são arquivos do projeto consumidor/exemplos, não dependências locais da biblioteca."
+  },
+  {
+    "document": ".claude/skills/brand/references/asset-organization.md",
+    "target": "assets/banners/landing-pages/banner_claude-launch_hero-image_20251209.png",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "ui-ux-pro-max:brand",
+    "disposition": "consumer_output_or_example",
+    "reason": "Tokens, CSS e banners são arquivos do projeto consumidor/exemplos, não dependências locais da biblioteca."
+  },
+  {
+    "document": ".claude/skills/brand/references/asset-organization.md",
+    "target": "assets/banners/landing-pages/banner_claude-launch_hero-image_20251209_v2.png",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "ui-ux-pro-max:brand",
+    "disposition": "consumer_output_or_example",
+    "reason": "Tokens, CSS e banners são arquivos do projeto consumidor/exemplos, não dependências locais da biblioteca."
+  },
+  {
+    "document": ".claude/skills/brand/references/update.md",
+    "target": "assets/design-tokens.css",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "ui-ux-pro-max:brand",
+    "disposition": "consumer_output_or_example",
+    "reason": "Tokens, CSS e banners são arquivos do projeto consumidor/exemplos, não dependências locais da biblioteca."
+  },
+  {
+    "document": ".claude/skills/brand/references/update.md",
+    "target": "assets/design-tokens.json",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "ui-ux-pro-max:brand",
+    "disposition": "consumer_output_or_example",
+    "reason": "Tokens, CSS e banners são arquivos do projeto consumidor/exemplos, não dependências locais da biblioteca."
+  },
+  {
+    "document": ".claude/skills/design-system/SKILL.md",
+    "target": "assets/css/slide-animations.css",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "ui-ux-pro-max:design-system",
+    "disposition": "pending_upstream_gap",
+    "reason": "Recurso/exemplo ausente na origem: fluxos design-system, slides e design não aprovados."
+  },
+  {
+    "document": ".claude/skills/design-system/SKILL.md",
+    "target": "assets/design-tokens.css",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "ui-ux-pro-max:design-system",
+    "disposition": "consumer_output_or_example",
+    "reason": "Tokens, CSS e banners são arquivos do projeto consumidor/exemplos, não dependências locais da biblioteca."
+  },
+  {
+    "document": ".claude/skills/design-system/SKILL.md",
+    "target": "assets/design-tokens.json",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "ui-ux-pro-max:design-system",
+    "disposition": "consumer_output_or_example",
+    "reason": "Tokens, CSS e banners são arquivos do projeto consumidor/exemplos, não dependências locais da biblioteca."
+  },
+  {
+    "document": ".claude/skills/design-system/SKILL.md",
+    "target": "assets/designs/slides/claudekit-pitch-251223.html",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "ui-ux-pro-max:design-system",
+    "disposition": "pending_upstream_gap",
+    "reason": "Recurso/exemplo ausente na origem: fluxos design-system, slides e design não aprovados."
+  },
+  {
+    "document": ".claude/skills/design/SKILL.md",
+    "target": "assets/design-tokens.json",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "ui-ux-pro-max:design",
+    "disposition": "consumer_output_or_example",
+    "reason": "Tokens, CSS e banners são arquivos do projeto consumidor/exemplos, não dependências locais da biblioteca."
+  },
+  {
+    "document": ".claude/skills/slides/SKILL.md",
+    "target": "assets/design-tokens.json",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "ui-ux-pro-max:slides",
+    "disposition": "consumer_output_or_example",
+    "reason": "Tokens, CSS e banners são arquivos do projeto consumidor/exemplos, não dependências locais da biblioteca."
+  },
+  {
+    "document": ".claude/skills/ui-styling/SKILL.md",
+    "target": "assets/design-tokens.json",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "ui-ux-pro-max:ui-styling",
+    "disposition": "consumer_output_or_example",
+    "reason": "Tokens, CSS e banners são arquivos do projeto consumidor/exemplos, não dependências locais da biblioteca."
+  },
+  {
+    "document": "plugins/expo/skills/expo-overview/SKILL.md",
+    "target": "references/native-ios.md",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [
+      "plugins/expo/skills/eas-app-stores/references/native-ios.md"
+    ],
+    "skill_id": "expo:expo-overview",
+    "disposition": "resolved_companion",
+    "reason": "SKILL.md distribuído aponta explicitamente a ../eas-app-stores/references/native-ios.md; companheira incluída no fechamento."
+  },
+  {
+    "document": "skills/browse-local-sentry/SOURCES.md",
+    "target": "scripts/dev-ui-server.ts",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "sentry:browse-local-sentry",
+    "disposition": "external_source_attribution",
+    "reason": "SOURCES.md cita código de getsentry/sentry, não recurso desta skill. Fluxo organizacional permanece pendente."
+  },
+  {
+    "document": "skills/secret-serialization/SPEC.md",
+    "target": "scripts/quick_validate.py",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [
+      "skills/skill-writer/scripts/quick_validate.py"
+    ],
+    "skill_id": "sentry:secret-serialization",
+    "disposition": "upstream_maintenance_only",
+    "reason": "SPEC registra validação executada a partir de skill-writer; não é helper de runtime desta skill. Fonte original preservada no histórico de aquisição."
+  },
+  {
+    "document": "skills/security-model/SPEC.md",
+    "target": "scripts/quick_validate.py",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [
+      "skills/skill-writer/scripts/quick_validate.py"
+    ],
+    "skill_id": "sentry:security-model",
+    "disposition": "upstream_maintenance_only",
+    "reason": "SPEC registra validação executada a partir de skill-writer; não é helper de runtime desta skill. Fonte original preservada no histórico de aquisição."
+  },
+  {
+    "document": "skills/skill-scanner/SKILL.md",
+    "target": "scripts/tool.py",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "sentry:skill-scanner",
+    "disposition": "example_or_generated_artifact",
+    "reason": "Exemplo de relatório, roteamento ou arquivo a criar; não é entrada de runtime fornecida pela skill."
+  },
+  {
+    "document": "skills/skill-writer/SPEC.md",
+    "target": "references/evidence/holdout-set.md",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "sentry:skill-writer",
+    "disposition": "example_or_generated_artifact",
+    "reason": "Exemplo de relatório, roteamento ou arquivo a criar; não é entrada de runtime fornecida pela skill."
+  },
+  {
+    "document": "skills/skill-writer/references/claude-frontmatter-invocation.md",
+    "target": "agents/openai.yaml",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [
+      "skills/iterate-pr/agents/openai.yaml",
+      "skills/security-model/agents/openai.yaml"
+    ],
+    "skill_id": "sentry:skill-writer",
+    "disposition": "example_or_generated_artifact",
+    "reason": "Exemplo de relatório, roteamento ou arquivo a criar; não é entrada de runtime fornecida pela skill."
+  },
+  {
+    "document": "skills/skill-writer/references/iteration-evidence.md",
+    "target": "references/evidence/findings-log.md",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "sentry:skill-writer",
+    "disposition": "example_or_generated_artifact",
+    "reason": "Exemplo de relatório, roteamento ou arquivo a criar; não é entrada de runtime fornecida pela skill."
+  },
+  {
+    "document": "skills/skill-writer/references/iteration-evidence.md",
+    "target": "references/evidence/holdout-set.md",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "sentry:skill-writer",
+    "disposition": "example_or_generated_artifact",
+    "reason": "Exemplo de relatório, roteamento ou arquivo a criar; não é entrada de runtime fornecida pela skill."
+  },
+  {
+    "document": "skills/skill-writer/references/iteration-evidence.md",
+    "target": "references/evidence/working-set.md",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "sentry:skill-writer",
+    "disposition": "example_or_generated_artifact",
+    "reason": "Exemplo de relatório, roteamento ou arquivo a criar; não é entrada de runtime fornecida pela skill."
+  },
+  {
+    "document": "skills/skill-writer/references/registration-validation.md",
+    "target": "references/bar.md",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "sentry:skill-writer",
+    "disposition": "example_or_generated_artifact",
+    "reason": "Exemplo de relatório, roteamento ou arquivo a criar; não é entrada de runtime fornecida pela skill."
+  },
+  {
+    "document": "skills/skill-writer/references/registration-validation.md",
+    "target": "scripts/foo.py",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "sentry:skill-writer",
+    "disposition": "example_or_generated_artifact",
+    "reason": "Exemplo de relatório, roteamento ou arquivo a criar; não é entrada de runtime fornecida pela skill."
+  },
+  {
+    "document": "skills/skill-writer/references/workflow-routing.md",
+    "target": "references/billing.md",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "sentry:skill-writer",
+    "disposition": "example_or_generated_artifact",
+    "reason": "Exemplo de relatório, roteamento ou arquivo a criar; não é entrada de runtime fornecida pela skill."
+  },
+  {
+    "document": "skills/skill-writer/references/workflow-routing.md",
+    "target": "references/triage.md",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "sentry:skill-writer",
+    "disposition": "example_or_generated_artifact",
+    "reason": "Exemplo de relatório, roteamento ou arquivo a criar; não é entrada de runtime fornecida pela skill."
+  },
+  {
+    "document": "skills/skill-writer/references/workflow-routing.md",
+    "target": "scripts/refund_intake.py",
+    "kind": "resource_mention",
+    "status": "unresolved_requires_review",
+    "possible_matches": [],
+    "skill_id": "sentry:skill-writer",
+    "disposition": "example_or_generated_artifact",
+    "reason": "Exemplo de relatório, roteamento ou arquivo a criar; não é entrada de runtime fornecida pela skill."
+  }
+]

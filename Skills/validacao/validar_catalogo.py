@@ -144,6 +144,11 @@ def validate():
 
 
 if __name__=='__main__':
+    current=json.loads((ROOT/'Skills/catalogo.json').read_text())
+    if current.get('stage')=='1.5':
+        from validar_biblioteca import main
+        main()
+        raise SystemExit(0)
     result=validate()
     print(json.dumps(result,ensure_ascii=False,indent=2))
     sys.exit(1 if result['errors'] else 0)

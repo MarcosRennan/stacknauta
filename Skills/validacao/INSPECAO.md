@@ -1,3 +1,5 @@
+> Registro histórico da Etapa 1. As afirmações de pendência/não execução abaixo descrevem aquela etapa. Para o estado atual, consultar DISTRIBUICAO.md, PENDENCIAS.md e os relatórios da Etapa 1.5.
+
 # Inspeção das sete fontes
 
 Inspeção estática realizada nas revisões de `../fontes.lock.json`. Fontes intactas, scripts não executados, nenhum instalador ou build de fornecedor executado. `arquivos.json` enumera todos os arquivos materializados, inclusive documentação, scripts, assets, templates, licenças, agentes auxiliares, exemplos e testes. Recursos não foram reduzidos ao SKILL.md.

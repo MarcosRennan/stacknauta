@@ -1,3 +1,5 @@
+> Registro histórico da Etapa 1. As afirmações de pendência/não execução abaixo descrevem aquela etapa. Para o estado atual, consultar DISTRIBUICAO.md, PENDENCIAS.md e os relatórios da Etapa 1.5.
+
 # Pré-check da Etapa 1
 
 Verificações somente leitura concluídas antes de criar o destino:

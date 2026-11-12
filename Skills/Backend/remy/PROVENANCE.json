@@ -1,0 +1,755 @@
+{
+  "id": "Backend/remy",
+  "directory": "Skills/Backend/remy",
+  "source_id": "remy",
+  "repository": "https://github.com/Remy349/skills.git",
+  "commit": "5d9eae132afea72518ba0f1f41919f9e37964362",
+  "skills": [
+    "remy:hexagonal-go",
+    "remy:hexagonal-python",
+    "remy:hexagonal-typescript"
+  ],
+  "files": {
+    "skills/hexagonal-go/SKILL.md": {
+      "sha256": "719247c372ca5d2d04e1358d17fd896b123d06365ffcc7173de22c2083eb7f88",
+      "size": 22182,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/SKILL.md",
+          "sha256": "be4a96f4d75cccad562c894e2e0720bda044c1ff64068e65e387d5cdbd6206d9"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/ddd.md": {
+      "sha256": "0b7c9267cc6c6097dfa49cffa4da8bae6fb2f174b72352c0478293acf8600669",
+      "size": 9891,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/ddd.md",
+          "sha256": "0b7c9267cc6c6097dfa49cffa4da8bae6fb2f174b72352c0478293acf8600669"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/frameworks/echo.md": {
+      "sha256": "854ac9e64caef1ecd71e3d97e50590d6aca569a81ec74b219ff0ec6c46ce4f77",
+      "size": 20291,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/frameworks/echo.md",
+          "sha256": "854ac9e64caef1ecd71e3d97e50590d6aca569a81ec74b219ff0ec6c46ce4f77"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/frameworks/fiber.md": {
+      "sha256": "91d325e5c52b230634c1a9c8e2b0a9727508346c6f69edc5e0d9f6dd3eca5f66",
+      "size": 20096,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/frameworks/fiber.md",
+          "sha256": "91d325e5c52b230634c1a9c8e2b0a9727508346c6f69edc5e0d9f6dd3eca5f66"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/frameworks/gin.md": {
+      "sha256": "8dbb832a2d7a7839b1c99d2c197d71e3ef03398e65784b69d259de6a466a643a",
+      "size": 19346,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/frameworks/gin.md",
+          "sha256": "8dbb832a2d7a7839b1c99d2c197d71e3ef03398e65784b69d259de6a466a643a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/frameworks/nethttp.md": {
+      "sha256": "a20a2b274652389892a4584ddae7f84f51d66d8dc400f943ce799ac48f8463f3",
+      "size": 21014,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/frameworks/nethttp.md",
+          "sha256": "a20a2b274652389892a4584ddae7f84f51d66d8dc400f943ce799ac48f8463f3"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/idioms.md": {
+      "sha256": "491458e0fb5b8c880bb66584f8358b0f940fba126df7a455aa3343e8cea2f6e0",
+      "size": 29169,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/idioms.md",
+          "sha256": "491458e0fb5b8c880bb66584f8358b0f940fba126df7a455aa3343e8cea2f6e0"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/persistence/gorm.md": {
+      "sha256": "29d908ce3b268d11db6d56c2661d950e415b14833b35adf71b98d74682377a84",
+      "size": 20719,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/persistence/gorm.md",
+          "sha256": "29d908ce3b268d11db6d56c2661d950e415b14833b35adf71b98d74682377a84"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/persistence/pgx.md": {
+      "sha256": "100697a5dc0bd887e11b9df5bb0bb9d1acb6759cd6d96b307747b7ebcfbe3b4b",
+      "size": 27015,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/persistence/pgx.md",
+          "sha256": "100697a5dc0bd887e11b9df5bb0bb9d1acb6759cd6d96b307747b7ebcfbe3b4b"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/persistence/sqlc.md": {
+      "sha256": "57834c37b3e75d63b9488a3b05b0d1972d7cf9d9ee03a6a52377c5851a640073",
+      "size": 19408,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/persistence/sqlc.md",
+          "sha256": "57834c37b3e75d63b9488a3b05b0d1972d7cf9d9ee03a6a52377c5851a640073"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/recipes/aggregate-state-machine.md": {
+      "sha256": "d8abac574de3e94159c54bf1a641dc28bdcac5fca88e0eb268cdfdd0d3642f64",
+      "size": 6545,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/recipes/aggregate-state-machine.md",
+          "sha256": "d8abac574de3e94159c54bf1a641dc28bdcac5fca88e0eb268cdfdd0d3642f64"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/recipes/crud-thin-slice.md": {
+      "sha256": "a96b6946a63b8f7f15af153662c009348374a6dacb1d86ce1813c16f744801e9",
+      "size": 8572,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/recipes/crud-thin-slice.md",
+          "sha256": "a96b6946a63b8f7f15af153662c009348374a6dacb1d86ce1813c16f744801e9"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/recipes/domain-events-outbox.md": {
+      "sha256": "66fd7eacdd87ace27c9abc470ebaf35efdc516dfac3ee1746169b6704f402a7d",
+      "size": 10820,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/recipes/domain-events-outbox.md",
+          "sha256": "66fd7eacdd87ace27c9abc470ebaf35efdc516dfac3ee1746169b6704f402a7d"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/recipes/external-api-acl.md": {
+      "sha256": "a97ebcf671c460532bbb1c208b56ccf8454184ffb08f8152d8bda9eb2838ec06",
+      "size": 15537,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/recipes/external-api-acl.md",
+          "sha256": "a97ebcf671c460532bbb1c208b56ccf8454184ffb08f8152d8bda9eb2838ec06"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/recipes/idempotent-command.md": {
+      "sha256": "b0adb9d3e5df5eddd7d36e37c12537746ce0fcf9e96cc6cfa7aa43b38dda1791",
+      "size": 10557,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/recipes/idempotent-command.md",
+          "sha256": "b0adb9d3e5df5eddd7d36e37c12537746ce0fcf9e96cc6cfa7aa43b38dda1791"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/recipes/read-model-pagination.md": {
+      "sha256": "a1f7ca346266fbec9a2df174b676ad7540b23d745ac6bbbc60b227fd7b471115",
+      "size": 8703,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/recipes/read-model-pagination.md",
+          "sha256": "a1f7ca346266fbec9a2df174b676ad7540b23d745ac6bbbc60b227fd7b471115"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/rest-api.md": {
+      "sha256": "8cb09f723aac2a848befad63301d77b59341a5d668e2c90940f08289873a696c",
+      "size": 9929,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/rest-api.md",
+          "sha256": "8cb09f723aac2a848befad63301d77b59341a5d668e2c90940f08289873a696c"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/solid-patterns.md": {
+      "sha256": "18003b169cdc4560bba6fb38f8473b87a5408c122906d4aa14f0b3813320fa93",
+      "size": 9604,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/solid-patterns.md",
+          "sha256": "18003b169cdc4560bba6fb38f8473b87a5408c122906d4aa14f0b3813320fa93"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/testing-strategy.md": {
+      "sha256": "435b59285cfa7d155681f152f99211f07d96dd5868287052a92ee215edb78f66",
+      "size": 8605,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/testing-strategy.md",
+          "sha256": "435b59285cfa7d155681f152f99211f07d96dd5868287052a92ee215edb78f66"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-go/references/testing.md": {
+      "sha256": "581d0529746f4b7825a95d5824e480c80c816e114f2c7ec8256acbf30becb2f2",
+      "size": 21087,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-go/references/testing.md",
+          "sha256": "581d0529746f4b7825a95d5824e480c80c816e114f2c7ec8256acbf30becb2f2"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-python/SKILL.md": {
+      "sha256": "57a03556437a9ee5ada67be4ea87c4df4acff1176614e29228bc7e8c3e05b077",
+      "size": 21582,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-python/SKILL.md",
+          "sha256": "7ba54fac3337faa432c520d4bd0f7b9e5d587bc9bd6e654336617efd9ae315d5"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/hexagonal-python/references/ddd.md": {
+      "sha256": "0b7c9267cc6c6097dfa49cffa4da8bae6fb2f174b72352c0478293acf8600669",
+      "size": 9891,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-python/references/ddd.md",
+          "sha256": "0b7c9267cc6c6097dfa49cffa4da8bae6fb2f174b72352c0478293acf8600669"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-python/references/frameworks/fastapi.md": {
+      "sha256": "8d88fddf125fbb9620a732f5e077f874991cb4795f6c87a36b805105be1960bb",
+      "size": 14434,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-python/references/frameworks/fastapi.md",
+          "sha256": "8d88fddf125fbb9620a732f5e077f874991cb4795f6c87a36b805105be1960bb"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-python/references/frameworks/flask.md": {
+      "sha256": "0389f6b83a1d1c52cebb185707870ddeadfc6e21e5db60066b09c10396228990",
+      "size": 10387,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-python/references/frameworks/flask.md",
+          "sha256": "0389f6b83a1d1c52cebb185707870ddeadfc6e21e5db60066b09c10396228990"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-python/references/idioms.md": {
+      "sha256": "32a3827bd36a7acfd84854714eceb788ea9b87698f08303411c99135802f89e3",
+      "size": 20795,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-python/references/idioms.md",
+          "sha256": "32a3827bd36a7acfd84854714eceb788ea9b87698f08303411c99135802f89e3"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-python/references/persistence/sqlalchemy.md": {
+      "sha256": "368c9db6ba2db78f3dc390c43b2b967bee9c0a031235113e97a766e5a6972ea0",
+      "size": 20614,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-python/references/persistence/sqlalchemy.md",
+          "sha256": "368c9db6ba2db78f3dc390c43b2b967bee9c0a031235113e97a766e5a6972ea0"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-python/references/recipes/aggregate-state-machine.md": {
+      "sha256": "5dda56dd3b64772712c7c046d33261691d74a107cc8d593537af3b8e626acd4b",
+      "size": 8566,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-python/references/recipes/aggregate-state-machine.md",
+          "sha256": "5dda56dd3b64772712c7c046d33261691d74a107cc8d593537af3b8e626acd4b"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-python/references/recipes/crud-thin-slice.md": {
+      "sha256": "2ccd6e11d98139c8b12e5d4833983c13bcf50cfbb04cc9e0ed0858b1e9e07b82",
+      "size": 4884,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-python/references/recipes/crud-thin-slice.md",
+          "sha256": "2ccd6e11d98139c8b12e5d4833983c13bcf50cfbb04cc9e0ed0858b1e9e07b82"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-python/references/recipes/domain-events-outbox.md": {
+      "sha256": "ae63d89222461e0dca23d51ab4cd563ad9a8595dd8293c1e697469485b9a3cf2",
+      "size": 11729,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-python/references/recipes/domain-events-outbox.md",
+          "sha256": "ae63d89222461e0dca23d51ab4cd563ad9a8595dd8293c1e697469485b9a3cf2"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-python/references/recipes/external-api-acl.md": {
+      "sha256": "67da0e0db0bacf0d191aa2c0b8c8895a3e55346986449d4b725da6f9bd6ed1e7",
+      "size": 12343,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-python/references/recipes/external-api-acl.md",
+          "sha256": "67da0e0db0bacf0d191aa2c0b8c8895a3e55346986449d4b725da6f9bd6ed1e7"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-python/references/recipes/idempotent-command.md": {
+      "sha256": "fd64b261185a1b8bc7dfa42077ef05c65dabc39cff62b8a8dca9afb8497c1d6e",
+      "size": 10097,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-python/references/recipes/idempotent-command.md",
+          "sha256": "fd64b261185a1b8bc7dfa42077ef05c65dabc39cff62b8a8dca9afb8497c1d6e"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-python/references/recipes/read-model-pagination.md": {
+      "sha256": "691f54be548e0b0771bf4690af5eb76971d77147a78fd712ecd913c857b28b54",
+      "size": 9071,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-python/references/recipes/read-model-pagination.md",
+          "sha256": "691f54be548e0b0771bf4690af5eb76971d77147a78fd712ecd913c857b28b54"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-python/references/rest-api.md": {
+      "sha256": "8cb09f723aac2a848befad63301d77b59341a5d668e2c90940f08289873a696c",
+      "size": 9929,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-python/references/rest-api.md",
+          "sha256": "8cb09f723aac2a848befad63301d77b59341a5d668e2c90940f08289873a696c"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-python/references/solid-patterns.md": {
+      "sha256": "18003b169cdc4560bba6fb38f8473b87a5408c122906d4aa14f0b3813320fa93",
+      "size": 9604,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-python/references/solid-patterns.md",
+          "sha256": "18003b169cdc4560bba6fb38f8473b87a5408c122906d4aa14f0b3813320fa93"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-python/references/testing-strategy.md": {
+      "sha256": "435b59285cfa7d155681f152f99211f07d96dd5868287052a92ee215edb78f66",
+      "size": 8605,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-python/references/testing-strategy.md",
+          "sha256": "435b59285cfa7d155681f152f99211f07d96dd5868287052a92ee215edb78f66"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-python/references/testing.md": {
+      "sha256": "88d7000a64f7d05a5e8da234d7a934553015a862d8165dee889b04650a6584af",
+      "size": 12608,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-python/references/testing.md",
+          "sha256": "88d7000a64f7d05a5e8da234d7a934553015a862d8165dee889b04650a6584af"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/SKILL.md": {
+      "sha256": "b0fe336ca7826f907e55b1ad6fd7679755da6f6ce02884446f3e0c4bc744addf",
+      "size": 22210,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/SKILL.md",
+          "sha256": "d1533b4d71530e6002be15da06b847ae3ddff1e7c4c98e6bac55d7bea0e66a83"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/ddd.md": {
+      "sha256": "0b7c9267cc6c6097dfa49cffa4da8bae6fb2f174b72352c0478293acf8600669",
+      "size": 9891,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/ddd.md",
+          "sha256": "0b7c9267cc6c6097dfa49cffa4da8bae6fb2f174b72352c0478293acf8600669"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/frameworks/express.md": {
+      "sha256": "8937663fdf48b52bb3400109be59ac039139a7bbddec15ba570d2b376669978c",
+      "size": 11186,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/frameworks/express.md",
+          "sha256": "8937663fdf48b52bb3400109be59ac039139a7bbddec15ba570d2b376669978c"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/frameworks/fastify.md": {
+      "sha256": "6c560282d904ebad3f4e8d9fd5b7fdbae0c30d25ad4d4cbf20149c070fffdda7",
+      "size": 8632,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/frameworks/fastify.md",
+          "sha256": "6c560282d904ebad3f4e8d9fd5b7fdbae0c30d25ad4d4cbf20149c070fffdda7"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/frameworks/nestjs.md": {
+      "sha256": "797df86461289161403705c3c510592060489afbd5d3359fd6e8c19c8b1e137e",
+      "size": 13768,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/frameworks/nestjs.md",
+          "sha256": "797df86461289161403705c3c510592060489afbd5d3359fd6e8c19c8b1e137e"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/idioms.md": {
+      "sha256": "fac38cb76490d81993845e721aaebbaa4bd2fe00b411811bf515699978abc186",
+      "size": 22953,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/idioms.md",
+          "sha256": "fac38cb76490d81993845e721aaebbaa4bd2fe00b411811bf515699978abc186"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/persistence/drizzle.md": {
+      "sha256": "465750ed01fbc8e836fefcbe293bb3bdd591d6bc8b6794afb019e33eec0c5894",
+      "size": 18536,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/persistence/drizzle.md",
+          "sha256": "465750ed01fbc8e836fefcbe293bb3bdd591d6bc8b6794afb019e33eec0c5894"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/persistence/prisma.md": {
+      "sha256": "6846ac721dc51f4a3c6981c0da576437b91b87b9aea9e9ac9f08bcee96a060de",
+      "size": 17527,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/persistence/prisma.md",
+          "sha256": "6846ac721dc51f4a3c6981c0da576437b91b87b9aea9e9ac9f08bcee96a060de"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/persistence/typeorm.md": {
+      "sha256": "7c0fbfa9280eb5e6ceea83012baa3f8fa6167fdc48c0d938a8edfa794127d0e8",
+      "size": 19231,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/persistence/typeorm.md",
+          "sha256": "7c0fbfa9280eb5e6ceea83012baa3f8fa6167fdc48c0d938a8edfa794127d0e8"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/recipes/aggregate-state-machine.md": {
+      "sha256": "7bdfbc90b9e8519c60eef318d5ac46a231e4171fc22be5e6277c1172120c61e3",
+      "size": 8284,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/recipes/aggregate-state-machine.md",
+          "sha256": "7bdfbc90b9e8519c60eef318d5ac46a231e4171fc22be5e6277c1172120c61e3"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/recipes/crud-thin-slice.md": {
+      "sha256": "303c4ee5063a432a0065e4e9bda1b410a182d55b3e12d3a384d5e72ecaf77451",
+      "size": 5149,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/recipes/crud-thin-slice.md",
+          "sha256": "303c4ee5063a432a0065e4e9bda1b410a182d55b3e12d3a384d5e72ecaf77451"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/recipes/domain-events-outbox.md": {
+      "sha256": "b5750f1b3a93a2e0adad47aff3179d20eacb74c974113d0ee5ac8bb8ad24863e",
+      "size": 11774,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/recipes/domain-events-outbox.md",
+          "sha256": "b5750f1b3a93a2e0adad47aff3179d20eacb74c974113d0ee5ac8bb8ad24863e"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/recipes/external-api-acl.md": {
+      "sha256": "70cc675e10b14ea09480bf905bde74c2e77caa68c29d55febb2db23cb4346a30",
+      "size": 13066,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/recipes/external-api-acl.md",
+          "sha256": "70cc675e10b14ea09480bf905bde74c2e77caa68c29d55febb2db23cb4346a30"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/recipes/idempotent-command.md": {
+      "sha256": "f1b1569c8a4d8dd6abe27ecd3e4dbe017c6979b51faf25bbbe8eab2677e6e675",
+      "size": 10287,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/recipes/idempotent-command.md",
+          "sha256": "f1b1569c8a4d8dd6abe27ecd3e4dbe017c6979b51faf25bbbe8eab2677e6e675"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/recipes/read-model-pagination.md": {
+      "sha256": "c5beb7c90d1dac117f7ac5feb1354c5a79e54a09a9630d333db9b0e8d4d59442",
+      "size": 9334,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/recipes/read-model-pagination.md",
+          "sha256": "c5beb7c90d1dac117f7ac5feb1354c5a79e54a09a9630d333db9b0e8d4d59442"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/rest-api.md": {
+      "sha256": "8cb09f723aac2a848befad63301d77b59341a5d668e2c90940f08289873a696c",
+      "size": 9929,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/rest-api.md",
+          "sha256": "8cb09f723aac2a848befad63301d77b59341a5d668e2c90940f08289873a696c"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/solid-patterns.md": {
+      "sha256": "18003b169cdc4560bba6fb38f8473b87a5408c122906d4aa14f0b3813320fa93",
+      "size": 9604,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/solid-patterns.md",
+          "sha256": "18003b169cdc4560bba6fb38f8473b87a5408c122906d4aa14f0b3813320fa93"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/testing-strategy.md": {
+      "sha256": "435b59285cfa7d155681f152f99211f07d96dd5868287052a92ee215edb78f66",
+      "size": 8605,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/testing-strategy.md",
+          "sha256": "435b59285cfa7d155681f152f99211f07d96dd5868287052a92ee215edb78f66"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/hexagonal-typescript/references/testing.md": {
+      "sha256": "e0896e33ad27e3e02e499472c77c1e979a4b612f67057f91bf12d8ab1f06412c",
+      "size": 13762,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/hexagonal-typescript/references/testing.md",
+          "sha256": "e0896e33ad27e3e02e499472c77c1e979a4b612f67057f91bf12d8ab1f06412c"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "LICENSE": {
+      "sha256": "159a5752b592ece3b314d414d9311c317d84ad460527500f1c439b89319418ca",
+      "size": 1080,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "LICENSE",
+          "sha256": "159a5752b592ece3b314d414d9311c317d84ad460527500f1c439b89319418ca"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "README.md": {
+      "sha256": "60a40760cda28b3f2ecf675486eb0244d9521992e0927fd0738e82d961f0f78f",
+      "size": 1989,
+      "mode": "100644",
+      "inputs": [],
+      "adaptation": null,
+      "origin": "StackNauta"
+    }
+  },
+  "shared_files": [
+    "LICENSE",
+    "README.md"
+  ],
+  "skill_extra_files": {}
+}

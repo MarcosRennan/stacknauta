@@ -1,0 +1,689 @@
+{
+  "id": "Mobile/chrisbanes",
+  "directory": "Skills/Mobile/chrisbanes",
+  "source_id": "chrisbanes",
+  "repository": "https://github.com/chrisbanes/skills.git",
+  "commit": "50d54366e577460b769ce05b50da007de9939783",
+  "skills": [
+    "chrisbanes:android-benchmark-comparison",
+    "chrisbanes:changelog",
+    "chrisbanes:compose-animations",
+    "chrisbanes:compose-component-design",
+    "chrisbanes:compose-focus-navigation",
+    "chrisbanes:compose-performance",
+    "chrisbanes:compose-state-and-effects",
+    "chrisbanes:compose-ui-testing-patterns",
+    "chrisbanes:gradle-run",
+    "chrisbanes:grounded-writing",
+    "chrisbanes:kotlin-api-design",
+    "chrisbanes:kotlin-concurrency-and-flow",
+    "chrisbanes:kotlin-control-flow",
+    "chrisbanes:release-kotlin-library",
+    "chrisbanes:shepherd"
+  ],
+  "files": {
+    "skills/android-benchmark-comparison/SKILL.md": {
+      "sha256": "1842d5be0adcf53abb50db75ed6809c63d129d0d57a0b108cc5b8624366e78e8",
+      "size": 4425,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/android-benchmark-comparison/SKILL.md",
+          "sha256": "3f02082ca58c7147c20a015f1d3f14e41ede6c06a8b1f8482aaeb90aa58f2a13"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/changelog/SKILL.md": {
+      "sha256": "3b2ced393bf252265e8b57ddbffba0a9b80febc3052b06cbea3a17a699179664",
+      "size": 5428,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/changelog/SKILL.md",
+          "sha256": "8d1af522f94a44c6b83da41b87545d093730b2a8032831064bc21f2e318497d1"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/changelog/references/stable-release.md": {
+      "sha256": "ab1407b23e80bba34af2e27855cda37f9d36b6d52b575c900483f7f2e83d39b4",
+      "size": 1696,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/changelog/references/stable-release.md",
+          "sha256": "ab1407b23e80bba34af2e27855cda37f9d36b6d52b575c900483f7f2e83d39b4"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/compose-animations/SKILL.md": {
+      "sha256": "880ed945437556209fc66af28a6bc20debe49d16049bcc05b18eb61daa72c484",
+      "size": 4852,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-animations/SKILL.md",
+          "sha256": "eb94fc221017aad7c80b5414847379ac856b2f1c1363d1b67758701df2f5c217"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/compose-animations/references/animated-content.md": {
+      "sha256": "dcad71b0849571086196e5155ddf352b160c236a5470585fbe7b8121095f13cc",
+      "size": 1743,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-animations/references/animated-content.md",
+          "sha256": "dcad71b0849571086196e5155ddf352b160c236a5470585fbe7b8121095f13cc"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/compose-component-design/SKILL.md": {
+      "sha256": "8a0cd6539f669e61a26da39050f026d3d3d4be34e422aee8069db378fabd0e9e",
+      "size": 3391,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-component-design/SKILL.md",
+          "sha256": "1a3599e3d5feb9398ca4dbb5f093ef15cafdf2866f041d02538d3bc35c954c92"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/compose-component-design/references/modifier-layout.md": {
+      "sha256": "53de73379e843a649665e5b07a8edab9498d77bf2bcb025bbab7f378cc6db53a",
+      "size": 3009,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-component-design/references/modifier-layout.md",
+          "sha256": "53de73379e843a649665e5b07a8edab9498d77bf2bcb025bbab7f378cc6db53a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/compose-component-design/references/slot-apis.md": {
+      "sha256": "08fd24b6bee03879aaa71f69ebf504e6a0990ff761795a6f1ac99379c8ef79ad",
+      "size": 2461,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-component-design/references/slot-apis.md",
+          "sha256": "08fd24b6bee03879aaa71f69ebf504e6a0990ff761795a6f1ac99379c8ef79ad"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/compose-focus-navigation/SKILL.md": {
+      "sha256": "0fc49657848b2592b3f8c2ece57cc0cc47af8cf53c013f46312f4acee284d012",
+      "size": 4386,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-focus-navigation/SKILL.md",
+          "sha256": "1dd608632e6914c0323d832a2c56a04932d9c677901187b7cd26ec70a46e6901"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/compose-performance/SKILL.md": {
+      "sha256": "2b6979c479065ae37c9402c0440c414c446d95b178ccd730e91c1e0cbb3692b7",
+      "size": 3587,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-performance/SKILL.md",
+          "sha256": "716bc82c7c36b989f19be7868623da2ccd9fec97b35a803062036aa02adb6a7d"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/compose-performance/references/composition-contracts.md": {
+      "sha256": "003f6d0f4f9fd108635619468d700d8e360f28d9f2e9ea21aed246d508a59852",
+      "size": 1854,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-performance/references/composition-contracts.md",
+          "sha256": "003f6d0f4f9fd108635619468d700d8e360f28d9f2e9ea21aed246d508a59852"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/compose-performance/references/deferred-reads.md": {
+      "sha256": "c57117e3e95c9a9b72d64c54e9d084cb4eb5bf22ec29792fd7332f2352e44644",
+      "size": 2725,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-performance/references/deferred-reads.md",
+          "sha256": "c57117e3e95c9a9b72d64c54e9d084cb4eb5bf22ec29792fd7332f2352e44644"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/compose-performance/references/diagnosis.md": {
+      "sha256": "f355f396e602dddb8d8821e7162e2dadd59fe58cbb48ca5e4ef211155fb526c8",
+      "size": 2800,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-performance/references/diagnosis.md",
+          "sha256": "f355f396e602dddb8d8821e7162e2dadd59fe58cbb48ca5e4ef211155fb526c8"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/compose-performance/references/stability.md": {
+      "sha256": "f2654851d8c1ee81892e45cec26c81eba8bdd5cf73568e028a9a556603a59555",
+      "size": 2833,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-performance/references/stability.md",
+          "sha256": "f2654851d8c1ee81892e45cec26c81eba8bdd5cf73568e028a9a556603a59555"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/compose-state-and-effects/SKILL.md": {
+      "sha256": "67af3cd240c4c13b5e471ddd55f12a22fb3ed7196e49b14e072028e31dc4d6f5",
+      "size": 4598,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-state-and-effects/SKILL.md",
+          "sha256": "9930eb2858e3d17fa1ecaf220e20b7bc88b3b1d975d21c9ae4db6f2849c0f0d0"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/compose-state-and-effects/references/local-state.md": {
+      "sha256": "c06198d5cd5e9619ee0fc9edbd56c20d99994ed627a8d98cea2aba2e16319377",
+      "size": 1854,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-state-and-effects/references/local-state.md",
+          "sha256": "c06198d5cd5e9619ee0fc9edbd56c20d99994ed627a8d98cea2aba2e16319377"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/compose-state-and-effects/references/side-effects.md": {
+      "sha256": "c963f760a257d9340ce91540647499c6e7b0ae163b40c65b954ad82da8561de9",
+      "size": 2778,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-state-and-effects/references/side-effects.md",
+          "sha256": "c963f760a257d9340ce91540647499c6e7b0ae163b40c65b954ad82da8561de9"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/compose-state-and-effects/references/state-hoisting.md": {
+      "sha256": "acf654d62bf71421d0ce1370da882a3746d7991009d57cf0cc697359450a9a5f",
+      "size": 3162,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-state-and-effects/references/state-hoisting.md",
+          "sha256": "acf654d62bf71421d0ce1370da882a3746d7991009d57cf0cc697359450a9a5f"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/compose-ui-testing-patterns/SKILL.md": {
+      "sha256": "bc721136f6b334435b4b8a93a6271079b2921b8c47c298b0956c724b45fee4fe",
+      "size": 7846,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-ui-testing-patterns/SKILL.md",
+          "sha256": "a2d2d398dfa9f9dfe6ea94f53c3fc9b52e00b38fd203f1d154799f2b5e3ea09a"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/compose-ui-testing-patterns/references/interaction-state.md": {
+      "sha256": "6f5dc22030d3527249355d71bd44d999f5abe947c910a42d91762672ed9b87cc",
+      "size": 1413,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/compose-ui-testing-patterns/references/interaction-state.md",
+          "sha256": "6f5dc22030d3527249355d71bd44d999f5abe947c910a42d91762672ed9b87cc"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/gradle-run/SKILL.md": {
+      "sha256": "0d2b5cc028758de2686fd5fdadeea1e2a88599c2cd773b83099d7cca370db79b",
+      "size": 7383,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gradle-run/SKILL.md",
+          "sha256": "2cceef9b4280f6c0948c7df09a01804c8fc39d6d68b811ec09bb38fbe4116219"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/gradle-run/agents/openai.yaml": {
+      "sha256": "1769a5188d27feb65ae4ef6805053edafec3359b2e2f37ddc985b31017eaea81",
+      "size": 192,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gradle-run/agents/openai.yaml",
+          "sha256": "1769a5188d27feb65ae4ef6805053edafec3359b2e2f37ddc985b31017eaea81"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/gradle-run/references/subagent-selection.md": {
+      "sha256": "8e5c3e0769675425374b579904dbd8d304de09b2c98d180278df9e6c8ee3a9b5",
+      "size": 6505,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gradle-run/references/subagent-selection.md",
+          "sha256": "8e5c3e0769675425374b579904dbd8d304de09b2c98d180278df9e6c8ee3a9b5"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/gradle-run/scripts/gradle_run.py": {
+      "sha256": "7ab3fdeefe9a49274f9a765c23dc0d0c220945efc6a0115c9cfee52f91df0da2",
+      "size": 36446,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gradle-run/scripts/gradle_run.py",
+          "sha256": "7ab3fdeefe9a49274f9a765c23dc0d0c220945efc6a0115c9cfee52f91df0da2"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/gradle-run/scripts/test_gradle_run.py": {
+      "sha256": "1d16d8df6ae28388c72a31886d3154f44f2a1bb68a748ab40484ff1566bcbad5",
+      "size": 71702,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/gradle-run/scripts/test_gradle_run.py",
+          "sha256": "1d16d8df6ae28388c72a31886d3154f44f2a1bb68a748ab40484ff1566bcbad5"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/grounded-writing/SKILL.md": {
+      "sha256": "bf6263bd69ea825ffb63d5c24c77a38c10198cd7f607f874cb56a73b32a1bb75",
+      "size": 4989,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/grounded-writing/SKILL.md",
+          "sha256": "259b06617cdccf4bb8aedaad42c127ce20d80207f59475888d029eb8ad31193e"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/grounded-writing/agents/openai.yaml": {
+      "sha256": "3c28e7968ad00ae568204d28f206191421b0c7fa4f34ade80a46c7f8f4462093",
+      "size": 319,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/grounded-writing/agents/openai.yaml",
+          "sha256": "3c28e7968ad00ae568204d28f206191421b0c7fa4f34ade80a46c7f8f4462093"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/grounded-writing/references/source-observations.md": {
+      "sha256": "aba292865449a26eef2ba106f4fa3467e5f2b3cee710259f83f1a8d8f19c46c3",
+      "size": 2513,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/grounded-writing/references/source-observations.md",
+          "sha256": "aba292865449a26eef2ba106f4fa3467e5f2b3cee710259f83f1a8d8f19c46c3"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/grounded-writing/references/style-profile.md": {
+      "sha256": "65c988d25e3c5a1bda394039952490c8859578c715cb13c8e26253761ac57431",
+      "size": 3435,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/grounded-writing/references/style-profile.md",
+          "sha256": "65c988d25e3c5a1bda394039952490c8859578c715cb13c8e26253761ac57431"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/kotlin-api-design/SKILL.md": {
+      "sha256": "3108c1e9f5bbd06b67f1022a077f90daa03d1afcbb3b4fd1d00819c602780959",
+      "size": 2592,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/kotlin-api-design/SKILL.md",
+          "sha256": "0d0dfe0e85a002472523c7de1d0c4997f1da05a036e002c07708ee9a68357649"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/kotlin-api-design/references/functions.md": {
+      "sha256": "760c0ce359b42c2c1fd67d9b417d141e272d4ba5f4b5a27c7a2ff353f67328ce",
+      "size": 2824,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/kotlin-api-design/references/functions.md",
+          "sha256": "760c0ce359b42c2c1fd67d9b417d141e272d4ba5f4b5a27c7a2ff353f67328ce"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/kotlin-api-design/references/multiplatform-boundaries.md": {
+      "sha256": "6d11700892f66a4e36878c4fa9f064baf1151bc6da756967a44c0a54c18bd746",
+      "size": 4359,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/kotlin-api-design/references/multiplatform-boundaries.md",
+          "sha256": "6d11700892f66a4e36878c4fa9f064baf1151bc6da756967a44c0a54c18bd746"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/kotlin-api-design/references/value-classes.md": {
+      "sha256": "2b222ac5fd7caea277ea34c294079e954defab68910ba4210d243430de0ca262",
+      "size": 4178,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/kotlin-api-design/references/value-classes.md",
+          "sha256": "2b222ac5fd7caea277ea34c294079e954defab68910ba4210d243430de0ca262"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/kotlin-concurrency-and-flow/SKILL.md": {
+      "sha256": "e2f6eccb242ebe8a44a6c7c42966a215cdd076c3554c37eba779eb2ce0bf1cfb",
+      "size": 3268,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/kotlin-concurrency-and-flow/SKILL.md",
+          "sha256": "56398cb404c19c5e7719bb833f2380dd44d7d6e478e8a1454ea677c2867e11b9"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/kotlin-concurrency-and-flow/references/flow-state-events.md": {
+      "sha256": "dcbbe576d065061049504c94145cd3250e33b54e1ff49143fcd23d8329e43278",
+      "size": 2883,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/kotlin-concurrency-and-flow/references/flow-state-events.md",
+          "sha256": "dcbbe576d065061049504c94145cd3250e33b54e1ff49143fcd23d8329e43278"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/kotlin-concurrency-and-flow/references/structured-concurrency.md": {
+      "sha256": "c6726b464150d21164986f1c08fdfc0f1a62ef907ea0416ca9fdbb1028156808",
+      "size": 5218,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/kotlin-concurrency-and-flow/references/structured-concurrency.md",
+          "sha256": "c6726b464150d21164986f1c08fdfc0f1a62ef907ea0416ca9fdbb1028156808"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/kotlin-control-flow/SKILL.md": {
+      "sha256": "c4ec8d3f4a7d45160349b25a065d604aa02a3911739ea6798058f8f0c5f98cac",
+      "size": 4792,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/kotlin-control-flow/SKILL.md",
+          "sha256": "dd45004142078e8fd8b231a18906db452af06da5ead09446ef0b2ec703d5159b"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/release-kotlin-library/SKILL.md": {
+      "sha256": "70697d6e344cf542e88a7a023be140c1e1e20d5c2434d6115f17e4304193d82e",
+      "size": 8224,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/release-kotlin-library/SKILL.md",
+          "sha256": "0ea3088880c7a51f1aadebb85416e69b2742fe5b1856495646300597c647ca6d"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/release-kotlin-library/references/helper.md": {
+      "sha256": "302d7839de768b8b8da08afbc6d69016c2c255c701d7bc475ded5808a9d56c9d",
+      "size": 8000,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/release-kotlin-library/references/helper.md",
+          "sha256": "302d7839de768b8b8da08afbc6d69016c2c255c701d7bc475ded5808a9d56c9d"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/release-kotlin-library/references/preparation-output.md": {
+      "sha256": "cc30c7e26de3abaa7f5e74d1b6f073a0a1274b17df10c32d13033e3f70c0d962",
+      "size": 2493,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/release-kotlin-library/references/preparation-output.md",
+          "sha256": "cc30c7e26de3abaa7f5e74d1b6f073a0a1274b17df10c32d13033e3f70c0d962"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/release-kotlin-library/references/recovery-output.md": {
+      "sha256": "9ea36a97a49ae60fd2b24fc8f43e910f19df0f4d45b1ce3e752ed458f1376d51",
+      "size": 3283,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/release-kotlin-library/references/recovery-output.md",
+          "sha256": "9ea36a97a49ae60fd2b24fc8f43e910f19df0f4d45b1ce3e752ed458f1376d51"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/release-kotlin-library/scripts/release.py": {
+      "sha256": "b63874511b7f9ba0bb82c4f916bb529742624b1d27dabfbabb79e0f71ad456e9",
+      "size": 29048,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/release-kotlin-library/scripts/release.py",
+          "sha256": "b63874511b7f9ba0bb82c4f916bb529742624b1d27dabfbabb79e0f71ad456e9"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/release-kotlin-library/scripts/test_release.py": {
+      "sha256": "594a47226a8317772812436c73ac3251a2c59972678536cfced8e914c2a912f0",
+      "size": 27902,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/release-kotlin-library/scripts/test_release.py",
+          "sha256": "594a47226a8317772812436c73ac3251a2c59972678536cfced8e914c2a912f0"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/shepherd/SKILL.md": {
+      "sha256": "635b27b570ef9e4823cab4219cc7a1b4f3fc9a46b91107cfcd6695c5e70e8753",
+      "size": 8377,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/shepherd/SKILL.md",
+          "sha256": "1dc1a79e339c1e817844c5b63462946eb76a1de5a8d6274b4b8d0ab9fa5220cd"
+        }
+      ],
+      "adaptation": "Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/shepherd/agents/openai.yaml": {
+      "sha256": "d8dad1901c3309b6613c9ea924281ea5bbdaa90c3a8ba162e0f69fc60d9a1ac6",
+      "size": 262,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/shepherd/agents/openai.yaml",
+          "sha256": "d8dad1901c3309b6613c9ea924281ea5bbdaa90c3a8ba162e0f69fc60d9a1ac6"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/shepherd/references/behavioral-review.md": {
+      "sha256": "e7bb988118602b80b9a44a298b27e67f833baeab54ab663ed3dc28e0ea1d1318",
+      "size": 8122,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/shepherd/references/behavioral-review.md",
+          "sha256": "e7bb988118602b80b9a44a298b27e67f833baeab54ab663ed3dc28e0ea1d1318"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/shepherd/references/pr-review-timing.md": {
+      "sha256": "03b08ba3ca0e6637c62d435604855f98b0eb3a2ca6189553bc58f51344b15e2b",
+      "size": 5996,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/shepherd/references/pr-review-timing.md",
+          "sha256": "03b08ba3ca0e6637c62d435604855f98b0eb3a2ca6189553bc58f51344b15e2b"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/shepherd/references/provider-commands.md": {
+      "sha256": "ddf7333dc620af627cb665db7146e989e408bf1d6f149dcdd9c0abc233934052",
+      "size": 4113,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/shepherd/references/provider-commands.md",
+          "sha256": "ddf7333dc620af627cb665db7146e989e408bf1d6f149dcdd9c0abc233934052"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/shepherd/references/subagent-selection.md": {
+      "sha256": "8e5c3e0769675425374b579904dbd8d304de09b2c98d180278df9e6c8ee3a9b5",
+      "size": 6505,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "skills/shepherd/references/subagent-selection.md",
+          "sha256": "8e5c3e0769675425374b579904dbd8d304de09b2c98d180278df9e6c8ee3a9b5"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "LICENSE": {
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "size": 11357,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "README.md": {
+      "sha256": "ec5db71c5d4af177e0d5ee4ec4c8a52b2b5a8116f1a97e5201e67425d966933d",
+      "size": 2787,
+      "mode": "100644",
+      "inputs": [],
+      "adaptation": null,
+      "origin": "StackNauta"
+    }
+  },
+  "shared_files": [
+    "LICENSE",
+    "README.md"
+  ],
+  "skill_extra_files": {}
+}

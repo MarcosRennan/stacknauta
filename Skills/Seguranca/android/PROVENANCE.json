@@ -1,0 +1,117 @@
+{
+  "id": "Seguranca/android",
+  "directory": "Skills/Seguranca/android",
+  "source_id": "android",
+  "repository": "https://github.com/android/skills.git",
+  "commit": "5815d27fda564aa9f07ebdcb5e57ed3e8d904e0d",
+  "skills": [
+    "android:android-intent-security",
+    "android:android-permissions-security"
+  ],
+  "files": {
+    "skills/android-intent-security/SKILL.md": {
+      "sha256": "1b796e558f108a0681a3f4d533af98f43ad71f6bc29ca4f7d15f16af47eeeb1d",
+      "size": 24344,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "security/android-intent-security/SKILL.md",
+          "sha256": "21b8e2a94bc4388585d10eaa1a84951cf0760a705303750a23d9b502e840bb7e"
+        }
+      ],
+      "adaptation": "Missing local LICENSE reference resolves to preserved bundle root licence. Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/android-permissions-security/SKILL.md": {
+      "sha256": "ebba2a3f2c6fe003671aaa55bdd8379b968cf271563df7a6de38dc183fa7a018",
+      "size": 30515,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "security/android-permissions-security/SKILL.md",
+          "sha256": "d6e9b1f12728336b15e82daee9f3f8d050dbd792d8e5d52227fd1972e92a12e3"
+        }
+      ],
+      "adaptation": "Missing local LICENSE reference resolves to preserved bundle root licence. Explicit relative distribution/execution contract; vendor examples remain subordinate to global asdf policy.",
+      "origin": "vendor"
+    },
+    "skills/android-permissions-security/references/android/guide/topics/manifest/permission-element.md": {
+      "sha256": "06e8c6e6eee6c53ed26db9599e5d461ccadcd2e54c785e7eabaf676cb5a16587",
+      "size": 6904,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "security/android-permissions-security/references/android/guide/topics/manifest/permission-element.md",
+          "sha256": "06e8c6e6eee6c53ed26db9599e5d461ccadcd2e54c785e7eabaf676cb5a16587"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/android-permissions-security/references/android/guide/topics/permissions/overview.md": {
+      "sha256": "95e34ec29d120e352814c905f574175ceb30f1ffe062e7ea8eddb36852b9419a",
+      "size": 10610,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "security/android-permissions-security/references/android/guide/topics/permissions/overview.md",
+          "sha256": "95e34ec29d120e352814c905f574175ceb30f1ffe062e7ea8eddb36852b9419a"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/android-permissions-security/references/android/privacy-and-security/risks/sender-of-pending-intents.md": {
+      "sha256": "74adeb0c724b5c43a45de8953698707a8034a81238bb1c91d27684e1f262f2bb",
+      "size": 3819,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "security/android-permissions-security/references/android/privacy-and-security/risks/sender-of-pending-intents.md",
+          "sha256": "74adeb0c724b5c43a45de8953698707a8034a81238bb1c91d27684e1f262f2bb"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "skills/android-permissions-security/references/android/training/permissions/requesting.md": {
+      "sha256": "cec4c45adaa81e9f819fdb51f0d5b4c747493fa48682e67e20cff9bb7751fef8",
+      "size": 38838,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "security/android-permissions-security/references/android/training/permissions/requesting.md",
+          "sha256": "cec4c45adaa81e9f819fdb51f0d5b4c747493fa48682e67e20cff9bb7751fef8"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "LICENSE.txt": {
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "size": 11357,
+      "mode": "100644",
+      "inputs": [
+        {
+          "path": "LICENSE.txt",
+          "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+        }
+      ],
+      "adaptation": null,
+      "origin": "vendor"
+    },
+    "README.md": {
+      "sha256": "de744541c19edba14995eddd29971791e2db3a828c4bc6e7e9e83fe7274aa706",
+      "size": 1975,
+      "mode": "100644",
+      "inputs": [],
+      "adaptation": null,
+      "origin": "StackNauta"
+    }
+  },
+  "shared_files": [
+    "LICENSE.txt",
+    "README.md"
+  ],
+  "skill_extra_files": {}
+}
