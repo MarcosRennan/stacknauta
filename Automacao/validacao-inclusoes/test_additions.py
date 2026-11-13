@@ -339,6 +339,15 @@ class AdditionTests(unittest.TestCase):
         self.assertEqual(tree(self.root/'Skills'),self.before)
         self.assertEqual((self.consumer/'sentinel').read_text(),'intocado');self.engine.validate(self.root)
 
+    def test_inclusion_sync_failure_blocks_before_prepared_journal(self):
+        import atualizacoes
+        report=self.add();file=self.base/'decisions.json';file.write_bytes(json_bytes(self.decision(report)))
+        with patch.object(atualizacoes,'sync_tree',side_effect=OSError('injected inclusion fsync failure')):
+            result=self.inc.review(report['session_id'],decisions=file,review_id=report['review_id'])
+        self.assertEqual(result['status'],'bloqueado')
+        self.assertFalse((self.engine.session(report['session_id'])/'journal.json').exists())
+        self.assertEqual(tree(self.root/'Skills'),self.before)
+
     def test_failure_after_new_publication_recovers_original_library(self):
         report=self.add();plan=self.stage(report)
         def fail(phase):

@@ -74,11 +74,11 @@ o plano, o diário e os validadores registram a operação atual.
 
 ## Consistência e recuperação
 
-A atomicidade é **global por lote**, inclusive em `--all`: qualquer falha de
-preparação bloqueia todas as origens selecionadas. A promoção troca a pasta
-`Skills` inteira por renames no mesmo filesystem, com fsync e backup. Não publica
-metadados e pacotes de revisões diferentes. Há uma breve janela sem `Skills` entre
-as duas renomeações; evitar consumo concorrente. Não é uma troca POSIX única.
+A preparação é por lote, inclusive em `--all`: uma falha bloqueia todas as origens
+selecionadas. A promoção troca a pasta `Skills` inteira por renames no mesmo
+filesystem, com fsync e backup. Não existe atomicidade global entre os dois
+renames e o diário. Há uma janela sem `Skills` entre as renomeações; evitar consumo
+concorrente. Cada rename recusa substituir um destino criado por outro processo.
 
 O diário registra `prepared`, `moving_old`, `old_moved`, `new_published` e
 `committed`. Este último significa transação de filesystem concluída, **não** um
@@ -99,6 +99,52 @@ O cache antigo e arquivos ignorados anteriores acompanham `previous-Skills`; o
 novo diretório ativo contém os artefatos versionados, sem precisar de `_repos/`.
 Nenhum backup ou staging é removido automaticamente; planejar espaço em disco.
 Arquivos não afetados mantêm bytes e modos, mas a troca da árvore altera inodes.
+
+**Persistência e proteção dos caminhos (4A.1, Fase 2).** Antes de registrar
+`prepared`, a árvore candidata recebe conferência de hashes/modos, `fsync` dos
+arquivos e sincronização dos diretórios de baixo para cima. Plano, diff e diário
+são persistidos nessa ordem. O diretório da sessão também tem sua entrada
+sincronizada. Antes de mover a biblioteca ativa, apply revalida e sincroniza o
+candidato e os arquivos protegidos da árvore anterior. Os dois pais de cada
+rename são sincronizados. Depois da promoção, a árvore ativa precisa corresponder
+exatamente ao candidato e ser sincronizada antes de `committed`.
+
+Falhas de escrita/sincronização não são sucesso. Após o início da promoção,
+exceções tentam rollback; backup ou destino inesperado bloqueia para revisão.
+Recuperação verifica o conjunto anterior completo, exceto o cache opcional
+`_repos`, que é preservado sem consulta. Backup ausente só permite concluir
+rollback se a árvore ativa já corresponder integralmente à original. Backup
+adulterado, ativo também ausente ou fase desconhecida não são consertados por
+suposição. Diários anteriores com as fases conhecidas continuam aceitos, com as
+novas verificações e sincronizações; o formato não mudou. `committed` anterior é
+reverificado e sincronizado antes de `ja_aplicado`. Não se descarta backup
+automaticamente, e o candidato recusado após publicação fica preservado.
+
+Leituras, cópias, escritas de staging, locks, inventário da árvore e metadados
+usam descritores de diretórios físicos. Arquivos são abertos com `O_NOFOLLOW` e
+`O_NONBLOCK`, conferidos com `fstat`, limite de tamanho e `nlink=1`. Conteúdo e
+modo de um registro vêm do mesmo descritor; mudanças observáveis durante a
+leitura e substituições de inode são recusadas. Metadados usam temporário próprio,
+troca relativa ao descritor e confirmação do inode publicado. Renames usam
+`renameat2(RENAME_NOREPLACE)` via libc, sem fallback que sobrescreva o destino.
+Git recebe o diretório aberto por `/proc/self/fd`; o processo de validação recebe
+o script aberto. Bash/Node fazem somente parsing de bytes lidos de forma segura,
+via stdin, mantendo o tipo de módulo declarado para JavaScript.
+
+Estas garantias dependem de Linux, libc, procfs e filesystem compatíveis. Erro de
+fsync, falta de suporte ou de permissão bloqueia; não há tolerância absoluta a
+queda de energia, filesystem remoto, hardware que não honre flush ou corrupção
+do dispositivo. O diário não é uma transação do filesystem. `flock` coordena
+participantes cooperativos: não congela o namespace nem o conteúdo para outro
+processo do mesmo usuário. Renomear ancestrais inteiros, alterar o inode já aberto
+ou modificar código/imports/configuração interna de subprocessos continua fora
+de uma garantia contra concorrência hostil irrestrita. O código e os executáveis
+locais precisam continuar confiáveis. Erros detectados conservam artefatos para
+revisão; não há limpeza automática de nomes desconhecidos.
+
+Referências: [fsync](https://man7.org/linux/man-pages/man2/fsync.2.html),
+[renameat2](https://man7.org/linux/man-pages/man2/rename.2.html) e
+[parsing do Node](https://nodejs.org/docs/latest-v24.x/api/cli.html#-c---check).
 
 Depois de aplicar, conferir o diff e registrar **manualmente** um commit Git.
 Sem isso, uma nova preparação é bloqueada pelo estado sujo. Repetir o mesmo apply

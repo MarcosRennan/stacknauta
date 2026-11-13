@@ -113,3 +113,33 @@ Isso inclui alterações no pacote selecionado (por exemplo README/PROVENANCE
 renovados por outra inclusão na mesma origem), mesmo se o SKILL.md não mudou.
 Runtimes globais e gerador compatíveis continuam necessários. Não há independência
 completa da biblioteca histórica nem assinatura criptográfica dos manifestos.
+
+**Publicação e interrupções (4A.1, Fase 2, A06).** O bootstrap agora cria um
+inode anônimo com `O_TMPFILE` no diretório final. Grava os bytes, aplica modo e
+sincroniza o arquivo antes de criar o único nome final, exclusivamente. O link
+usa `/proc/self/fd` para o descritor próprio, conforme a interface Linux; não
+segue um symlink fornecido pelo projeto. Diretórios recém-criados e a entrada
+final recebem sincronização. Nunca há dois nomes temporário/final para esse
+inode. Antes do link, o kernel descarta o anônimo ao terminar o processo; depois,
+o final já tem `nlink=1`. Reaplicar o plano autorizado pode completar ausências
+sem alterar finais existentes. Schemas, hashes e classificações não mudaram.
+
+A operação exige filesystem com `O_TMPFILE` e procfs utilizável. Falta de suporte
+ou de permissão bloqueia sem fallback para publicação nomeada menos segura.
+Arquivos finais continuam passando por tipo, hash/tamanho e contagem de links.
+Reexecuções preservam bytes, inode, permissões, mtime e ctime dos finais intactos;
+não se promete preservar atime de leituras.
+
+Temporários nomeados de versões anteriores não contêm registro que vincule o nome
+a um plano/operação. Mesmo com prefixo, inode e bytes coincidentes, não se prova
+automaticamente a propriedade de todos os nomes do inode. Por isso esses nomes
+não são apagados: hardlinks antigos continuam bloqueados para revisão manual.
+Nomes desconhecidos em áreas protegidas também continuam rejeitados pela
+integração. A correção elimina a janela nas novas publicações, sem reduzir as
+verificações nem criar um procedimento de exclusão baseado em padrões.
+
+Os testes interrompem processos filhos em `/tmp` antes e depois do link; não
+simulam uma queda física de energia. A garantia continua condicionada ao sistema
+operacional/filesystem, não cobre controle hostil total pelo mesmo usuário e
+não constitui promessa de tolerância absoluta a falhas de hardware.
+Referência: [O_TMPFILE e publicação por descritor](https://man7.org/linux/man-pages/man2/open.2.html).

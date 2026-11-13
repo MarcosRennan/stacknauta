@@ -18,6 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "Automacao/project-
 from stacknauta_core.core import encoded as json_bytes
 from stacknauta_core.library import digest as sha
 from stacknauta_core import BootstrapError
+from stacknauta_core.filesystem import directory, relative_directory, rename_noreplace, DIR_FLAGS, READ_FLAGS
 from atualizacao_receita import refresh, python_dependencies, javascript_imports
 from origens import parse_url
 
@@ -31,7 +32,7 @@ NODE_BUILTINS = set(("assert assert/strict async_hooks buffer child_process clus
 
 def safe(root, relative):
     p = PurePosixPath(relative)
-    if not relative or p.is_absolute() or str(p) != relative or any(x in {"..", ".git"} for x in p.parts) or "\\" in relative or any(ord(c) < 32 for c in relative):
+    if not relative or not p.parts or p.is_absolute() or str(p) != relative or any(x in {"..", ".git"} for x in p.parts) or "\\" in relative or any(ord(c) < 32 for c in relative):
         raise ValueError("Caminho inseguro: " + repr(relative))
     path = root
     for part in p.parts:
@@ -41,50 +42,173 @@ def safe(root, relative):
     return path
 
 
+def regular(info, name):
+    if not stat.S_ISREG(info.st_mode) or info.st_nlink != 1 or info.st_size > 64_000_000:
+        raise ValueError('Arquivo não regular, hardlink ou tamanho excessivo: ' + str(name))
+
+
+def same_entry(parent, name, info):
+    current = os.stat(name, dir_fd=parent, follow_symlinks=False)
+    if (current.st_dev, current.st_ino) != (info.st_dev, info.st_ino):
+        raise ValueError('Arquivo substituído durante operação: ' + str(name))
+    if stat.S_ISREG(info.st_mode): regular(current, name)
+
+
+def _read_record(parent, name):
+    fd = os.open(name, READ_FLAGS, dir_fd=parent)
+    try:
+        start = os.fstat(fd); regular(start, name)
+        chunks, length = [], 0
+        while chunk := os.read(fd, min(65536, 64_000_001 - length)):
+            chunks.append(chunk); length += len(chunk)
+            if length > 64_000_000: raise ValueError('Arquivo excede limite: ' + name)
+        end = os.fstat(fd); regular(end, name)
+        if (start.st_size, start.st_mtime_ns, start.st_ctime_ns) != (end.st_size, end.st_mtime_ns, end.st_ctime_ns) or length != end.st_size:
+            raise ValueError('Arquivo mudou durante leitura: ' + name)
+        same_entry(parent, name, end)
+        data = b''.join(chunks)
+        return data, {'sha256': sha(data), 'mode': stat.S_IMODE(end.st_mode)}
+    finally: os.close(fd)
+
+
+def read_record(root, relative):
+    safe(root, relative)
+    components = PurePosixPath(relative).parts
+    with directory(root) as root_fd, relative_directory(root_fd, components[:-1]) as parent:
+        return _read_record(parent, components[-1])
+
+
 def read_bytes(root, relative):
-    path = safe(root, relative)
-    with path.open("rb") as stream:
-        s = os.fstat(stream.fileno())
-        if not stat.S_ISREG(s.st_mode) or s.st_nlink != 1 or s.st_size > 64_000_000:
-            raise ValueError("Arquivo não regular, hardlink ou tamanho excessivo: " + relative)
-        return stream.read()
+    return read_record(root, relative)[0]
+
+
+def _write_fd(fd, data, mode):
+    if len(data) > 64_000_000: raise ValueError('Dados excedem limite de arquivo')
+    os.ftruncate(fd, 0)
+    view = memoryview(data)
+    while view:
+        written = os.write(fd, view)
+        if written <= 0: raise OSError('Escrita incompleta')
+        view = view[written:]
+    os.fchmod(fd, mode)
+
+
+def write_bytes(root, relative, data, mode=0o644, *, exclusive=False):
+    safe(root, relative)
+    components = PurePosixPath(relative).parts
+    with directory(root) as root_fd, relative_directory(root_fd, components[:-1], create=True) as parent:
+        flags = os.O_WRONLY | os.O_CREAT | os.O_NOFOLLOW | os.O_NONBLOCK | os.O_CLOEXEC
+        fd = os.open(components[-1], flags | (os.O_EXCL if exclusive else 0), 0o600, dir_fd=parent)
+        try:
+            info = os.fstat(fd); regular(info, relative)
+            same_entry(parent, components[-1], info)
+            _write_fd(fd, data, mode)
+            regular(os.fstat(fd), relative)
+            same_entry(parent, components[-1], info)
+        finally: os.close(fd)
+
+
+def make_directory(root, relative, *, exclusive=False):
+    safe(root, relative)
+    components = PurePosixPath(relative).parts
+    with directory(root) as root_fd, relative_directory(root_fd, components[:-1], create=True) as parent:
+        if exclusive: os.mkdir(components[-1], 0o755, dir_fd=parent)
+        with relative_directory(parent, components[-1:], create=not exclusive) as fd: os.fsync(fd)
+        os.fsync(parent)
+        os.fsync(root_fd)
 
 
 def load(root, relative):
     return json.loads(read_bytes(root, relative))
 
 
-def tree(root):
+def tree(root, *, exclude=()):
     result = {}
-    for parent, dirs, files in os.walk(root, followlinks=False):
-        dirs.sort(); files.sort()
-        for name in dirs + files:
-            p = Path(parent) / name
-            if p.is_symlink():
-                raise ValueError("Link no candidato distribuível: " + str(p))
-        for name in files:
-            p = Path(parent) / name; rel = p.relative_to(root).as_posix()
-            result[rel] = {"sha256": sha(read_bytes(root, rel)), "mode": stat.S_IMODE(p.stat().st_mode)}
+    def visit(fd, prefix='', depth=0):
+        if depth > 128: raise ValueError('Árvore excede profundidade segura')
+        for name in sorted(os.listdir(fd)):
+            if not prefix and name in exclude: continue
+            info = os.stat(name, dir_fd=fd, follow_symlinks=False)
+            if stat.S_ISDIR(info.st_mode):
+                child = os.open(name, DIR_FLAGS, dir_fd=fd)
+                try:
+                    same_entry(fd, name, os.fstat(child))
+                    visit(child, prefix + name + '/', depth + 1)
+                finally: os.close(child)
+            else:
+                if not stat.S_ISREG(info.st_mode): raise ValueError('Link/arquivo especial no candidato: ' + prefix + name)
+                result[prefix + name] = _read_record(fd, name)[1]
+    with directory(root) as root_fd: visit(root_fd)
     return result
 
 
 def atomic_json(path, data):
-    temporary = path.with_name(path.name + ".tmp-" + uuid.uuid4().hex)
-    with temporary.open("xb") as stream:
-        stream.write(json_bytes(data)); stream.flush(); os.fsync(stream.fileno())
-    os.replace(temporary, path)  # Apenas registro próprio; nunca pacote/arquivo do usuário.
-    fd = os.open(path.parent, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
-    try: os.fsync(fd)
-    finally: os.close(fd)
+    temporary = path.name + '.tmp-' + uuid.uuid4().hex
+    with directory(path.parent) as parent:
+        try: _read_record(parent, path.name)
+        except FileNotFoundError: pass
+        fd = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW | os.O_CLOEXEC, 0o600, dir_fd=parent)
+        info = os.fstat(fd)
+        try:
+            _write_fd(fd, json_bytes(data), 0o600); os.fsync(fd)
+            same_entry(parent, temporary, info)
+            os.replace(temporary, path.name, src_dir_fd=parent, dst_dir_fd=parent)
+            same_entry(parent, path.name, info)
+            os.fsync(parent)
+        finally:
+            os.close(fd)
+            try:
+                same_entry(parent, temporary, info)
+                os.unlink(temporary, dir_fd=parent)
+            except FileNotFoundError: pass
 
 
 def move(source, destination):
-    if os.path.lexists(destination): raise ValueError("Destino de publicação já existe: " + str(destination))
-    os.rename(source, destination)
-    for parent in {source.parent, destination.parent}:
-        fd = os.open(parent, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
-        try: os.fsync(fd)
-        finally: os.close(fd)
+    with directory(source.parent) as src, directory(destination.parent) as dst, directory(source) as opened:
+        info = os.fstat(opened)
+        same_entry(src, source.name, info)
+        try:
+            rename_noreplace(source.name, destination.name, src_dir_fd=src, dst_dir_fd=dst)
+        except FileExistsError as exc:
+            raise ValueError('Destino de publicação já existe: ' + str(destination)) from exc
+        same_entry(dst, destination.name, info)
+        os.fsync(src); os.fsync(dst)
+
+
+def sync_tree(root, expected=None):
+    """Confere e sincroniza arquivos conhecidos, depois diretórios de baixo para cima.
+
+    expected permite preservar o cache antigo sem certificá-lo como distribuível.
+    Qualquer falha impede o avanço do diário; não implica atomicidade global.
+    """
+    records = tree(root) if expected is None else expected
+    directories = {()}
+    with directory(root) as root_fd:
+        for path, record in sorted(records.items()):
+            components = PurePosixPath(path).parts
+            safe(root, path)
+            for length in range(1, len(components)):
+                directories.add(components[:length])
+            with relative_directory(root_fd, components[:-1]) as parent:
+                fd = os.open(components[-1], READ_FLAGS, dir_fd=parent)
+                try:
+                    info = os.fstat(fd)
+                    regular(info, path)
+                    digest = hashlib.sha256()
+                    length = 0
+                    while chunk := os.read(fd, min(65536, 64_000_001 - length)):
+                        length += len(chunk); digest.update(chunk)
+                        if length > 64_000_000: raise ValueError('Arquivo excede limite: ' + path)
+                    end = os.fstat(fd); regular(end, path)
+                    if (info.st_size, info.st_mtime_ns, info.st_ctime_ns) != (end.st_size, end.st_mtime_ns, end.st_ctime_ns) or length != end.st_size:
+                        raise ValueError('Arquivo mudou durante sincronização: ' + path)
+                    if {'sha256': digest.hexdigest(), 'mode': stat.S_IMODE(info.st_mode)} != record:
+                        raise ValueError('Arquivo mudou antes da sincronização: ' + path)
+                    os.fsync(fd)
+                    same_entry(parent, components[-1], info)
+                finally: os.close(fd)
+        for components in sorted(directories, key=lambda p: (-len(p), p)):
+            with relative_directory(root_fd, components) as fd: os.fsync(fd)
 
 
 class Git:
@@ -103,8 +227,10 @@ class Git:
             environment.update(GCM_INTERACTIVE='never',GH_PROMPT_DISABLED='1')
         command = ["git", "-c", "core.hooksPath=/dev/null", "-c", "core.fsmonitor=false", "-c", "gc.auto=0",
                    "-c", "maintenance.auto=false", "-c", "http.sslVerify=true", "-c", "fetch.fsckObjects=true",
-                   "-c", "http.lowSpeedLimit=100", "-c", "http.lowSpeedTime=15", "-C", str(repo), *args]
-        r = subprocess.run(command, input=data, capture_output=True, text=not binary, env=environment, timeout=45)
+                   "-c", "http.lowSpeedLimit=100", "-c", "http.lowSpeedTime=15"]
+        with directory(Path(repo).absolute()) as repo_fd:
+            command += ['-C', f'/proc/self/fd/{repo_fd}', *args]
+            r = subprocess.run(command, input=data, capture_output=True, text=not binary, env=environment, timeout=45, pass_fds=(repo_fd,))
         if r.returncode:
             detail = r.stderr.decode(errors="replace") if binary else r.stderr
             raise ValueError("Consulta/operação Git falhou: " + detail.strip()[:1500])
@@ -126,7 +252,7 @@ class Git:
         return commit, default
 
     def acquire(self, source, repo, *, discover=False):
-        repo.mkdir(parents=True)
+        with directory(repo.parent.parent) as root_fd, relative_directory(root_fd, (repo.parent.name, repo.name), create=True): pass
         self.run(repo, "init", "--quiet", "--template=")
         self.run(repo, "config", "core.fsmonitor", "false")
         self.run(repo, "fetch", "--quiet", "--depth=1", "--no-tags", "--no-recurse-submodules", source["url"], source["commit"])
@@ -151,15 +277,14 @@ class Git:
             if mode not in {"100644", "100755", "120000"}: raise ValueError("Modo Git não permitido: " + path)
             data = self.run(repo, "cat-file", "blob", oid, binary=True)
             if len(data) > 64_000_000: raise ValueError("Recurso excessivamente grande: " + path)
-            dest.parent.mkdir(parents=True, exist_ok=True)
             if mode == "120000":
                 links.append((dest, data.decode())); continue
-            with dest.open("xb") as stream: stream.write(data)
-            dest.chmod(0o755 if mode == "100755" else 0o644)
+            write_bytes(repo, path, data, 0o755 if mode == '100755' else 0o644, exclusive=True)
         for dest, target in links:
             if not target or Path(target).is_absolute() or any(ord(c) < 32 for c in target) or not (dest.parent / target).resolve().is_relative_to(repo):
                 raise ValueError("Link de origem inseguro: " + str(dest))
-            dest.symlink_to(target)
+            with directory(repo) as root_fd, relative_directory(root_fd, dest.relative_to(repo).parts[:-1], create=True) as parent:
+                os.symlink(target, dest.name, dir_fd=parent)
         for dest, _ in links:
             if not dest.exists() or not dest.resolve().is_relative_to(repo): raise ValueError("Link de origem externo/quebrado: " + str(dest))
         # Índice sem checkout: não executar filtros, smudge, Git LFS ou hooks.
@@ -215,27 +340,33 @@ class Updates:
         return self.git.head(self.root)
 
     def tracked(self):
-        return {p: {"sha256": sha(read_bytes(self.root, p)), "mode": stat.S_IMODE(safe(self.root, p).stat().st_mode)}
+        return {p: read_record(self.root, p)[1]
                 for p in self.git.run(self.root, "ls-files", "-z").split("\0") if p}
 
     def state_root(self):
-        p = safe(self.root, ".stacknauta-updates"); p.mkdir(exist_ok=True); return p
+        p = safe(self.root, ".stacknauta-updates")
+        make_directory(self.root, '.stacknauta-updates')
+        return p
 
     @contextlib.contextmanager
     def exclusive(self):
-        p = self.state_root() / "lock"
-        fd = os.open(p, os.O_RDWR | os.O_CREAT | os.O_NOFOLLOW | os.O_NONBLOCK, 0o600)
-        try:
-            info = os.fstat(fd)
-            if not stat.S_ISREG(info.st_mode) or info.st_nlink != 1: raise ValueError("Arquivo de exclusão mútua inseguro")
-            fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB); yield
-        finally: os.close(fd)
+        with directory(self.state_root()) as parent:
+            fd = os.open('lock', os.O_RDWR | os.O_CREAT | os.O_NOFOLLOW | os.O_NONBLOCK | os.O_CLOEXEC, 0o600, dir_fd=parent)
+            try:
+                regular(os.fstat(fd), 'lock')
+                fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB); yield
+            finally: os.close(fd)
 
     def validate(self, root):
         environment = {k: v for k, v in os.environ.items() if not k.startswith("GIT_") and not (k.startswith("ASDF_") and k.endswith("_VERSION"))}
         environment.update(PYTHONDONTWRITEBYTECODE="1", GIT_OPTIONAL_LOCKS="0", GIT_CONFIG_GLOBAL="/dev/null", GIT_CONFIG_NOSYSTEM="1")
-        r = subprocess.run([sys.executable, "-I", "-S", "-B", str(root / "Skills/validacao/validar_biblioteca.py")],
-                           cwd=Path.home(), capture_output=True, text=True, env=environment, timeout=90)
+        with directory(root) as root_fd, relative_directory(root_fd, ('Skills', 'validacao')) as parent:
+            script = os.open('validar_biblioteca.py', READ_FLAGS, dir_fd=parent)
+            try:
+                regular(os.fstat(script), 'validar_biblioteca.py')
+                r = subprocess.run([sys.executable, '-I', '-S', '-B', f'/proc/self/fd/{script}'],
+                    cwd=Path.home(), capture_output=True, text=True, env=environment, timeout=90, pass_fds=(script,))
+            finally: os.close(script)
         if r.returncode: raise ValueError("Validação da biblioteca falhou: " + (r.stdout + r.stderr)[-4000:])
         data = json.loads(r.stdout)
         # Não usar --copias: esse modo executa buscas do fornecedor. Aqui somente
@@ -272,7 +403,7 @@ class Updates:
             environment = {k: v for k, v in os.environ.items() if k not in {"NODE_OPTIONS", "NODE_PATH", "LD_PRELOAD", "LD_LIBRARY_PATH", "BASH_ENV", "ENV"}}
             if suffix == ".sh":
                 environment["BASH_ENV"] = "/dev/null"
-                command = ["bash", "-n", str(candidate / relative)]
+                command = ["bash", "-n"]
             else:
                 before = read_bytes(self.root, relative) if relative in baseline else b""
                 for specifier in javascript_imports(data) - javascript_imports(before):
@@ -286,14 +417,29 @@ class Updates:
                     scope = candidate.joinpath(*parts[:5] if len(parts) > 5 and parts[3] == "skills" else parts[:3])
                     choices = [target, *[Path(str(target) + ext) for ext in (".js", ".cjs", ".mjs", ".json")],
                                *[target / ("index" + ext) for ext in (".js", ".cjs", ".mjs")]]
-                    if not any(p.resolve().is_relative_to(scope.resolve()) and p.suffix in {".js", ".cjs", ".mjs", ".json"} and p.is_file() and not p.is_symlink() for p in choices):
+                    found = False
+                    for choice in choices:
+                        normalized = Path(os.path.normpath(choice))
+                        if not normalized.is_relative_to(scope) or normalized.suffix not in {'.js', '.cjs', '.mjs', '.json'}: continue
+                        try: read_bytes(candidate, normalized.relative_to(candidate).as_posix())
+                        except FileNotFoundError: continue
+                        found = True; break
+                    if not found:
                         raise ValueError("Recurso JavaScript local ausente/externo: " + specifier)
                 if node is None:
                     from stacknauta_core.runtimes import AsdfResolver
                     resolver = AsdfResolver(Path.home()); resolver.resolve([], extra_plugins=("nodejs",))
                     node = next(r["executable"] for r in resolver.diagnostics if r.get("command") == "node")
-                command = [node, "--check", str(candidate / relative)]
-            r = subprocess.run(command, cwd=Path.home(), env=environment, capture_output=True, text=True, timeout=20)
+                input_type = 'module' if suffix == '.mjs' else 'commonjs'
+                if suffix == '.js':
+                    for parent in PurePosixPath(relative).parents:
+                        try: package = load(candidate, (parent / 'package.json').as_posix())
+                        except FileNotFoundError: continue
+                        if not isinstance(package, dict): raise ValueError('package.json inválido durante análise de script')
+                        input_type = 'module' if package.get('type') == 'module' else 'commonjs'
+                        break
+                command = [node, '--check', '--input-type=' + input_type]
+            r = subprocess.run(command, input=read_bytes(candidate, relative).decode(), cwd=Path.home(), env=environment, capture_output=True, text=True, timeout=20)
             if r.returncode: raise ValueError("Sintaxe de script inválida: " + relative + ": " + r.stderr[:1000])
 
     def begin(self):
@@ -301,18 +447,18 @@ class Updates:
         head = self.clean()
         self.validator(self.root)
         baseline = self.tracked(); session_id = uuid.uuid4().hex
-        session = self.state_root() / session_id; session.mkdir()
+        session = self.state_root() / session_id
+        make_directory(session.parent, session_id, exclusive=True)
         candidate = session / "candidate"
         self.copy_snapshot(candidate, baseline)
         return session, candidate, head, baseline
 
     def copy_snapshot(self, candidate, baseline):
-        candidate.mkdir()
+        make_directory(candidate.parent, candidate.name, exclusive=True)
         for relative, record in baseline.items():
-            source = safe(self.root, relative); dest = safe(candidate, relative)
             data = read_bytes(self.root, relative)
             if sha(data) != record["sha256"]: raise ValueError("Arquivo mudou durante preparação: " + relative)
-            dest.parent.mkdir(parents=True, exist_ok=True); dest.write_bytes(data); dest.chmod(record["mode"])
+            write_bytes(candidate, relative, data, record['mode'], exclusive=True)
 
     def finish(self, session, candidate, head, baseline, checks, details, validation):
         """Sela plano e diff compartilhados por atualização e inclusão."""
@@ -335,9 +481,11 @@ class Updates:
         plan = {**identity, "plan_id": sha(json_bytes(identity)), "session_id": session_id,
                 "status": "preparado", "validacao": validation,
                 "autorizacao": "Revisar plano e review.diff; apply exige --approve e hash revisado.",
-                "atomicidade": "Global por troca da pasta Skills, com janela de indisponibilidade e rollback/backup; nunca mistura arquivos de revisões."}
+                "atomicidade": "Troca de Skills por renames persistidos; sem atomicidade global entre renames e diário, com janela de indisponibilidade e rollback/backup."}
+        sync_tree(candidate)
         atomic_json(session / "plan.json", plan)
-        (session / "review.diff").write_text("".join(review))
+        write_bytes(session, 'review.diff', ''.join(review).encode(), exclusive=True)
+        sync_tree(session, {'review.diff': read_record(session, 'review.diff')[1]})
         atomic_json(session / "journal.json", {"phase": "prepared", "plan_id": plan["plan_id"]})
         return plan
 
@@ -360,14 +508,14 @@ class Updates:
                     source.update(commit=available["disponivel"], default_branch=available["default_branch"],
                                   acquisition="shallow-depth-1-no-checkout-manual-materialization")
                     self.git.acquire(source, safe(candidate, source["directory"]))
-                (candidate / "Skills/fontes.lock.json").write_bytes(json_bytes(lock))
+                write_bytes(candidate, 'Skills/fontes.lock.json', json_bytes(lock))
                 outputs, details = refresh(candidate, changed, read_bytes, self.runtime, details, git_runner=self.git.run)
                 for relative, data in outputs.items():
-                    p = safe(candidate, relative); p.parent.mkdir(parents=True, exist_ok=True); p.write_bytes(data); p.chmod(0o644)
+                    write_bytes(candidate, relative, data)
                 self.check_changed_scripts(candidate, outputs, baseline)
                 validation = self.validator(candidate)
                 acquired = candidate / "Skills/_repos"
-                if acquired.exists(): os.rename(acquired, session / "acquired")
+                if acquired.exists(): move(acquired, session / 'acquired')
                 return self.finish(session, candidate, head, baseline, checks, details, validation)
             except (ValueError, OSError, SyntaxError, BootstrapError, subprocess.SubprocessError) as exc:
                 result = {"status": "bloqueado", "session_id": session_id, "origens": checks, "details": details, "promovidas": [], "motivo": str(exc)}
@@ -387,6 +535,7 @@ class Updates:
             if journal["plan_id"] != plan_id: raise ValueError("Diário não corresponde ao plano")
             if journal["phase"] == "committed":
                 if tree(self.root / "Skills") != plan["candidate_tree"]: raise ValueError("Biblioteca mudou após aplicação")
+                sync_tree(self.root / 'Skills', plan['candidate_tree'])
                 return {"status": "ja_aplicado", "session_id": identifier, "plan_id": plan_id}
             if journal["phase"] != "prepared": raise ValueError("Sessão não está preparada; use recover e revise o estado")
             if self.clean() != plan["head"] or self.tracked() != plan["baseline"]: raise ValueError("Git/arquivos mudaram desde a preparação")
@@ -398,6 +547,9 @@ class Updates:
             if tree(candidate_root) != expected: raise ValueError("Candidato alterado após revisão")
             candidate = safe(candidate_root, "Skills")
             self.validator(session / "candidate")
+            sync_tree(candidate_root, expected)
+            previous = {p.removeprefix('Skills/'): r for p,r in plan['baseline'].items() if p.startswith('Skills/')}
+            sync_tree(self.root / 'Skills', previous)
             backup = session / "previous-Skills"
             if backup.exists(): raise ValueError("Backup preexistente; recuperação manual necessária")
             def phase(value): atomic_json(session / "journal.json", {"phase": value, "plan_id": plan_id})
@@ -406,7 +558,11 @@ class Updates:
                 if hook: hook("old_moved")
                 move(candidate, self.root / "Skills"); phase("new_published")
                 if hook: hook("new_published")
-                self.validator(self.root); phase("committed")
+                self.validator(self.root)
+                if tree(self.root / 'Skills') != plan['candidate_tree']:
+                    raise ValueError('Biblioteca mudou após promoção; conclusão recusada')
+                sync_tree(self.root / 'Skills', plan['candidate_tree'])
+                phase("committed")
                 return {"status": "aplicado", "session_id": identifier, "plan_id": plan_id,
                         "origens": [{**r, "resultado": ({"inclusao_revisada": "incluida",
                             "atualizacao_disponivel": "atualizada"}.get(r["estado"], "modificada")
@@ -427,20 +583,28 @@ class Updates:
                 raise
 
     def _recover(self, session, plan):
+        journal = load(session, 'journal.json')
+        if journal.get('plan_id') != plan['plan_id'] or journal.get('phase') not in {
+            'prepared', 'moving_old', 'old_moved', 'new_published', 'committed', 'rolled_back'}:
+            raise ValueError('Diário inconsistente; recuperação manual necessária')
         backup = safe(session, "previous-Skills"); active = safe(self.root, "Skills")
+        expected = {p.removeprefix("Skills/"): r for p, r in plan["baseline"].items() if p.startswith("Skills/")}
         if backup.exists():
-            expected = {p.removeprefix("Skills/"): r for p, r in plan["baseline"].items() if p.startswith("Skills/")}
-            # Cache anterior pode estar presente; conferir todos os arquivos rastreados.
-            for path, record in expected.items():
-                if sha(read_bytes(backup, path)) != record["sha256"] or stat.S_IMODE(safe(backup, path).stat().st_mode) != record["mode"]: raise ValueError("Backup alterado; recuperação manual necessária")
+            # Cache anterior é preservado sem consulta; o restante precisa ser exato.
+            if tree(backup, exclude=('_repos',)) != expected:
+                raise ValueError('Backup alterado; recuperação manual necessária')
+            sync_tree(backup, expected)
             if active.exists():
                 if tree(active) != plan["candidate_tree"]: raise ValueError("Destino mudou; recuperação manual necessária, nada sobrescrito")
                 failed = session / ("failed-Skills-" + uuid.uuid4().hex); move(active, failed)
             move(backup, active)
         else:
-            for path, record in plan["baseline"].items():
-                if path.startswith("Skills/") and (sha(read_bytes(self.root, path)) != record["sha256"] or stat.S_IMODE(safe(self.root, path).stat().st_mode) != record["mode"]):
-                    raise ValueError("Estado ambíguo sem backup; recuperação manual necessária")
+            try: observed = tree(active, exclude=('_repos',))
+            except FileNotFoundError as exc:
+                raise ValueError('Estado ambíguo sem backup e biblioteca ativa; recuperação manual necessária') from exc
+            if observed != expected:
+                raise ValueError('Estado ambíguo sem backup; recuperação manual necessária')
+        sync_tree(active, expected)
         atomic_json(session / "journal.json", {"phase": "rolled_back", "plan_id": plan["plan_id"]})
 
     def recover(self, identifier, *, approve=False):

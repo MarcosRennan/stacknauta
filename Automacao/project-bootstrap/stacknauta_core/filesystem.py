@@ -1,9 +1,10 @@
 """Operações POSIX ancoradas em dirfd: não seguir symlinks nem substituir arquivos."""
 import contextlib
+import ctypes
+import errno
 import hashlib
 import json
 import os
-import secrets
 import stat
 from pathlib import Path, PurePosixPath
 
@@ -13,6 +14,18 @@ from .lifecycle import classification
 DIR_FLAGS = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW | os.O_CLOEXEC
 READ_FLAGS = os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK | os.O_CLOEXEC
 MANIFEST = ".stacknauta/manifest.json"
+
+
+def rename_noreplace(source, destination, *, src_dir_fd, dst_dir_fd):
+    """renameat2 Linux: nunca substituir um destino criado concorrentemente."""
+    rename = getattr(ctypes.CDLL(None, use_errno=True), 'renameat2', None)
+    if rename is None:
+        raise OSError(errno.ENOSYS, 'renameat2 indisponível; operação recusada')
+    rename.argtypes = [ctypes.c_int, ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_uint]
+    rename.restype = ctypes.c_int
+    if rename(src_dir_fd, os.fsencode(source), dst_dir_fd, os.fsencode(destination), 1):
+        error = ctypes.get_errno()
+        raise OSError(error, os.strerror(error), destination)
 
 
 def parts(relative):
@@ -47,6 +60,7 @@ def relative_directory(root_fd, components, create=False):
             if create:
                 try:
                     os.mkdir(component, 0o755, dir_fd=fd)
+                    os.fsync(fd)
                 except FileExistsError:
                     pass
             new = os.open(component, DIR_FLAGS, dir_fd=fd)
@@ -175,40 +189,34 @@ def inventory(root_fd, managed):
 
 
 def publish(root_fd, relative, data, hook=None):
-    """Publica arquivo novo completo, sem rename/replace e sem link para a biblioteca.
+    """Publica inode anônimo O_TMPFILE: zero nomes antes, um nome após linkat.
 
-    O link atômico é interno ao destino e existe apenas durante a publicação;
-    o temporário próprio é removido, deixando um único inode físico nlink=1.
-    Arquivos preexistentes nunca são abertos para escrita nem removidos.
+    /proc/self/fd é a referência do kernel ao descritor próprio, não um caminho
+    fornecido pelo projeto. Sem suporte a O_TMPFILE/procfs, bloqueia sem fallback
+    para hardlinks temporários nomeados. Nunca remove arquivos desconhecidos.
     """
     components = parts(relative)
     with relative_directory(root_fd, components[:-1], create=True) as parent:
-        temporary = ".stacknauta-tmp-" + secrets.token_hex(16)
-        fd = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW | os.O_CLOEXEC, 0o600, dir_fd=parent)
+        fd = os.open('.', os.O_WRONLY | os.O_TMPFILE | os.O_CLOEXEC, 0o600, dir_fd=parent)
         try:
-            try:
-                view = memoryview(data)
-                while view:
-                    written = os.write(fd, view)
-                    if written <= 0:
-                        raise OSError("Escrita incompleta")
-                    view = view[written:]
-                os.fchmod(fd, 0o644)
-                os.fsync(fd)
-            finally:
-                os.close(fd)
+            view = memoryview(data)
+            while view:
+                written = os.write(fd, view)
+                if written <= 0:
+                    raise OSError("Escrita incompleta")
+                view = view[written:]
+            os.fchmod(fd, 0o644)
+            os.fsync(fd)
             if hook:
                 hook(relative)
             try:
-                os.link(temporary, components[-1], src_dir_fd=parent, dst_dir_fd=parent, follow_symlinks=False)
+                os.link(f'/proc/self/fd/{fd}', components[-1], dst_dir_fd=parent, follow_symlinks=True)
             except FileExistsError:
                 if read(root_fd, relative, len(data)) != data:
                     raise BootstrapError(f"Conflito concorrente preservado: {relative}")
             os.fsync(parent)
         finally:
-            # Somente o temporário com nome exclusivo criado nesta chamada.
-            os.unlink(temporary, dir_fd=parent)
-            os.fsync(parent)
+            os.close(fd)  # O kernel descarta o inode se ainda não foi publicado.
 
 
 class Target:

@@ -169,12 +169,13 @@ def recount(cat):
 
 def inventory(root, source_ids, read_bytes, runtime, git_runner):
     from biblioteca import json_bytes
+    from atualizacoes import write_bytes
     import inventariar
     lock = json.loads(read_bytes(root, "Skills/fontes.lock.json"))
     # O inventário existente já aceita a lista de origens do lock. Só o lock da
     # cópia isolada é temporariamente filtrado; o ativo nunca é alterado aqui.
-    full_lock = (root / "Skills/fontes.lock.json").read_bytes()
-    (root / "Skills/fontes.lock.json").write_bytes(json_bytes({**lock, "sources": [s for s in lock["sources"] if s["id"] in source_ids]}))
+    full_lock = read_bytes(root, 'Skills/fontes.lock.json')
+    write_bytes(root, 'Skills/fontes.lock.json', json_bytes({**lock, "sources": [s for s in lock["sources"] if s["id"] in source_ids]}))
     previous_root, previous_runtime, previous_git = inventariar.ROOT, inventariar.require_asdf_python, inventariar.git
     try:
         inventariar.ROOT = root
@@ -183,7 +184,7 @@ def inventory(root, source_ids, read_bytes, runtime, git_runner):
         raw, fresh_indexes, fresh_refs = inventariar.build()
     finally:
         inventariar.ROOT, inventariar.require_asdf_python, inventariar.git = previous_root, previous_runtime, previous_git
-        (root / "Skills/fontes.lock.json").write_bytes(full_lock)
+        write_bytes(root, 'Skills/fontes.lock.json', full_lock)
     return raw, fresh_indexes, fresh_refs
 
 
@@ -329,8 +330,8 @@ def refresh(root, source_ids, read_bytes, runtime, details=None, *, git_runner):
         for relative in package["files"]:
             if not relative.endswith(".py"): continue
             dest = package["directory"] + "/" + relative
-            before_path = root / dest
-            before = before_path.read_bytes() if before_path.exists() else b""
+            try: before = read_bytes(root, dest)
+            except FileNotFoundError: before = b''
             after = outputs[dest]
             python_dependencies(before, after, local_modules)
             relative_python_resources(after, relative, package['files'],

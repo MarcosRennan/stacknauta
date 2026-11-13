@@ -9,7 +9,8 @@ import shutil
 import subprocess
 from pathlib import Path
 
-from atualizacoes import atomic_json, load, read_bytes, safe, tree, sha, json_bytes, NODE_BUILTINS
+from atualizacoes import atomic_json, load, read_bytes, write_bytes, move, safe, tree, sha, json_bytes, NODE_BUILTINS
+from stacknauta_core.filesystem import directory
 from atualizacao_receita import inventory, source_bytes, skill_prefix, recount, python_dependencies, relative_python_resources, javascript_imports, category_indexes
 from origens import parse_url, resolve
 from stacknauta_core import BootstrapError
@@ -51,7 +52,7 @@ class Inclusions:
                 lock=load(inspection,'Skills/fontes.lock.json')
                 lock['sources']=[source if s['id']==identifier else s for s in lock['sources']]
                 if not existing: lock['sources'].append(source)
-                (inspection/'Skills/fontes.lock.json').write_bytes(json_bytes(lock))
+                write_bytes(inspection,'Skills/fontes.lock.json',json_bytes(lock))
                 raw,indexes,refs=inventory(inspection,{identifier},read_bytes,e.runtime,e.git.run)
                 records={r['path']:r for r in indexes[identifier]['files']}
                 for p,r in records.items():
@@ -66,7 +67,7 @@ class Inclusions:
                     if previous and scope and not skill['source_path'].startswith(scope+'/'): continue
                     candidates.append(self.analyze(inspection,source,skill,raw['skills'],records,refs,catalog))
                 # Preservar a inspeção e cache; o candidato promovível será separado.
-                os.rename(inspection,session/'inspection')
+                move(inspection,session/'inspection')
                 identity={'schema_version':1,'head':head,'baseline':baseline,'source':source,'lock':lock,'scope':scope,
                           'raw':raw,'indexes':indexes,'references':refs,'candidates':candidates,'existing_source':bool(existing)}
                 report={**identity,'review_id':sha(json_bytes(identity)),'session_id':session.name,
@@ -182,9 +183,12 @@ class Inclusions:
             cat=load(self.engine.root,'Skills/catalogo.json');sessions=[]
             folder=safe(self.engine.root,'.stacknauta-updates')
             if folder.exists():
-                for path in sorted(folder.iterdir()):
-                    if re.fullmatch(r'[0-9a-f]{32}',path.name) and (path/'analysis.json').exists():
-                        _,report=self.analysis(path.name);sessions.append({'session_id':path.name,'review_id':report['review_id'],'status':report['status'],'candidates':len(report['candidates'])})
+                with directory(folder) as fd: names=sorted(os.listdir(fd))
+                for name in names:
+                    if re.fullmatch(r'[0-9a-f]{32}',name):
+                        try: _,report=self.analysis(name)
+                        except FileNotFoundError: continue
+                        sessions.append({'session_id':name,'review_id':report['review_id'],'status':report['status'],'candidates':len(report['candidates'])})
             return {'status':'revisao','sessions':sessions,'skills':[{k:s.get(k) for k in ('id','name','repository','commit','category','description','license','distribution_status','pending','compatibility','required_files','script_files','dependency_evidence','distribution')} for s in cat['skills']]}
         session,report=self.analysis(identifier)
         if decisions is None: return self.view(report)
@@ -209,7 +213,7 @@ class Inclusions:
             try:
                 outputs,details=self.package(inspection,candidate,report,choices,raw_decisions)
                 for relative,data in outputs.items():
-                    path=safe(candidate,relative);path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data);path.chmod(0o644)
+                    write_bytes(candidate,relative,data)
                 e.check_changed_scripts(candidate,outputs,report['baseline'])
                 validation=e.validator(candidate)
                 checks=[{'origem':report['source']['id'],'branch':report['source']['branch'],'atual':report['source']['commit'] if report['existing_source'] else None,
