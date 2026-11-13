@@ -1,0 +1,9 @@
+--- upstream/skills/accessible-animation/SKILL.md
++++ proposed/skills/accessible-animation/SKILL.md
+@@ -42 +42 @@
+-The global net is a backstop. Layer *intentional, tiered* overrides on top so Tier 3 motion survives:
++The global net is a backstop. Layer *intentional, tiered* overrides on top so Tier 3 motion survives. The reset uses !important: a later normal shorthand cannot restore its duration. The reduced-motion class rule must explicitly override those important durations:
+@@ -52 +52,2 @@
+-    transition: opacity 150ms ease, background-color 150ms ease;
++    transition: opacity 150ms ease, background-color 150ms ease;
++    transition-duration: 150ms, 150ms !important; /* override the global important reset */

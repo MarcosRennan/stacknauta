@@ -1,0 +1,638 @@
+{
+  "stage": "4B-round-1B-proposals-only",
+  "source": {
+    "acquisition": "shallow-depth-1-no-checkout-manual-materialization",
+    "branch": "main",
+    "commit": "ed3a045192679b24d32090ee7a983871311ababd",
+    "default_branch": "main",
+    "directory": "Skills/_repos/gh-iart-ai-web-animation-skills",
+    "id": "gh-iart-ai-web-animation-skills",
+    "revision_ref": "main",
+    "revision_type": "branch",
+    "source_category": null,
+    "sparse_paths": [],
+    "url": "https://github.com/iart-ai/web-animation-skills.git"
+  },
+  "session_id": "52b822d7ca934018abaa284e709e51e3",
+  "review_id": "bfa0b1b8f3fb96ca230f783cd9f6ab9e0022c61e36ef027dd351abd872eb0541",
+  "upstream_bytes_verified": true,
+  "resource_union_count": 18,
+  "session_baseline_matches_current_code": false,
+  "session_usable_for_evidence_not_current_promotion": true,
+  "baseline_limit": "Implementação e commits desta rodada mudam HEAD/baseline; descoberta nova no mesmo commit upstream é obrigatória antes de review com decisões futuras.",
+  "pending_decisions_validated_without_writing_candidate": true,
+  "decisions_pending_not_executed": {
+    "schema_version": 1,
+    "skills": {
+      "gh-iart-ai-web-animation-skills:micro-interaction": {
+        "status": "pending",
+        "category": "Frontend",
+        "reason": "Proposta da Rodada 1B; nenhuma aprovação concedida. Aguarda decisão individual do usuário e novo dry-run válido.",
+        "compatibility": {
+          "selection_mode": "explicit",
+          "languages_any": [
+            "javascript",
+            "typescript"
+          ],
+          "frameworks_any": [
+            "react",
+            "nextjs",
+            "vue",
+            "nuxt",
+            "svelte",
+            "astro"
+          ],
+          "frameworks_all": [],
+          "features_all": [
+            "ui",
+            "animation"
+          ],
+          "architecture": null,
+          "tools": [],
+          "runtimes": []
+        },
+        "requires_skills": [],
+        "prerequisites_review": {
+          "Exit animations require `AnimatePresence` wrapping conditionally-rendered children, each with a stable `key`.": {
+            "tools": [],
+            "runtimes": [],
+            "reason": "Condição do exemplo ou geometria; não é ferramenta/runtime. A utilização efetiva depende da stack e da autorização de dependências do projeto."
+          }
+        }
+      },
+      "gh-iart-ai-web-animation-skills:svg-animation": {
+        "status": "pending",
+        "category": "Frontend",
+        "reason": "Proposta da Rodada 1B; nenhuma aprovação concedida. Aguarda decisão individual do usuário e novo dry-run válido.",
+        "compatibility": {
+          "selection_mode": "explicit",
+          "languages_any": [
+            "javascript",
+            "typescript"
+          ],
+          "frameworks_any": [
+            "react",
+            "nextjs",
+            "vue",
+            "nuxt",
+            "svelte",
+            "astro"
+          ],
+          "frameworks_all": [],
+          "features_all": [
+            "ui",
+            "animation"
+          ],
+          "architecture": null,
+          "tools": [],
+          "runtimes": []
+        },
+        "requires_skills": [],
+        "prerequisites_review": {
+          "Paths interpolate point-by-point, so a naive morph requires both `d` attributes to have the **same number and type of commands**. Two robust approaches:": {
+            "tools": [],
+            "runtimes": [],
+            "reason": "Condição do exemplo ou geometria; não é ferramenta/runtime. A utilização efetiva depende da stack e da autorização de dependências do projeto."
+          }
+        }
+      },
+      "gh-iart-ai-web-animation-skills:accessible-animation": {
+        "status": "pending",
+        "category": "Frontend",
+        "reason": "Proposta da Rodada 1B; nenhuma aprovação concedida. Receita CSS bloqueada até correção distribuível rastreável.",
+        "compatibility": {
+          "selection_mode": "explicit",
+          "languages_any": [
+            "javascript",
+            "typescript"
+          ],
+          "frameworks_any": [
+            "react",
+            "nextjs",
+            "vue",
+            "nuxt",
+            "svelte",
+            "astro"
+          ],
+          "frameworks_all": [],
+          "features_all": [
+            "ui",
+            "animation",
+            "accessibility"
+          ],
+          "architecture": null,
+          "tools": [],
+          "runtimes": []
+        },
+        "requires_skills": [],
+        "prerequisites_review": {}
+      },
+      "gh-iart-ai-web-animation-skills:60fps-animation": {
+        "status": "pending",
+        "category": "Frontend",
+        "reason": "Proposta da Rodada 1B; nenhuma aprovação concedida. Aguarda decisão individual do usuário e novo dry-run válido.",
+        "compatibility": {
+          "selection_mode": "explicit",
+          "languages_any": [
+            "javascript",
+            "typescript"
+          ],
+          "frameworks_any": [
+            "react",
+            "nextjs",
+            "vue",
+            "nuxt",
+            "svelte",
+            "astro"
+          ],
+          "frameworks_all": [],
+          "features_all": [
+            "ui",
+            "animation",
+            "performance"
+          ],
+          "architecture": null,
+          "tools": [],
+          "runtimes": []
+        },
+        "requires_skills": [],
+        "prerequisites_review": {}
+      }
+    }
+  },
+  "candidates": [
+    {
+      "id": "gh-iart-ai-web-animation-skills:micro-interaction",
+      "source_path": "skills/micro-interaction/SKILL.md",
+      "sha256": "f8ae0fc6137448bce51f689a13513a0a8742b1cbffa1b9f32ac723b46309e6e0",
+      "preparation_state": "eligible_for_future_individual_review_with_documented_conditions",
+      "resources": [
+        {
+          "path": "LICENSE",
+          "sha256": "33d6cd35a20903b5e968a76a1e584a7aeae2c83e3e58ea58ecc50b889b83e668"
+        },
+        {
+          "path": "scripts/README.md",
+          "sha256": "8f1bb92dfb6c741e74e1b7949a8230b824388bd311ccc47401a24245b0f6d17e"
+        },
+        {
+          "path": "scripts/contact-sheet.sh",
+          "sha256": "a3873536da80dbb6724c2a3d462bd60a2ddc03e22dabce73bb0d0f70d4d1a361"
+        },
+        {
+          "path": "scripts/probe-mp4.sh",
+          "sha256": "3a1bb8c5d017599e52f4bb49822259257266899ee46028663ba416acccc19e6a"
+        },
+        {
+          "path": "scripts/seek-shot.sh",
+          "sha256": "4f02b7350669049b2f38c3761e395814be6262d6a12d7fb0a14504af51c9ba7b"
+        },
+        {
+          "path": "skills/micro-interaction/README.md",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "skills/micro-interaction/SKILL.md",
+          "sha256": "f8ae0fc6137448bce51f689a13513a0a8742b1cbffa1b9f32ac723b46309e6e0"
+        },
+        {
+          "path": "skills/micro-interaction/references/css-recipes.md",
+          "sha256": "e32eec6eda6f40dac5972c7944cb72a24f79f849ff42a4238caf94f9a90daebc"
+        },
+        {
+          "path": "skills/micro-interaction/references/framer-motion-recipes.md",
+          "sha256": "5be7a9c3bca7feb2ba23f907da8e69c2d84f8ce8f61763dde89b7f718a904bdb"
+        }
+      ],
+      "discovery_blockers": [],
+      "references": [
+        {
+          "document": "scripts/README.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/contact-sheet.sh",
+          "status": "present",
+          "target": "scripts/contact-sheet.sh"
+        },
+        {
+          "document": "scripts/README.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/probe-mp4.sh",
+          "status": "present",
+          "target": "scripts/probe-mp4.sh"
+        },
+        {
+          "document": "scripts/README.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/seek-shot.sh",
+          "status": "present",
+          "target": "scripts/seek-shot.sh"
+        },
+        {
+          "document": "skills/micro-interaction/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "skills/micro-interaction/references/css-recipes.md",
+          "status": "present",
+          "target": "references/css-recipes.md"
+        },
+        {
+          "document": "skills/micro-interaction/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "skills/micro-interaction/references/framer-motion-recipes.md",
+          "status": "present",
+          "target": "references/framer-motion-recipes.md"
+        },
+        {
+          "document": "skills/micro-interaction/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/README.md",
+          "status": "present",
+          "target": "scripts/README.md"
+        },
+        {
+          "document": "skills/micro-interaction/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/contact-sheet.sh",
+          "status": "present",
+          "target": "scripts/contact-sheet.sh"
+        },
+        {
+          "document": "skills/micro-interaction/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/seek-shot.sh",
+          "status": "present",
+          "target": "scripts/seek-shot.sh"
+        }
+      ],
+      "dependencies": [],
+      "dependency_evidence": [
+        {
+          "line": 48,
+          "text": "Exit animations require `AnimatePresence` wrapping conditionally-rendered children, each with a stable `key`."
+        }
+      ],
+      "license": {
+        "asset_licenses": [],
+        "evidence": [
+          {
+            "identified": "MIT",
+            "path": "LICENSE"
+          }
+        ],
+        "identified": "MIT",
+        "licensing_metadata": [],
+        "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+      }
+    },
+    {
+      "id": "gh-iart-ai-web-animation-skills:svg-animation",
+      "source_path": "skills/svg-animation/SKILL.md",
+      "sha256": "90e37f8f3d8c662515952de7a50c9130f5695d1a0cae1501115bd5d253c712c4",
+      "preparation_state": "eligible_for_future_individual_review_with_documented_conditions",
+      "resources": [
+        {
+          "path": "LICENSE",
+          "sha256": "33d6cd35a20903b5e968a76a1e584a7aeae2c83e3e58ea58ecc50b889b83e668"
+        },
+        {
+          "path": "scripts/README.md",
+          "sha256": "8f1bb92dfb6c741e74e1b7949a8230b824388bd311ccc47401a24245b0f6d17e"
+        },
+        {
+          "path": "scripts/contact-sheet.sh",
+          "sha256": "a3873536da80dbb6724c2a3d462bd60a2ddc03e22dabce73bb0d0f70d4d1a361"
+        },
+        {
+          "path": "scripts/probe-mp4.sh",
+          "sha256": "3a1bb8c5d017599e52f4bb49822259257266899ee46028663ba416acccc19e6a"
+        },
+        {
+          "path": "scripts/seek-shot.sh",
+          "sha256": "4f02b7350669049b2f38c3761e395814be6262d6a12d7fb0a14504af51c9ba7b"
+        },
+        {
+          "path": "skills/svg-animation/README.md",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "skills/svg-animation/SKILL.md",
+          "sha256": "90e37f8f3d8c662515952de7a50c9130f5695d1a0cae1501115bd5d253c712c4"
+        },
+        {
+          "path": "skills/svg-animation/references/svg-techniques.md",
+          "sha256": "41cff6f8ced2d6f952b08db6d6fb20fb38c27419ff9e28b30668d8ca80b35983"
+        }
+      ],
+      "discovery_blockers": [],
+      "references": [
+        {
+          "document": "scripts/README.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/contact-sheet.sh",
+          "status": "present",
+          "target": "scripts/contact-sheet.sh"
+        },
+        {
+          "document": "scripts/README.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/probe-mp4.sh",
+          "status": "present",
+          "target": "scripts/probe-mp4.sh"
+        },
+        {
+          "document": "scripts/README.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/seek-shot.sh",
+          "status": "present",
+          "target": "scripts/seek-shot.sh"
+        },
+        {
+          "document": "skills/svg-animation/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "skills/svg-animation/references/svg-techniques.md",
+          "status": "present",
+          "target": "references/svg-techniques.md"
+        },
+        {
+          "document": "skills/svg-animation/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/README.md",
+          "status": "present",
+          "target": "scripts/README.md"
+        },
+        {
+          "document": "skills/svg-animation/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/contact-sheet.sh",
+          "status": "present",
+          "target": "scripts/contact-sheet.sh"
+        },
+        {
+          "document": "skills/svg-animation/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/seek-shot.sh",
+          "status": "present",
+          "target": "scripts/seek-shot.sh"
+        }
+      ],
+      "dependencies": [],
+      "dependency_evidence": [
+        {
+          "line": 41,
+          "text": "Paths interpolate point-by-point, so a naive morph requires both `d` attributes to have the **same number and type of commands**. Two robust approaches:"
+        }
+      ],
+      "license": {
+        "asset_licenses": [],
+        "evidence": [
+          {
+            "identified": "MIT",
+            "path": "LICENSE"
+          }
+        ],
+        "identified": "MIT",
+        "licensing_metadata": [],
+        "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+      }
+    },
+    {
+      "id": "gh-iart-ai-web-animation-skills:accessible-animation",
+      "source_path": "skills/accessible-animation/SKILL.md",
+      "sha256": "29d5fec1be9fa5e978738c313678974f61c06443e02ffce1bdc20434dfb0a767",
+      "preparation_state": "blocked_css_distribution",
+      "resources": [
+        {
+          "path": "LICENSE",
+          "sha256": "33d6cd35a20903b5e968a76a1e584a7aeae2c83e3e58ea58ecc50b889b83e668"
+        },
+        {
+          "path": "scripts/README.md",
+          "sha256": "8f1bb92dfb6c741e74e1b7949a8230b824388bd311ccc47401a24245b0f6d17e"
+        },
+        {
+          "path": "scripts/contact-sheet.sh",
+          "sha256": "a3873536da80dbb6724c2a3d462bd60a2ddc03e22dabce73bb0d0f70d4d1a361"
+        },
+        {
+          "path": "scripts/probe-mp4.sh",
+          "sha256": "3a1bb8c5d017599e52f4bb49822259257266899ee46028663ba416acccc19e6a"
+        },
+        {
+          "path": "scripts/seek-shot.sh",
+          "sha256": "4f02b7350669049b2f38c3761e395814be6262d6a12d7fb0a14504af51c9ba7b"
+        },
+        {
+          "path": "skills/accessible-animation/README.md",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "skills/accessible-animation/SKILL.md",
+          "sha256": "29d5fec1be9fa5e978738c313678974f61c06443e02ffce1bdc20434dfb0a767"
+        },
+        {
+          "path": "skills/accessible-animation/references/patterns.md",
+          "sha256": "baebceae2c8e1eef8f6095abb05384b5caf3500380bba3d8dff6bec019445f17"
+        }
+      ],
+      "discovery_blockers": [],
+      "references": [
+        {
+          "document": "scripts/README.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/contact-sheet.sh",
+          "status": "present",
+          "target": "scripts/contact-sheet.sh"
+        },
+        {
+          "document": "scripts/README.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/probe-mp4.sh",
+          "status": "present",
+          "target": "scripts/probe-mp4.sh"
+        },
+        {
+          "document": "scripts/README.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/seek-shot.sh",
+          "status": "present",
+          "target": "scripts/seek-shot.sh"
+        },
+        {
+          "document": "skills/accessible-animation/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "skills/accessible-animation/references/patterns.md",
+          "status": "present",
+          "target": "references/patterns.md"
+        },
+        {
+          "document": "skills/accessible-animation/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/README.md",
+          "status": "present",
+          "target": "scripts/README.md"
+        },
+        {
+          "document": "skills/accessible-animation/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/contact-sheet.sh",
+          "status": "present",
+          "target": "scripts/contact-sheet.sh"
+        },
+        {
+          "document": "skills/accessible-animation/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/seek-shot.sh",
+          "status": "present",
+          "target": "scripts/seek-shot.sh"
+        }
+      ],
+      "dependencies": [],
+      "dependency_evidence": [],
+      "license": {
+        "asset_licenses": [],
+        "evidence": [
+          {
+            "identified": "MIT",
+            "path": "LICENSE"
+          }
+        ],
+        "identified": "MIT",
+        "licensing_metadata": [],
+        "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+      }
+    },
+    {
+      "id": "gh-iart-ai-web-animation-skills:60fps-animation",
+      "source_path": "skills/60fps-animation/SKILL.md",
+      "sha256": "deb5d78aabae2289cbe161733be81aca6c3b4cd0940c0df3acf10196efdfe962",
+      "preparation_state": "eligible_for_future_individual_review_with_documented_conditions",
+      "resources": [
+        {
+          "path": "LICENSE",
+          "sha256": "33d6cd35a20903b5e968a76a1e584a7aeae2c83e3e58ea58ecc50b889b83e668"
+        },
+        {
+          "path": "scripts/README.md",
+          "sha256": "8f1bb92dfb6c741e74e1b7949a8230b824388bd311ccc47401a24245b0f6d17e"
+        },
+        {
+          "path": "scripts/contact-sheet.sh",
+          "sha256": "a3873536da80dbb6724c2a3d462bd60a2ddc03e22dabce73bb0d0f70d4d1a361"
+        },
+        {
+          "path": "scripts/probe-mp4.sh",
+          "sha256": "3a1bb8c5d017599e52f4bb49822259257266899ee46028663ba416acccc19e6a"
+        },
+        {
+          "path": "scripts/seek-shot.sh",
+          "sha256": "4f02b7350669049b2f38c3761e395814be6262d6a12d7fb0a14504af51c9ba7b"
+        },
+        {
+          "path": "skills/60fps-animation/README.md",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "skills/60fps-animation/SKILL.md",
+          "sha256": "deb5d78aabae2289cbe161733be81aca6c3b4cd0940c0df3acf10196efdfe962"
+        },
+        {
+          "path": "skills/60fps-animation/references/patterns-and-profiling.md",
+          "sha256": "f6562a32eb70bea6dd27f0796ea6597d93ee5ecf4d3ab334ec44b773cde65f05"
+        }
+      ],
+      "discovery_blockers": [],
+      "references": [
+        {
+          "document": "scripts/README.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/contact-sheet.sh",
+          "status": "present",
+          "target": "scripts/contact-sheet.sh"
+        },
+        {
+          "document": "scripts/README.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/probe-mp4.sh",
+          "status": "present",
+          "target": "scripts/probe-mp4.sh"
+        },
+        {
+          "document": "scripts/README.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/seek-shot.sh",
+          "status": "present",
+          "target": "scripts/seek-shot.sh"
+        },
+        {
+          "document": "skills/60fps-animation/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "skills/60fps-animation/references/patterns-and-profiling.md",
+          "status": "present",
+          "target": "references/patterns-and-profiling.md"
+        },
+        {
+          "document": "skills/60fps-animation/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/README.md",
+          "status": "present",
+          "target": "scripts/README.md"
+        },
+        {
+          "document": "skills/60fps-animation/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/contact-sheet.sh",
+          "status": "present",
+          "target": "scripts/contact-sheet.sh"
+        },
+        {
+          "document": "skills/60fps-animation/SKILL.md",
+          "kind": "resource_mention",
+          "resolved": "scripts/seek-shot.sh",
+          "status": "present",
+          "target": "scripts/seek-shot.sh"
+        }
+      ],
+      "dependencies": [],
+      "dependency_evidence": [],
+      "license": {
+        "asset_licenses": [],
+        "evidence": [
+          {
+            "identified": "MIT",
+            "path": "LICENSE"
+          }
+        ],
+        "identified": "MIT",
+        "licensing_metadata": [],
+        "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+      }
+    }
+  ],
+  "excluded_from_this_preparation": [
+    "gsap-web",
+    "lottie-animation",
+    "ascii-animation",
+    "page-transition-animation",
+    "animations",
+    "glassmorphism"
+  ],
+  "adaptation_proposal": {
+    "path": "skills/accessible-animation/SKILL.md",
+    "before_sha256": "29d5fec1be9fa5e978738c313678974f61c06443e02ffce1bdc20434dfb0a767",
+    "after_sha256": "121c74e0c6deea14922f026bd2e95e61fa9450154f4c559180b2ef041ae713d4",
+    "diff_sha256": "6ff4fe0bfd2216c111ff8fa9a88d8832d4398bc805e35939c0a6861cf09981e5",
+    "diff_file": "accessible-animation.proposta.diff",
+    "verified_with_existing_replay_patch": true,
+    "upstream_modified": false,
+    "candidate_modified": false,
+    "approved_or_distributed": false,
+    "blocker": "Inclusão não oferece entrada de adaptação arbitrária; proposta documental não basta para corrigir receita distribuída."
+  },
+  "bootstrap_selection_limit": "Políticas propostas exigem um framework web suportado. Vanilla sem framework não será presumido compatível; requer revisão específica sem inventar stack.",
+  "plan_id": null,
+  "approval": false,
+  "promoted_skills": [],
+  "prior_reports_preserved": {
+    "Automacao/validacao-animacoes-rodada1/RELATORIO.md": true,
+    "Automacao/validacao-animacoes-rodada1/resultado.json": true
+  }
+}

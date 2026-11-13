@@ -50,6 +50,11 @@ A versão de framework acima ilustra a sintaxe; não é recomendação de versã
 - `stack.go_module`: obrigatório para Go; origem de módulo fornecida pelo usuário, sem endereço GitHub inventado.
 - `requirements.features`: tags explícitas da política em `config.py`, por exemplo `api`, `ui`, `testing`, `security-review`, `gradle`, `networking`. Texto livre em `description` e `constraints` é preservado sem inferir tecnologias ou funcionalidades.
 - `skills`: opcional. Ausência usa seleção automática determinística pelas declarações. Uma lista fornece raízes explícitas; lista vazia desabilita a seleção. Seleção explícita nunca ignora compatibilidade ou dependências.
+
+O catálogo também pode exigir escolha nominal por `compatibility.selection_mode:
+"explicit"`. Ausência ou `"automatic"` preserva a elegibilidade histórica. Consulte
+[a política de seleção](SELECAO.md), inclusive dependências e manifestos antigos.
+
 - `runtime_versions`: restrições opcionais por plugin (`python`, `nodejs`, `golang`, `java`, `rust`). Precisam coincidir com a configuração global e ser exigidas pelo projeto/executor/helpers. Não selecionam outra versão ou instalam nada.
 
 Chaves desconhecidas, duplicadas, tipos incorretos, configurações especiais/links/FIFO e JSON acima de 1 MB são recusados antes de escrever no projeto. Arquivos de configuração são somente lidos.

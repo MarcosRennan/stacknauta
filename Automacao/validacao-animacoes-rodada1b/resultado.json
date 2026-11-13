@@ -1,0 +1,150 @@
+{
+  "stage": "4B-round-1B",
+  "initial_head": "a035f50c3d890668b4817c3b32edad6274c6a344",
+  "prior_reports_initial_sha256": {
+    "Automacao/validacao-animacoes-rodada1/RELATORIO.md": "b2cb924e72aced7fc581b15eeec11f3e3b5472e27e358f7f4600368c2b3b21f7",
+    "Automacao/validacao-animacoes-rodada1/resultado.json": "225e2d446a3bb6d4adf335f1930c7af2e4bc37cfae549f70f05b91345e6bf408"
+  },
+  "initial_validation": {
+    "schema_version": 2,
+    "stage": "1.5",
+    "validated_at_utc": "2026-11-13T13:45:46.184053+00:00",
+    "status": "passed_with_documented_pending",
+    "python_executor": {
+      "manager": "asdf",
+      "global_source": "~/.tool-versions",
+      "version": "3.14.8"
+    },
+    "counts": {
+      "sources": 7,
+      "physical_skill_files": 130,
+      "catalogued_skills": 124,
+      "distribution_aliases": 6,
+      "enabled_skills": 0,
+      "prepared_distribution_skills": 101,
+      "by_category": {
+        "Backend": 24,
+        "Frontend": 11,
+        "Mobile": 80,
+        "Seguranca": 9
+      },
+      "by_scope": {
+        "catalogued_source": 122,
+        "experimental_source": 1,
+        "internal_evaluation_not_distributable": 1
+      },
+      "approved_skills": 101,
+      "pending_skills": 21,
+      "excluded_skills": 2,
+      "distribution_packages": 9,
+      "approved_by_category": {
+        "Backend": 19,
+        "Frontend": 4,
+        "Mobile": 71,
+        "Seguranca": 7
+      }
+    },
+    "package_files_verified": 958,
+    "python_files_parsed": 41,
+    "node_syntax": {
+      "status": "not_requested",
+      "files": 7
+    },
+    "local_markdown_links_checked": 1095,
+    "adapted_files": 102,
+    "cache_validation": {
+      "status": "not_required_for_distribution"
+    },
+    "physical_copy_test": {
+      "status": "not_requested"
+    },
+    "checks": [
+      "Revisões e proveniência de cada arquivo confrontadas com o lock e índices adquiridos.",
+      "Hashes, inventários completos, recursos, referências Markdown locais e licenças conferidos.",
+      "Planos de cópia fechados sobre dependências; nenhum SKILL.md pendente/excluído nos pacotes.",
+      "Adaptações explícitas com hashes antes/depois e unified diff.",
+      "Sem links simbólicos, caminhos locais ou dependência de cache nos pacotes.",
+      "Nenhuma ativação de agentes; estado do núcleo validado separadamente da biblioteca."
+    ],
+    "errors": [],
+    "limits": [
+      "Packaging approval does not certify agent discovery or all application workflows.",
+      "Consumer SDKs, hardware, authenticated services and CLIs were not provisioned or exercised.",
+      "Frontmatter delimiters/name/description and declared licence paths checked; not full YAML schema validation."
+    ],
+    "bootstrap_implemented": true,
+    "bootstrap_core_stage": "2A",
+    "agent_integration_tested": false,
+    "production_ready": false
+  },
+  "focused_selection": {
+    "tests_run": 22,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "status": "passed"
+  },
+  "focused_selection_log": "test_agent_integration_and_idempotence_share_the_selection (test_selection.SelectionTests.test_agent_integration_and_idempotence_share_the_selection) ... ok\ntest_automatic_root_cannot_pull_an_explicit_dependency (test_selection.SelectionTests.test_automatic_root_cannot_pull_an_explicit_dependency) ... ok\ntest_backend_does_not_select_web_specialist (test_selection.SelectionTests.test_backend_does_not_select_web_specialist) ... ok\ntest_dry_run_is_deterministic_and_binds_catalog_policy (test_selection.SelectionTests.test_dry_run_is_deterministic_and_binds_catalog_policy) ... ok\ntest_duplicate_request_is_rejected (test_selection.SelectionTests.test_duplicate_request_is_rejected) ... ok\ntest_explicit_automatic_skill_is_selected (test_selection.SelectionTests.test_explicit_automatic_skill_is_selected) ... ok\ntest_explicit_is_not_selected_just_for_matching_technical_requirements (test_selection.SelectionTests.test_explicit_is_not_selected_just_for_matching_technical_requirements) ... ok\ntest_explicit_list_is_complete_set_of_roots_including_automatic_and_specialist (test_selection.SelectionTests.test_explicit_list_is_complete_set_of_roots_including_automatic_and_specialist) ... ok\ntest_explicit_root_keeps_automatic_dependencies (test_selection.SelectionTests.test_explicit_root_keeps_automatic_dependencies) ... ok\ntest_generic_frontend_ui_does_not_select_specialist (test_selection.SelectionTests.test_generic_frontend_ui_does_not_select_specialist) ... ok\ntest_historical_skill_without_metadata_keeps_automatic_selection (test_selection.SelectionTests.test_historical_skill_without_metadata_keeps_automatic_selection) ... ok\ntest_incompatible_specialist_requested_is_rejected (test_selection.SelectionTests.test_incompatible_specialist_requested_is_rejected) ... ok\ntest_invalid_selection_metadata_fails_closed (test_selection.SelectionTests.test_invalid_selection_metadata_fails_closed) ... ok\ntest_matching_specialist_can_be_requested (test_selection.SelectionTests.test_matching_specialist_can_be_requested) ... ok\ntest_missing_and_pending_dependencies_are_rejected (test_selection.SelectionTests.test_missing_and_pending_dependencies_are_rejected) ... ok\ntest_missing_and_tampered_resources_still_block (test_selection.SelectionTests.test_missing_and_tampered_resources_still_block) ... ok\ntest_missing_null_and_empty_list_keep_their_semantics (test_selection.SelectionTests.test_missing_null_and_empty_list_keep_their_semantics) ... ok\ntest_pending_and_excluded_requests_are_rejected (test_selection.SelectionTests.test_pending_and_excluded_requests_are_rejected) ... ok\ntest_protected_consumer_files_still_block_when_tampered (test_selection.SelectionTests.test_protected_consumer_files_still_block_when_tampered) ... ok\ntest_runtime_and_tool_requirements_are_not_bypassed (test_selection.SelectionTests.test_runtime_and_tool_requirements_are_not_bypassed) ... ok\ntest_schemas_one_and_two_preserve_pinned_locks_and_evolutive_files (test_selection.SelectionTests.test_schemas_one_and_two_preserve_pinned_locks_and_evolutive_files) ... ok\ntest_unknown_request_is_rejected (test_selection.SelectionTests.test_unknown_request_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 0.172s\n\nOK\n",
+  "focused_maintenance": {
+    "tests_run": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "status": "passed"
+  },
+  "focused_maintenance_log": "test_explicit_selection_metadata_survives_inclusion_and_update (test_additions.AdditionTests.test_explicit_selection_metadata_survives_inclusion_and_update) ... ok\ntest_invalid_selection_mode_cannot_prepare_approved_fixture (test_additions.AdditionTests.test_invalid_selection_mode_cannot_prepare_approved_fixture) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 2.946s\n\nOK\n",
+  "reproduction_before_change_log": "test_historical_skill_without_metadata_keeps_automatic_selection (test_selection.SelectionTests.test_historical_skill_without_metadata_keeps_automatic_selection) ... ok\ntest_explicit_is_not_selected_just_for_matching_technical_requirements (test_selection.SelectionTests.test_explicit_is_not_selected_just_for_matching_technical_requirements) ... ERROR\n\n======================================================================\nERROR: test_explicit_is_not_selected_just_for_matching_technical_requirements (test_selection.SelectionTests.test_explicit_is_not_selected_just_for_matching_technical_requirements)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/marcosrennan/Projetos/StackNauta/Automacao/validacao-project-bootstrap/test_selection.py\", line 89, in test_explicit_is_not_selected_just_for_matching_technical_requirements\n    plan = self.plan(skills=None)\n  File \"/home/marcosrennan/Projetos/StackNauta/Automacao/validacao-project-bootstrap/test_selection.py\", line 77, in plan\n    return self.engine.plan(self.web(**changes))\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/marcosrennan/Projetos/StackNauta/Automacao/project-bootstrap/stacknauta_core/core.py\", line 140, in plan\n    library = Library(self.library_root)\n  File \"/home/marcosrennan/Projetos/StackNauta/Automacao/project-bootstrap/stacknauta_core/library.py\", line 53, in __init__\n    self.rules = catalog_policies(self.catalog[\"skills\"])\n                 ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/marcosrennan/Projetos/StackNauta/Automacao/project-bootstrap/stacknauta_core/compatibility.py\", line 49, in catalog_policies\n    declared = declared_policy(skill[\"compatibility\"])\n  File \"/home/marcosrennan/Projetos/StackNauta/Automacao/project-bootstrap/stacknauta_core/compatibility.py\", line 12, in declared_policy\n    keys(value, allowed, \"compatibilidade\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/marcosrennan/Projetos/StackNauta/Automacao/project-bootstrap/stacknauta_core/config.py\", line 66, in keys\n    raise BootstrapError(f\"Campos desconhecidos em {label}: {', '.join(sorted(extra))}\")\nstacknauta_core.BootstrapError: Campos desconhecidos em compatibilidade: selection_mode\n\n----------------------------------------------------------------------\nRan 2 tests in 0.016s\n\nFAILED (errors=1)\n",
+  "old_new_selection_comparison": {
+    "prior_commit": "a035f50c3d890668b4817c3b32edad6274c6a344",
+    "prior_without_opt_in_metadata": {
+      "roots": [
+        "fixture:general",
+        "fixture:specialist"
+      ],
+      "selected": [
+        "fixture:general",
+        "fixture:specialist"
+      ],
+      "skipped": [],
+      "extra_runtimes": []
+    },
+    "after_explicit_metadata": {
+      "roots": [
+        "fixture:general"
+      ],
+      "selected": [
+        "fixture:general"
+      ],
+      "skipped": [
+        {
+          "skill": "fixture:specialist",
+          "reason": "Seleção explícita obrigatória"
+        }
+      ],
+      "extra_runtimes": []
+    },
+    "explicit_request": {
+      "roots": [
+        "fixture:specialist"
+      ],
+      "selected": [
+        "fixture:specialist"
+      ],
+      "skipped": [],
+      "extra_runtimes": []
+    },
+    "same_technical_conditions": true,
+    "only_synthetic_library": true
+  },
+  "full_regression": {
+    "status": "not_executed_yet"
+  },
+  "new_approved_skills": [],
+  "promoted_skills": [],
+  "real_consumer_modifications": false,
+  "proposal_files": [
+    "propostas.json",
+    "ORIENTACOES-PROPOSTAS.md",
+    "accessible-animation.proposta.diff"
+  ]
+}

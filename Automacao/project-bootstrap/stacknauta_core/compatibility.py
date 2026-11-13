@@ -8,7 +8,7 @@ def declared_policy(value):
     from .config import keys, strings, LANGUAGES, FRAMEWORKS, FEATURES, ARCHITECTURES, VERSION
     import re
     allowed = {"languages_any", "frameworks_any", "frameworks_all", "features_all", "architecture",
-               "tools", "runtimes", "framework_versions", "blocked", "languages_all"}
+               "tools", "runtimes", "framework_versions", "blocked", "languages_all", "selection_mode"}
     keys(value, allowed, "compatibilidade")
     if not {"languages_any", "frameworks_any", "frameworks_all", "features_all", "architecture", "tools", "runtimes"} <= set(value):
         raise BootstrapError("Compatibilidade exige todas as condições explícitas, inclusive listas vazias")
@@ -39,6 +39,11 @@ def declared_policy(value):
         if not choices or any(not VERSION.fullmatch(v) for v in choices):
             raise BootstrapError("Versões compatíveis devem ser explícitas, sem intervalos")
     if versions: result["framework_versions"] = versions
+    mode = value.get("selection_mode", "automatic")
+    if mode not in ("automatic", "explicit"):
+        raise BootstrapError("selection_mode deve ser automatic ou explicit")
+    # Ausência/automatic preserva as políticas normalizadas e planos históricos.
+    if mode == "explicit": result["selection_mode"] = mode
     return result
 
 

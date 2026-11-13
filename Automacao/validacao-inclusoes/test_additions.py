@@ -431,6 +431,38 @@ class AdditionTests(unittest.TestCase):
         row=next(s for s in load(self.root,'Skills/catalogo.json')['skills'] if s['id'] in plan['details']['approved']);self.assertEqual(row['compatibility'],POLICY)
         self.engine.validate(self.root);self.assertEqual(len(self.engine.check()),8)
 
+    def test_explicit_selection_metadata_survives_inclusion_and_update(self):
+        # Origem, aprovação e aplicação são exclusivamente da fixture sintética.
+        repo=self.repo([('good','good-helper','Guia.')]);report=self.add(repo)
+        document=self.decision(report)
+        identifier=next(iter(document['skills']))
+        document['skills'][identifier]['compatibility']['selection_mode']='explicit'
+        plan=self.stage(report,document)
+        self.assertEqual(tree(self.root/'Skills'),self.before)
+        candidate=self.engine.session(report['session_id'])/'candidate'
+        config=normalize({'name':'selection-fixture','destination':str(self.base/'selection-fixture'),
+                          'stack':{'languages':['python'],'frameworks':['fastapi']},
+                          'requirements':{'features':['api']}},self.base)
+        self.assertNotIn(identifier,Library(candidate).select(config)['selected'])
+        self.assertEqual(Library(candidate).select({**config,'skills':[identifier]})['selected'],[identifier])
+        self.apply(plan)
+        fixtures.git(self.root,'add','Skills');fixtures.git(self.root,'commit','--quiet','-m','fixture explicit selection')
+        path=repo/'good/SKILL.md';path.write_text(path.read_text()+'\nRevisão sintética.\n')
+        fixtures.git(repo,'add','.');fixtures.git(repo,'commit','--quiet','-m','fixture update')
+        update=self.engine.prepare({report['source']['id']})
+        self.assertEqual(update['status'],'preparado',update.get('motivo'))
+        self.apply(update)
+        self.assertEqual(Library(self.root).skills[identifier]['compatibility']['selection_mode'],'explicit')
+        self.assertNotIn(identifier,Library(self.root).select(config)['selected'])
+        self.engine.validate(self.root)
+
+    def test_invalid_selection_mode_cannot_prepare_approved_fixture(self):
+        report=self.add();document=self.decision(report)
+        document['skills'][next(iter(document['skills']))]['compatibility']['selection_mode']='invented'
+        with self.assertRaisesRegex(BootstrapError,'selection_mode'):
+            self.inc.validate_decisions(self.inc.analysis(report['session_id'])[1],document)
+        self.assertEqual(tree(self.root/'Skills'),self.before)
+
     def test_url_formats_refs_with_slashes_and_ssh_no_config_changes(self):
         for url in ['https://github.com/Owner/Repo','git@github.com:Owner/Repo.git','ssh://git@github.com/Owner/Repo.git']:
             self.assertEqual(parse_url(url)['identity'],'owner/repo')

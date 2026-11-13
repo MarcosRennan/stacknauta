@@ -1,0 +1,2300 @@
+{
+  "stage": "4B-round-1-analysis-only",
+  "date": "2026-11-13",
+  "initial_git": {
+    "head": "a035f50c3d890668b4817c3b32edad6274c6a344",
+    "clean": true
+  },
+  "active_library_validation": {
+    "schema_version": 2,
+    "stage": "1.5",
+    "validated_at_utc": "2026-11-13T13:25:54.181965+00:00",
+    "status": "passed_with_documented_pending",
+    "python_executor": {
+      "manager": "asdf",
+      "global_source": "~/.tool-versions",
+      "version": "3.14.8"
+    },
+    "counts": {
+      "sources": 7,
+      "physical_skill_files": 130,
+      "catalogued_skills": 124,
+      "distribution_aliases": 6,
+      "enabled_skills": 0,
+      "prepared_distribution_skills": 101,
+      "by_category": {
+        "Backend": 24,
+        "Frontend": 11,
+        "Mobile": 80,
+        "Seguranca": 9
+      },
+      "by_scope": {
+        "catalogued_source": 122,
+        "experimental_source": 1,
+        "internal_evaluation_not_distributable": 1
+      },
+      "approved_skills": 101,
+      "pending_skills": 21,
+      "excluded_skills": 2,
+      "distribution_packages": 9,
+      "approved_by_category": {
+        "Backend": 19,
+        "Frontend": 4,
+        "Mobile": 71,
+        "Seguranca": 7
+      }
+    },
+    "package_files_verified": 958,
+    "python_files_parsed": 41,
+    "node_syntax": {
+      "status": "not_requested",
+      "files": 7
+    },
+    "local_markdown_links_checked": 1095,
+    "adapted_files": 102,
+    "cache_validation": {
+      "status": "not_required_for_distribution"
+    },
+    "physical_copy_test": {
+      "status": "not_requested"
+    },
+    "checks": [
+      "Revisões e proveniência de cada arquivo confrontadas com o lock e índices adquiridos.",
+      "Hashes, inventários completos, recursos, referências Markdown locais e licenças conferidos.",
+      "Planos de cópia fechados sobre dependências; nenhum SKILL.md pendente/excluído nos pacotes.",
+      "Adaptações explícitas com hashes antes/depois e unified diff.",
+      "Sem links simbólicos, caminhos locais ou dependência de cache nos pacotes.",
+      "Nenhuma ativação de agentes; estado do núcleo validado separadamente da biblioteca."
+    ],
+    "errors": [],
+    "limits": [
+      "Packaging approval does not certify agent discovery or all application workflows.",
+      "Consumer SDKs, hardware, authenticated services and CLIs were not provisioned or exercised.",
+      "Frontmatter delimiters/name/description and declared licence paths checked; not full YAML schema validation."
+    ],
+    "bootstrap_implemented": true,
+    "bootstrap_core_stage": "2A",
+    "agent_integration_tested": false,
+    "production_ready": false
+  },
+  "discovery": {
+    "iart": {
+      "status": "descoberto",
+      "session_id": "52b822d7ca934018abaa284e709e51e3",
+      "review_id": "bfa0b1b8f3fb96ca230f783cd9f6ab9e0022c61e36ef027dd351abd872eb0541",
+      "source": {
+        "url": "https://github.com/iart-ai/web-animation-skills.git",
+        "default_branch": "main",
+        "branch": "main",
+        "commit": "ed3a045192679b24d32090ee7a983871311ababd",
+        "revision_type": "branch",
+        "revision_ref": "main",
+        "id": "gh-iart-ai-web-animation-skills",
+        "directory": "Skills/_repos/gh-iart-ai-web-animation-skills",
+        "source_category": null,
+        "acquisition": "shallow-depth-1-no-checkout-manual-materialization",
+        "sparse_paths": []
+      },
+      "scope": null,
+      "candidates": [
+        {
+          "id": "gh-iart-ai-web-animation-skills:60fps-animation",
+          "name": "60fps-animation",
+          "description": "This skill should be used when the user asks to \"fix janky CSS animation\", \"make animation 60fps\", \"stop layout thrashing\", \"animate width/height/top/left smoothly\", \"convert animation to transform\", \"animate box-shadow performantly\", \"animate height auto\", \"FLIP animation\", or \"why is my scroll/hover animation choppy\".",
+          "repository": "https://github.com/iart-ai/web-animation-skills.git",
+          "commit": "ed3a045192679b24d32090ee7a983871311ababd",
+          "source_path": "skills/60fps-animation/SKILL.md",
+          "proposed_category": null,
+          "current_status": "pending",
+          "license": {
+            "identified": "MIT",
+            "evidence": [
+              {
+                "path": "LICENSE",
+                "identified": "MIT"
+              }
+            ],
+            "asset_licenses": [],
+            "licensing_metadata": [],
+            "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+          },
+          "resources": [
+            "LICENSE",
+            "scripts/README.md",
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh",
+            "skills/60fps-animation/README.md",
+            "skills/60fps-animation/SKILL.md",
+            "skills/60fps-animation/references/patterns-and-profiling.md"
+          ],
+          "dependencies": [],
+          "dependency_evidence": [],
+          "conflicts": [],
+          "reference_checks": [
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/probe-mp4.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/probe-mp4.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            },
+            {
+              "document": "skills/60fps-animation/SKILL.md",
+              "target": "references/patterns-and-profiling.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/60fps-animation/references/patterns-and-profiling.md"
+            },
+            {
+              "document": "skills/60fps-animation/SKILL.md",
+              "target": "scripts/README.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/README.md"
+            },
+            {
+              "document": "skills/60fps-animation/SKILL.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "skills/60fps-animation/SKILL.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            }
+          ],
+          "script_files": [
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh"
+          ],
+          "content_duplicates": [],
+          "blockers": [],
+          "enabled": false,
+          "discovery_status": "pending"
+        },
+        {
+          "id": "gh-iart-ai-web-animation-skills:accessible-animation",
+          "name": "accessible-animation",
+          "description": "This skill should be used when the user asks to \"respect prefers-reduced-motion\", \"honor reduced motion\", \"make my animations accessible\", \"fix vestibular / motion-sickness issues\", \"add a useReducedMotion hook\", \"gate GSAP / Framer Motion / Lenis for reduced motion\", or \"meet WCAG 2.3.3 / C39\". Provides tiered (not all-or-nothing) reduced-motion patterns in CSS and JS.",
+          "repository": "https://github.com/iart-ai/web-animation-skills.git",
+          "commit": "ed3a045192679b24d32090ee7a983871311ababd",
+          "source_path": "skills/accessible-animation/SKILL.md",
+          "proposed_category": null,
+          "current_status": "pending",
+          "license": {
+            "identified": "MIT",
+            "evidence": [
+              {
+                "path": "LICENSE",
+                "identified": "MIT"
+              }
+            ],
+            "asset_licenses": [],
+            "licensing_metadata": [],
+            "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+          },
+          "resources": [
+            "LICENSE",
+            "scripts/README.md",
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh",
+            "skills/accessible-animation/README.md",
+            "skills/accessible-animation/SKILL.md",
+            "skills/accessible-animation/references/patterns.md"
+          ],
+          "dependencies": [],
+          "dependency_evidence": [],
+          "conflicts": [],
+          "reference_checks": [
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/probe-mp4.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/probe-mp4.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            },
+            {
+              "document": "skills/accessible-animation/SKILL.md",
+              "target": "references/patterns.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/accessible-animation/references/patterns.md"
+            },
+            {
+              "document": "skills/accessible-animation/SKILL.md",
+              "target": "scripts/README.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/README.md"
+            },
+            {
+              "document": "skills/accessible-animation/SKILL.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "skills/accessible-animation/SKILL.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            }
+          ],
+          "script_files": [
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh"
+          ],
+          "content_duplicates": [],
+          "blockers": [],
+          "enabled": false,
+          "discovery_status": "pending"
+        },
+        {
+          "id": "gh-iart-ai-web-animation-skills:ascii-animation",
+          "name": "ascii-animation",
+          "description": "This skill should be used when the user asks to \"make an ASCII animation\", \"build a terminal/CLI intro or loader\", \"convert an image or video to ASCII art\", \"add an ASCII shader/post-effect to a canvas or Three.js scene\", \"create retro/hacker text-character motion\", or \"animate text characters with a brightness ramp\". Covers generative ASCII fields, image/video/3D-to-ASCII, and animated character art for both web and terminal.",
+          "repository": "https://github.com/iart-ai/web-animation-skills.git",
+          "commit": "ed3a045192679b24d32090ee7a983871311ababd",
+          "source_path": "skills/ascii-animation/SKILL.md",
+          "proposed_category": null,
+          "current_status": "pending",
+          "license": {
+            "identified": "MIT",
+            "evidence": [
+              {
+                "path": "LICENSE",
+                "identified": "MIT"
+              }
+            ],
+            "asset_licenses": [],
+            "licensing_metadata": [],
+            "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+          },
+          "resources": [
+            "LICENSE",
+            "scripts/README.md",
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh",
+            "skills/ascii-animation/README.md",
+            "skills/ascii-animation/SKILL.md",
+            "skills/ascii-animation/references/rendering.md",
+            "skills/ascii-animation/scripts/img-to-ascii.mjs"
+          ],
+          "dependencies": [],
+          "dependency_evidence": [
+            {
+              "line": 93,
+              "text": "For Node image→ASCII, see `scripts/img-to-ascii.mjs`."
+            },
+            {
+              "line": 179,
+              "text": "- `scripts/img-to-ascii.mjs` — Runnable Node script that converts a PNG/JPG file to ASCII text, with `--cols`, `--invert`, and `--ramp` flags."
+            }
+          ],
+          "conflicts": [],
+          "reference_checks": [
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/probe-mp4.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/probe-mp4.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            },
+            {
+              "document": "skills/ascii-animation/SKILL.md",
+              "target": "references/rendering.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/ascii-animation/references/rendering.md"
+            },
+            {
+              "document": "skills/ascii-animation/SKILL.md",
+              "target": "scripts/README.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/README.md"
+            },
+            {
+              "document": "skills/ascii-animation/SKILL.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "skills/ascii-animation/SKILL.md",
+              "target": "scripts/img-to-ascii.mjs",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/ascii-animation/scripts/img-to-ascii.mjs"
+            },
+            {
+              "document": "skills/ascii-animation/SKILL.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            }
+          ],
+          "script_files": [
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh",
+            "skills/ascii-animation/scripts/img-to-ascii.mjs"
+          ],
+          "content_duplicates": [],
+          "blockers": [
+            "Dependência JavaScript externa exige análise específica: sharp"
+          ],
+          "enabled": false,
+          "discovery_status": "pending"
+        },
+        {
+          "id": "gh-iart-ai-web-animation-skills:glassmorphism",
+          "name": "glassmorphism",
+          "description": "This skill should be used when the user asks to \"add a glassmorphism effect\", \"frosted glass UI\", \"Apple liquid glass style\", \"frosted blur card\", \"translucent glass panel animation\", \"make a frosted nav bar\", \"build a glass modal/dialog\", \"animate a glass card on hover\", or \"add a refracting liquid-glass hero\". Covers frosted translucent panels with backdrop-filter blur, edge/specular highlights, SVG liquid-glass refraction, motion on hover/scroll/enter, and accessible reduced-transparency fallbacks.",
+          "repository": "https://github.com/iart-ai/web-animation-skills.git",
+          "commit": "ed3a045192679b24d32090ee7a983871311ababd",
+          "source_path": "skills/glassmorphism/SKILL.md",
+          "proposed_category": null,
+          "current_status": "pending",
+          "license": {
+            "identified": "MIT",
+            "evidence": [
+              {
+                "path": "LICENSE",
+                "identified": "MIT"
+              }
+            ],
+            "asset_licenses": [],
+            "licensing_metadata": [],
+            "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+          },
+          "resources": [
+            "LICENSE",
+            "scripts/README.md",
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh",
+            "skills/glassmorphism/README.md",
+            "skills/glassmorphism/SKILL.md",
+            "skills/glassmorphism/references/glass-recipes.md"
+          ],
+          "dependencies": [],
+          "dependency_evidence": [],
+          "conflicts": [],
+          "reference_checks": [
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/probe-mp4.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/probe-mp4.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            },
+            {
+              "document": "skills/glassmorphism/SKILL.md",
+              "target": "references/glass-recipes.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/glassmorphism/references/glass-recipes.md"
+            },
+            {
+              "document": "skills/glassmorphism/SKILL.md",
+              "target": "scripts/README.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/README.md"
+            },
+            {
+              "document": "skills/glassmorphism/SKILL.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "skills/glassmorphism/SKILL.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            }
+          ],
+          "script_files": [
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh"
+          ],
+          "content_duplicates": [],
+          "blockers": [],
+          "enabled": false,
+          "discovery_status": "pending"
+        },
+        {
+          "id": "gh-iart-ai-web-animation-skills:gsap-web",
+          "name": "gsap-web",
+          "description": "This skill should be used when the user asks to \"build a scroll animation\", \"add ScrollTrigger\", \"pin a section while scrolling\", \"scrub an animation to scroll\", \"create a hero timeline\", \"do a horizontal scroll section\", \"split text and animate words\", \"animate a layout change with GSAP Flip\", \"sync ScrollTrigger with Lenis\", \"Lenis smooth scroll jittery\", \"ScrollTrigger markers drift\", \"ScrollTrigger pins break with Lenis/Locomotive\", or \"set up smooth scroll with GSAP pinning\". Covers GSAP timelines, ScrollTrigger, SplitText, Flip, and Lenis/Locomotive smooth-scroll sync for code-driven web motion.",
+          "repository": "https://github.com/iart-ai/web-animation-skills.git",
+          "commit": "ed3a045192679b24d32090ee7a983871311ababd",
+          "source_path": "skills/gsap-web/SKILL.md",
+          "proposed_category": null,
+          "current_status": "pending",
+          "license": {
+            "identified": "MIT",
+            "evidence": [
+              {
+                "path": "LICENSE",
+                "identified": "MIT"
+              }
+            ],
+            "asset_licenses": [],
+            "licensing_metadata": [],
+            "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+          },
+          "resources": [
+            "LICENSE",
+            "scripts/README.md",
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh",
+            "skills/gsap-web/README.md",
+            "skills/gsap-web/SKILL.md",
+            "skills/gsap-web/examples/hero-timeline.js",
+            "skills/gsap-web/examples/standalone-template.html",
+            "skills/gsap-web/references/scrolltrigger-cookbook.md",
+            "skills/gsap-web/references/scrolltrigger-lenis.md"
+          ],
+          "dependencies": [],
+          "dependency_evidence": [],
+          "conflicts": [],
+          "reference_checks": [
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/probe-mp4.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/probe-mp4.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            },
+            {
+              "document": "skills/gsap-web/SKILL.md",
+              "target": "references/scrolltrigger-cookbook.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/gsap-web/references/scrolltrigger-cookbook.md"
+            },
+            {
+              "document": "skills/gsap-web/SKILL.md",
+              "target": "references/scrolltrigger-lenis.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/gsap-web/references/scrolltrigger-lenis.md"
+            },
+            {
+              "document": "skills/gsap-web/SKILL.md",
+              "target": "scripts/README.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/README.md"
+            },
+            {
+              "document": "skills/gsap-web/SKILL.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "skills/gsap-web/SKILL.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            }
+          ],
+          "script_files": [
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh",
+            "skills/gsap-web/examples/hero-timeline.js"
+          ],
+          "content_duplicates": [],
+          "blockers": [
+            "Dependência JavaScript externa exige análise específica: gsap",
+            "Dependência JavaScript externa exige análise específica: gsap/SplitText"
+          ],
+          "enabled": false,
+          "discovery_status": "pending"
+        },
+        {
+          "id": "gh-iart-ai-web-animation-skills:lottie-animation",
+          "name": "lottie-animation",
+          "description": "This skill should be used when the user asks to \"add a Lottie animation\", \"play a .lottie or .json animation\", \"integrate a Bodymovin/After Effects animation on web or mobile\", \"control Lottie playback / segments\", \"make a scroll-driven Lottie\", \"recolor a Lottie at runtime\", or \"export an AE animation to Lottie\". Covers dotLottie/lottie-web integration, playback control, interactivity, theming, and the AE export checklist.",
+          "repository": "https://github.com/iart-ai/web-animation-skills.git",
+          "commit": "ed3a045192679b24d32090ee7a983871311ababd",
+          "source_path": "skills/lottie-animation/SKILL.md",
+          "proposed_category": null,
+          "current_status": "pending",
+          "license": {
+            "identified": "MIT",
+            "evidence": [
+              {
+                "path": "LICENSE",
+                "identified": "MIT"
+              }
+            ],
+            "asset_licenses": [],
+            "licensing_metadata": [],
+            "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+          },
+          "resources": [
+            "LICENSE",
+            "scripts/README.md",
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh",
+            "skills/lottie-animation/README.md",
+            "skills/lottie-animation/SKILL.md",
+            "skills/lottie-animation/references/integration-and-export.md"
+          ],
+          "dependencies": [],
+          "dependency_evidence": [],
+          "conflicts": [],
+          "reference_checks": [
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/probe-mp4.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/probe-mp4.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            },
+            {
+              "document": "skills/lottie-animation/SKILL.md",
+              "target": "references/integration-and-export.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/lottie-animation/references/integration-and-export.md"
+            },
+            {
+              "document": "skills/lottie-animation/SKILL.md",
+              "target": "scripts/README.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/README.md"
+            },
+            {
+              "document": "skills/lottie-animation/SKILL.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "skills/lottie-animation/SKILL.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            }
+          ],
+          "script_files": [
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh"
+          ],
+          "content_duplicates": [],
+          "blockers": [],
+          "enabled": false,
+          "discovery_status": "pending"
+        },
+        {
+          "id": "gh-iart-ai-web-animation-skills:micro-interaction",
+          "name": "micro-interaction",
+          "description": "This skill should be used when the user asks to \"add a hover/press effect\", \"animate a toggle or switch\", \"build an animated like button\", \"make a toast/snackbar slide in\", \"animate a drawer or modal\", \"animate list reordering or add/remove\", \"do a shared-element layout transition\", or \"polish UI feedback\". Covers UI motion with Framer Motion (motion/react) and modern CSS.",
+          "repository": "https://github.com/iart-ai/web-animation-skills.git",
+          "commit": "ed3a045192679b24d32090ee7a983871311ababd",
+          "source_path": "skills/micro-interaction/SKILL.md",
+          "proposed_category": null,
+          "current_status": "pending",
+          "license": {
+            "identified": "MIT",
+            "evidence": [
+              {
+                "path": "LICENSE",
+                "identified": "MIT"
+              }
+            ],
+            "asset_licenses": [],
+            "licensing_metadata": [],
+            "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+          },
+          "resources": [
+            "LICENSE",
+            "scripts/README.md",
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh",
+            "skills/micro-interaction/README.md",
+            "skills/micro-interaction/SKILL.md",
+            "skills/micro-interaction/references/css-recipes.md",
+            "skills/micro-interaction/references/framer-motion-recipes.md"
+          ],
+          "dependencies": [],
+          "dependency_evidence": [
+            {
+              "line": 48,
+              "text": "Exit animations require `AnimatePresence` wrapping conditionally-rendered children, each with a stable `key`."
+            }
+          ],
+          "conflicts": [],
+          "reference_checks": [
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/probe-mp4.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/probe-mp4.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            },
+            {
+              "document": "skills/micro-interaction/SKILL.md",
+              "target": "references/css-recipes.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/micro-interaction/references/css-recipes.md"
+            },
+            {
+              "document": "skills/micro-interaction/SKILL.md",
+              "target": "references/framer-motion-recipes.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/micro-interaction/references/framer-motion-recipes.md"
+            },
+            {
+              "document": "skills/micro-interaction/SKILL.md",
+              "target": "scripts/README.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/README.md"
+            },
+            {
+              "document": "skills/micro-interaction/SKILL.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "skills/micro-interaction/SKILL.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            }
+          ],
+          "script_files": [
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh"
+          ],
+          "content_duplicates": [],
+          "blockers": [],
+          "enabled": false,
+          "discovery_status": "pending"
+        },
+        {
+          "id": "gh-iart-ai-web-animation-skills:page-transition-animation",
+          "name": "page-transition-animation",
+          "description": "This skill should be used when the user asks to \"animate page or route transitions\", \"add a page transition or crossfade between views\", \"animate route changes in Next.js App Router\", \"use the View Transitions API\", \"AnimatePresence exit doesn't fire on navigation\", or \"Framer Motion exit animation not working / exit animation before unmount in Next.js\". Covers enter/exit page-transition animation with the View Transitions API and Framer Motion, for Next.js App Router and general SPA routing.",
+          "repository": "https://github.com/iart-ai/web-animation-skills.git",
+          "commit": "ed3a045192679b24d32090ee7a983871311ababd",
+          "source_path": "skills/page-transition-animation/SKILL.md",
+          "proposed_category": null,
+          "current_status": "pending",
+          "license": {
+            "identified": "MIT",
+            "evidence": [
+              {
+                "path": "LICENSE",
+                "identified": "MIT"
+              }
+            ],
+            "asset_licenses": [],
+            "licensing_metadata": [],
+            "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+          },
+          "resources": [
+            "LICENSE",
+            "scripts/README.md",
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh",
+            "skills/page-transition-animation/README.md",
+            "skills/page-transition-animation/SKILL.md",
+            "skills/page-transition-animation/references/full-examples.md"
+          ],
+          "dependencies": [],
+          "dependency_evidence": [],
+          "conflicts": [],
+          "reference_checks": [
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/probe-mp4.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/probe-mp4.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            },
+            {
+              "document": "skills/page-transition-animation/SKILL.md",
+              "target": "references/full-examples.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/page-transition-animation/references/full-examples.md"
+            },
+            {
+              "document": "skills/page-transition-animation/SKILL.md",
+              "target": "scripts/README.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/README.md"
+            },
+            {
+              "document": "skills/page-transition-animation/SKILL.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "skills/page-transition-animation/SKILL.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            }
+          ],
+          "script_files": [
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh"
+          ],
+          "content_duplicates": [],
+          "blockers": [],
+          "enabled": false,
+          "discovery_status": "pending"
+        },
+        {
+          "id": "gh-iart-ai-web-animation-skills:svg-animation",
+          "name": "svg-animation",
+          "description": "This skill should be used when the user asks to \"animate an SVG\", \"make a line draw itself on\", \"do a stroke draw-on / signature animation\", \"morph one shape into another\", \"move an element along a path\", \"animate an icon/logo\", or \"animate an SVG gradient or filter\". Covers stroke-dashoffset draw-on, path morphing, motion-along-path, and animated icons/gradients/filters via CSS, SMIL, and GSAP.",
+          "repository": "https://github.com/iart-ai/web-animation-skills.git",
+          "commit": "ed3a045192679b24d32090ee7a983871311ababd",
+          "source_path": "skills/svg-animation/SKILL.md",
+          "proposed_category": null,
+          "current_status": "pending",
+          "license": {
+            "identified": "MIT",
+            "evidence": [
+              {
+                "path": "LICENSE",
+                "identified": "MIT"
+              }
+            ],
+            "asset_licenses": [],
+            "licensing_metadata": [],
+            "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+          },
+          "resources": [
+            "LICENSE",
+            "scripts/README.md",
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh",
+            "skills/svg-animation/README.md",
+            "skills/svg-animation/SKILL.md",
+            "skills/svg-animation/references/svg-techniques.md"
+          ],
+          "dependencies": [],
+          "dependency_evidence": [
+            {
+              "line": 41,
+              "text": "Paths interpolate point-by-point, so a naive morph requires both `d` attributes to have the **same number and type of commands**. Two robust approaches:"
+            }
+          ],
+          "conflicts": [],
+          "reference_checks": [
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/probe-mp4.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/probe-mp4.sh"
+            },
+            {
+              "document": "scripts/README.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            },
+            {
+              "document": "skills/svg-animation/SKILL.md",
+              "target": "references/svg-techniques.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/svg-animation/references/svg-techniques.md"
+            },
+            {
+              "document": "skills/svg-animation/SKILL.md",
+              "target": "scripts/README.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/README.md"
+            },
+            {
+              "document": "skills/svg-animation/SKILL.md",
+              "target": "scripts/contact-sheet.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/contact-sheet.sh"
+            },
+            {
+              "document": "skills/svg-animation/SKILL.md",
+              "target": "scripts/seek-shot.sh",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "scripts/seek-shot.sh"
+            }
+          ],
+          "script_files": [
+            "scripts/contact-sheet.sh",
+            "scripts/probe-mp4.sh",
+            "scripts/seek-shot.sh"
+          ],
+          "content_duplicates": [],
+          "blockers": [],
+          "enabled": false,
+          "discovery_status": "pending"
+        }
+      ],
+      "existing_source": false,
+      "active_library_modified": false
+    },
+    "mthines": {
+      "status": "descoberto",
+      "session_id": "f1e5ec90d12343f9989afa5c1f23fa82",
+      "review_id": "b7986f21daf3ec8356c251c1352c6d7adcd2d60763d43c74d46d3dd743cc6130",
+      "source": {
+        "url": "https://github.com/mthines/agent-skills.git",
+        "default_branch": "main",
+        "branch": "main",
+        "commit": "3f78b3bad165f10955230e3811661d6af21467b0",
+        "revision_type": "branch",
+        "revision_ref": "main",
+        "id": "gh-mthines-agent-skills",
+        "directory": "Skills/_repos/gh-mthines-agent-skills",
+        "source_category": null,
+        "acquisition": "shallow-depth-1-no-checkout-manual-materialization",
+        "sparse_paths": [
+          "skills/design/animations"
+        ]
+      },
+      "scope": "skills/design/animations",
+      "candidates": [
+        {
+          "id": "gh-mthines-agent-skills:animations",
+          "name": "animations",
+          "description": ">\n  Authors performant CSS-first web animations and picks the right feedback for\n  an interaction — transitions, View Transitions, scroll-driven motion, Motion\n  for React, reduced motion, and perceived performance. Triggers on \"animate\n  this\", \"hover effect\", \"feel faster\", \"skeleton loader\", \"/animations\".",
+          "repository": "https://github.com/mthines/agent-skills.git",
+          "commit": "3f78b3bad165f10955230e3811661d6af21467b0",
+          "source_path": "skills/design/animations/SKILL.md",
+          "proposed_category": null,
+          "current_status": "pending",
+          "license": {
+            "identified": "MIT",
+            "evidence": [
+              {
+                "path": "LICENSE",
+                "identified": "MIT"
+              }
+            ],
+            "asset_licenses": [],
+            "licensing_metadata": [],
+            "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+          },
+          "resources": [
+            "LICENSE",
+            "skills/design/animations/SKILL.md",
+            "skills/design/animations/lens.md",
+            "skills/design/animations/references/recipes.md",
+            "skills/design/animations/rules/accessibility.md",
+            "skills/design/animations/rules/advanced-effects.md",
+            "skills/design/animations/rules/debugging.md",
+            "skills/design/animations/rules/diagnostic-surface.md",
+            "skills/design/animations/rules/external-engines.md",
+            "skills/design/animations/rules/interaction-feedback.md",
+            "skills/design/animations/rules/interactive-effects.md",
+            "skills/design/animations/rules/modern-css.md",
+            "skills/design/animations/rules/patterns.md",
+            "skills/design/animations/rules/perceived-performance.md",
+            "skills/design/animations/rules/react-state.md",
+            "skills/design/animations/rules/record-and-iterate.md",
+            "skills/design/animations/rules/safe-properties.md",
+            "skills/design/animations/rules/state-choreography.md",
+            "skills/design/animations/rules/three-d.md",
+            "skills/design/animations/rules/timing-easing.md",
+            "skills/design/animations/rules/when-to-use-js.md",
+            "skills/design/animations/scripts/is-motion-diff.mjs",
+            "skills/design/animations/templates/cursor-spotlight.html",
+            "skills/design/animations/templates/scroll-fade.html",
+            "skills/design/animations/templates/stagger-list.html"
+          ],
+          "dependencies": [],
+          "dependency_evidence": [
+            {
+              "line": 294,
+              "text": "`node ${CLAUDE_SKILL_DIR}/scripts/is-motion-diff.mjs`:"
+            },
+            {
+              "line": 296,
+              "text": "`gh pr diff` into it (`--base <ref>` only for a local run)."
+            }
+          ],
+          "conflicts": [],
+          "reference_checks": [
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "../../analysis/screencast/SKILL.md",
+              "kind": "markdown",
+              "status": "unresolved_requires_review",
+              "possible_matches": []
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "../../analysis/video-analyser/SKILL.md",
+              "kind": "markdown",
+              "status": "unresolved_requires_review",
+              "possible_matches": []
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "../animations-native/SKILL.md",
+              "kind": "markdown",
+              "status": "unresolved_requires_review",
+              "possible_matches": []
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./lens.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/lens.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./references/recipes.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/references/recipes.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/accessibility.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/accessibility.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/advanced-effects.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/advanced-effects.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/debugging.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/debugging.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/diagnostic-surface.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/diagnostic-surface.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/external-engines.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/external-engines.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/interaction-feedback.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/interaction-feedback.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/interaction-feedback.md#brainstorm-framework",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/interaction-feedback.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/interactive-effects.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/interactive-effects.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/modern-css.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/modern-css.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/patterns.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/patterns.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/perceived-performance.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/perceived-performance.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/react-state.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/react-state.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/record-and-iterate.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/record-and-iterate.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/record-and-iterate.md#recording-inputs",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/record-and-iterate.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/safe-properties.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/safe-properties.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/state-choreography.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/state-choreography.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/three-d.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/three-d.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/timing-easing.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/timing-easing.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./rules/when-to-use-js.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/when-to-use-js.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./templates",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/templates"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "./templates/cursor-spotlight.html",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/templates/cursor-spotlight.html"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "references/recipes.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/design/animations/references/recipes.md"
+            },
+            {
+              "document": "skills/design/animations/SKILL.md",
+              "target": "templates/cursor-spotlight.html",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/design/animations/templates/cursor-spotlight.html"
+            },
+            {
+              "document": "skills/design/animations/lens.md",
+              "target": "./scripts/is-motion-diff.mjs",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/scripts/is-motion-diff.mjs"
+            },
+            {
+              "document": "skills/design/animations/lens.md",
+              "target": "scripts/is-motion-diff.mjs",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/design/animations/scripts/is-motion-diff.mjs"
+            },
+            {
+              "document": "skills/design/animations/references/recipes.md",
+              "target": "../rules/state-choreography.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/state-choreography.md"
+            },
+            {
+              "document": "skills/design/animations/references/recipes.md",
+              "target": "../rules/when-to-use-js.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/when-to-use-js.md"
+            },
+            {
+              "document": "skills/design/animations/rules/accessibility.md",
+              "target": "./state-choreography.md#accessibility--the-rules-for-big-morphs",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/state-choreography.md"
+            },
+            {
+              "document": "skills/design/animations/rules/accessibility.md",
+              "target": "./three-d.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/three-d.md"
+            },
+            {
+              "document": "skills/design/animations/rules/advanced-effects.md",
+              "target": "./interactive-effects.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/interactive-effects.md"
+            },
+            {
+              "document": "skills/design/animations/rules/advanced-effects.md",
+              "target": "./state-choreography.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/state-choreography.md"
+            },
+            {
+              "document": "skills/design/animations/rules/debugging.md",
+              "target": "./safe-properties.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/safe-properties.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "../../../analysis/screencast/SKILL.md",
+              "kind": "markdown",
+              "status": "unresolved_requires_review",
+              "possible_matches": []
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "../../../analysis/video-analyser/SKILL.md",
+              "kind": "markdown",
+              "status": "unresolved_requires_review",
+              "possible_matches": []
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "../../../authoring/create-skill/rules/diagnostic-surface.md",
+              "kind": "markdown",
+              "status": "unresolved_requires_review",
+              "possible_matches": []
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "../SKILL.md#decision-flow",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/SKILL.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "./accessibility.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/accessibility.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "./advanced-effects.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/advanced-effects.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "./debugging.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/debugging.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "./external-engines.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/external-engines.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "./interaction-feedback.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/interaction-feedback.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "./interactive-effects.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/interactive-effects.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "./modern-css.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/modern-css.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "./patterns.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/patterns.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "./perceived-performance.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/perceived-performance.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "./react-state.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/react-state.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "./record-and-iterate.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/record-and-iterate.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "./safe-properties.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/safe-properties.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "./state-choreography.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/state-choreography.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "./three-d.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/three-d.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "./timing-easing.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/timing-easing.md"
+            },
+            {
+              "document": "skills/design/animations/rules/diagnostic-surface.md",
+              "target": "./when-to-use-js.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/when-to-use-js.md"
+            },
+            {
+              "document": "skills/design/animations/rules/external-engines.md",
+              "target": "./three-d.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/three-d.md"
+            },
+            {
+              "document": "skills/design/animations/rules/external-engines.md",
+              "target": "./when-to-use-js.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/when-to-use-js.md"
+            },
+            {
+              "document": "skills/design/animations/rules/interaction-feedback.md",
+              "target": "./accessibility.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/accessibility.md"
+            },
+            {
+              "document": "skills/design/animations/rules/interaction-feedback.md",
+              "target": "./advanced-effects.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/advanced-effects.md"
+            },
+            {
+              "document": "skills/design/animations/rules/interaction-feedback.md",
+              "target": "./react-state.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/react-state.md"
+            },
+            {
+              "document": "skills/design/animations/rules/interactive-effects.md",
+              "target": "../templates/cursor-spotlight.html",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/templates/cursor-spotlight.html"
+            },
+            {
+              "document": "skills/design/animations/rules/interactive-effects.md",
+              "target": "templates/cursor-spotlight.html",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/design/animations/templates/cursor-spotlight.html"
+            },
+            {
+              "document": "skills/design/animations/rules/modern-css.md",
+              "target": "./when-to-use-js.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/when-to-use-js.md"
+            },
+            {
+              "document": "skills/design/animations/rules/patterns.md",
+              "target": "../templates/scroll-fade.html",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/templates/scroll-fade.html"
+            },
+            {
+              "document": "skills/design/animations/rules/patterns.md",
+              "target": "./state-choreography.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/state-choreography.md"
+            },
+            {
+              "document": "skills/design/animations/rules/patterns.md",
+              "target": "templates/scroll-fade.html",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/design/animations/templates/scroll-fade.html"
+            },
+            {
+              "document": "skills/design/animations/rules/perceived-performance.md",
+              "target": "../../ux/SKILL.md",
+              "kind": "markdown",
+              "status": "unresolved_requires_review",
+              "possible_matches": []
+            },
+            {
+              "document": "skills/design/animations/rules/perceived-performance.md",
+              "target": "./accessibility.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/accessibility.md"
+            },
+            {
+              "document": "skills/design/animations/rules/perceived-performance.md",
+              "target": "./debugging.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/debugging.md"
+            },
+            {
+              "document": "skills/design/animations/rules/perceived-performance.md",
+              "target": "./interaction-feedback.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/interaction-feedback.md"
+            },
+            {
+              "document": "skills/design/animations/rules/perceived-performance.md",
+              "target": "./interaction-feedback.md#status--feedback-states",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/interaction-feedback.md"
+            },
+            {
+              "document": "skills/design/animations/rules/perceived-performance.md",
+              "target": "./react-state.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/react-state.md"
+            },
+            {
+              "document": "skills/design/animations/rules/perceived-performance.md",
+              "target": "./safe-properties.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/safe-properties.md"
+            },
+            {
+              "document": "skills/design/animations/rules/perceived-performance.md",
+              "target": "./timing-easing.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/timing-easing.md"
+            },
+            {
+              "document": "skills/design/animations/rules/react-state.md",
+              "target": "./state-choreography.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/state-choreography.md"
+            },
+            {
+              "document": "skills/design/animations/rules/record-and-iterate.md",
+              "target": "../../../analysis/video-analyser/SKILL.md",
+              "kind": "markdown",
+              "status": "unresolved_requires_review",
+              "possible_matches": []
+            },
+            {
+              "document": "skills/design/animations/rules/record-and-iterate.md",
+              "target": "./external-engines.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/external-engines.md"
+            },
+            {
+              "document": "skills/design/animations/rules/record-and-iterate.md",
+              "target": "./state-choreography.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/state-choreography.md"
+            },
+            {
+              "document": "skills/design/animations/rules/state-choreography.md",
+              "target": "../references/recipes.md#shared-element-navigation-with-layoutid-motion",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/references/recipes.md"
+            },
+            {
+              "document": "skills/design/animations/rules/state-choreography.md",
+              "target": "./modern-css.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/modern-css.md"
+            },
+            {
+              "document": "skills/design/animations/rules/state-choreography.md",
+              "target": "./react-state.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/react-state.md"
+            },
+            {
+              "document": "skills/design/animations/rules/state-choreography.md",
+              "target": "./timing-easing.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/timing-easing.md"
+            },
+            {
+              "document": "skills/design/animations/rules/state-choreography.md",
+              "target": "./when-to-use-js.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/when-to-use-js.md"
+            },
+            {
+              "document": "skills/design/animations/rules/state-choreography.md",
+              "target": "references/recipes.md",
+              "kind": "resource_mention",
+              "status": "present",
+              "resolved": "skills/design/animations/references/recipes.md"
+            },
+            {
+              "document": "skills/design/animations/rules/timing-easing.md",
+              "target": "./patterns.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/patterns.md"
+            },
+            {
+              "document": "skills/design/animations/rules/timing-easing.md",
+              "target": "./when-to-use-js.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/when-to-use-js.md"
+            },
+            {
+              "document": "skills/design/animations/rules/when-to-use-js.md",
+              "target": "./modern-css.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/modern-css.md"
+            },
+            {
+              "document": "skills/design/animations/rules/when-to-use-js.md",
+              "target": "./three-d.md",
+              "kind": "markdown",
+              "status": "present",
+              "resolved": "skills/design/animations/rules/three-d.md"
+            }
+          ],
+          "script_files": [
+            "skills/design/animations/scripts/is-motion-diff.mjs"
+          ],
+          "content_duplicates": [],
+          "blockers": [
+            "Dependência JavaScript externa exige análise específica: , ",
+            "Dependência JavaScript externa exige análise específica: motion/react",
+            "Recursos/referências ausentes ou fora do escopo adquirido"
+          ],
+          "enabled": false,
+          "discovery_status": "pending"
+        }
+      ],
+      "existing_source": false,
+      "active_library_modified": false
+    }
+  },
+  "review_without_decisions_equals_discovery": false,
+  "static_checks": {
+    "vendor_code_executed": false,
+    "diagnostics": [
+      {
+        "plugin": "nodejs",
+        "command": "node",
+        "executable": "/home/marcosrennan/.asdf/installs/nodejs/24.21.0/bin/node"
+      },
+      {
+        "plugin": "python",
+        "command": "python",
+        "executable": "/home/marcosrennan/.asdf/installs/python/3.14.8/bin/python3.14"
+      },
+      {
+        "resolution": "explicit-global",
+        "local_and_environment_version_overrides": "ignored_explicitly",
+        "global_file": "/home/marcosrennan/.tool-versions"
+      }
+    ],
+    "sources": [
+      {
+        "session_id": "52b822d7ca934018abaa284e709e51e3",
+        "review_id": "bfa0b1b8f3fb96ca230f783cd9f6ab9e0022c61e36ef027dd351abd872eb0541",
+        "source": {
+          "acquisition": "shallow-depth-1-no-checkout-manual-materialization",
+          "branch": "main",
+          "commit": "ed3a045192679b24d32090ee7a983871311ababd",
+          "default_branch": "main",
+          "directory": "Skills/_repos/gh-iart-ai-web-animation-skills",
+          "id": "gh-iart-ai-web-animation-skills",
+          "revision_ref": "main",
+          "revision_type": "branch",
+          "source_category": null,
+          "sparse_paths": [],
+          "url": "https://github.com/iart-ai/web-animation-skills.git"
+        },
+        "candidate_count": 9,
+        "baseline_matches_current_tracked_files": true,
+        "tracked_file_count": 1110,
+        "baseline_fingerprint": "74f29904e6809df80c738ff9ccd6c59e8b8cc7cacca7407c5b1408289b4bf87a",
+        "source_regular_files_verified": 42,
+        "source_index_fingerprint": "5a1d56047b1c7f8f8880ae8de6e7d191ebba23c4419cf80341ad95b26901aa70",
+        "resource_union_count": 37,
+        "resources": [
+          {
+            "path": "LICENSE",
+            "sha256": "33d6cd35a20903b5e968a76a1e584a7aeae2c83e3e58ea58ecc50b889b83e668"
+          },
+          {
+            "path": "scripts/README.md",
+            "sha256": "8f1bb92dfb6c741e74e1b7949a8230b824388bd311ccc47401a24245b0f6d17e"
+          },
+          {
+            "path": "scripts/contact-sheet.sh",
+            "sha256": "a3873536da80dbb6724c2a3d462bd60a2ddc03e22dabce73bb0d0f70d4d1a361"
+          },
+          {
+            "path": "scripts/probe-mp4.sh",
+            "sha256": "3a1bb8c5d017599e52f4bb49822259257266899ee46028663ba416acccc19e6a"
+          },
+          {
+            "path": "scripts/seek-shot.sh",
+            "sha256": "4f02b7350669049b2f38c3761e395814be6262d6a12d7fb0a14504af51c9ba7b"
+          },
+          {
+            "path": "skills/60fps-animation/README.md",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "skills/60fps-animation/SKILL.md",
+            "sha256": "deb5d78aabae2289cbe161733be81aca6c3b4cd0940c0df3acf10196efdfe962"
+          },
+          {
+            "path": "skills/60fps-animation/references/patterns-and-profiling.md",
+            "sha256": "f6562a32eb70bea6dd27f0796ea6597d93ee5ecf4d3ab334ec44b773cde65f05"
+          },
+          {
+            "path": "skills/accessible-animation/README.md",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "skills/accessible-animation/SKILL.md",
+            "sha256": "29d5fec1be9fa5e978738c313678974f61c06443e02ffce1bdc20434dfb0a767"
+          },
+          {
+            "path": "skills/accessible-animation/references/patterns.md",
+            "sha256": "baebceae2c8e1eef8f6095abb05384b5caf3500380bba3d8dff6bec019445f17"
+          },
+          {
+            "path": "skills/ascii-animation/README.md",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "skills/ascii-animation/SKILL.md",
+            "sha256": "a2f45a09e0e6e7582da27ee509e3350fa5dd1b8492fdb3411d80bee7a15c4eea"
+          },
+          {
+            "path": "skills/ascii-animation/references/rendering.md",
+            "sha256": "9dfbd61911c6dae29c9cff97472e38769685c3a9a4e05c90198ac3ec1b1d572e"
+          },
+          {
+            "path": "skills/ascii-animation/scripts/img-to-ascii.mjs",
+            "sha256": "25bcbf712b901de0c6e0eb695d54122837a9b1186b929d0473e2ce6792beed1b"
+          },
+          {
+            "path": "skills/glassmorphism/README.md",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "skills/glassmorphism/SKILL.md",
+            "sha256": "661240900f170e695faf52adf3bbbcd2686121172e6caac8e67e64298eff6868"
+          },
+          {
+            "path": "skills/glassmorphism/references/glass-recipes.md",
+            "sha256": "97a2747102cab7526f93816da2d40e8a30ec9405d59e8725740201bbafb71b86"
+          },
+          {
+            "path": "skills/gsap-web/README.md",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "skills/gsap-web/SKILL.md",
+            "sha256": "9c52294210b31258d27b18e4102b4ec390bc21e95b11f663d932056fb3cb1740"
+          },
+          {
+            "path": "skills/gsap-web/examples/hero-timeline.js",
+            "sha256": "d23bc34945db7648a489abfa1eeee21097a57d24802dc353f1a1fb8a4a3f0873"
+          },
+          {
+            "path": "skills/gsap-web/examples/standalone-template.html",
+            "sha256": "e6640c93a0850138f81cc4ba79c0a691285271b42c934d9a62a04c284a23fc93"
+          },
+          {
+            "path": "skills/gsap-web/references/scrolltrigger-cookbook.md",
+            "sha256": "4b104810dac8e69f3ac6d14d8c2f21957371ab87e679996cc2c07c5bab81f33c"
+          },
+          {
+            "path": "skills/gsap-web/references/scrolltrigger-lenis.md",
+            "sha256": "5c27707e6c6d3f4edf0d3018e1afd8273259917d7a1a424e9d83912c5e422c3f"
+          },
+          {
+            "path": "skills/lottie-animation/README.md",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "skills/lottie-animation/SKILL.md",
+            "sha256": "c78826a8b4188052c0fb84c430af8fc6585ea027b14d14a80339aa843ed636b2"
+          },
+          {
+            "path": "skills/lottie-animation/references/integration-and-export.md",
+            "sha256": "5837a9ff44934b324f59bc7b4251ca78a0f42c5847f9b9602ee4111d4a7dc4c1"
+          },
+          {
+            "path": "skills/micro-interaction/README.md",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "skills/micro-interaction/SKILL.md",
+            "sha256": "f8ae0fc6137448bce51f689a13513a0a8742b1cbffa1b9f32ac723b46309e6e0"
+          },
+          {
+            "path": "skills/micro-interaction/references/css-recipes.md",
+            "sha256": "e32eec6eda6f40dac5972c7944cb72a24f79f849ff42a4238caf94f9a90daebc"
+          },
+          {
+            "path": "skills/micro-interaction/references/framer-motion-recipes.md",
+            "sha256": "5be7a9c3bca7feb2ba23f907da8e69c2d84f8ce8f61763dde89b7f718a904bdb"
+          },
+          {
+            "path": "skills/page-transition-animation/README.md",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "skills/page-transition-animation/SKILL.md",
+            "sha256": "959302338dc2825214a1c90ece46b9db4b590e32397f985f65d02ad3e91e3414"
+          },
+          {
+            "path": "skills/page-transition-animation/references/full-examples.md",
+            "sha256": "f2fb3984d6008610838616838b9e40643a9927aa24bdb12b461ae742e5461e7c"
+          },
+          {
+            "path": "skills/svg-animation/README.md",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "skills/svg-animation/SKILL.md",
+            "sha256": "90e37f8f3d8c662515952de7a50c9130f5695d1a0cae1501115bd5d253c712c4"
+          },
+          {
+            "path": "skills/svg-animation/references/svg-techniques.md",
+            "sha256": "41cff6f8ced2d6f952b08db6d6fb20fb38c27419ff9e28b30668d8ca80b35983"
+          }
+        ],
+        "script_syntax": [
+          {
+            "path": "scripts/contact-sheet.sh",
+            "syntax": "passed",
+            "parser": "shared check_changed_scripts / bash -n"
+          },
+          {
+            "path": "scripts/probe-mp4.sh",
+            "syntax": "passed",
+            "parser": "shared check_changed_scripts / bash -n"
+          },
+          {
+            "path": "scripts/seek-shot.sh",
+            "syntax": "passed",
+            "parser": "shared check_changed_scripts / bash -n"
+          },
+          {
+            "path": "skills/ascii-animation/scripts/img-to-ascii.mjs",
+            "syntax": "passed",
+            "parser": "shared check_javascript / node --check",
+            "imports_detected": [
+              "sharp"
+            ]
+          },
+          {
+            "path": "skills/gsap-web/examples/hero-timeline.js",
+            "syntax": "passed",
+            "parser": "shared check_javascript / node --check",
+            "imports_detected": [
+              "gsap",
+              "gsap/SplitText"
+            ]
+          }
+        ],
+        "html_inline_syntax": [
+          {
+            "path": "skills/gsap-web/examples/standalone-template.html",
+            "inline_scripts_parsed": 1,
+            "syntax": "passed",
+            "remote_scripts_not_loaded": [
+              "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+            ]
+          }
+        ],
+        "candidate_checks": [
+          {
+            "id": "gh-iart-ai-web-animation-skills:60fps-animation",
+            "license": "MIT",
+            "resources": 8,
+            "references": 7,
+            "unresolved_references": 0,
+            "blockers": [],
+            "current_status": "pending",
+            "enabled": false
+          },
+          {
+            "id": "gh-iart-ai-web-animation-skills:accessible-animation",
+            "license": "MIT",
+            "resources": 8,
+            "references": 7,
+            "unresolved_references": 0,
+            "blockers": [],
+            "current_status": "pending",
+            "enabled": false
+          },
+          {
+            "id": "gh-iart-ai-web-animation-skills:ascii-animation",
+            "license": "MIT",
+            "resources": 9,
+            "references": 8,
+            "unresolved_references": 0,
+            "blockers": [
+              "Dependência JavaScript externa exige análise específica: sharp"
+            ],
+            "current_status": "pending",
+            "enabled": false
+          },
+          {
+            "id": "gh-iart-ai-web-animation-skills:glassmorphism",
+            "license": "MIT",
+            "resources": 8,
+            "references": 7,
+            "unresolved_references": 0,
+            "blockers": [],
+            "current_status": "pending",
+            "enabled": false
+          },
+          {
+            "id": "gh-iart-ai-web-animation-skills:gsap-web",
+            "license": "MIT",
+            "resources": 11,
+            "references": 8,
+            "unresolved_references": 0,
+            "blockers": [
+              "Dependência JavaScript externa exige análise específica: gsap",
+              "Dependência JavaScript externa exige análise específica: gsap/SplitText"
+            ],
+            "current_status": "pending",
+            "enabled": false
+          },
+          {
+            "id": "gh-iart-ai-web-animation-skills:lottie-animation",
+            "license": "MIT",
+            "resources": 8,
+            "references": 7,
+            "unresolved_references": 0,
+            "blockers": [],
+            "current_status": "pending",
+            "enabled": false
+          },
+          {
+            "id": "gh-iart-ai-web-animation-skills:micro-interaction",
+            "license": "MIT",
+            "resources": 9,
+            "references": 8,
+            "unresolved_references": 0,
+            "blockers": [],
+            "current_status": "pending",
+            "enabled": false
+          },
+          {
+            "id": "gh-iart-ai-web-animation-skills:page-transition-animation",
+            "license": "MIT",
+            "resources": 8,
+            "references": 7,
+            "unresolved_references": 0,
+            "blockers": [],
+            "current_status": "pending",
+            "enabled": false
+          },
+          {
+            "id": "gh-iart-ai-web-animation-skills:svg-animation",
+            "license": "MIT",
+            "resources": 8,
+            "references": 7,
+            "unresolved_references": 0,
+            "blockers": [],
+            "current_status": "pending",
+            "enabled": false
+          }
+        ]
+      },
+      {
+        "session_id": "f1e5ec90d12343f9989afa5c1f23fa82",
+        "review_id": "b7986f21daf3ec8356c251c1352c6d7adcd2d60763d43c74d46d3dd743cc6130",
+        "source": {
+          "acquisition": "shallow-depth-1-no-checkout-manual-materialization",
+          "branch": "main",
+          "commit": "3f78b3bad165f10955230e3811661d6af21467b0",
+          "default_branch": "main",
+          "directory": "Skills/_repos/gh-mthines-agent-skills",
+          "id": "gh-mthines-agent-skills",
+          "revision_ref": "main",
+          "revision_type": "branch",
+          "source_category": null,
+          "sparse_paths": [
+            "skills/design/animations"
+          ],
+          "url": "https://github.com/mthines/agent-skills.git"
+        },
+        "candidate_count": 1,
+        "baseline_matches_current_tracked_files": true,
+        "tracked_file_count": 1110,
+        "baseline_fingerprint": "74f29904e6809df80c738ff9ccd6c59e8b8cc7cacca7407c5b1408289b4bf87a",
+        "source_regular_files_verified": 39,
+        "source_index_fingerprint": "134ca743610ade4f3aa27cd54696f203f192d3fa47a00127b67336587bf435a6",
+        "resource_union_count": 25,
+        "resources": [
+          {
+            "path": "LICENSE",
+            "sha256": "8082f26863dc4b4758997ee3ab7cc2f4a16c3428c6db09ba87b4aca1823e73ec"
+          },
+          {
+            "path": "skills/design/animations/SKILL.md",
+            "sha256": "b773590bcbcfe8aaec0f0d0bb187eef960e9fe8f6aac4e81584339221e0f2a1f"
+          },
+          {
+            "path": "skills/design/animations/lens.md",
+            "sha256": "d316cbc0d13b8726747fd23410bbaf522729e966912ba01283ec7244f8287dc6"
+          },
+          {
+            "path": "skills/design/animations/references/recipes.md",
+            "sha256": "c8793ed1d5378e8025832a94510cd5ad164a80bf7088005f7da05e7a5949878d"
+          },
+          {
+            "path": "skills/design/animations/rules/accessibility.md",
+            "sha256": "7d7cfac7c12e259ee5e8d6bcf3877fd21d82055dd57adf0cce58110f7407fc85"
+          },
+          {
+            "path": "skills/design/animations/rules/advanced-effects.md",
+            "sha256": "12800102c749a879d591903b99ae2debebbac0feffa6b5baf7045d01752172d9"
+          },
+          {
+            "path": "skills/design/animations/rules/debugging.md",
+            "sha256": "aa01b06dc186d10ef562686f353c8ada0e1e38a7cdadb0bf1746bcb0b8f07b9f"
+          },
+          {
+            "path": "skills/design/animations/rules/diagnostic-surface.md",
+            "sha256": "d78c48bf4392a8e8b86729707b99479e86e2d3941f02e84684b2828339643e6d"
+          },
+          {
+            "path": "skills/design/animations/rules/external-engines.md",
+            "sha256": "7761c58075980ead838a7915dd33f5acc3cfeeca948073d1e9994533c29057e9"
+          },
+          {
+            "path": "skills/design/animations/rules/interaction-feedback.md",
+            "sha256": "913b73a3a55e1c7fa8257ec8022744e0eba96916805b517cf96ba220bd9f66c1"
+          },
+          {
+            "path": "skills/design/animations/rules/interactive-effects.md",
+            "sha256": "97d45e402da27cfd19b0e857cdb990ee90f50ab05044bb1f56b45af6c16eeff2"
+          },
+          {
+            "path": "skills/design/animations/rules/modern-css.md",
+            "sha256": "534e7e686ccd7a952f02f81e3f769eeedea39431a24f9c44540fbd6b65dbfb2f"
+          },
+          {
+            "path": "skills/design/animations/rules/patterns.md",
+            "sha256": "af3376c1605f61093f4ad32050b23d43b4dcabed266a468932830402c22848ba"
+          },
+          {
+            "path": "skills/design/animations/rules/perceived-performance.md",
+            "sha256": "d57a613aecffda3baf2bddc88da64b3e48d0c6528771cf1a646992b18fe5e960"
+          },
+          {
+            "path": "skills/design/animations/rules/react-state.md",
+            "sha256": "620263846bc4b5effdca6e1a9a785b712076698e78123a83197d41fbbb176315"
+          },
+          {
+            "path": "skills/design/animations/rules/record-and-iterate.md",
+            "sha256": "884b3b4bdeca98c422a05eb17db7979032aed690c060b4204833dbc6429d09d2"
+          },
+          {
+            "path": "skills/design/animations/rules/safe-properties.md",
+            "sha256": "56594165360dd8868045d34b5d38fba2d98b573d770f02c6b67524118d94c7c6"
+          },
+          {
+            "path": "skills/design/animations/rules/state-choreography.md",
+            "sha256": "aa203f3fd000d9fd6b9a72b93f7758e201dc975dd90574c9583721b67ca4eb34"
+          },
+          {
+            "path": "skills/design/animations/rules/three-d.md",
+            "sha256": "06b669d5b823ca50cf19c115fb5d01f6612e1f85b0d439ee1962a7d34c9c8447"
+          },
+          {
+            "path": "skills/design/animations/rules/timing-easing.md",
+            "sha256": "d5b0e94dc01e0508e50ba82fb49850db408c957e283bb8a74c7b532323f8b5ce"
+          },
+          {
+            "path": "skills/design/animations/rules/when-to-use-js.md",
+            "sha256": "1cc3307a63cb6daeaf337304ddc0c2c5780995ee0df1a05b6a5af30ad294ff7c"
+          },
+          {
+            "path": "skills/design/animations/scripts/is-motion-diff.mjs",
+            "sha256": "342d262cd7f8ec5cd1b1e98d68a0c9ea32103477cde86dc2933d2f97a5847611"
+          },
+          {
+            "path": "skills/design/animations/templates/cursor-spotlight.html",
+            "sha256": "392d7ac2b94a19664b0aa7565351fa603fb93cc77232d3a6240a07c7f845d833"
+          },
+          {
+            "path": "skills/design/animations/templates/scroll-fade.html",
+            "sha256": "4e6c9ccb72670fc0edc88527a15b0a4cc11927d4da0ce760c527ace25966998e"
+          },
+          {
+            "path": "skills/design/animations/templates/stagger-list.html",
+            "sha256": "d24657f2e7242f1928d9889cfeedf6cfc27920e0c6b2f25113d3668f739695c7"
+          }
+        ],
+        "script_syntax": [
+          {
+            "path": "skills/design/animations/scripts/is-motion-diff.mjs",
+            "syntax": "passed",
+            "parser": "shared check_javascript / node --check",
+            "imports_detected": [
+              ", ",
+              "motion/react",
+              "node:child_process",
+              "node:fs",
+              "node:url"
+            ]
+          }
+        ],
+        "html_inline_syntax": [
+          {
+            "path": "skills/design/animations/templates/cursor-spotlight.html",
+            "inline_scripts_parsed": 1,
+            "syntax": "passed",
+            "remote_scripts_not_loaded": []
+          },
+          {
+            "path": "skills/design/animations/templates/scroll-fade.html",
+            "inline_scripts_parsed": 1,
+            "syntax": "passed",
+            "remote_scripts_not_loaded": []
+          },
+          {
+            "path": "skills/design/animations/templates/stagger-list.html",
+            "inline_scripts_parsed": 0,
+            "syntax": "passed",
+            "remote_scripts_not_loaded": []
+          }
+        ],
+        "candidate_checks": [
+          {
+            "id": "gh-mthines-agent-skills:animations",
+            "license": "MIT",
+            "resources": 25,
+            "references": 91,
+            "unresolved_references": 8,
+            "blockers": [
+              "Dependência JavaScript externa exige análise específica: , ",
+              "Dependência JavaScript externa exige análise específica: motion/react",
+              "Recursos/referências ausentes ou fora do escopo adquirido"
+            ],
+            "current_status": "pending",
+            "enabled": false
+          }
+        ]
+      }
+    ]
+  },
+  "editorial_recommendations_not_catalog_decisions": {
+    "60fps-animation": "Recomendada",
+    "accessible-animation": "Recomendada",
+    "micro-interaction": "Recomendada",
+    "svg-animation": "Recomendada",
+    "gsap-web": "Condicional",
+    "lottie-animation": "Condicional",
+    "ascii-animation": "Pendente",
+    "glassmorphism": "Redundante",
+    "page-transition-animation": "Pendente",
+    "animations": "Pendente"
+  },
+  "approval_requested_or_granted": false,
+  "approval_flags_used": false,
+  "plan_id": null,
+  "promoted_skills": [],
+  "active_library_modified": false,
+  "consumer_projects_modified_by_this_work": false,
+  "vendor_code_executed": false,
+  "full_suite_reexecuted": false,
+  "historical_suite_test_count": 273,
+  "commits_created": [],
+  "limits": [
+    "Discovery is not an approved or promotable plan.",
+    "External dependencies and unresolved references remain blocking.",
+    "No native agent discovery, browser rendering or dependency execution tested.",
+    "Automatic bootstrap selection has no exclusive explicit-opt-in policy per skill."
+  ],
+  "final_git": {
+    "head": "a035f50c3d890668b4817c3b32edad6274c6a344",
+    "tracked_diff": [],
+    "status": [
+      "?? Automacao/validacao-animacoes-rodada1/RELATORIO.md",
+      "?? Automacao/validacao-animacoes-rodada1/resultado.json"
+    ]
+  }
+}

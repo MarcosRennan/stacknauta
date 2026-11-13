@@ -69,6 +69,8 @@ class Library:
             skill = self.skills.get(current)
             if not skill or skill.get("distribution_status") != "approved" or not skill.get("distribution"):
                 raise BootstrapError(f"{current}: skill inexistente, pendente ou excluída")
+            if self.rules.get(current, {}).get("selection_mode") == "explicit" and current not in (config["skills"] or ()):
+                raise BootstrapError(f"{current}: seleção explícita obrigatória, inclusive como dependência")
             reason = mismatch(self.rules.get(current), config)
             if reason:
                 raise BootstrapError(f"{current}: {reason}")
@@ -84,10 +86,17 @@ class Library:
         explicit = config["skills"] is not None
         if not explicit:
             for identifier, skill in sorted(self.skills.items()):
+                if skill["distribution_status"] == "approved" and self.rules.get(identifier, {}).get("selection_mode") == "explicit":
+                    skipped.append({"skill": identifier, "reason": "Seleção explícita obrigatória"})
+                    continue
                 if skill["distribution_status"] == "approved" and "compatibility" in skill:
                     reason = mismatch(self.rules.get(identifier), config)
                     if reason: skipped.append({"skill": identifier, "reason": reason})
-        candidates = config["skills"] if explicit else sorted(s for s in self.skills if self.skills[s]["distribution_status"] == "approved" and not mismatch(self.rules.get(s), config))
+        candidates = config["skills"] if explicit else sorted(
+            identifier for identifier, skill in self.skills.items()
+            if skill["distribution_status"] == "approved"
+            and self.rules.get(identifier, {}).get("selection_mode") != "explicit"
+            and not mismatch(self.rules.get(identifier), config))
         for identifier in candidates:
             try:
                 closure = self.closure(identifier, config)

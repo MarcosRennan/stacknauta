@@ -120,6 +120,11 @@ candidato anterior. Recuperação de publicação interrompida continua disponí
   no catálogo, verificadas pelo mesmo seletor e pelo validador da biblioteca.
   Incompatíveis são omitidas com motivo; solicitação explícita incompatível bloqueia.
   A stack do usuário nunca é ajustada automaticamente.
+- `compatibility.selection_mode` opcional aceita `automatic` (padrão histórico)
+  ou `explicit` (escolha nominal obrigatória, inclusive como dependência). A regra
+  é validada no mesmo parser do bootstrap e preservada nas atualizações. Não é
+  aprovação de distribuição ou autorização de execução. Consulte
+  [seleção e formatos históricos](../project-bootstrap/SELECAO.md).
 - `tools` contém nomes de executáveis, não comandos/caminhos. Runtimes devem estar
   em `runtimes`, não em tools: sua resolução exige instalação global do asdf.
   Ferramenta/runtime ausente bloqueia aprovação, sem instalação automática.
