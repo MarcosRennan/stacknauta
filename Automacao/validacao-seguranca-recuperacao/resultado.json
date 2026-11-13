@@ -1,0 +1,860 @@
+{
+  "stage": "4A.1",
+  "started_at_utc": "2026-11-13T00:09:12.272944+00:00",
+  "tested_commit": "ee2bb5c6656187f992a0c1d0fb86bb39c9e2d489",
+  "temporary_clone": "/tmp/stacknauta-4a1-regression-ump2a310/StackNauta",
+  "origin_preserved": "/home/marcosrennan/Projetos/StackNauta",
+  "cache_present": false,
+  "results": {
+    "nucleo": {
+      "stage": "2A",
+      "tested_at_utc": "2026-11-13T00:09:18.428971+00:00",
+      "status": "passed",
+      "tests_run": 110,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "python_executor": {
+        "version": "3.14.8",
+        "detected": {
+          "python": "3.14.8"
+        },
+        "roles": [
+          "executor"
+        ]
+      },
+      "log": "test_concrete_framework_version_only_records_dependency (test_bootstrap.ConfigurationTests.test_concrete_framework_version_only_records_dependency) ... ok\ntest_config_fifo_symlink_and_size_limit_rejected (test_bootstrap.ConfigurationTests.test_config_fifo_symlink_and_size_limit_rejected) ... ok\ntest_destination_traversal_relative_and_reserved (test_bootstrap.ConfigurationTests.test_destination_traversal_relative_and_reserved) ... ok\ntest_framework_must_not_choose_language (test_bootstrap.ConfigurationTests.test_framework_must_not_choose_language) ... ok\ntest_go_module_is_explicit (test_bootstrap.ConfigurationTests.test_go_module_is_explicit) ... ok\ntest_invalid_framework_objects (test_bootstrap.ConfigurationTests.test_invalid_framework_objects) ... ok\ntest_invalid_names_no_writes (test_bootstrap.ConfigurationTests.test_invalid_names_no_writes) ... ok\ntest_invalid_types_and_unknown_fields (test_bootstrap.ConfigurationTests.test_invalid_types_and_unknown_fields) ... ok\ntest_json_duplicate_keys_rejected (test_bootstrap.ConfigurationTests.test_json_duplicate_keys_rejected) ... ok\ntest_unknown_architecture_and_features (test_bootstrap.ConfigurationTests.test_unknown_architecture_and_features) ... ok\ntest_valid_normalized_config_and_default_home (test_bootstrap.ConfigurationTests.test_valid_normalized_config_and_default_home) ... ok\ntest_brand_extra_helper_copied_without_fake_skill (test_bootstrap.FilesystemTests.test_brand_extra_helper_copied_without_fake_skill) ... ok\ntest_concurrent_intermediate_directory_symlink_never_writes_outside (test_bootstrap.FilesystemTests.test_concurrent_intermediate_directory_symlink_never_writes_outside) ... ok\ntest_concurrent_leaf_symlink_never_writes_outside (test_bootstrap.FilesystemTests.test_concurrent_leaf_symlink_never_writes_outside) ... ok\ntest_corrupt_resource_and_source_symlink_block_before_writes (test_bootstrap.FilesystemTests.test_corrupt_resource_and_source_symlink_block_before_writes) ... ok\ntest_default_root_created_only_on_apply (test_bootstrap.FilesystemTests.test_default_root_created_only_on_apply) ... ok\ntest_double_slash_cannot_bypass_protected_destination (test_bootstrap.FilesystemTests.test_double_slash_cannot_bypass_protected_destination) ... ok\ntest_dry_run_does_not_create_destination_or_default_root (test_bootstrap.FilesystemTests.test_dry_run_does_not_create_destination_or_default_root) ... ok\ntest_failed_runtime_does_not_create_default_parent (test_bootstrap.FilesystemTests.test_failed_runtime_does_not_create_default_parent) ... ok\ntest_failure_before_manifest_leaves_only_empty_owned_directories (test_bootstrap.FilesystemTests.test_failure_before_manifest_leaves_only_empty_owned_directories) ... ok\ntest_fifo_is_rejected_without_blocking (test_bootstrap.FilesystemTests.test_fifo_is_rejected_without_blocking) ... ok\ntest_foreign_nonempty_destination_and_existing_changed_file_preserved (test_bootstrap.FilesystemTests.test_foreign_nonempty_destination_and_existing_changed_file_preserved) ... ok\ntest_idempotence_preserves_bytes_inode_mtime_and_unmanaged_files (test_bootstrap.FilesystemTests.test_idempotence_preserves_bytes_inode_mtime_and_unmanaged_files) ... ok\ntest_library_and_legacy_paths_are_protected (test_bootstrap.FilesystemTests.test_library_and_legacy_paths_are_protected) ... ok\ntest_managed_leaf_symlink_and_hardlink_rejected (test_bootstrap.FilesystemTests.test_managed_leaf_symlink_and_hardlink_rejected) ... ok\ntest_missing_explicit_parent_is_not_created_outside_authorized_target (test_bootstrap.FilesystemTests.test_missing_explicit_parent_is_not_created_outside_authorized_target) ... ok\ntest_modified_evolutive_file_is_preserved_on_reapplication (test_bootstrap.FilesystemTests.test_modified_evolutive_file_is_preserved_on_reapplication) ... ok\ntest_partial_failure_is_resumable_without_rewriting_completed_files (test_bootstrap.FilesystemTests.test_partial_failure_is_resumable_without_rewriting_completed_files) ... ok\ntest_path_and_diagnostics_do_not_change_generated_identity (test_bootstrap.FilesystemTests.test_path_and_diagnostics_do_not_change_generated_identity) ... ok\ntest_physical_complete_copy_provenance_and_licenses (test_bootstrap.FilesystemTests.test_physical_complete_copy_provenance_and_licenses) ... ok\ntest_portable_library_without_repos_or_original_home (test_bootstrap.FilesystemTests.test_portable_library_without_repos_or_original_home) ... ok\ntest_symlink_parent_and_target_rejected (test_bootstrap.FilesystemTests.test_symlink_parent_and_target_rejected) ... ok\ntest_tilde_path_remains_under_configured_home (test_bootstrap.FilesystemTests.test_tilde_path_remains_under_configured_home) ... ok\ntest_wrong_preview_id_and_changed_runtime_have_no_writes (test_bootstrap.FilesystemTests.test_wrong_preview_id_and_changed_runtime_have_no_writes) ... ok\ntest_apply_requires_reviewed_plan_id (test_bootstrap.RealCliTests.test_apply_requires_reviewed_plan_id) ... ok\ntest_launcher_missing_global_stops_before_python_and_writes (test_bootstrap.RealCliTests.test_launcher_missing_global_stops_before_python_and_writes) ... ok\ntest_launcher_real_asdf_plan_apply_and_noop_in_temp_with_local_overrides (test_bootstrap.RealCliTests.test_launcher_real_asdf_plan_apply_and_noop_in_temp_with_local_overrides) ... ok\ntest_real_python_fastapi_cli_copies_approved_resources (test_bootstrap.RealCliTests.test_real_python_fastapi_cli_copies_approved_resources) ... ok\ntest_all_installed_runtimes_and_real_versions (test_bootstrap.RuntimeTests.test_all_installed_runtimes_and_real_versions) ... ok\ntest_binary_symlink_to_system_is_rejected_before_probe (test_bootstrap.RuntimeTests.test_binary_symlink_to_system_is_rejected_before_probe) ... ok\ntest_jvm_opaque_vendor_label_and_compiler_consistency (test_bootstrap.RuntimeTests.test_jvm_opaque_vendor_label_and_compiler_consistency) ... ok\ntest_managed_installation_symlink_cannot_alias_another_runtime (test_bootstrap.RuntimeTests.test_managed_installation_symlink_cannot_alias_another_runtime) ... ok\ntest_missing_global_configuration (test_bootstrap.RuntimeTests.test_missing_global_configuration) ... ok\ntest_missing_language_configuration_and_no_system_fallback (test_bootstrap.RuntimeTests.test_missing_language_configuration_and_no_system_fallback) ... ok\ntest_multiple_versions_system_paths_refs_and_duplicate_globals_rejected (test_bootstrap.RuntimeTests.test_multiple_versions_system_paths_refs_and_duplicate_globals_rejected) ... ok\ntest_not_installed_or_not_executable (test_bootstrap.RuntimeTests.test_not_installed_or_not_executable) ... ok\ntest_overrides_are_isolated_and_hook_environments_removed (test_bootstrap.RuntimeTests.test_overrides_are_isolated_and_hook_environments_removed) ... ok\ntest_probe_disables_automatic_go_and_rust_toolchain_installation (test_bootstrap.RuntimeTests.test_probe_disables_automatic_go_and_rust_toolchain_installation) ... ok\ntest_requested_and_detected_versions_must_match (test_bootstrap.RuntimeTests.test_requested_and_detected_versions_must_match) ... ok\ntest_subprocess_failure_is_clear_and_never_installs (test_bootstrap.RuntimeTests.test_subprocess_failure_is_clear_and_never_installs) ... ok\ntest_wrong_executor_is_rejected (test_bootstrap.RuntimeTests.test_wrong_executor_is_rejected) ... ok\ntest_compatible_security_dependency_closure (test_bootstrap.SelectionTests.test_compatible_security_dependency_closure) ... ok\ntest_empty_explicit_selection_disables_automatic_roots (test_bootstrap.SelectionTests.test_empty_explicit_selection_disables_automatic_roots) ... ok\ntest_every_approved_skill_has_an_explicit_policy (test_bootstrap.SelectionTests.test_every_approved_skill_has_an_explicit_policy) ... ok\ntest_expo_closure_cannot_add_undeclared_functionalities (test_bootstrap.SelectionTests.test_expo_closure_cannot_add_undeclared_functionalities) ... ok\ntest_fastapi_and_explicit_hexagonal_ddd (test_bootstrap.SelectionTests.test_fastapi_and_explicit_hexagonal_ddd) ... ok\ntest_frontend_hexagonal_does_not_imply_backend_api (test_bootstrap.SelectionTests.test_frontend_hexagonal_does_not_imply_backend_api) ... ok\ntest_full_declared_expo_feature_set_accepts_only_stable_family (test_bootstrap.SelectionTests.test_full_declared_expo_feature_set_accepts_only_stable_family) ... ok\ntest_go_and_rust_are_not_confused (test_bootstrap.SelectionTests.test_go_and_rust_are_not_confused) ... ok\ntest_helper_runtime_missing_blocks_before_destination (test_bootstrap.SelectionTests.test_helper_runtime_missing_blocks_before_destination) ... ok\ntest_incompatible_security_dependency_is_not_copied (test_bootstrap.SelectionTests.test_incompatible_security_dependency_is_not_copied) ... ok\ntest_kotlin_android_compose_dependencies_are_closed (test_bootstrap.SelectionTests.test_kotlin_android_compose_dependencies_are_closed) ... ok\ntest_no_architecture_or_language_is_selected_implicitly (test_bootstrap.SelectionTests.test_no_architecture_or_language_is_selected_implicitly) ... ok\ntest_pending_excluded_unknown_and_incompatible_explicit_skills (test_bootstrap.SelectionTests.test_pending_excluded_unknown_and_incompatible_explicit_skills) ... ok\ntest_typescript_next_ui_and_express_hexagonal (test_bootstrap.SelectionTests.test_typescript_next_ui_and_express_hexagonal) ... ok\ntest_classification_is_path_based_and_defaults_closed (test_lifecycle.LifecycleTests.test_classification_is_path_based_and_defaults_closed) ... ok\ntest_development_seed_can_change_or_be_removed_without_restoration (test_lifecycle.LifecycleTests.test_development_seed_can_change_or_be_removed_without_restoration) ... ok\ntest_directory_replacing_evolutive_file_is_rejected (test_lifecycle.LifecycleTests.test_directory_replacing_evolutive_file_is_rejected) ... ok\ntest_documentation_configs_and_gemini_can_evolve (test_lifecycle.LifecycleTests.test_documentation_configs_and_gemini_can_evolve) ... ok\ntest_evolution_does_not_hide_protected_tampering (test_lifecycle.LifecycleTests.test_evolution_does_not_hide_protected_tampering) ... ok\ntest_evolutive_symlink_or_hardlink_cannot_escape (test_lifecycle.LifecycleTests.test_evolutive_symlink_or_hardlink_cannot_escape) ... ok\ntest_file_growth_during_streaming_verification_is_detected (test_lifecycle.LifecycleTests.test_file_growth_during_streaming_verification_is_detected) ... ok\ntest_format_one_agent_verify_and_reapply_preserve_original_ids (test_lifecycle.LifecycleTests.test_format_one_agent_verify_and_reapply_preserve_original_ids) ... ok\ntest_format_one_core_reapply_has_no_migration_writes (test_lifecycle.LifecycleTests.test_format_one_core_reapply_has_no_migration_writes) ... ok\ntest_format_one_missing_protected_blocks_conservatively (test_lifecycle.LifecycleTests.test_format_one_missing_protected_blocks_conservatively) ... ok\ntest_format_one_removed_evolutive_is_preserved_without_receipt (test_lifecycle.LifecycleTests.test_format_one_removed_evolutive_is_preserved_without_receipt) ... ok\ntest_intact_agent_bootstrap_verifies (test_lifecycle.LifecycleTests.test_intact_agent_bootstrap_verifies) ... ok\ntest_interruption_at_completion_publishes_only_receipt_on_resume (test_lifecycle.LifecycleTests.test_interruption_at_completion_publishes_only_receipt_on_resume) ... ok\ntest_invalid_destination_paths_remain_blocked (test_lifecycle.LifecycleTests.test_invalid_destination_paths_remain_blocked) ... ok\ntest_missing_historical_origin_evidence_blocks_without_writes (test_lifecycle.LifecycleTests.test_missing_historical_origin_evidence_blocks_without_writes) ... ok\ntest_new_manifest_policy_and_final_completion (test_lifecycle.LifecycleTests.test_new_manifest_policy_and_final_completion) ... ok\ntest_normalized_generated_config_is_accepted_without_changing_ids (test_lifecycle.LifecycleTests.test_normalized_generated_config_is_accepted_without_changing_ids) ... ok\ntest_package_json_evolves_with_no_overwrite (test_lifecycle.LifecycleTests.test_package_json_evolves_with_no_overwrite) ... ok\ntest_partial_publication_before_evolutive_file_can_resume (test_lifecycle.LifecycleTests.test_partial_publication_before_evolutive_file_can_resume) ... ok\ntest_protected_conflict_reports_hashes_without_original_size_limit (test_lifecycle.LifecycleTests.test_protected_conflict_reports_hashes_without_original_size_limit) ... ok\ntest_protected_size_mismatch_is_rejected_before_reading_payload (test_lifecycle.LifecycleTests.test_protected_size_mismatch_is_rejected_before_reading_payload) ... ok\ntest_pyproject_growth_shrink_and_same_size_are_evolution (test_lifecycle.LifecycleTests.test_pyproject_growth_shrink_and_same_size_are_evolution) ... ok\ntest_reapply_preserves_evolved_bytes_inode_permissions_timestamps (test_lifecycle.LifecycleTests.test_reapply_preserves_evolved_bytes_inode_permissions_timestamps) ... ok\ntest_regular_file_replacing_parent_directory_is_rejected (test_lifecycle.LifecycleTests.test_regular_file_replacing_parent_directory_is_rejected) ... ok\ntest_removed_completion_is_incomplete_not_success (test_lifecycle.LifecycleTests.test_removed_completion_is_incomplete_not_success) ... ok\ntest_removed_evolutive_files_and_placeholders_are_not_restored (test_lifecycle.LifecycleTests.test_removed_evolutive_files_and_placeholders_are_not_restored) ... ok\ntest_removed_protected_file_is_detected_and_not_repaired (test_lifecycle.LifecycleTests.test_removed_protected_file_is_detected_and_not_repaired) ... ok\ntest_schema_one_after_catalog_drift_preserves_original_ids (test_lifecycle.LifecycleTests.test_schema_one_after_catalog_drift_preserves_original_ids) ... ok\ntest_unknown_files_or_skills_in_protected_namespaces_are_forbidden (test_lifecycle.LifecycleTests.test_unknown_files_or_skills_in_protected_namespaces_are_forbidden) ... ok\ntest_unknown_manifest_schema_and_policy_tampering_block (test_lifecycle.LifecycleTests.test_unknown_manifest_schema_and_policy_tampering_block) ... ok\ntest_unmanaged_link_is_reported_and_never_followed (test_lifecycle.LifecycleTests.test_unmanaged_link_is_reported_and_never_followed) ... ok\ntest_unmanaged_source_tests_and_directories_are_preserved_and_reported (test_lifecycle.LifecycleTests.test_unmanaged_source_tests_and_directories_are_preserved_and_reported) ... ok\ntest_unrelated_catalog_and_source_changes_preserve_pinned_consumer (test_lifecycle.LifecycleTests.test_unrelated_catalog_and_source_changes_preserve_pinned_consumer) ... ok\ntest_wrong_reviewed_hash_still_blocks_with_evolved_files (test_lifecycle.LifecycleTests.test_wrong_reviewed_hash_still_blocks_with_evolved_files) ... ok\ntest_interruption_after_link_leaves_one_link_and_can_resume (test_publication.PublicationRecoveryTests.test_interruption_after_link_leaves_one_link_and_can_resume) ... ok\ntest_interruption_before_link_leaves_no_named_temporary (test_publication.PublicationRecoveryTests.test_interruption_before_link_leaves_no_named_temporary) ... ok\ntest_legacy_hardlink_without_operation_evidence_blocks_and_is_preserved (test_publication.PublicationRecoveryTests.test_legacy_hardlink_without_operation_evidence_blocks_and_is_preserved) ... ok\ntest_normal_publication_has_one_name_and_complete_content (test_publication.PublicationRecoveryTests.test_normal_publication_has_one_name_and_complete_content) ... ok\ntest_own_anonymous_inode_and_content_match_final (test_publication.PublicationRecoveryTests.test_own_anonymous_inode_and_content_match_final) ... ok\ntest_reexecution_preserves_final_bytes_inode_mode_and_timestamps (test_publication.PublicationRecoveryTests.test_reexecution_preserves_final_bytes_inode_mode_and_timestamps) ... ok\ntest_tampered_final_is_never_replaced (test_publication.PublicationRecoveryTests.test_tampered_final_is_never_replaced) ... ok\ntest_temporary_from_other_operation_is_not_deleted (test_publication.PublicationRecoveryTests.test_temporary_from_other_operation_is_not_deleted) ... ok\ntest_temporary_symlink_is_preserved_and_not_followed (test_publication.PublicationRecoveryTests.test_temporary_symlink_is_preserved_and_not_followed) ... ok\ntest_unknown_temporary_with_same_prefix_is_not_deleted (test_publication.PublicationRecoveryTests.test_unknown_temporary_with_same_prefix_is_not_deleted) ... ok\ntest_unsupported_tmpfile_blocks_without_named_fallback (test_publication.PublicationRecoveryTests.test_unsupported_tmpfile_blocks_without_named_fallback) ... ok\n\n----------------------------------------------------------------------\nRan 110 tests in 6.030s\n\nOK\n",
+      "limits": "Runtimes Go/JVM/Rust simulados sem execução; CLI real usa somente Python/Node globais já instalados. Projetos de teste são temporários; sem integração com agentes."
+    },
+    "integracao": {
+      "stage": "2B",
+      "tested_at_utc": "2026-11-13T00:09:20.162617+00:00",
+      "status": "passed",
+      "tests_run": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "python_executor": {
+        "version": "3.14.8",
+        "detected": {
+          "python": "3.14.8"
+        },
+        "roles": [
+          "executor"
+        ]
+      },
+      "log": "test_all_approved_alias_names_and_descriptions_are_valid (test_integration.IntegrationTests.test_all_approved_alias_names_and_descriptions_are_valid) ... ok\ntest_apply_copies_full_originals_and_portable_entries (test_integration.IntegrationTests.test_apply_copies_full_originals_and_portable_entries) ... ok\ntest_changed_configuration_requires_review (test_integration.IntegrationTests.test_changed_configuration_requires_review) ... ok\ntest_cli_requires_reviewed_hash (test_integration.IntegrationTests.test_cli_requires_reviewed_hash) ... ok\ntest_conflicting_gemini_file_blocks_before_core_changes (test_integration.IntegrationTests.test_conflicting_gemini_file_blocks_before_core_changes) ... ok\ntest_dangerous_symlink_and_hardlink_block (test_integration.IntegrationTests.test_dangerous_symlink_and_hardlink_block) ... ok\ntest_dry_run_has_two_hashes_and_no_destination (test_integration.IntegrationTests.test_dry_run_has_two_hashes_and_no_destination) ... ok\ntest_idempotence_preserves_bytes_inode_mtime_and_original_core (test_integration.IntegrationTests.test_idempotence_preserves_bytes_inode_mtime_and_original_core) ... ok\ntest_missing_runtime_blocks_before_writes (test_integration.IntegrationTests.test_missing_runtime_blocks_before_writes) ... ok\ntest_no_skills_no_invented_aliases (test_integration.IntegrationTests.test_no_skills_no_invented_aliases) ... ok\ntest_partial_failure_resumes_without_overwrite (test_integration.IntegrationTests.test_partial_failure_resumes_without_overwrite) ... ok\ntest_pending_and_incompatible_skills_block (test_integration.IntegrationTests.test_pending_and_incompatible_skills_block) ... ok\ntest_permission_failure_preserves_existing_files (test_integration.IntegrationTests.test_permission_failure_preserves_existing_files) ... ok\ntest_portable_without_cache_and_personal_root (test_integration.IntegrationTests.test_portable_without_cache_and_personal_root) ... ok\ntest_verify_rejects_absent_or_damaged_files (test_integration.IntegrationTests.test_verify_rejects_absent_or_damaged_files) ... ok\ntest_wrong_hash_and_core_hash_cannot_authorize_integration (test_integration.IntegrationTests.test_wrong_hash_and_core_hash_cannot_authorize_integration) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 1.592s\n\nOK\n",
+      "limits": "Tests validate shared code, not native agent activation. Only temporary projects; runtimes synthetic except CLI launcher precheck."
+    },
+    "atualizacoes": {
+      "stage": "3A",
+      "status": "passed",
+      "tests_run": 69,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runtime": {
+        "python": {
+          "version": "3.14.8",
+          "detected": {
+            "python": "3.14.8"
+          },
+          "roles": [
+            "executor"
+          ]
+        }
+      },
+      "log": "test_destination_created_during_rename_is_preserved (test_security_recovery.MaintenanceFilesystemTests.test_destination_created_during_rename_is_preserved) ... ok\ntest_directory_in_place_of_file_is_rejected (test_security_recovery.MaintenanceFilesystemTests.test_directory_in_place_of_file_is_rejected) ... ok\ntest_escape_paths_are_rejected (test_security_recovery.MaintenanceFilesystemTests.test_escape_paths_are_rejected) ... ok\ntest_fifo_does_not_block (test_security_recovery.MaintenanceFilesystemTests.test_fifo_does_not_block) ... ok\ntest_final_symlink_is_rejected_for_read_write_and_metadata (test_security_recovery.MaintenanceFilesystemTests.test_final_symlink_is_rejected_for_read_write_and_metadata) ... ok\ntest_hardlink_is_rejected_without_truncating_other_name (test_security_recovery.MaintenanceFilesystemTests.test_hardlink_is_rejected_without_truncating_other_name) ... ok\ntest_intermediate_replacement_after_inspection_is_not_followed (test_security_recovery.MaintenanceFilesystemTests.test_intermediate_replacement_after_inspection_is_not_followed) ... ok\ntest_intermediate_symlink_is_rejected (test_security_recovery.MaintenanceFilesystemTests.test_intermediate_symlink_is_rejected) ... ok\ntest_metadata_temporary_substituted_at_replace_is_detected (test_security_recovery.MaintenanceFilesystemTests.test_metadata_temporary_substituted_at_replace_is_detected) ... ok\ntest_permission_errors_remain_controlled (test_security_recovery.MaintenanceFilesystemTests.test_permission_errors_remain_controlled) ... ok\ntest_regular_read_write_and_synchronization (test_security_recovery.MaintenanceFilesystemTests.test_regular_read_write_and_synchronization) ... ok\ntest_tree_rejects_special_entries (test_security_recovery.MaintenanceFilesystemTests.test_tree_rejects_special_entries) ... ok\ntest_write_race_to_symlink_cannot_change_outside_file (test_security_recovery.MaintenanceFilesystemTests.test_write_race_to_symlink_cannot_change_outside_file) ... ok\ntest_candidate_files_are_synced_before_first_promotion (test_security_recovery.MaintenanceRecoveryTests.test_candidate_files_are_synced_before_first_promotion) ... ok\ntest_committed_is_recorded_after_active_file_and_directory_sync (test_security_recovery.MaintenanceRecoveryTests.test_committed_is_recorded_after_active_file_and_directory_sync) ... ok\ntest_error_after_commit_record_does_not_report_success (test_security_recovery.MaintenanceRecoveryTests.test_error_after_commit_record_does_not_report_success) ... ok\ntest_interruption_after_publication_before_journal_completion_recovers (test_security_recovery.MaintenanceRecoveryTests.test_interruption_after_publication_before_journal_completion_recovers) ... ok\ntest_interruption_before_publication_recovers_legacy_journal (test_security_recovery.MaintenanceRecoveryTests.test_interruption_before_publication_recovers_legacy_journal) ... ok\ntest_leaf_replaced_after_inspection_is_never_followed (test_security_recovery.MaintenanceRecoveryTests.test_leaf_replaced_after_inspection_is_never_followed) ... ok\ntest_missing_backup_and_active_blocks_with_controlled_diagnostic (test_security_recovery.MaintenanceRecoveryTests.test_missing_backup_and_active_blocks_with_controlled_diagnostic) ... ok\ntest_missing_backup_with_new_active_is_not_accepted (test_security_recovery.MaintenanceRecoveryTests.test_missing_backup_with_new_active_is_not_accepted) ... ok\ntest_post_promotion_sync_failure_rolls_back_and_can_prepare_again (test_security_recovery.MaintenanceRecoveryTests.test_post_promotion_sync_failure_rolls_back_and_can_prepare_again) ... ok\ntest_preparation_write_failure_never_seals_prepared_journal (test_security_recovery.MaintenanceRecoveryTests.test_preparation_write_failure_never_seals_prepared_journal) ... ok\ntest_script_checks_use_safe_bytes_and_preserve_module_type (test_security_recovery.MaintenanceRecoveryTests.test_script_checks_use_safe_bytes_and_preserve_module_type) ... ok\ntest_sync_failure_before_promotion_preserves_active (test_security_recovery.MaintenanceRecoveryTests.test_sync_failure_before_promotion_preserves_active) ... ok\ntest_tampered_backup_is_preserved_and_recovery_refused (test_security_recovery.MaintenanceRecoveryTests.test_tampered_backup_is_preserved_and_recovery_refused) ... ok\ntest_unknown_journal_phase_blocks_without_mutation (test_security_recovery.MaintenanceRecoveryTests.test_unknown_journal_phase_blocks_without_mutation) ... ok\ntest_absent_modules_are_not_satisfied_by_init_or_namesakes (test_updates.RelativePythonTests.test_absent_modules_are_not_satisfied_by_init_or_namesakes) ... ok\ntest_absolute_external_and_invalid_syntax_keep_existing_contract (test_updates.RelativePythonTests.test_absolute_external_and_invalid_syntax_keep_existing_contract) ... ok\ntest_existing_modules_and_parent_levels (test_updates.RelativePythonTests.test_existing_modules_and_parent_levels) ... ok\ntest_package_precedes_module_and_namespace_is_physical (test_updates.RelativePythonTests.test_package_precedes_module_and_namespace_is_physical) ... ok\ntest_static_exports_and_dynamic_uncertainty (test_updates.RelativePythonTests.test_static_exports_and_dynamic_uncertainty) ... ok\ntest_adapted_skill_update_replays_contract_and_new_resource (test_updates.UpdateTests.test_adapted_skill_update_replays_contract_and_new_resource) ... ok\ntest_approval_hash_and_local_changes_are_required (test_updates.UpdateTests.test_approval_hash_and_local_changes_are_required) ... ok\ntest_candidate_automation_is_sealed_before_validation (test_updates.UpdateTests.test_candidate_automation_is_sealed_before_validation) ... ok\ntest_changed_adaptation_context_blocks (test_updates.UpdateTests.test_changed_adaptation_context_blocks) ... ok\ntest_check_unchanged_is_read_only (test_updates.UpdateTests.test_check_unchanged_is_read_only) ... ok\ntest_closure_validation_checks_available_paths_not_full_package (test_updates.UpdateTests.test_closure_validation_checks_available_paths_not_full_package) ... ok\ntest_detect_commit_prepare_and_authorized_update (test_updates.UpdateTests.test_detect_commit_prepare_and_authorized_update) ... ok\ntest_explicit_recovery_when_active_skills_is_absent (test_updates.UpdateTests.test_explicit_recovery_when_active_skills_is_absent) ... ok\ntest_failure_after_new_publish_restores_consistency (test_updates.UpdateTests.test_failure_after_new_publish_restores_consistency) ... ok\ntest_failure_after_old_move_restores_consistency (test_updates.UpdateTests.test_failure_after_old_move_restores_consistency) ... ok\ntest_git_environment_cannot_redirect_inventory_or_validation (test_updates.UpdateTests.test_git_environment_cannot_redirect_inventory_or_validation) ... ok\ntest_javascript_local_resources_are_validated_without_execution (test_updates.UpdateTests.test_javascript_local_resources_are_validated_without_execution) ... ok\ntest_license_change_blocks_promotion (test_updates.UpdateTests.test_license_change_blocks_promotion) ... ok\ntest_licenses_provenance_and_classifications_preserved (test_updates.UpdateTests.test_licenses_provenance_and_classifications_preserved) ... ok\ntest_mismatched_journal_is_not_authorized (test_updates.UpdateTests.test_mismatched_journal_is_not_authorized) ... ok\ntest_missing_branch (test_updates.UpdateTests.test_missing_branch) ... ok\ntest_missing_node_runtime_records_pending_without_promotion (test_updates.UpdateTests.test_missing_node_runtime_records_pending_without_promotion) ... ok\ntest_missing_repo (test_updates.UpdateTests.test_missing_repo) ... ok\ntest_missing_resource_blocks_whole_promotion (test_updates.UpdateTests.test_missing_resource_blocks_whole_promotion) ... ok\ntest_network_failure_is_not_reported_as_update (test_updates.UpdateTests.test_network_failure_is_not_reported_as_update) ... ok\ntest_new_javascript_external_dependency_requires_manual_review (test_updates.UpdateTests.test_new_javascript_external_dependency_requires_manual_review) ... ok\ntest_new_javascript_local_import_requires_resource (test_updates.UpdateTests.test_new_javascript_local_import_requires_resource) ... ok\ntest_new_python_external_dependency_requires_manual_review (test_updates.UpdateTests.test_new_python_external_dependency_requires_manual_review) ... ok\ntest_new_skill_outside_sparse_scope_is_reported_and_blocked (test_updates.UpdateTests.test_new_skill_outside_sparse_scope_is_reported_and_blocked) ... ok\ntest_new_skill_stays_pending_and_not_distributed (test_updates.UpdateTests.test_new_skill_stays_pending_and_not_distributed) ... ok\ntest_new_unmet_prerequisite_blocks (test_updates.UpdateTests.test_new_unmet_prerequisite_blocks) ... ok\ntest_new_unresolved_reference_blocks (test_updates.UpdateTests.test_new_unresolved_reference_blocks) ... ok\ntest_origin_does_not_disable_integrity_validation (test_updates.UpdateTests.test_origin_does_not_disable_integrity_validation) ... ok\ntest_post_publication_validation_failure_rolls_back (test_updates.UpdateTests.test_post_publication_validation_failure_rolls_back) ... ok\ntest_reexecution_has_no_updates_and_same_apply_is_noop (test_updates.UpdateTests.test_reexecution_has_no_updates_and_same_apply_is_noop) ... ok\ntest_source_content_must_match_git_blob (test_updates.UpdateTests.test_source_content_must_match_git_blob) ... ok\ntest_source_symlink_escape_is_blocked (test_updates.UpdateTests.test_source_symlink_escape_is_blocked) ... ok\ntest_state_symlink_and_unknown_source_are_rejected (test_updates.UpdateTests.test_state_symlink_and_unknown_source_are_rejected) ... ok\ntest_unsafe_paths_links_and_tampered_candidate_are_blocked (test_updates.UpdateTests.test_unsafe_paths_links_and_tampered_candidate_are_blocked) ... ok\ntest_update_accepts_existing_relative_modules_without_execution (test_updates.UpdateTests.test_update_accepts_existing_relative_modules_without_execution) ... ok\ntest_update_multiple_only_fetches_changed_sources (test_updates.UpdateTests.test_update_multiple_only_fetches_changed_sources) ... ok\ntest_update_rejects_missing_relative_python_with_init_present (test_updates.UpdateTests.test_update_rejects_missing_relative_python_with_init_present) ... ok\n\n----------------------------------------------------------------------\nRan 69 tests in 38.006s\n\nOK\n",
+      "real_origins_updated": false
+    },
+    "inclusoes": {
+      "stage": "3B",
+      "status": "passed",
+      "tests_run": 47,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "runtime": {
+        "python": {
+          "version": "3.14.8",
+          "detected": {
+            "python": "3.14.8"
+          },
+          "roles": [
+            "executor"
+          ]
+        }
+      },
+      "log": "test_acknowledgment_cannot_bypass_approved_alias_collision (test_additions.AdditionTests.test_acknowledgment_cannot_bypass_approved_alias_collision) ... ok\ntest_blob_url_and_pinned_revisions (test_additions.AdditionTests.test_blob_url_and_pinned_revisions) ... ok\ntest_category_and_applicability_are_mandatory (test_additions.AdditionTests.test_category_and_applicability_are_mandatory) ... ok\ntest_cli_add_review_apply_end_to_end (test_additions.AdditionTests.test_cli_add_review_apply_end_to_end) ... ok\ntest_cli_distinguishes_rejection_from_application_failure (test_additions.AdditionTests.test_cli_distinguishes_rejection_from_application_failure) ... ok\ntest_cli_review_and_3a_check_are_compatible (test_additions.AdditionTests.test_cli_review_and_3a_check_are_compatible) ... ok\ntest_companion_requires_its_own_approval_and_compatible_copy_closure (test_additions.AdditionTests.test_companion_requires_its_own_approval_and_compatible_copy_closure) ... ok\ntest_discovery_isolated_multiple_skills_all_pending (test_additions.AdditionTests.test_discovery_isolated_multiple_skills_all_pending) ... ok\ntest_duplicate_content_and_name_conflicts_reported (test_additions.AdditionTests.test_duplicate_content_and_name_conflicts_reported) ... ok\ntest_duplicate_identifiers_block_registration (test_additions.AdditionTests.test_duplicate_identifiers_block_registration) ... ok\ntest_existing_full_acquisition_is_never_narrowed (test_additions.AdditionTests.test_existing_full_acquisition_is_never_narrowed) ... ok\ntest_existing_origin_reuses_identity_and_pending_metadata (test_additions.AdditionTests.test_existing_origin_reuses_identity_and_pending_metadata) ... ok\ntest_existing_revision_cannot_update_implicitly (test_additions.AdditionTests.test_existing_revision_cannot_update_implicitly) ... ok\ntest_explicit_exclusion_and_prior_classifications (test_additions.AdditionTests.test_explicit_exclusion_and_prior_classifications) ... ok\ntest_external_relative_assets_and_scripts_have_complete_closure (test_additions.AdditionTests.test_external_relative_assets_and_scripts_have_complete_closure) ... ok\ntest_failure_after_new_publication_recovers_original_library (test_additions.AdditionTests.test_failure_after_new_publication_recovers_original_library) ... ok\ntest_framework_versions_and_incompatible_explicit_selection (test_additions.AdditionTests.test_framework_versions_and_incompatible_explicit_selection) ... ok\ntest_idempotent_review_apply_and_rediscovery (test_additions.AdditionTests.test_idempotent_review_apply_and_rediscovery) ... ok\ntest_inclusion_sync_failure_blocks_before_prepared_journal (test_additions.AdditionTests.test_inclusion_sync_failure_blocks_before_prepared_journal) ... ok\ntest_incompatible_license_is_pending (test_additions.AdditionTests.test_incompatible_license_is_pending) ... ok\ntest_individual_approval_only_and_physical_export (test_additions.AdditionTests.test_individual_approval_only_and_physical_export) ... ok\ntest_missing_declared_tool_and_unreviewed_prerequisite_block (test_additions.AdditionTests.test_missing_declared_tool_and_unreviewed_prerequisite_block) ... ok\ntest_missing_license_cannot_be_approved (test_additions.AdditionTests.test_missing_license_cannot_be_approved) ... ok\ntest_missing_relative_python_module_is_not_satisfied_by_init (test_additions.AdditionTests.test_missing_relative_python_module_is_not_satisfied_by_init) ... ok\ntest_missing_requested_subdirectory_is_not_silently_ignored (test_additions.AdditionTests.test_missing_requested_subdirectory_is_not_silently_ignored) ... ok\ntest_missing_resource_stays_pending_and_cannot_be_approved (test_additions.AdditionTests.test_missing_resource_stays_pending_and_cannot_be_approved) ... ok\ntest_network_failure_and_unavailable_repo (test_additions.AdditionTests.test_network_failure_and_unavailable_repo) ... ok\ntest_new_skill_bootstrap_plan_apply_and_verify (test_additions.AdditionTests.test_new_skill_bootstrap_plan_apply_and_verify) ... ok\ntest_no_approvals_registers_only_pending (test_additions.AdditionTests.test_no_approvals_registers_only_pending) ... ok\ntest_old_consumer_survives_new_compatible_inclusion_and_other_source_update (test_additions.AdditionTests.test_old_consumer_survives_new_compatible_inclusion_and_other_source_update) ... ok\ntest_paths_symlinks_and_production_local_urls_are_rejected (test_additions.AdditionTests.test_paths_symlinks_and_production_local_urls_are_rejected) ... ok\ntest_real_local_branch_with_slash_and_annotated_tag (test_additions.AdditionTests.test_real_local_branch_with_slash_and_annotated_tag) ... ok\ntest_recovery_and_consumer_preservation (test_additions.AdditionTests.test_recovery_and_consumer_preservation) ... ok\ntest_reject_unknown_compatibility_and_runtime_as_tool (test_additions.AdditionTests.test_reject_unknown_compatibility_and_runtime_as_tool) ... ok\ntest_relative_python_closure_copies_parent_modules_without_execution (test_additions.AdditionTests.test_relative_python_closure_copies_parent_modules_without_execution) ... ok\ntest_renderer_templates_and_long_alias_remain_pending (test_additions.AdditionTests.test_renderer_templates_and_long_alias_remain_pending) ... ok\ntest_review_hash_and_apply_authorization (test_additions.AdditionTests.test_review_hash_and_apply_authorization) ... ok\ntest_root_skill_layout_and_resources (test_additions.AdditionTests.test_root_skill_layout_and_resources) ... ok\ntest_same_vendor_bytes_are_detected_as_duplicate (test_additions.AdditionTests.test_same_vendor_bytes_are_detected_as_duplicate) ... ok\ntest_source_identifier_collision_is_rejected (test_additions.AdditionTests.test_source_identifier_collision_is_rejected) ... ok\ntest_ssh_transport_is_noninteractive_without_configuration_writes (test_additions.AdditionTests.test_ssh_transport_is_noninteractive_without_configuration_writes) ... ok\ntest_subdirectory_does_not_require_unselected_root_orchestrator (test_additions.AdditionTests.test_subdirectory_does_not_require_unselected_root_orchestrator) ... ok\ntest_tampered_source_and_analysis_are_rejected (test_additions.AdditionTests.test_tampered_source_and_analysis_are_rejected) ... ok\ntest_unexpected_candidate_changes_block_apply (test_additions.AdditionTests.test_unexpected_candidate_changes_block_apply) ... ok\ntest_update_new_registered_origin_preserves_compatibility (test_additions.AdditionTests.test_update_new_registered_origin_preserves_compatibility) ... ok\ntest_url_formats_refs_with_slashes_and_ssh_no_config_changes (test_additions.AdditionTests.test_url_formats_refs_with_slashes_and_ssh_no_config_changes) ... ok\ntest_url_subdirectory_scope_and_root_license (test_additions.AdditionTests.test_url_subdirectory_scope_and_root_license) ... ok\n\n----------------------------------------------------------------------\nRan 47 tests in 43.214s\n\nOK\n",
+      "real_origins_added": false,
+      "vendor_code_executed": false
+    },
+    "biblioteca": {
+      "schema_version": 2,
+      "stage": "1.5",
+      "validated_at_utc": "2026-11-13T00:10:44.844903+00:00",
+      "status": "passed_with_documented_pending",
+      "python_executor": {
+        "manager": "asdf",
+        "global_source": "~/.tool-versions",
+        "version": "3.14.8"
+      },
+      "counts": {
+        "sources": 7,
+        "physical_skill_files": 130,
+        "catalogued_skills": 124,
+        "distribution_aliases": 6,
+        "enabled_skills": 0,
+        "prepared_distribution_skills": 101,
+        "by_category": {
+          "Backend": 24,
+          "Frontend": 11,
+          "Mobile": 80,
+          "Seguranca": 9
+        },
+        "by_scope": {
+          "catalogued_source": 122,
+          "experimental_source": 1,
+          "internal_evaluation_not_distributable": 1
+        },
+        "approved_skills": 101,
+        "pending_skills": 21,
+        "excluded_skills": 2,
+        "distribution_packages": 9,
+        "approved_by_category": {
+          "Backend": 19,
+          "Frontend": 4,
+          "Mobile": 71,
+          "Seguranca": 7
+        }
+      },
+      "package_files_verified": 958,
+      "python_files_parsed": 41,
+      "node_syntax": {
+        "status": "passed",
+        "files": 7,
+        "execution": "syntax parsing only, vendor code not executed"
+      },
+      "local_markdown_links_checked": 1095,
+      "adapted_files": 102,
+      "cache_validation": {
+        "status": "not_required_for_distribution"
+      },
+      "physical_copy_test": {
+        "status": "passed",
+        "temporary_directory": "/tmp/stacknauta-copy-_7z18gg8",
+        "physical_copy_cases": 101,
+        "files_copied": 4114,
+        "cases": [
+          {
+            "skill": "ui-ux-pro-max:banner-design",
+            "skills_in_closure": 1,
+            "files_copied": 5,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "ui-ux-pro-max:brand",
+            "skills_in_closure": 1,
+            "files_copied": 22,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "ui-ux-pro-max:ui-styling",
+            "skills_in_closure": 1,
+            "files_copied": 101,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "ui-ux-pro-max:ui-ux-pro-max",
+            "skills_in_closure": 1,
+            "files_copied": 78,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "fastapi:fastapi",
+            "skills_in_closure": 1,
+            "files_copied": 12,
+            "local_links_checked": 21
+          },
+          {
+            "skill": "remy:hexagonal-go",
+            "skills_in_closure": 1,
+            "files_copied": 23,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "remy:hexagonal-python",
+            "skills_in_closure": 1,
+            "files_copied": 19,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "remy:hexagonal-typescript",
+            "skills_in_closure": 1,
+            "files_copied": 22,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "expo:eas-app-stores",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:eas-hosting",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:eas-observe",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:eas-simulator",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:eas-update-insights",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:eas-update",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:eas-workflows",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:expo-animation",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:expo-app-clip",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:expo-brownfield",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:expo-data-fetching",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:expo-design-system",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:expo-dev-client",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:expo-dom",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:expo-examples",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:expo-module",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:expo-native-ui",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:expo-overview",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:expo-project-structure",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:expo-router",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:expo-ui",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:expo-upgrade",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "expo:expo-web-to-native",
+            "skills_in_closure": 23,
+            "files_copied": 118,
+            "local_links_checked": 135
+          },
+          {
+            "skill": "chrisbanes:android-benchmark-comparison",
+            "skills_in_closure": 1,
+            "files_copied": 4,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "chrisbanes:changelog",
+            "skills_in_closure": 3,
+            "files_copied": 16,
+            "local_links_checked": 12
+          },
+          {
+            "skill": "chrisbanes:compose-animations",
+            "skills_in_closure": 7,
+            "files_copied": 25,
+            "local_links_checked": 56
+          },
+          {
+            "skill": "chrisbanes:compose-component-design",
+            "skills_in_closure": 7,
+            "files_copied": 25,
+            "local_links_checked": 56
+          },
+          {
+            "skill": "chrisbanes:compose-focus-navigation",
+            "skills_in_closure": 2,
+            "files_copied": 6,
+            "local_links_checked": 5
+          },
+          {
+            "skill": "chrisbanes:compose-performance",
+            "skills_in_closure": 7,
+            "files_copied": 25,
+            "local_links_checked": 56
+          },
+          {
+            "skill": "chrisbanes:compose-state-and-effects",
+            "skills_in_closure": 7,
+            "files_copied": 25,
+            "local_links_checked": 56
+          },
+          {
+            "skill": "chrisbanes:compose-ui-testing-patterns",
+            "skills_in_closure": 2,
+            "files_copied": 6,
+            "local_links_checked": 5
+          },
+          {
+            "skill": "chrisbanes:gradle-run",
+            "skills_in_closure": 1,
+            "files_copied": 8,
+            "local_links_checked": 2
+          },
+          {
+            "skill": "chrisbanes:grounded-writing",
+            "skills_in_closure": 1,
+            "files_copied": 7,
+            "local_links_checked": 3
+          },
+          {
+            "skill": "chrisbanes:kotlin-api-design",
+            "skills_in_closure": 10,
+            "files_copied": 33,
+            "local_links_checked": 78
+          },
+          {
+            "skill": "chrisbanes:kotlin-concurrency-and-flow",
+            "skills_in_closure": 10,
+            "files_copied": 33,
+            "local_links_checked": 78
+          },
+          {
+            "skill": "chrisbanes:kotlin-control-flow",
+            "skills_in_closure": 10,
+            "files_copied": 33,
+            "local_links_checked": 78
+          },
+          {
+            "skill": "chrisbanes:release-kotlin-library",
+            "skills_in_closure": 3,
+            "files_copied": 16,
+            "local_links_checked": 12
+          },
+          {
+            "skill": "chrisbanes:shepherd",
+            "skills_in_closure": 1,
+            "files_copied": 9,
+            "local_links_checked": 8
+          },
+          {
+            "skill": "android:agp-9-upgrade",
+            "skills_in_closure": 1,
+            "files_copied": 10,
+            "local_links_checked": 9
+          },
+          {
+            "skill": "android:camerax",
+            "skills_in_closure": 1,
+            "files_copied": 16,
+            "local_links_checked": 14
+          },
+          {
+            "skill": "android:android-for-cars-parked-apps",
+            "skills_in_closure": 1,
+            "files_copied": 5,
+            "local_links_checked": 2
+          },
+          {
+            "skill": "android:appfunctions",
+            "skills_in_closure": 1,
+            "files_copied": 10,
+            "local_links_checked": 11
+          },
+          {
+            "skill": "android:litert-lm",
+            "skills_in_closure": 2,
+            "files_copied": 11,
+            "local_links_checked": 14
+          },
+          {
+            "skill": "android:litert-runtime",
+            "skills_in_closure": 2,
+            "files_copied": 11,
+            "local_links_checked": 14
+          },
+          {
+            "skill": "android:ml-kit-genai-prompt-api",
+            "skills_in_closure": 1,
+            "files_copied": 10,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "android:mlkit-agent-api",
+            "skills_in_closure": 1,
+            "files_copied": 6,
+            "local_links_checked": 3
+          },
+          {
+            "skill": "android:android-cli",
+            "skills_in_closure": 1,
+            "files_copied": 4,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "android:restore-credentials",
+            "skills_in_closure": 1,
+            "files_copied": 9,
+            "local_links_checked": 6
+          },
+          {
+            "skill": "android:verified-email",
+            "skills_in_closure": 1,
+            "files_copied": 11,
+            "local_links_checked": 11
+          },
+          {
+            "skill": "android:adaptive",
+            "skills_in_closure": 1,
+            "files_copied": 20,
+            "local_links_checked": 15
+          },
+          {
+            "skill": "android:ink-app-builder",
+            "skills_in_closure": 2,
+            "files_copied": 18,
+            "local_links_checked": 16
+          },
+          {
+            "skill": "android:ink-custom-brush-builder",
+            "skills_in_closure": 2,
+            "files_copied": 18,
+            "local_links_checked": 16
+          },
+          {
+            "skill": "android:jetpack-compose-performance",
+            "skills_in_closure": 1,
+            "files_copied": 13,
+            "local_links_checked": 18
+          },
+          {
+            "skill": "android:migrate-xml-views-to-jetpack-compose",
+            "skills_in_closure": 1,
+            "files_copied": 11,
+            "local_links_checked": 8
+          },
+          {
+            "skill": "android:media3-cast-integration",
+            "skills_in_closure": 1,
+            "files_copied": 7,
+            "local_links_checked": 5
+          },
+          {
+            "skill": "android:navigation-3",
+            "skills_in_closure": 1,
+            "files_copied": 31,
+            "local_links_checked": 28
+          },
+          {
+            "skill": "android:navigation-event",
+            "skills_in_closure": 1,
+            "files_copied": 8,
+            "local_links_checked": 5
+          },
+          {
+            "skill": "android:anr-audit-and-fix",
+            "skills_in_closure": 1,
+            "files_copied": 7,
+            "local_links_checked": 4
+          },
+          {
+            "skill": "android:engage-sdk-integration",
+            "skills_in_closure": 1,
+            "files_copied": 32,
+            "local_links_checked": 40
+          },
+          {
+            "skill": "android:play-billing-library-version-upgrade",
+            "skills_in_closure": 1,
+            "files_copied": 7,
+            "local_links_checked": 4
+          },
+          {
+            "skill": "android:play-policy-insights",
+            "skills_in_closure": 1,
+            "files_copied": 17,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "android:android-profiler",
+            "skills_in_closure": 1,
+            "files_copied": 29,
+            "local_links_checked": 4
+          },
+          {
+            "skill": "android:android-intent-security",
+            "skills_in_closure": 1,
+            "files_copied": 4,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "android:android-permissions-security",
+            "skills_in_closure": 1,
+            "files_copied": 8,
+            "local_links_checked": 4
+          },
+          {
+            "skill": "android:edge-to-edge",
+            "skills_in_closure": 1,
+            "files_copied": 4,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "android:glance-appwidget-updates-and-memory",
+            "skills_in_closure": 2,
+            "files_copied": 104,
+            "local_links_checked": 230
+          },
+          {
+            "skill": "android:glance-canonical-layouts",
+            "skills_in_closure": 1,
+            "files_copied": 91,
+            "local_links_checked": 204
+          },
+          {
+            "skill": "android:testing-setup",
+            "skills_in_closure": 1,
+            "files_copied": 8,
+            "local_links_checked": 5
+          },
+          {
+            "skill": "android:leanback-to-compose-tv-migration",
+            "skills_in_closure": 1,
+            "files_copied": 7,
+            "local_links_checked": 4
+          },
+          {
+            "skill": "android:wear-compose-m3",
+            "skills_in_closure": 1,
+            "files_copied": 56,
+            "local_links_checked": 308
+          },
+          {
+            "skill": "android:wear-widgets",
+            "skills_in_closure": 1,
+            "files_copied": 8,
+            "local_links_checked": 10
+          },
+          {
+            "skill": "android:display-glasses-with-jetpack-compose-glimmer",
+            "skills_in_closure": 1,
+            "files_copied": 29,
+            "local_links_checked": 24
+          },
+          {
+            "skill": "android:projected-hardware",
+            "skills_in_closure": 1,
+            "files_copied": 8,
+            "local_links_checked": 5
+          },
+          {
+            "skill": "sentry:agents-md",
+            "skills_in_closure": 1,
+            "files_copied": 6,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:code-review",
+            "skills_in_closure": 1,
+            "files_copied": 4,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:code-simplifier",
+            "skills_in_closure": 1,
+            "files_copied": 4,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:commit",
+            "skills_in_closure": 1,
+            "files_copied": 4,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:create-branch",
+            "skills_in_closure": 1,
+            "files_copied": 4,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:django-access-review",
+            "skills_in_closure": 1,
+            "files_copied": 8,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:django-perf-review",
+            "skills_in_closure": 1,
+            "files_copied": 5,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:doc-coauthoring",
+            "skills_in_closure": 1,
+            "files_copied": 4,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:find-bugs",
+            "skills_in_closure": 1,
+            "files_copied": 4,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:gh-review-requests",
+            "skills_in_closure": 1,
+            "files_copied": 5,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:gha-security-review",
+            "skills_in_closure": 1,
+            "files_copied": 13,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:iterate-pr",
+            "skills_in_closure": 1,
+            "files_copied": 10,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:pr-link-issue",
+            "skills_in_closure": 1,
+            "files_copied": 4,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:pr-screenshots",
+            "skills_in_closure": 1,
+            "files_copied": 5,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:pr-writer",
+            "skills_in_closure": 1,
+            "files_copied": 8,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:prompt-optimizer",
+            "skills_in_closure": 1,
+            "files_copied": 10,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:secret-serialization",
+            "skills_in_closure": 4,
+            "files_copied": 46,
+            "local_links_checked": 4
+          },
+          {
+            "skill": "sentry:security-model",
+            "skills_in_closure": 1,
+            "files_copied": 10,
+            "local_links_checked": 1
+          },
+          {
+            "skill": "sentry:security-review",
+            "skills_in_closure": 3,
+            "files_copied": 41,
+            "local_links_checked": 3
+          },
+          {
+            "skill": "sentry:typing-exclusion-worker",
+            "skills_in_closure": 1,
+            "files_copied": 4,
+            "local_links_checked": 1
+          }
+        ],
+        "ui_smoke_tests": [
+          {
+            "arguments": [
+              "keyboard focus",
+              "--domain",
+              "ux",
+              "--json"
+            ],
+            "status": "passed",
+            "result_count": 3
+          },
+          {
+            "arguments": [
+              "server components",
+              "--stack",
+              "nextjs",
+              "--json"
+            ],
+            "status": "passed",
+            "result_count": 3
+          },
+          {
+            "arguments": [
+              "saas dashboard",
+              "--design-system",
+              "--json"
+            ],
+            "status": "passed",
+            "result_count": null
+          }
+        ],
+        "adversarial_checks": {
+          "changed_content_detected": true,
+          "missing_reference_detected": true,
+          "path_escape_rejected": true
+        }
+      },
+      "checks": [
+        "Revisões e proveniência de cada arquivo confrontadas com o lock e índices adquiridos.",
+        "Hashes, inventários completos, recursos, referências Markdown locais e licenças conferidos.",
+        "Planos de cópia fechados sobre dependências; nenhum SKILL.md pendente/excluído nos pacotes.",
+        "Adaptações explícitas com hashes antes/depois e unified diff.",
+        "Sem links simbólicos, caminhos locais ou dependência de cache nos pacotes.",
+        "Nenhuma ativação de agentes; estado do núcleo validado separadamente da biblioteca."
+      ],
+      "errors": [],
+      "limits": [
+        "Packaging approval does not certify agent discovery or all application workflows.",
+        "Consumer SDKs, hardware, authenticated services and CLIs were not provisioned or exercised.",
+        "Frontmatter delimiters/name/description and declared licence paths checked; not full YAML schema validation."
+      ],
+      "bootstrap_implemented": true,
+      "bootstrap_core_stage": "2A",
+      "agent_integration_tested": false,
+      "production_ready": false
+    }
+  },
+  "status": "passed",
+  "origin_unchanged": true,
+  "tree_clean_after_tests": true,
+  "finished_at_utc": "2026-11-13T00:10:44.928659+00:00",
+  "phase": 2,
+  "initial_commit": "b50fda14386af31e9e18598117d78797d549e3b6",
+  "complete_regression_runs": 1,
+  "additional_filesystem_probe": {
+    "status": "passed",
+    "filesystem": "btrfs",
+    "temporary_directory": "/home/marcosrennan/Projetos/.stacknauta-4a1-fs-probe-qala0_tz",
+    "anonymous_publication": true,
+    "single_link": true,
+    "final_metadata_preserved": true,
+    "file_and_directory_fsync": true,
+    "rename_noreplace": true,
+    "power_failure_simulated": false,
+    "only_synthetic_temporary_directory_cleaned": true,
+    "metadata_fsync_completed": true
+  },
+  "preservation": {
+    "whole_Skills_diff_exit_code": 0,
+    "agent_discovery_diff_exit_code": 0,
+    "approved_skills": 101,
+    "pending_skills": 21,
+    "excluded_skills": 2,
+    "distribution_packages": 9,
+    "consumer_projects_modified": false,
+    "app_web_modified": false,
+    "real_sources_updated": false,
+    "global_asdf_configuration_modified": false,
+    "runtime_or_dependency_installations": false,
+    "real_remotes_configured": false,
+    "push_executed": false,
+    "other_agent_subprocesses_executed": false
+  },
+  "directed_new_tests": {
+    "A05": 13,
+    "A06": 11,
+    "A07": 15
+  },
+  "environment": {
+    "kernel": "Linux 7.2.15-200.fc44.x86_64",
+    "workspace_filesystem": "btrfs",
+    "tmp_filesystem": "tmpfs",
+    "power_failure_tested": false
+  }
+}
