@@ -73,6 +73,13 @@ def relative_python_resources(data, path, files, read_module):
             return {p for p in available if p.startswith(base + '/') and p.endswith('.py')} or None
         return None
 
+    def assigned_names(target):
+        if isinstance(target, ast.Name): return {target.id}
+        if isinstance(target, (ast.Tuple, ast.List)):
+            return {name for item in target.elts for name in assigned_names(item)}
+        if isinstance(target, ast.Starred): return assigned_names(target.value)
+        return set()  # Atributos/subscritos não criam um nome no namespace.
+
     def explicit_export(init, name):
         if init not in available:
             return False
@@ -91,7 +98,7 @@ def relative_python_resources(data, path, files, read_module):
                 if any((a.asname or (a.name.split('.')[0] if isinstance(node, ast.Import) else a.name)) == name for a in node.names):
                     return True
             targets = node.targets if isinstance(node, ast.Assign) else [node.target] if isinstance(node, ast.AnnAssign) and node.value is not None else []
-            if any(isinstance(t, ast.Name) and t.id == name for t in targets):
+            if any(name in assigned_names(target) for target in targets):
                 return True
         return False
 

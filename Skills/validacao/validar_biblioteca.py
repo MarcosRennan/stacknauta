@@ -84,7 +84,7 @@ def source_validation(catalog,indexes):
     return {'status':'passed','sources':len(catalog['sources']),'files':checked,'relative_links':links}
 
 
-def verify_copies(catalog,packages):
+def verify_copies(catalog,packages,*,vendor_smoke=True):
     temp=Path(tempfile.mkdtemp(prefix='stacknauta-copy-'))
     # Evidências temporárias mantidas; nenhuma exclusão recursiva.
     tests=[]
@@ -110,7 +110,8 @@ def verify_copies(catalog,packages):
     script=ui/'scripts/search.py'
     environment=dict(os.environ,PYTHONDONTWRITEBYTECODE='1')
     searches=[]
-    for args in [['keyboard focus','--domain','ux','--json'],['server components','--stack','nextjs','--json'],['saas dashboard','--design-system','--json']]:
+    commands=[['keyboard focus','--domain','ux','--json'],['server components','--stack','nextjs','--json'],['saas dashboard','--design-system','--json']] if vendor_smoke else []
+    for args in commands:
         result=subprocess.run([sys.executable,'-B',str(script),*args],cwd=temp,env=environment,capture_output=True,text=True,timeout=30,check=True)
         data=json.loads(result.stdout)
         if '--design-system' in args:
@@ -145,10 +146,11 @@ def verify_copies(catalog,packages):
         raise ValueError('Verificação adversarial falhou')
     return {'status':'passed','temporary_directory':str(temp),'physical_copy_cases':len(tests),
             'files_copied':sum(t['files_copied'] for t in tests),'cases':tests,'ui_smoke_tests':searches,
+            'ui_smoke_tests_status':'passed' if vendor_smoke else 'not_requested','vendor_code_executed':bool(searches),
             'adversarial_checks':{'changed_content_detected':detects_hash,'missing_reference_detected':detects_reference,'path_escape_rejected':detects_traversal}}
 
 
-def validate(origins=False,copies=False,node_syntax=False):
+def validate(origins=False,copies=False,node_syntax=False,*,vendor_smoke=True):
     runtime=require_asdf_python()
     catalog=json.loads((ROOT/'Skills/catalogo.json').read_text())
     lock=json.loads((ROOT/'Skills/fontes.lock.json').read_text())
@@ -301,7 +303,7 @@ def validate(origins=False,copies=False,node_syntax=False):
                 errors.append('Sintaxe JS: '+str(path.relative_to(ROOT))+': '+result.stderr[:300])
         node_report={'status':'passed' if len(errors)==previous_errors else 'failed','files':len(node_files),'execution':'syntax parsing only, vendor code not executed'}
     cache=source_validation(catalog,indexes) if origins else {'status':'not_required_for_distribution'}
-    copy_report=verify_copies(catalog,packages) if copies and not errors else {'status':'not_requested' if not copies else 'blocked_by_integrity_errors'}
+    copy_report=verify_copies(catalog,packages,vendor_smoke=vendor_smoke) if copies and not errors else {'status':'not_requested' if not copies else 'blocked_by_integrity_errors'}
     checks.extend(['Revisões e proveniência de cada arquivo confrontadas com o lock e índices adquiridos.',
                    'Hashes, inventários completos, recursos, referências Markdown locais e licenças conferidos.',
                    'Planos de cópia fechados sobre dependências; nenhum SKILL.md pendente/excluído nos pacotes.',
@@ -326,9 +328,10 @@ def main():
     parser.add_argument('--origens',action='store_true',help='Também confrontar os sete caches de aquisição')
     parser.add_argument('--copias',action='store_true',help='Testar planos físicos de todas as skills aprovadas e smoke tests UI/UX previamente analisados')
     parser.add_argument('--sintaxe-node',action='store_true',help='Parsear JS/CJS/MJS com Node global asdf, sem executar scripts')
+    parser.add_argument('--sem-smoke-fornecedor',action='store_true',help='Com --copias, validar cópias sem executar buscas/scripts do fornecedor')
     args=parser.parse_args()
     try:
-        result=validate(args.origens,args.copias,args.sintaxe_node)
+        result=validate(args.origens,args.copias,args.sintaxe_node,vendor_smoke=not args.sem_smoke_fornecedor)
     except (ValueError,OSError,subprocess.SubprocessError,SyntaxError) as exc:
         result={'status':'failed','errors':[str(exc)]}
     print(json.dumps(result,ensure_ascii=False,indent=2))

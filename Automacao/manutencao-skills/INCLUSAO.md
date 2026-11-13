@@ -178,6 +178,14 @@ renderers especiais e mudanças manuais podem exigir preparação posterior. Lic
 Imports Python relativos usam o mesmo resolvedor estático nas inclusões e nas
 atualizações. `from . import helper` exige módulo/pacote físico ou definição
 explícita no `__init__.py`; um `__init__.py` vazio não satisfaz um módulo ausente.
+Na 4A.2, `Assign` reconhece nomes de tuplas, listas, desestruturação aninhada,
+alvos estrelados e atribuições encadeadas. `AnnAssign` só define export quando
+tem valor. Atributos, subscritos, anotação sem valor e `AugAssign` isolado não
+criam nomes exportados. O nome reconhecido continua sendo um símbolo do pacote;
+isso não inventa um arquivo `.py` nem satisfaz `from .modulo import símbolo`
+quando o módulo está ausente. A expressão do lado direito não é avaliada:
+validade em execução, aridade de valores e exports condicionais/dinâmicos
+permanecem fora da certificação estática. Inclusão e atualização usam a mesma regra.
 Os níveis relativos e a precedência de pacotes sobre módulos homônimos são
 respeitados. Inicializadores e recursos locais encontrados entram no fechamento.
 Namespaces exigem evidência física de arquivos Python no escopo adquirido.

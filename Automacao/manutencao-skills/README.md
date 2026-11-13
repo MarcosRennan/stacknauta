@@ -128,8 +128,26 @@ leitura e substituições de inode são recusadas. Metadados usam temporário pr
 troca relativa ao descritor e confirmação do inode publicado. Renames usam
 `renameat2(RENAME_NOREPLACE)` via libc, sem fallback que sobrescreva o destino.
 Git recebe o diretório aberto por `/proc/self/fd`; o processo de validação recebe
-o script aberto. Bash/Node fazem somente parsing de bytes lidos de forma segura,
-via stdin, mantendo o tipo de módulo declarado para JavaScript.
+o script aberto. Bash faz parsing por stdin. Node faz `--check` de cópia privada
+dos bytes lidos com segurança e do contexto JSON aplicável, sem executar scripts.
+
+**JavaScript (4A.2, R01).** A extensão e o package.json mais próximo são
+interpretados pelo próprio Node global do asdf: `.mjs`, `.cjs` e `.js` conservam
+suas regras, inclusive detecção de sintaxe quando não há tipo declarado. A busca
+de contexto não ultrapassa a raiz candidata nem a fronteira `node_modules`.
+O JSON mais próximo encerra a busca mesmo sem `type`; ele não herda o tipo de um
+JSON mais distante. A cópia privada preserva os bytes originais e a posição
+relativa do contexto. Um JSON vazio na raiz sintética impede herdar configuração
+da máquina de validação, sem alterar arquivos do fornecedor. Scripts intactos
+também são reconferidos nos outputs de atualização, pois o contexto pode mudar.
+
+JSON malformado/inacessível tem diagnóstico de contexto. Uma falha do parser que
+não seja erro de sintaxe é inconclusiva e bloqueia para revisão. O resultado é
+específico da versão global instalada do Node; não se instala outra versão nem
+se simula suporte a sintaxe futura. Só se valida o contexto materializado no
+candidato; metadados de origem fora do conjunto copiado não são presumidos.
+`--check` não resolve imports nem certifica comportamento em execução/browser;
+as verificações existentes de dependências e recursos continuam separadas.
 
 Estas garantias dependem de Linux, libc, procfs e filesystem compatíveis. Erro de
 fsync, falta de suporte ou de permissão bloqueia; não há tolerância absoluta a

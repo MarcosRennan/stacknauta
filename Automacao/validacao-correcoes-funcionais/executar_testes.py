@@ -21,6 +21,7 @@ def run(command, cwd, timeout=240):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--report', type=Path, required=True)
+    parser.add_argument('--sem-smoke-fornecedor', action='store_true')
     args = parser.parse_args()
     git = ['git', '-c', 'core.hooksPath=/dev/null', '-c', 'core.fsmonitor=false']
     status = run([*git, 'status', '--porcelain', '--untracked-files=all'], ROOT)
@@ -48,6 +49,7 @@ def main():
     ):
         output = base / (key + '.json')
         extra = ['--copias', '--sintaxe-node'] if key == 'biblioteca' else ['--report', str(output)]
+        if key == 'biblioteca' and args.sem_smoke_fornecedor: extra.append('--sem-smoke-fornecedor')
         print('Executando ' + key, flush=True)
         try:
             result = run([sys.executable, '-I', '-S', '-B', str(clone / script), *extra], base)

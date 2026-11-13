@@ -10,6 +10,7 @@ import shutil
 import stat
 import subprocess
 import sys
+import tempfile
 import uuid
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path, PurePosixPath
@@ -211,6 +212,40 @@ def sync_tree(root, expected=None):
             with relative_directory(root_fd, components) as fd: os.fsync(fd)
 
 
+def check_javascript(candidate, relative, node, environment):
+    """Node decide o formato por extensão/contexto, somente em bytes isolados.
+
+    A cópia privada evita reabrir caminhos do fornecedor. O package.json vazio
+    na raiz sintética delimita o escopo sem herdar configuração externa ao candidato.
+    """
+    data = read_bytes(candidate, relative)
+    context = None
+    for parent in PurePosixPath(relative).parents:
+        if parent.name == 'node_modules': break
+        package_path = (parent / 'package.json').as_posix()
+        try: raw = read_bytes(candidate, package_path)
+        except FileNotFoundError: continue
+        except (OSError, ValueError, BootstrapError) as exc:
+            raise ValueError('Contexto JavaScript não verificável: ' + package_path + ': ' + str(exc)) from exc
+        try:
+            if not isinstance(json.loads(raw), dict): raise ValueError('objeto JSON esperado')
+        except (ValueError, UnicodeError) as exc:
+            raise ValueError('Contexto JavaScript inválido: ' + package_path + ': ' + str(exc)) from exc
+        context = (package_path, raw)
+        break
+    with tempfile.TemporaryDirectory(prefix='stacknauta-js-check-') as temporary:
+        isolated = Path(temporary)
+        write_bytes(isolated, 'package.json', context[1] if context and context[0] == 'package.json' else b'{}', exclusive=True)
+        if context and context[0] != 'package.json': write_bytes(isolated, *context, exclusive=True)
+        write_bytes(isolated, relative, data, exclusive=True)
+        with directory(isolated) as fd:
+            result = subprocess.run([node, '--check', f'/proc/self/fd/{fd}/{relative}'],
+                cwd=isolated, env=environment, pass_fds=(fd,), capture_output=True, text=True, timeout=20)
+        if result.returncode:
+            label = 'Sintaxe de script inválida' if 'SyntaxError' in result.stderr and 'ERR_INVALID_PACKAGE_CONFIG' not in result.stderr else 'Validação JavaScript inconclusiva'
+            raise ValueError(label + ': ' + relative + ': ' + result.stderr[:1000])
+
+
 class Git:
     def __init__(self, allow_local=False):
         self.allow_local = allow_local
@@ -390,8 +425,9 @@ class Updates:
     def check_changed_scripts(self, candidate, outputs, baseline):
         node = None
         for relative, data in outputs.items():
-            if relative in baseline and sha(data) == baseline[relative]["sha256"]: continue
             suffix = Path(relative).suffix
+            # package.json pode mudar a interpretação de um script intacto.
+            if relative in baseline and sha(data) == baseline[relative]['sha256'] and suffix not in {'.js','.cjs','.mjs'}: continue
             if suffix == '.py':
                 before = read_bytes(self.root, relative) if relative in baseline else b''
                 package = candidate.joinpath(*Path(relative).parts[:3])
@@ -430,15 +466,8 @@ class Updates:
                     from stacknauta_core.runtimes import AsdfResolver
                     resolver = AsdfResolver(Path.home()); resolver.resolve([], extra_plugins=("nodejs",))
                     node = next(r["executable"] for r in resolver.diagnostics if r.get("command") == "node")
-                input_type = 'module' if suffix == '.mjs' else 'commonjs'
-                if suffix == '.js':
-                    for parent in PurePosixPath(relative).parents:
-                        try: package = load(candidate, (parent / 'package.json').as_posix())
-                        except FileNotFoundError: continue
-                        if not isinstance(package, dict): raise ValueError('package.json inválido durante análise de script')
-                        input_type = 'module' if package.get('type') == 'module' else 'commonjs'
-                        break
-                command = [node, '--check', '--input-type=' + input_type]
+                check_javascript(candidate, relative, node, environment)
+                continue
             r = subprocess.run(command, input=read_bytes(candidate, relative).decode(), cwd=Path.home(), env=environment, capture_output=True, text=True, timeout=20)
             if r.returncode: raise ValueError("Sintaxe de script inválida: " + relative + ": " + r.stderr[:1000])
 
