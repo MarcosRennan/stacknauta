@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[2]
 CORE = ROOT / "Automacao/project-bootstrap"
 sys.path.insert(0, str(CORE))
 from stacknauta_core import BootstrapError
-from stacknauta_core.compatibility import policies
+from stacknauta_core.compatibility import policies, catalog_policies, declared_policy
 from stacknauta_core.config import normalize, load
 from stacknauta_core.core import Bootstrap
 from stacknauta_core.filesystem import MANIFEST, Target, directory, publish
@@ -293,7 +293,19 @@ class SelectionTests(Base):
     def test_every_approved_skill_has_an_explicit_policy(self):
         library = Library(ROOT)
         approved = {s for s, value in library.skills.items() if value["distribution_status"] == "approved"}
-        self.assertEqual(approved, set(policies()))
+        legacy = policies()
+        declared = {s for s, value in library.skills.items() if "compatibility" in value}
+        self.assertEqual(set(library.rules), set(legacy) | declared)
+        self.assertLessEqual(approved, set(library.rules))
+        for identifier, policy in legacy.items():
+            self.assertEqual(library.rules[identifier], policy)
+        for identifier in approved - set(legacy):
+            self.assertIn("compatibility", library.skills[identifier])
+            self.assertEqual(library.rules[identifier], declared_policy(library.skills[identifier]["compatibility"]))
+
+    def test_new_approved_skill_without_declarative_policy_is_rejected(self):
+        with self.assertRaisesRegex(BootstrapError, "sem compatibilidade explícita"):
+            catalog_policies([{"id": "fixture:missing-policy", "distribution_status": "approved"}])
 
     def test_fastapi_and_explicit_hexagonal_ddd(self):
         self.assertEqual(self.selected(self.request(frameworks=("fastapi",), features=("api",), architecture="hexagonal-ddd")), {"fastapi:fastapi", "remy:hexagonal-python"})

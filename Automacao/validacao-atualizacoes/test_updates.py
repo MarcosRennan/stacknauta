@@ -173,8 +173,17 @@ class UpdateTests(unittest.TestCase):
         return self.engine.apply(plan["session_id"], plan["plan_id"], approve=True, **kwargs)
 
     def test_check_unchanged_is_read_only(self):
+        sources = self.engine.sources()
         rows = self.engine.check()
-        self.assertEqual(len(rows), 7); self.assertTrue(all(r["estado"] == "sem_alteracoes" for r in rows))
+        self.assertEqual(len(rows), len(sources))
+        by_id = {r["origem"]: r for r in rows}
+        self.assertEqual(set(by_id), {s["id"] for s in sources})
+        for source in sources:
+            row = by_id[source["id"]]
+            pinned = source.get("revision_type") in {"commit", "tag"}
+            self.assertEqual(row["estado"], "revisao_fixada" if pinned else "sem_alteracoes")
+            self.assertEqual(row["atual"], source["commit"])
+            self.assertEqual(row["disponivel"], None if pinned else source["commit"])
         self.assertEqual(tree(self.root / "Skills"), self.before)
         self.assertFalse((self.root / ".stacknauta-updates").exists())
 
@@ -240,9 +249,19 @@ class UpdateTests(unittest.TestCase):
         self.apply(plan); self.engine.validator(self.root)
 
     def test_network_failure_is_not_reported_as_update(self):
-        with patch.object(self.engine.git, "remote", side_effect=ValueError("Conexão indisponível")):
-            rows = self.engine.check(); result = self.engine.prepare(SOURCES)
-        self.assertTrue(all(r["estado"] == "erro_consulta" and r["disponivel"] is None for r in rows))
+        sources = self.engine.sources()
+        branches = {s["id"] for s in sources if s.get("revision_type") not in {"commit", "tag"}}
+        self.assertTrue(branches)
+        with patch.object(self.engine.git, "remote", side_effect=ValueError("Conexão indisponível")) as remote:
+            rows = self.engine.check(); result = self.engine.prepare(branches)
+        self.assertEqual(len(rows), len(sources))
+        self.assertEqual({r["origem"] for r in rows}, {s["id"] for s in sources})
+        for row in rows:
+            self.assertEqual(row["estado"], "erro_consulta" if row["origem"] in branches else "revisao_fixada")
+            self.assertIsNone(row["disponivel"])
+            source = next(s for s in sources if s["id"] == row["origem"])
+            self.assertEqual(row["atual"], source["commit"])
+        self.assertEqual({call.args[0]["id"] for call in remote.call_args_list}, branches)
         self.assertEqual(result["status"], "bloqueado"); self.assertEqual(tree(self.root / "Skills"), self.before)
 
     def test_missing_branch(self):

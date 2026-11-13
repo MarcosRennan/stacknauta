@@ -234,16 +234,17 @@ class AdditionTests(unittest.TestCase):
         self.apply(update);fixtures.git(self.root,'add','Skills');fixtures.git(self.root,'commit','--quiet','-m','record pending fixture')
         before=load(self.root,'Skills/catalogo.json');report=self.add(repo)
         self.assertEqual(report['source']['id'],'remy');plan=self.stage(report);self.apply(plan)
-        after=load(self.root,'Skills/catalogo.json');self.assertEqual(len(after['sources']),7)
+        after=load(self.root,'Skills/catalogo.json');self.assertEqual(after['sources'],before['sources'])
         for row in before['skills']:
             if row['id']!='remy:good-helper':self.assertEqual(row,next(s for s in after['skills'] if s['id']==row['id']))
         self.assertTrue((self.root/'Skills/Backend/remy-adicionais/PROVENANCE.json').exists())
 
     def test_existing_full_acquisition_is_never_narrowed(self):
+        sources=self.engine.sources()
         path=Path(next(s['source_path'] for s in self.original['skills'] if s['id']=='remy:hexagonal-python')).parent.as_posix()
         report=self.add(self.repos['remy'],path=path)
         self.assertEqual(report['source']['sparse_paths'],[])
-        self.assertEqual(len(self.engine.sources()),7)
+        self.assertEqual(self.engine.sources(),sources)
 
     def test_source_identifier_collision_is_rejected(self):
         with self.assertRaisesRegex(ValueError,'ID de origem já utilizado'):Inclusions(self.engine).add(str(self.repo()),source_id='fastapi')
@@ -424,12 +425,16 @@ class AdditionTests(unittest.TestCase):
         result=self.add(repo);self.assertEqual(result['status'],'sem_novas_candidatas');self.assertEqual(tree(self.root/'Skills'),before)
 
     def test_update_new_registered_origin_preserves_compatibility(self):
+        original_sources={s['id'] for s in self.engine.sources()}
         repo=self.repo([('good','good-helper','Guia.')]);report=self.add(repo);plan=self.stage(report);self.apply(plan)
         fixtures.git(self.root,'add','Skills');fixtures.git(self.root,'commit','--quiet','-m','record addition')
         path=repo/'good/SKILL.md';path.write_text(path.read_text()+'\nOrientação nova.\n');fixtures.git(repo,'add','.');fixtures.git(repo,'commit','--quiet','-m','update added source')
         update=self.engine.prepare({report['source']['id']});self.assertEqual(update['status'],'preparado',update.get('motivo'));self.apply(update)
         row=next(s for s in load(self.root,'Skills/catalogo.json')['skills'] if s['id'] in plan['details']['approved']);self.assertEqual(row['compatibility'],POLICY)
-        self.engine.validate(self.root);self.assertEqual(len(self.engine.check()),8)
+        self.engine.validate(self.root)
+        checks=self.engine.check()
+        self.assertEqual(len(checks),len(original_sources)+1)
+        self.assertEqual({row['origem'] for row in checks},original_sources|{report['source']['id']})
 
     def test_explicit_selection_metadata_survives_inclusion_and_update(self):
         # Origem, aprovação e aplicação são exclusivamente da fixture sintética.
