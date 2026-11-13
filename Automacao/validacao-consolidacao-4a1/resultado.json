@@ -1,0 +1,278 @@
+{
+  "stage": "4A.1",
+  "phase": 3,
+  "initial_head": "c8252976af415f39efd08ca80be6fc94bc7fed04",
+  "initial_worktree_clean": true,
+  "executable_code_changed_since_phase2": false,
+  "existing_evidence": {
+    "fase1": {
+      "path": "Automacao/validacao-correcoes-funcionais/resultado.json",
+      "sha256": "d7327579dd43b60982e72bf3f81f3e4b9d667e0d4bb28700e63ee2bddb4daa56",
+      "tested_commit": "690b745df39354f0fc5515e62a277ad13f7d09c7",
+      "status": "verified_existing_evidence",
+      "total": 203,
+      "suites": {
+        "nucleo": {
+          "tests": 99,
+          "ok_lines": 99,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "integracao": {
+          "tests": 16,
+          "ok_lines": 16,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "atualizacoes": {
+          "tests": 42,
+          "ok_lines": 42,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "inclusoes": {
+          "tests": 46,
+          "ok_lines": 46,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "package_files_verified": 958,
+      "physical_copy_cases": 101,
+      "origin_preserved": true,
+      "cache_present": false
+    },
+    "fase2": {
+      "path": "Automacao/validacao-seguranca-recuperacao/resultado.json",
+      "sha256": "ed02198b648f0ebbcb3d66dacd1c718e30905cbbc638e288e0783701b5cf00bd",
+      "tested_commit": "ee2bb5c6656187f992a0c1d0fb86bb39c9e2d489",
+      "status": "verified_existing_evidence",
+      "total": 242,
+      "suites": {
+        "nucleo": {
+          "tests": 110,
+          "ok_lines": 110,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "integracao": {
+          "tests": 16,
+          "ok_lines": 16,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "atualizacoes": {
+          "tests": 69,
+          "ok_lines": 69,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "inclusoes": {
+          "tests": 47,
+          "ok_lines": 47,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "package_files_verified": 958,
+      "physical_copy_cases": 101,
+      "origin_preserved": true,
+      "cache_present": false,
+      "btrfs_probe": {
+        "status": "passed",
+        "filesystem": "btrfs",
+        "temporary_directory": "/home/marcosrennan/Projetos/.stacknauta-4a1-fs-probe-qala0_tz",
+        "anonymous_publication": true,
+        "single_link": true,
+        "final_metadata_preserved": true,
+        "file_and_directory_fsync": true,
+        "rename_noreplace": true,
+        "power_failure_simulated": false,
+        "only_synthetic_temporary_directory_cleaned": true,
+        "metadata_fsync_completed": true
+      }
+    }
+  },
+  "full_regressions_executed_this_phase": 0,
+  "agents_executed_this_phase": 0,
+  "library": {
+    "counts": {
+      "approved": 101,
+      "pending": 21,
+      "excluded": 2
+    },
+    "sources": 7,
+    "packages": [
+      {
+        "id": "Frontend/ui-ux-pro-max",
+        "files": 197,
+        "manifest_sha256": "5db448e69862578ccd83146e695aa8a7beb616b40730ac5e751b593122f6c680"
+      },
+      {
+        "id": "Backend/fastapi",
+        "files": 12,
+        "manifest_sha256": "84a0399d163917f8625c6877abbc874ae9876b969fcdd64df0a74447baba9b28"
+      },
+      {
+        "id": "Backend/remy",
+        "files": 58,
+        "manifest_sha256": "76084d47102aed99b7d3b1cf53bb9f47b1503222153ed1d665bfc2c194fa5fe9"
+      },
+      {
+        "id": "Mobile/expo",
+        "files": 118,
+        "manifest_sha256": "a2374ea0cf050e41f89aaf9fbe244d75b3e58159105fe17ee89adb37ac3161f8"
+      },
+      {
+        "id": "Mobile/chrisbanes",
+        "files": 52,
+        "manifest_sha256": "8bf3ef3b2d355b45c158a8c7594cf23502ba96787478c452a92ed9576b10e3c5"
+      },
+      {
+        "id": "Mobile/android",
+        "files": 429,
+        "manifest_sha256": "28d7367a515f99c43439097e592479f55dae3f484b2ee7e8c710b6a08c187bb1"
+      },
+      {
+        "id": "Seguranca/android",
+        "files": 9,
+        "manifest_sha256": "481e1efd533dbb1e6f74230d77f2cf711b52d49ebdf2b13e31a924b3e26393d5"
+      },
+      {
+        "id": "Backend/sentry",
+        "files": 39,
+        "manifest_sha256": "8861bc07f84f15f14b1af9c462ebb917e05ef992d39886eb5a7f8a36abdf03f3"
+      },
+      {
+        "id": "Seguranca/sentry",
+        "files": 53,
+        "manifest_sha256": "e9d7ae05f06416ce1dbae3c3508e787aaf1389d144f6a98ccc8bbb71b3dcd253"
+      }
+    ],
+    "package_files_verified_read_only": 958,
+    "provenance_manifests_verified": 9,
+    "total_physical_artifacts_verified": 967,
+    "source_inputs_verified": 950,
+    "adaptation_hashes_verified": 102,
+    "catalog_sha256": "3bb6b613a21d1103563ff2974206fbe66b39aa4ff355160a07e6bf8e945b6a4f",
+    "source_lock_sha256": "715f3c5c617947e72714553bedcf3e382fbe6367837c8bbbbc795f97ae3ce455",
+    "acquisition_cache_consulted": false,
+    "unchanged_since_phase1": true,
+    "skills_changes_since_pre_phase1": [
+      "Skills/validacao/validar_biblioteca.py"
+    ],
+    "license_filename_matches": 13,
+    "license_filename_match_scope": "Nomes iniciados por LICENSE/COPYING/NOTICE; não inventário jurídico completo"
+  },
+  "project_root_license_candidates": [],
+  "agent_discovery_files_unchanged": true,
+  "consumer_projects_accessed_or_modified": false,
+  "app_web_accessed_or_modified": false,
+  "remotes_modified": false,
+  "global_configuration_modified": false,
+  "verification_scope": "Leitura de registros, código, logs, Git e hashes; sem execução de suítes, fornecedores, agentes ou aquisição.",
+  "verdict": "Não apto",
+  "status": "consolidated_with_confirmed_blocker",
+  "findings_status": {
+    "A01": "Resolvido",
+    "A02": "Resolvido com ressalvas",
+    "A03": "Resolvido com ressalvas",
+    "A04": "Resolvido",
+    "A05": "Resolvido com ressalvas",
+    "A06": "Resolvido com ressalvas",
+    "A07": "Resolvido com ressalvas"
+  },
+  "targeted_cases_this_phase": {
+    "A02_static_tuple_export": {
+      "input_init": "helper, other = 1, 2\n",
+      "input_main": "from . import helper\n",
+      "observed": {
+        "status": "blocked",
+        "message": "Dependência local Python ausente/ambígua; revisão manual: pkg/helper"
+      },
+      "modules_executed": false
+    },
+    "A07_javascript_without_package_type": {
+      "input": "export const value = 1;\nthrow new Error(\"must never execute\");\n",
+      "declared_package_type": null,
+      "node": "/home/marcosrennan/.asdf/installs/nodejs/24.21.0/bin/node",
+      "filename_check_exit_code": 0,
+      "filename_check_stderr": "",
+      "maintenance_stdin_check": {
+        "status": "blocked",
+        "message": "Sintaxe de script inválida: Skills/Frontend/fixture/helper.js: (node:66) Warning: Failed to load the ES module: [stdin]. Make sure to set \"type\": \"module\" in the nearest package.json file or use the .mjs extension.\n(Use `node --trace-warnings ...` to show where the warning was created)\n[stdin]:1\nexport const value = 1;\n^^^^^^\n\nSyntaxError: Unexpected token 'export'\n    at wrapSafe (node:internal/modules/cjs/loader:1861:18)\n    at checkSyntax (node:internal/main/check_syntax:88:3)\n    at node:internal/main/check_syntax:45:5\n    at Socket.<anonymous> (node:internal/process/execution:205:5)\n    at Socket.emit (node:events:526:24)\n    at endReadableNT (node:internal/streams/readable:1764:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)\n\nNode.js v24.21.0\n"
+      },
+      "scripts_executed": false,
+      "only_syntax_parsing": true,
+      "external_ancestor_package_json_present": []
+    }
+  },
+  "full_test_suites_rerun": false,
+  "new_test_approvals_claimed": 0,
+  "new_findings": [
+    {
+      "id": "R01",
+      "priority": "P2",
+      "status": "confirmed_not_fixed",
+      "related": "A07",
+      "code": "Automacao/manutencao-skills/atualizacoes.py:433",
+      "description": "JavaScript .js sem tipo declarado passa no check por arquivo e é recusado pelo CommonJS forçado da manutenção.",
+      "blocks_stage_4B": true
+    },
+    {
+      "id": "R02",
+      "priority": "P3",
+      "status": "confirmed_not_fixed",
+      "related": "A02",
+      "code": "Automacao/manutencao-skills/atualizacao_receita.py:93",
+      "description": "Export estático por atribuição de tupla no inicializador é recusado.",
+      "blocks_stage_4B": false
+    }
+  ],
+  "A08": {
+    "priority": "P3",
+    "status": "pending_not_implemented"
+  },
+  "agent_evidence": {
+    "codex": {
+      "source": "Automacao/validacao-integracao-agentes/codex-fluxo.json",
+      "evidence_sha256": "e67d30943d432123e8deb12f2e68f3bfa3b3b6ce782e8d20689b8788aee9f7d3",
+      "native_prompt_rendering": "documented_2B",
+      "explicit_skill_use": "documented_active_session",
+      "automatic_activation_new_session": "not_proven_in_accessible_record",
+      "bootstrap": "documented_Python_FastAPI_and_TypeScript_Nextjs"
+    },
+    "OpenCode_DeepSeek": {
+      "implementation": "present",
+      "static_discovery": "present",
+      "later_practical_tests": "reported_by_user",
+      "native_discovery_activation_bootstrap_details": "external_evidence_pending_documentary_incorporation"
+    },
+    "Gemini_CLI_Antigravity": {
+      "implementation": "Gemini_integration_present",
+      "static_discovery": "present",
+      "later_practical_tests": "reported_by_user",
+      "native_discovery_activation_bootstrap_details": "external_evidence_pending_documentary_incorporation"
+    }
+  },
+  "next_steps": {
+    "stage_4B": "blocked_by_R01_P2",
+    "installation_documentation": "may_start_with_recorded_limits",
+    "github_publication": "defer_pending_R01_and_documentary_review"
+  },
+  "read_only_verifier_sha256": "7e3ec8201113a0a2018167ce62fa7d27948d50d0aa248f8e2d4f4cdb92f9c545",
+  "targeted_case_driver_sha256": "f8d4c0a343c5bd68f328946c621657be470936090bf179f0e2e662926df1de14",
+  "reviewed_at_utc": "2026-11-13T01:45:45.468880+00:00",
+  "changes_since_tested_phase2_at_initial_head": [
+    "Automacao/validacao-seguranca-recuperacao/RELATORIO.md",
+    "Automacao/validacao-seguranca-recuperacao/resultado.json"
+  ]
+}
