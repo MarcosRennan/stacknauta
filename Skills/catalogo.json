@@ -4,31 +4,31 @@
   "counts": {
     "approved_by_category": {
       "Backend": 19,
-      "Frontend": 7,
+      "Frontend": 8,
       "Mobile": 71,
       "Seguranca": 7
     },
-    "approved_skills": 104,
+    "approved_skills": 105,
     "by_category": {
       "Backend": 24,
-      "Frontend": 14,
+      "Frontend": 15,
       "Mobile": 80,
       "Seguranca": 9
     },
     "by_scope": {
-      "catalogued_source": 131,
+      "catalogued_source": 132,
       "experimental_source": 1,
       "internal_evaluation_not_distributable": 1
     },
-    "catalogued_skills": 133,
+    "catalogued_skills": 134,
     "distribution_aliases": 6,
-    "distribution_packages": 10,
+    "distribution_packages": 11,
     "enabled_skills": 0,
     "excluded_skills": 2,
     "pending_skills": 27,
-    "physical_skill_files": 139,
-    "prepared_distribution_skills": 104,
-    "sources": 8,
+    "physical_skill_files": 140,
+    "prepared_distribution_skills": 105,
+    "sources": 9,
     "unclassified_skills": 6
   },
   "distribution_aliases": [
@@ -243,12 +243,20 @@
         "gh-iart-ai-web-animation-skills:micro-interaction",
         "gh-iart-ai-web-animation-skills:svg-animation"
       ]
+    },
+    {
+      "directory": "Skills/Frontend/gh-anthropics-skills",
+      "id": "Frontend/gh-anthropics-skills",
+      "manifest_sha256": "85e830b4ef31f75b6206afb15183d28555bf5f86ec3f0932204b6b9794d70d5d",
+      "skills": [
+        "gh-anthropics-skills:frontend-design"
+      ]
     }
   ],
   "generation": {
     "deterministic": true,
-    "policy_sha256": "1af9e6f38d2c9a274a7c1a3f95f70a3bbabe688d3f77300b2dc4370e1bd5d1a8",
-    "source_lock_sha256": "fba5594ca49244ba8b492ec85bcd3110ce8ff94707439f161b8c2ee37e515338",
+    "policy_sha256": "9534cd494cc4e0a709f0490ac546245ce625dea71ff080d99e3c14ae1a6b4102",
+    "source_lock_sha256": "862451e89a5c4a0dda429932c388b86e4c54be5ca4a87f2ef8265ffb86243a13",
     "tool": "Automacao/manutencao-skills/inclusoes.py",
     "tool_sha256": "36c1cf785885860da9e2c28d50605f2becdd14cf2813e0eb2a62e9e565e969ae"
   },
@@ -14897,6 +14905,129 @@
         "status": "packaged",
         "vendor_workflow_certified": false
       }
+    },
+    {
+      "acquisition_category": null,
+      "acquisition_validation": {
+        "compatibility_tested": false,
+        "copy_plan_complete": false,
+        "frontmatter": "delimiters_name_description_only_not_full_yaml_validation",
+        "required_files_present": true,
+        "resource_references": {},
+        "status": "static_inventory_only",
+        "vendor_code_executed": false
+      },
+      "category": "Frontend",
+      "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+      "compatibility": {
+        "architecture": null,
+        "features_all": [
+          "ui"
+        ],
+        "frameworks_all": [],
+        "frameworks_any": [
+          "react",
+          "nextjs",
+          "vue",
+          "nuxt",
+          "svelte",
+          "astro"
+        ],
+        "languages_any": [
+          "javascript",
+          "typescript"
+        ],
+        "runtimes": [],
+        "selection_mode": "explicit",
+        "tools": []
+      },
+      "decision_reason": "Especialização complementar em direção visual contextual, composição, tipografia e exploração de alternativas estéticas para aumentar diversidade e qualidade de interfaces. Aprovação expressa do usuário na Rodada 2C restrita ao planejamento, sem autorização de aplicação. Precedência: requisitos/briefing/marca/conteúdo/stack/acessibilidade/performance; decisões visuais e Design System aprovados; UI/UX Pro Max e convenções aplicáveis; depois exploração criativa. Mudanças em decisões aprovadas exigem confirmação do usuário. Preservar UI/UX Pro Max, Apache-2.0 e avisos aplicáveis, conteúdo upstream e independência entre skills. Levar a orientação de precedência no contexto de consumo autorizado; explicit não impõe obediência do agente. Manter limitação vanilla e exigir alvo web inequívoco em projetos React/React Native. Sem instalações, mudança de stack ou dependências automáticas. Decisão reiterada pelo usuário na Rodada 2C.1 exclusivamente para a nova sessão na mesma revisão e configuração, após commit documental; nenhuma autorização de promoção.",
+      "dependency_evidence": [],
+      "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
+      "distribution": {
+        "application_requirements_not_installed": true,
+        "package": "Frontend/gh-anthropics-skills",
+        "requires_skills": [],
+        "runtime_requirements": [],
+        "skill_directory": "vendor/skills/frontend-design"
+      },
+      "distribution_status": "approved",
+      "enabled": false,
+      "frontmatter_fields": {
+        "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
+        "license": "Complete terms in LICENSE.txt",
+        "name": "frontend-design"
+      },
+      "id": "gh-anthropics-skills:frontend-design",
+      "inclusion_review": {
+        "decision": {
+          "category": "Frontend",
+          "compatibility": {
+            "architecture": null,
+            "features_all": [
+              "ui"
+            ],
+            "frameworks_all": [],
+            "frameworks_any": [
+              "react",
+              "nextjs",
+              "vue",
+              "nuxt",
+              "svelte",
+              "astro"
+            ],
+            "languages_any": [
+              "javascript",
+              "typescript"
+            ],
+            "runtimes": [],
+            "selection_mode": "explicit",
+            "tools": []
+          },
+          "conflicts_acknowledged": [],
+          "prerequisites_review": {},
+          "reason": "Especialização complementar em direção visual contextual, composição, tipografia e exploração de alternativas estéticas para aumentar diversidade e qualidade de interfaces. Aprovação expressa do usuário na Rodada 2C restrita ao planejamento, sem autorização de aplicação. Precedência: requisitos/briefing/marca/conteúdo/stack/acessibilidade/performance; decisões visuais e Design System aprovados; UI/UX Pro Max e convenções aplicáveis; depois exploração criativa. Mudanças em decisões aprovadas exigem confirmação do usuário. Preservar UI/UX Pro Max, Apache-2.0 e avisos aplicáveis, conteúdo upstream e independência entre skills. Levar a orientação de precedência no contexto de consumo autorizado; explicit não impõe obediência do agente. Manter limitação vanilla e exigir alvo web inequívoco em projetos React/React Native. Sem instalações, mudança de stack ou dependências automáticas. Decisão reiterada pelo usuário na Rodada 2C.1 exclusivamente para a nova sessão na mesma revisão e configuração, após commit documental; nenhuma autorização de promoção.",
+          "requires_skills": [],
+          "status": "approved"
+        },
+        "origin_commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+        "review_id": "481544cc5f580a2f90950309bacedb34bdad8034937c1b00c8d87c2d7f048e78"
+      },
+      "license": {
+        "asset_licenses": [],
+        "evidence": [
+          {
+            "identified": "Apache-2.0",
+            "path": "skills/frontend-design/LICENSE.txt"
+          }
+        ],
+        "identified": "Apache-2.0",
+        "licensing_metadata": [],
+        "scope_note": "Identificação do arquivo mais próximo; preservar todas as evidências. security-review tem referências CC-BY-SA-4.0 sob origem Apache-2.0."
+      },
+      "name": "frontend-design",
+      "pending": [],
+      "repository": "https://github.com/anthropics/skills.git",
+      "required_files": [
+        "skills/frontend-design/LICENSE.txt",
+        "skills/frontend-design/SKILL.md"
+      ],
+      "required_files_policy": "whole_skill_directory_plus_closed_static_resources_and_licenses",
+      "resource_directories": [],
+      "scope": "catalogued_source",
+      "script_files": [],
+      "sibling_skill_mentions": [],
+      "source_category": null,
+      "source_id": "gh-anthropics-skills",
+      "source_path": "skills/frontend-design/SKILL.md",
+      "source_root": "Skills/_repos/gh-anthropics-skills",
+      "validation": {
+        "agent_integration_tested": false,
+        "copy_plan_complete": true,
+        "enabled": false,
+        "status": "packaged",
+        "vendor_workflow_certified": false
+      }
     }
   ],
   "sources": [
@@ -15165,6 +15296,34 @@
       "sparse_paths": [],
       "submodules": [],
       "url": "https://github.com/iart-ai/web-animation-skills.git"
+    },
+    {
+      "acquired": true,
+      "acquisition": "shallow-depth-1-no-checkout-manual-materialization",
+      "branch": "main",
+      "canonical_skill_count": 1,
+      "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+      "default_branch": "main",
+      "directory": "Skills/_repos/gh-anthropics-skills",
+      "documentation": [
+        "README.md"
+      ],
+      "id": "gh-anthropics-skills",
+      "license_files": [
+        "skills/frontend-design/LICENSE.txt"
+      ],
+      "licensing_metadata": [],
+      "materialized_file_count": 5,
+      "physical_skill_files": 1,
+      "revision_ref": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+      "revision_type": "commit",
+      "source_category": null,
+      "sparse_omitted_count": 441,
+      "sparse_paths": [
+        "skills/frontend-design"
+      ],
+      "submodules": [],
+      "url": "https://github.com/anthropics/skills.git"
     }
   ],
   "stage": "1.5",

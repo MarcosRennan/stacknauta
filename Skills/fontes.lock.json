@@ -93,6 +93,21 @@
       "source_category": null,
       "sparse_paths": [],
       "url": "https://github.com/iart-ai/web-animation-skills.git"
+    },
+    {
+      "acquisition": "shallow-depth-1-no-checkout-manual-materialization",
+      "branch": "main",
+      "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+      "default_branch": "main",
+      "directory": "Skills/_repos/gh-anthropics-skills",
+      "id": "gh-anthropics-skills",
+      "revision_ref": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+      "revision_type": "commit",
+      "source_category": null,
+      "sparse_paths": [
+        "skills/frontend-design"
+      ],
+      "url": "https://github.com/anthropics/skills.git"
     }
   ]
 }

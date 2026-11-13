@@ -838,5 +838,13 @@
     "package": "Frontend/gh-iart-ai-web-animation-skills",
     "path": "vendor/skills/svg-animation/SKILL.md",
     "reason": "Contrato explícito de distribuição/asdf e caminhos relativos para README/licença; layout de origem preservado."
+  },
+  {
+    "after_sha256": "771c8727f834a627e79eb134ae9d2ff2b684e9e24a64e45ff6b8c01c502540cd",
+    "before_sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+    "diff": "--- upstream\n+++ distribution\n@@ -3,6 +3,13 @@\n description: Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.\n license: Complete terms in LICENSE.txt\n ---\n+\n+<!-- StackNauta: documented distribution adaptation; see PROVENANCE.json. -->\n+## StackNauta distribution\n+\n+Before following vendor commands, read the [execution contract](../../../README.md#execution-contract).\n+Script paths are relative to this skill's directory; project input/output paths remain project-relative.\n+Use only the verified installed global asdf runtimes. No system fallback or implicit installation.\n \n # Frontend Design\n \n",
+    "package": "Frontend/gh-anthropics-skills",
+    "path": "vendor/skills/frontend-design/SKILL.md",
+    "reason": "Contrato explícito de distribuição/asdf e caminhos relativos para README/licença; layout de origem preservado."
   }
 ]

@@ -1,0 +1,54 @@
+{
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "directory": "Skills/Frontend/gh-anthropics-skills",
+  "files": {
+    "README.md": {
+      "adaptation": null,
+      "inputs": [],
+      "mode": "100644",
+      "origin": "StackNauta",
+      "sha256": "4967dd0f6811efa8f886281067b0bf02b69680d976459e30929bfac2a221504d",
+      "size": 1804
+    },
+    "vendor/skills/frontend-design/LICENSE.txt": {
+      "adaptation": null,
+      "inputs": [
+        {
+          "path": "skills/frontend-design/LICENSE.txt",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "size": 10174
+    },
+    "vendor/skills/frontend-design/SKILL.md": {
+      "adaptation": "Contrato explícito de distribuição/asdf e caminhos relativos para README/licença; layout de origem preservado.",
+      "inputs": [
+        {
+          "path": "skills/frontend-design/SKILL.md",
+          "sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "771c8727f834a627e79eb134ae9d2ff2b684e9e24a64e45ff6b8c01c502540cd",
+      "size": 9805
+    }
+  },
+  "id": "Frontend/gh-anthropics-skills",
+  "layout": "source-relative-v1",
+  "repository": "https://github.com/anthropics/skills.git",
+  "shared_files": [
+    "README.md",
+    "vendor/skills/frontend-design/LICENSE.txt"
+  ],
+  "skill_extra_files": {
+    "gh-anthropics-skills:frontend-design": []
+  },
+  "skills": [
+    "gh-anthropics-skills:frontend-design"
+  ],
+  "source_id": "gh-anthropics-skills"
+}

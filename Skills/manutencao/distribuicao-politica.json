@@ -931,6 +931,13 @@
       "id": "gh-iart-ai-web-animation-skills:svg-animation",
       "reason": "Especialização em animações vetoriais, ícones, caminhos SVG, morphing e ilustrações interativas. CSS/SMIL quando adequados; GSAP não presumido; bibliotecas opcionais exigem autorização do projeto; respeitar performance, acessibilidade e suporte de navegador. Autorização do usuário na Rodada 1D.1 limitada ao registro de decisão e geração do dry-run; promoção definitiva não autorizada.",
       "status": "approved"
+    },
+    {
+      "bundle": "gh-anthropics-skills",
+      "category": "Frontend",
+      "id": "gh-anthropics-skills:frontend-design",
+      "reason": "Especialização complementar em direção visual contextual, composição, tipografia e exploração de alternativas estéticas para aumentar diversidade e qualidade de interfaces. Aprovação expressa do usuário na Rodada 2C restrita ao planejamento, sem autorização de aplicação. Precedência: requisitos/briefing/marca/conteúdo/stack/acessibilidade/performance; decisões visuais e Design System aprovados; UI/UX Pro Max e convenções aplicáveis; depois exploração criativa. Mudanças em decisões aprovadas exigem confirmação do usuário. Preservar UI/UX Pro Max, Apache-2.0 e avisos aplicáveis, conteúdo upstream e independência entre skills. Levar a orientação de precedência no contexto de consumo autorizado; explicit não impõe obediência do agente. Manter limitação vanilla e exigir alvo web inequívoco em projetos React/React Native. Sem instalações, mudança de stack ou dependências automáticas. Decisão reiterada pelo usuário na Rodada 2C.1 exclusivamente para a nova sessão na mesma revisão e configuração, após commit documental; nenhuma autorização de promoção.",
+      "status": "approved"
     }
   ],
   "schema_version": 1,

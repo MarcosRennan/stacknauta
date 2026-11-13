@@ -18,3 +18,4 @@ Biblioteca versionada; atualizações manuais. Nenhuma skill ativada.
 | [60fps-animation](gh-iart-ai-web-animation-skills/vendor/skills/60fps-animation/SKILL.md) | approved | Frontend/gh-iart-ai-web-animation-skills |
 | [micro-interaction](gh-iart-ai-web-animation-skills/vendor/skills/micro-interaction/SKILL.md) | approved | Frontend/gh-iart-ai-web-animation-skills |
 | [svg-animation](gh-iart-ai-web-animation-skills/vendor/skills/svg-animation/SKILL.md) | approved | Frontend/gh-iart-ai-web-animation-skills |
+| [frontend-design](gh-anthropics-skills/vendor/skills/frontend-design/SKILL.md) | approved | Frontend/gh-anthropics-skills |
