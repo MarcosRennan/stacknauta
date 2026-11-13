@@ -1,0 +1,539 @@
+{
+  "stage": "4B-2C",
+  "status": "bloqueado_na_geracao_do_plano",
+  "acceptance_complete": false,
+  "initial_head": "56b33bdfaac4a5e06c16418fface2611a52b7b24",
+  "initial_git_status": "?? Automacao/validacao-design-rodada2a/RELATORIO.md\n?? Automacao/validacao-design-rodada2a/resultado.json\n?? Automacao/validacao-design-rodada2b/RELATORIO.md\n?? Automacao/validacao-design-rodada2b/propostas.json\n",
+  "initial_differences_are_expected_reports_only": true,
+  "initial_tracked_baseline_matches_session": true,
+  "initial_library_validation": {
+    "schema_version": 2,
+    "stage": "1.5",
+    "validated_at_utc": "2026-11-13T18:45:18.681410+00:00",
+    "status": "passed_with_documented_pending",
+    "python_executor": {
+      "manager": "asdf",
+      "global_source": "~/.tool-versions",
+      "version": "3.14.8"
+    },
+    "counts": {
+      "approved_by_category": {
+        "Backend": 19,
+        "Frontend": 7,
+        "Mobile": 71,
+        "Seguranca": 7
+      },
+      "approved_skills": 104,
+      "by_category": {
+        "Backend": 24,
+        "Frontend": 14,
+        "Mobile": 80,
+        "Seguranca": 9
+      },
+      "by_scope": {
+        "catalogued_source": 131,
+        "experimental_source": 1,
+        "internal_evaluation_not_distributable": 1
+      },
+      "catalogued_skills": 133,
+      "distribution_aliases": 6,
+      "distribution_packages": 10,
+      "enabled_skills": 0,
+      "excluded_skills": 2,
+      "pending_skills": 27,
+      "physical_skill_files": 139,
+      "prepared_distribution_skills": 104,
+      "sources": 8,
+      "unclassified_skills": 6
+    },
+    "package_files_verified": 974,
+    "python_files_parsed": 41,
+    "node_syntax": {
+      "status": "passed",
+      "files": 7,
+      "execution": "syntax parsing only, vendor code not executed"
+    },
+    "local_markdown_links_checked": 1098,
+    "adapted_files": 105,
+    "cache_validation": {
+      "status": "not_required_for_distribution"
+    },
+    "physical_copy_test": {
+      "status": "not_requested"
+    },
+    "checks": [
+      "Revisões e proveniência de cada arquivo confrontadas com o lock e índices adquiridos.",
+      "Hashes, inventários completos, recursos, referências Markdown locais e licenças conferidos.",
+      "Planos de cópia fechados sobre dependências; nenhum SKILL.md pendente/excluído nos pacotes.",
+      "Adaptações explícitas com hashes antes/depois e unified diff.",
+      "Sem links simbólicos, caminhos locais ou dependência de cache nos pacotes.",
+      "Nenhuma ativação de agentes; estado do núcleo validado separadamente da biblioteca."
+    ],
+    "errors": [],
+    "limits": [
+      "Packaging approval does not certify agent discovery or all application workflows.",
+      "Consumer SDKs, hardware, authenticated services and CLIs were not provisioned or exercised.",
+      "Frontmatter delimiters/name/description and declared licence paths checked; not full YAML schema validation."
+    ],
+    "bootstrap_implemented": true,
+    "bootstrap_core_stage": "2A",
+    "agent_integration_tested": false,
+    "production_ready": false
+  },
+  "session_id": "78ab56b987824743915bca34f29e1090",
+  "review_id": "693c6aa1be23fc91c05b9c4ae988055965392dc343f775487cf8fa0812be1b3a",
+  "source": {
+    "acquisition": "shallow-depth-1-no-checkout-manual-materialization",
+    "branch": "main",
+    "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+    "default_branch": "main",
+    "directory": "Skills/_repos/gh-anthropics-skills",
+    "id": "gh-anthropics-skills",
+    "revision_ref": "main",
+    "revision_type": "branch",
+    "source_category": null,
+    "sparse_paths": [
+      "skills/frontend-design"
+    ],
+    "url": "https://github.com/anthropics/skills.git"
+  },
+  "candidate_id": "gh-anthropics-skills:frontend-design",
+  "upstream_commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "upstream_skill_sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+  "resources": [
+    {
+      "git_blob": "f433b1a53f5b830a205fd2df78e2b34974656c7b",
+      "git_mode": "100644",
+      "path": "skills/frontend-design/LICENSE.txt",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "size": 10174,
+      "type": "file"
+    },
+    {
+      "git_blob": "a5333457c414d20d625f307df945842c0952ecc3",
+      "git_mode": "100644",
+      "path": "skills/frontend-design/SKILL.md",
+      "sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+      "size": 9390,
+      "type": "file"
+    }
+  ],
+  "resource_count": 2,
+  "license": {
+    "identified": "Apache-2.0",
+    "evidence_path": "skills/frontend-design/LICENSE.txt",
+    "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+    "frontmatter_reference": "Complete terms in LICENSE.txt",
+    "applicable_notice_file_in_directory_or_ancestors": null,
+    "root_other_notices_file": "THIRD_PARTY_NOTICES.md",
+    "other_notices_scope": "Avisos de componentes/softwares/fontes não incluídos no fechamento; sem referência à frontend-design. Não presume licença para dependências/assets futuros.",
+    "specific_copyright_notice_in_two_resources": "Não encontrado aviso específico com titular/ano; não foi inventado. Origem e revisão devem permanecer na proveniência.",
+    "copy_distribution_conditions": [
+      "Acompanhar com a cópia integral da licença.",
+      "Preservar avisos aplicáveis de copyright, patentes, marcas e atribuição.",
+      "Se houver NOTICE aplicável, preservar atribuições conforme seção 4(d)."
+    ],
+    "modified_distribution_conditions": [
+      "Seção 4(b): destacar arquivos modificados; manter origem, revisão, hashes antes/depois e diffs conforme infraestrutura.",
+      "Não atribuir mudanças StackNauta ao fornecedor; preservar licença e avisos aplicáveis."
+    ],
+    "commercial_use": "Não foi identificada proibição de uso comercial no texto; direitos não incluem licença irrestrita de marcas, fontes ou assets externos.",
+    "not_a_universal_repository_license": true
+  },
+  "session_integrity": {
+    "review_identity_verified": true,
+    "source_head_verified": true,
+    "source_files_sha256_git_blob_modes_verified": 5,
+    "resource_records_identical_to_2a_and_2b": true,
+    "analysis_recomputed_with_existing_analyzer": true,
+    "candidate_not_promoted_or_active": true,
+    "tracked_baseline_matches": true
+  },
+  "decision": {
+    "file": ".stacknauta-updates/78ab56b987824743915bca34f29e1090/rodada2c/decisoes-planejamento.json",
+    "content": {
+      "schema_version": 1,
+      "skills": {
+        "gh-anthropics-skills:frontend-design": {
+          "category": "Frontend",
+          "compatibility": {
+            "architecture": null,
+            "features_all": [
+              "ui"
+            ],
+            "frameworks_all": [],
+            "frameworks_any": [
+              "react",
+              "nextjs",
+              "vue",
+              "nuxt",
+              "svelte",
+              "astro"
+            ],
+            "languages_any": [
+              "javascript",
+              "typescript"
+            ],
+            "runtimes": [],
+            "selection_mode": "explicit",
+            "tools": []
+          },
+          "conflicts_acknowledged": [],
+          "prerequisites_review": {},
+          "reason": "Especialização complementar em direção visual contextual, composição, tipografia e exploração de alternativas estéticas para aumentar diversidade e qualidade de interfaces. Aprovação expressa do usuário na Rodada 2C restrita ao planejamento, sem autorização de aplicação. Precedência: requisitos/briefing/marca/conteúdo/stack/acessibilidade/performance; decisões visuais e Design System aprovados; UI/UX Pro Max e convenções aplicáveis; depois exploração criativa. Mudanças em decisões aprovadas exigem confirmação do usuário. Preservar UI/UX Pro Max, Apache-2.0 e avisos aplicáveis, conteúdo upstream e independência entre skills. Levar a orientação de precedência no contexto de consumo autorizado; explicit não impõe obediência do agente. Manter limitação vanilla e exigir alvo web inequívoco em projetos React/React Native. Sem instalações, mudança de stack ou dependências automáticas.",
+          "requires_skills": [],
+          "status": "approved"
+        }
+      }
+    },
+    "sha256_of_decision_file_not_plan_hash": "4acc62a23aa73214bb73fcbeb74777b7535a6b69bfc189e9d90db1e9a113de83",
+    "validation_by_existing_validate_decisions": {
+      "approved_ids": [
+        "gh-anthropics-skills:frontend-design"
+      ],
+      "decision_file": "decisoes-planejamento.json",
+      "metadata_matches_2b": true,
+      "only_planning_authorized": true,
+      "production_library_unchanged": true,
+      "status": "passed"
+    },
+    "submitted_to_official_cli": true,
+    "accepted_into_official_plan": false,
+    "registered_in_active_catalog": false,
+    "approved_ids_in_file": [
+      "gh-anthropics-skills:frontend-design"
+    ],
+    "approved_ids_in_generated_plan": [],
+    "authorization_scope": "Planejamento somente; não autoriza aplicar."
+  },
+  "cli_invocation": {
+    "command": [
+      "Automacao/manutencao-skills/skills",
+      "review",
+      "78ab56b987824743915bca34f29e1090",
+      "--decisions",
+      ".stacknauta-updates/78ab56b987824743915bca34f29e1090/rodada2c/decisoes-planejamento.json",
+      "--review-id",
+      "693c6aa1be23fc91c05b9c4ae988055965392dc343f775487cf8fa0812be1b3a"
+    ],
+    "return_code": 2,
+    "stdout": "",
+    "stderr": "{\"status\": \"bloqueado\", \"erro\": \"Git principal tem alterações locais; preserve/registre-as antes de atualizar\"}\n",
+    "parsed_stderr": {
+      "status": "bloqueado",
+      "erro": "Git principal tem alterações locais; preserve/registre-as antes de atualizar"
+    },
+    "guard_location": "Updates.clean() chamado por Inclusions.review(), antes de criar candidato/planos",
+    "expected_untracked_reports_only": true,
+    "guard_bypassed": false
+  },
+  "blocker": {
+    "type": "guarda_git_absoluta_sem_excecao_para_relatorios_esperados",
+    "message": "Git principal tem alterações locais; preserve/registre-as antes de atualizar",
+    "location": "Automacao/manutencao-skills/inclusoes.py:205 chama Updates.clean em Automacao/manutencao-skills/atualizacoes.py:372",
+    "actual_untracked_before_submission": "?? Automacao/validacao-design-rodada2a/RELATORIO.md\n?? Automacao/validacao-design-rodada2a/resultado.json\n?? Automacao/validacao-design-rodada2b/RELATORIO.md\n?? Automacao/validacao-design-rodada2b/propostas.json\n",
+    "tracked_files_changed": false,
+    "unknown_changes_found": false,
+    "original_session_invalid_or_tampered": false,
+    "guard_bypassed": false,
+    "production_code_modified_to_continue": false,
+    "reports_hidden_moved_ignored_deleted_or_committed": false,
+    "retry_or_reacquisition_performed": false
+  },
+  "plan": {
+    "plan_id": null,
+    "official_authorization_hash": null,
+    "generated": false,
+    "plan_json_present": false,
+    "review_diff_present": false,
+    "candidate_tree_created": false,
+    "journal_present": false,
+    "inspection_of_plan_or_diff": "not_possible_not_generated",
+    "application_assessment": "Não há plano oficial apto a submeter para aplicação.",
+    "official_files_to_create": null,
+    "official_files_to_modify": null,
+    "official_destination_paths": null,
+    "catalog_changes": null,
+    "lock_changes": null,
+    "source_changes": null,
+    "package_changes": null,
+    "projected_counts_from_official_plan": null,
+    "application_executed": false
+  },
+  "authorized_metadata": {
+    "category": "Frontend",
+    "compatibility": {
+      "languages_any": [
+        "javascript",
+        "typescript"
+      ],
+      "frameworks_any": [
+        "react",
+        "nextjs",
+        "vue",
+        "nuxt",
+        "svelte",
+        "astro"
+      ],
+      "frameworks_all": [],
+      "features_all": [
+        "ui"
+      ],
+      "architecture": null,
+      "tools": [],
+      "runtimes": [],
+      "selection_mode": "explicit"
+    },
+    "requires_skills": [],
+    "prerequisites_review": {},
+    "conflicts_acknowledged": []
+  },
+  "visual_precedence": {
+    "order": [
+      "Requisitos/briefing/marca/público/conteúdo/stack/acessibilidade/performance",
+      "Decisões visuais e artefatos aprovados",
+      "UI/UX Pro Max e convenções aplicáveis",
+      "Exploração Frontend Design opcional e subordinada"
+    ],
+    "conditions_recorded_in_decision_reason": true,
+    "approved_decisions_require_user_confirmation_to_change": true,
+    "proposal_2b_preserved_sha256": "9d30d69fb070ccda56abe1ee8b2e3084fad3989047bc119ee32f8beafd120a16",
+    "existing_requirements_constraints_transport_retested": {
+      "transport_preserved": true,
+      "artifact_generation": "in_memory_only",
+      "runtime_versions_global_asdf": {
+        "nodejs": "24.21.0",
+        "python": "3.14.8"
+      },
+      "agent_obedience_tested": false,
+      "supplier_changed": false
+    },
+    "not_automatically_injected_by_selection_mode": true,
+    "agent_obedience_verified": false,
+    "upstream_patch_applied": false,
+    "candidate_plan_preservation_verified": false,
+    "reason_plan_check_unavailable": "Nenhum candidato de incorporação foi gerado. O código ativo de transporte continua intacto."
+  },
+  "compatibility_limits": [
+    "Frontend vanilla com JavaScript sem framework é normalizável, mas a proposta o rejeita; HTML/CSS não são linguagens registradas.",
+    "frameworks_any aceita React em combinação com React Native; não existe discriminador web/nativo ou exclusão de frameworks. Não usar em alvo ambíguo.",
+    "A lista de features não representa estágio criativo, status de aprovação visual ou precedência; selection_mode não controla comportamento do agente.",
+    "Listas explícitas são raízes completas; UI/UX precisa ser solicitada nominalmente se também for desejada.",
+    "Escolha da skill não instala bibliotecas, fontes, assets ou runtimes."
+  ],
+  "directed_checks": {
+    "tests_run": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "status": "passed",
+    "observations": {
+      "A": {
+        "active_roots": [
+          "ui-ux-pro-max:ui-ux-pro-max"
+        ],
+        "proposed_mode": "explicit",
+        "candidate_available_in_active_library": false,
+        "hypothetical_candidate_selection_not_executed": true
+      },
+      "B": {
+        "metadata_compatible_frameworks": [
+          "react",
+          "nextjs",
+          "vue",
+          "nuxt",
+          "svelte",
+          "astro"
+        ],
+        "real_library_selection": "rejected_not_catalogued",
+        "availability_simulated": false
+      },
+      "C": {
+        "roots": [
+          "ui-ux-pro-max:ui-ux-pro-max"
+        ],
+        "selected": [
+          "ui-ux-pro-max:ui-ux-pro-max"
+        ],
+        "historical_policy_without_new_mode": true
+      },
+      "D": {
+        "requested_roots": [
+          "gh-anthropics-skills:frontend-design",
+          "ui-ux-pro-max:ui-ux-pro-max"
+        ],
+        "both_predicates_compatible": true,
+        "real_combined_distribution": "not_performed_candidate_absent",
+        "mandatory_dependency_between_the_two": false
+      },
+      "E": {
+        "transport_preserved": true,
+        "artifact_generation": "in_memory_only",
+        "runtime_versions_global_asdf": {
+          "nodejs": "24.21.0",
+          "python": "3.14.8"
+        },
+        "agent_obedience_tested": false,
+        "supplier_changed": false
+      },
+      "F": {
+        "javascript_without_framework": "metadata_rejected",
+        "html_css_languages": "not_supported",
+        "vanilla_framework": "not_supported"
+      },
+      "G": {
+        "native_only": "metadata_rejected",
+        "react_and_react_native_predicate": "accepted",
+        "mixed_target_safe": false,
+        "mixed_distribution": "not_performed",
+        "operational_condition": "Exigir alvo web inequívoco; suspender uso no caso ambíguo."
+      },
+      "H": {
+        "incompatible_metadata_rejected": true,
+        "existing_nominal_compatibility_guard": "rejected",
+        "invalid_selection_modes_rejected": true
+      }
+    },
+    "destination": "/tmp/stacknauta-2b-uncreated-363cf75036634756a5dd8b53ce21ec3c",
+    "destination_exists": false,
+    "candidate_available_in_active_catalog": false,
+    "plans_created": false,
+    "consumer_created": false,
+    "log": "test_A_automatic_active_selection_and_proposed_mode (round2c_metadata_checks.Scenarios.test_A_automatic_active_selection_and_proposed_mode) ... ok\ntest_B_explicit_metadata_for_six_web_frameworks (round2c_metadata_checks.Scenarios.test_B_explicit_metadata_for_six_web_frameworks) ... ok\ntest_C_uiux_explicit_isolation (round2c_metadata_checks.Scenarios.test_C_uiux_explicit_isolation) ... ok\ntest_D_combined_roots_are_only_a_prepared_configuration (round2c_metadata_checks.Scenarios.test_D_combined_roots_are_only_a_prepared_configuration) ... ok\ntest_E_precedence_constraints_preserved_in_memory (round2c_metadata_checks.Scenarios.test_E_precedence_constraints_preserved_in_memory) ... ok\ntest_F_vanilla_and_unknown_language_framework_are_not_invented (round2c_metadata_checks.Scenarios.test_F_vanilla_and_unknown_language_framework_are_not_invented) ... ok\ntest_G_native_only_rejected_and_mixed_target_risk_exposed (round2c_metadata_checks.Scenarios.test_G_native_only_rejected_and_mixed_target_risk_exposed) ... ok\ntest_H_incompatible_metadata_and_existing_nominal_guard (round2c_metadata_checks.Scenarios.test_H_incompatible_metadata_and_existing_nominal_guard) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.033s\n\nOK\n",
+    "harness_source": "rodada2b/test_scenarios.py",
+    "execution": "Carregado como módulo; resultados salvos somente em rodada2c. Artefatos 2B não sobrescritos."
+  },
+  "final_library_validation": {
+    "schema_version": 2,
+    "stage": "1.5",
+    "validated_at_utc": "2026-11-13T18:47:51.233764+00:00",
+    "status": "passed_with_documented_pending",
+    "python_executor": {
+      "manager": "asdf",
+      "global_source": "~/.tool-versions",
+      "version": "3.14.8"
+    },
+    "counts": {
+      "approved_by_category": {
+        "Backend": 19,
+        "Frontend": 7,
+        "Mobile": 71,
+        "Seguranca": 7
+      },
+      "approved_skills": 104,
+      "by_category": {
+        "Backend": 24,
+        "Frontend": 14,
+        "Mobile": 80,
+        "Seguranca": 9
+      },
+      "by_scope": {
+        "catalogued_source": 131,
+        "experimental_source": 1,
+        "internal_evaluation_not_distributable": 1
+      },
+      "catalogued_skills": 133,
+      "distribution_aliases": 6,
+      "distribution_packages": 10,
+      "enabled_skills": 0,
+      "excluded_skills": 2,
+      "pending_skills": 27,
+      "physical_skill_files": 139,
+      "prepared_distribution_skills": 104,
+      "sources": 8,
+      "unclassified_skills": 6
+    },
+    "package_files_verified": 974,
+    "python_files_parsed": 41,
+    "node_syntax": {
+      "status": "passed",
+      "files": 7,
+      "execution": "syntax parsing only, vendor code not executed"
+    },
+    "local_markdown_links_checked": 1098,
+    "adapted_files": 105,
+    "cache_validation": {
+      "status": "not_required_for_distribution"
+    },
+    "physical_copy_test": {
+      "status": "not_requested"
+    },
+    "checks": [
+      "Revisões e proveniência de cada arquivo confrontadas com o lock e índices adquiridos.",
+      "Hashes, inventários completos, recursos, referências Markdown locais e licenças conferidos.",
+      "Planos de cópia fechados sobre dependências; nenhum SKILL.md pendente/excluído nos pacotes.",
+      "Adaptações explícitas com hashes antes/depois e unified diff.",
+      "Sem links simbólicos, caminhos locais ou dependência de cache nos pacotes.",
+      "Nenhuma ativação de agentes; estado do núcleo validado separadamente da biblioteca."
+    ],
+    "errors": [],
+    "limits": [
+      "Packaging approval does not certify agent discovery or all application workflows.",
+      "Consumer SDKs, hardware, authenticated services and CLIs were not provisioned or exercised.",
+      "Frontmatter delimiters/name/description and declared licence paths checked; not full YAML schema validation."
+    ],
+    "bootstrap_implemented": true,
+    "bootstrap_core_stage": "2A",
+    "agent_integration_tested": false,
+    "production_ready": false
+  },
+  "full_regression": "not_repeated_no_production_or_active_library_changes",
+  "physical_copy_104": "not_repeated_no_active_package_changes",
+  "actual_active_library_file_changes": [],
+  "projection_only": "O usuário prevê 105 aprovadas após eventual inclusão; sem plano emitido não se certificam contagens futuras de origens, pacotes ou pendências.",
+  "next_steps": [
+    "Resolver a incompatibilidade entre a guarda absoluta e os relatórios esperados em etapa especificamente autorizada; não ocultar ou descartar evidências.",
+    "Alternativa em etapa separada: organizar/versionar documentação com autorização própria; se HEAD mudar, renovar descoberta oficial fixada em 2c5958ecac7cee2b583967a2c4981d0f4a75c579 e obter novos IDs antes de planejar.",
+    "Não iniciar promoção 2D sem plano oficial gerado, inspecionado e nova autorização explícita para aplicação."
+  ],
+  "preservation": {
+    "previous_reports_sha256": {
+      "Automacao/validacao-design-rodada2a/RELATORIO.md": "b3deaeddbf81ec3fcb64488aece9898cb44a74a97d414b0fe2f5361230873b67",
+      "Automacao/validacao-design-rodada2a/resultado.json": "2347f81a80efad89c7c5bd2f7a547e8f1bd3a95978d7cacc103ba99c122c3906",
+      "Automacao/validacao-design-rodada2b/RELATORIO.md": "4513e36d46daa196586d3d10e8811014ce93cccd66efb161e471f0b2c771c267",
+      "Automacao/validacao-design-rodada2b/propostas.json": "6c89b05a10f0fdf45fe49fa915f68bed7ea44170485ae9faa2447379f58e59a0"
+    },
+    "tracked_files_unchanged": true,
+    "active_library_unchanged": true,
+    "supplier_unchanged": true,
+    "existing_consumers_written": false,
+    "app_web_written": false,
+    "other_candidates_approved": false,
+    "historical_backups_modified": false,
+    "consumer_preservation_evidence_limit": "Escopo das operações, sem nova auditoria forense dos diretórios externos.",
+    "previous_reports_sha256_verified_unchanged": true,
+    "legacy_backup_pyc_sha256_verified_unchanged": true,
+    "tracked_files_verified_count": 1140
+  },
+  "operations": {
+    "new_acquisitions": 0,
+    "official_plan_attempts": 1,
+    "plans_generated": 0,
+    "skills_apply_calls": 0,
+    "promotions": 0,
+    "commits": 0,
+    "dependencies_or_runtimes_installed": false,
+    "supplier_scripts_executed": false,
+    "agents_executed": false,
+    "production_code_modified": false,
+    "remotes_modified": false,
+    "push_executed": false
+  },
+  "created_report_files": [
+    "Automacao/validacao-design-rodada2c/RELATORIO.md",
+    "Automacao/validacao-design-rodada2c/resultado.json"
+  ],
+  "staging_artifacts_directory": ".stacknauta-updates/78ab56b987824743915bca34f29e1090/rodada2c",
+  "final_head": "56b33bdfaac4a5e06c16418fface2611a52b7b24",
+  "final_git_status": "?? Automacao/validacao-design-rodada2a/RELATORIO.md\n?? Automacao/validacao-design-rodada2a/resultado.json\n?? Automacao/validacao-design-rodada2b/RELATORIO.md\n?? Automacao/validacao-design-rodada2b/propostas.json\n?? Automacao/validacao-design-rodada2c/RELATORIO.md\n?? Automacao/validacao-design-rodada2c/resultado.json\n",
+  "final_git_clean": false,
+  "final_tracked_files_unchanged": true,
+  "final_untracked_files": [
+    "Automacao/validacao-design-rodada2a/RELATORIO.md",
+    "Automacao/validacao-design-rodada2a/resultado.json",
+    "Automacao/validacao-design-rodada2b/RELATORIO.md",
+    "Automacao/validacao-design-rodada2b/propostas.json",
+    "Automacao/validacao-design-rodada2c/RELATORIO.md",
+    "Automacao/validacao-design-rodada2c/resultado.json"
+  ]
+}

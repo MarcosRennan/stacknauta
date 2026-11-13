@@ -1,0 +1,716 @@
+{
+  "stage": "4B-2B",
+  "preparation_status": "Pronta com ressalvas",
+  "preparation_is_not_approval": true,
+  "verdict": "Elegível para futura revisão individual no escopo web conservador, mediante adoção da precedência como orientação de consumo autorizada; sem garantia de obediência do agente ou distribuição universal.",
+  "initial_head": "56b33bdfaac4a5e06c16418fface2611a52b7b24",
+  "initial_git_status": "?? Automacao/validacao-design-rodada2a/RELATORIO.md\n?? Automacao/validacao-design-rodada2a/resultado.json\n",
+  "prior_2a_reports_sha256": {
+    "Automacao/validacao-design-rodada2a/RELATORIO.md": "b3deaeddbf81ec3fcb64488aece9898cb44a74a97d414b0fe2f5361230873b67",
+    "Automacao/validacao-design-rodada2a/resultado.json": "2347f81a80efad89c7c5bd2f7a547e8f1bd3a95978d7cacc103ba99c122c3906"
+  },
+  "candidate": {
+    "id": "gh-anthropics-skills:frontend-design",
+    "name": "frontend-design",
+    "source_id": "gh-anthropics-skills",
+    "repository": "https://github.com/anthropics/skills.git",
+    "upstream_url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+    "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+    "acquisition_revision_type": "branch",
+    "acquisition_revision_ref": "main",
+    "session_id": "78ab56b987824743915bca34f29e1090",
+    "review_id": "693c6aa1be23fc91c05b9c4ae988055965392dc343f775487cf8fa0812be1b3a",
+    "source_path": "skills/frontend-design/SKILL.md",
+    "skill_sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+    "resources": [
+      {
+        "git_blob": "f433b1a53f5b830a205fd2df78e2b34974656c7b",
+        "git_mode": "100644",
+        "path": "skills/frontend-design/LICENSE.txt",
+        "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "size": 10174,
+        "type": "file"
+      },
+      {
+        "git_blob": "a5333457c414d20d625f307df945842c0952ecc3",
+        "git_mode": "100644",
+        "path": "skills/frontend-design/SKILL.md",
+        "sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+        "size": 9390,
+        "type": "file"
+      }
+    ],
+    "resource_count": 2,
+    "plan_id": null,
+    "distribution_sha256": null,
+    "active_catalog_status": "absent",
+    "staging_discovery_status": "pending",
+    "name_and_id_collisions": [],
+    "technical_blockers": []
+  },
+  "origin_validation": {
+    "session_reused": true,
+    "network_acquisition_performed": false,
+    "official_cli_review_run": true,
+    "official_review_identity_verified": true,
+    "analysis_recomputed_with_existing_analyzer_and_equal": true,
+    "all_5_acquired_regular_files_sha256_git_blob_mode_verified": true,
+    "baseline_tracked_files_equal": true,
+    "comparison_with_2a_resource_records": "identical",
+    "all_resources_physical_regular_nlink_1": true,
+    "no_upstream_files_modified": true,
+    "source_inventory": [
+      {
+        "git_blob": "4ff6017419e28a4f54da2c777bc5b3fa4740921c",
+        "git_mode": "100644",
+        "path": ".gitignore",
+        "sha256": "2e959f6692e32ec34913e75202d399c4f20ee986abeb3303ab421435a18632e0",
+        "size": 40,
+        "type": "file"
+      },
+      {
+        "git_blob": "4171c2c9eba15bf2bdefb496d941ba559368438b",
+        "git_mode": "100644",
+        "path": "README.md",
+        "sha256": "1fca448ca17ccf901bd068c661209b15300bc5be3f039ba1a616c3a13a374ccb",
+        "size": 5547,
+        "type": "file"
+      },
+      {
+        "git_blob": "ffef92c48b351a3ed036556ed32dda934e8cf41a",
+        "git_mode": "100644",
+        "path": "THIRD_PARTY_NOTICES.md",
+        "sha256": "a8ff7a84dee9dfb42ab448de281784387ceafdf63881b7c070ee2de7f6ed865c",
+        "size": 46162,
+        "type": "file"
+      },
+      {
+        "git_blob": "f433b1a53f5b830a205fd2df78e2b34974656c7b",
+        "git_mode": "100644",
+        "path": "skills/frontend-design/LICENSE.txt",
+        "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "size": 10174,
+        "type": "file"
+      },
+      {
+        "git_blob": "a5333457c414d20d625f307df945842c0952ecc3",
+        "git_mode": "100644",
+        "path": "skills/frontend-design/SKILL.md",
+        "sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+        "size": 9390,
+        "type": "file"
+      }
+    ]
+  },
+  "proposed_metadata": {
+    "category": "Frontend",
+    "compatibility": {
+      "languages_any": [
+        "javascript",
+        "typescript"
+      ],
+      "frameworks_any": [
+        "react",
+        "nextjs",
+        "vue",
+        "nuxt",
+        "svelte",
+        "astro"
+      ],
+      "frameworks_all": [],
+      "features_all": [
+        "ui"
+      ],
+      "architecture": null,
+      "tools": [],
+      "runtimes": [],
+      "selection_mode": "explicit"
+    },
+    "requires_skills": [],
+    "prerequisites_review": {},
+    "conflicts_acknowledged": []
+  },
+  "field_justifications": {
+    "category": "Frontend está entre as quatro categorias aceitas e é adequada a interfaces web.",
+    "languages_any": "javascript ou typescript são valores existentes; HTML/CSS não são identificadores aceitos. Não impõe ambas as linguagens.",
+    "frameworks_any": "Seis frameworks web registrados; limita aplicação genérica em backend e nativo isolado, sem inferir alvo web de JS apenas.",
+    "frameworks_all": "Vazio: nenhuma combinação de frameworks é obrigatória; alternativas não são seis dependências.",
+    "features_all": "ui é identificador existente. Intenção criativa depende de escolha nominal e briefing, não de nova feature inventada.",
+    "architecture": "null não impõe arquitetura ou padrão visual e não autoriza alterá-los.",
+    "tools": "Vazio: leitura de Markdown não exige comando proprietário. Screenshot é opcional e condicionado ao ambiente.",
+    "runtimes": "Vazio para a skill textual; executor e runtimes do projeto seguem o núcleo/asdf, inclusive Node para JS/TS.",
+    "selection_mode": "explicit é validado pelo parser compartilhado e impede raízes/dependências implícitas por compatibilidade.",
+    "requires_skills": "Vazio: complementaridade com UI/UX Pro Max não é dependência física/técnica.",
+    "prerequisites_review": "Vazio: nenhuma dependency_evidence extraída e nenhum pré-requisito obrigatório criado."
+  },
+  "precedence_proposal": {
+    "proposal_version": "2B.1",
+    "origin": "StackNauta — proposta documental, não adaptação do fornecedor",
+    "text": "Precedência visual para o uso explícito de Frontend Design:\n1. Requisitos e restrições do projeto: briefing, funcionalidade, marca, público, conteúdo, acessibilidade, performance, tecnologias e restrições expressas do usuário.\n2. Decisões e artefatos aprovados: identidade, Design System, tokens, componentes, layouts, tipografia, cores, proporções, responsividade e interação.\n3. Diretrizes aplicáveis da UI/UX Pro Max e convenções visuais/técnicas já estabelecidas, sempre subordinadas aos itens 1 e 2.\n4. Sugestões da Frontend Design e refinamentos criativos opcionais, somente nos aspectos livres e no escopo solicitado.\nAntes de explorar, identifique os artefatos aprovados e seus caminhos reais. Não invente aprovações ou trate preferências do fornecedor como requisitos do cliente. Se faltar contexto, esclareça antes de implementar.\nSem identidade aprovada, apresente alternativas fundamentadas para revisão; não transforme o plano criativo em aprovação do usuário. Com identidade aprovada, preserve tokens e componentes e limite mudanças à tarefa autorizada.\nMudança em decisão aprovada deve ser apresentada separadamente, com motivo, impacto e confirmação explícita antes da aplicação. Se um requisito novo conflitar com artefato aprovado, registre a divergência para decisão do usuário.\nNão trocar stack, instalar bibliotecas/fontes/assets, reescrever conteúdo factual ou adicionar animação por iniciativa da skill. Conteúdo provisório deve ser identificado e aprovado antes de virar conteúdo final. Ferramentas de screenshot são opcionais e dependem das permissões disponíveis.\nEste texto é orientação de consumo do projeto. Seleção nominal, metadados, hashes e plano não concedem autorização de alteração, instalação ou execução.\n",
+    "sha256_utf8": "9d30d69fb070ccda56abe1ee8b2e3084fad3989047bc119ee32f8beafd120a16",
+    "proposed_channel": "requirements.constraints + prompt de consumo autorizado; sem novo campo de compatibilidade",
+    "automatically_injected": false,
+    "guarantees_agent_obedience": false,
+    "upstream_changed": false
+  },
+  "precedence_transport": {
+    "existing_channel": "requirements.constraints",
+    "normalized_config_preserves": true,
+    "agent_tasks_preserves": true,
+    "in_memory_skeleton_files_preserve": [
+      ".stacknauta/config.json",
+      "docs/REQUIREMENTS.json",
+      ".stacknauta/agent-plan.json"
+    ],
+    "agents_entrypoint": "AGENTS.md orienta leitura desses documentos; integração comum e GEMINI.md remetem ao contexto compartilhado.",
+    "content_is_not_automatically_injected_by_selection": true,
+    "agent_obedience_not_verified": true,
+    "mandatory_operational_conditions": [
+      "Identificar briefing, caminhos reais e estado de aprovação dos artefatos antes de consumir a skill.",
+      "Submeter mudanças em decisões aprovadas separadamente para confirmação do usuário.",
+      "Levar a orientação de precedência no pedido/configuração autorizados do consumidor; não confiar no modo explicit como enforcement visual."
+    ],
+    "upstream_visual_patch_required_for_this_operational_scope": false,
+    "reason": "O original já subordina suas preferências ao briefing (linha 45); orientação externa pode explicitar artefatos aprovados sem contradizer ou editar a origem.",
+    "if_intrinsic_automatic_guard_is_required": "Bloquear essa modalidade até uma etapa própria: a inclusão atual só adapta contrato/caminhos e não possui entrada auditável para patch visual arbitrário. Não considerar este relatório uma instrução já distribuída."
+  },
+  "creative_conflicts": [
+    {
+      "id": "V01",
+      "source_lines": [
+        9,
+        13
+      ],
+      "section": "Introdução e contextualização",
+      "incentive": "Assumir que o cliente rejeitou propostas e deseja risco estético; usar memória ou propor assunto/público quando faltam dados.",
+      "affected_contract": "Briefing real, escopo solicitado e decisões do usuário.",
+      "severity": "Alta em redesign não solicitado; moderada em exploração nova.",
+      "mitigation": "Tratar narrativa como hipótese; confirmar lacunas e artefatos aprovados antes de explorar, sem reinterpretar contexto conhecido.",
+      "external_guidance_feasible": true,
+      "upstream_already_limits": "Linha 13 exige confirmação da proposta com o cliente; linha 45 dá primazia ao briefing.",
+      "content_patch_required_in_declared_scope": false,
+      "recommendation_effect": "Usar somente em exploração nominal e com precedência explícita."
+    },
+    {
+      "id": "V02",
+      "source_lines": [
+        17,
+        50,
+        59
+      ],
+      "section": "Composição e contenção",
+      "incentive": "Tratar hero como abertura geral, escolher novo alinhamento/composição e concentrar ousadia em um único elemento.",
+      "affected_contract": "Layouts, proporções, hierarquia e estilos aprovados; interfaces funcionais sem hero.",
+      "severity": "Moderada; alta se substituir layout aprovado.",
+      "mitigation": "Aplicar somente a eixos livres e adequados ao conteúdo; não forçar hero, assimetria ou contenção a um dashboard/estilo maximalista solicitado.",
+      "external_guidance_feasible": true,
+      "upstream_already_limits": "Linha 45 permite os estilos exigidos no briefing; não há obrigação explícita de assimetria.",
+      "content_patch_required_in_declared_scope": false,
+      "recommendation_effect": "Preferências subjetivas, não regras universais."
+    },
+    {
+      "id": "V03",
+      "source_lines": [
+        19,
+        21,
+        23,
+        25,
+        26,
+        27,
+        28
+      ],
+      "section": "Tipografia",
+      "incentive": "Escolher novas famílias/escalas, limitar famílias e evitar tratamentos tipográficos frequentes.",
+      "affected_contract": "Fontes, tokens, legibilidade e identidade já aprovados.",
+      "severity": "Alta em projeto com tipografia aprovada.",
+      "mitigation": "Reutilizar famílias, pesos e escala aprovados; mudanças só como proposta separada confirmada pelo usuário. Avaliar contexto para caixa alta, dados e textos longos.",
+      "external_guidance_feasible": true,
+      "upstream_already_limits": "O briefing prevalece na linha 45.",
+      "content_patch_required_in_declared_scope": false,
+      "recommendation_effect": "Não usar aversão estética como autorização para substituir marca."
+    },
+    {
+      "id": "V04",
+      "source_lines": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        45,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "section": "Padrões genéricos e plano de tokens",
+      "incentive": "Evitar paletas/estéticas recorrentes e criar paleta de 4–6 valores, tipos e layout.",
+      "affected_contract": "Design System, tokens, cores, componentes e coerência entre páginas.",
+      "severity": "Alta quando um sistema existente é tratado como projeto em branco.",
+      "mitigation": "Inventariar e reaproveitar artefatos aprovados; explorar somente lacunas. Novos tokens/variantes dependem de confirmação e não substituem automaticamente os existentes.",
+      "external_guidance_feasible": true,
+      "upstream_already_limits": "Linha 45 reconhece a legitimidade desses padrões se pedidos pelo briefing.",
+      "content_patch_required_in_declared_scope": false,
+      "recommendation_effect": "UI/UX e artefatos aprovados orientam a exploração; sem novo sistema compulsório."
+    },
+    {
+      "id": "V05",
+      "source_lines": [
+        53,
+        55
+      ],
+      "section": "Revisar plano e começar código",
+      "incentive": "Revisar o plano pela originalidade e começar a implementar após a própria avaliação.",
+      "affected_contract": "Autorização de mudanças, limites do trabalho e aprovação visual pelo usuário.",
+      "severity": "Alta se autocrítica do agente for confundida com aprovação do usuário.",
+      "mitigation": "Separar proposta, crítica e decisão do usuário. Verificação de originalidade não aprova implementação nem mudanças em decisões consolidadas.",
+      "external_guidance_feasible": true,
+      "upstream_already_limits": "A revisão é contra o briefing; não há autorização expressa de substituir aprovação humana.",
+      "content_patch_required_in_declared_scope": false,
+      "recommendation_effect": "Regra de consumo obrigatória; não é propriedade do selection_mode."
+    },
+    {
+      "id": "V06",
+      "source_lines": [
+        34,
+        63,
+        65,
+        67,
+        69,
+        71
+      ],
+      "section": "Copy e conteúdo",
+      "incentive": "Criar placeholders e refinar textos, CTAs, mensagens de erro e tom.",
+      "affected_contract": "Conteúdo factual, terminologia funcional, voz da marca e textos aprovados.",
+      "severity": "Alta se conteúdo inventado for publicado como fato; moderada em rascunho identificado.",
+      "mitigation": "Marcar material provisório; preservar textos e terminologia aprovados; apresentar alterações separadamente e confirmar antes de substituir conteúdo real.",
+      "external_guidance_feasible": true,
+      "upstream_already_limits": "Linha 13 pede conteúdo real contextual; texto destaca clareza e tom da marca.",
+      "content_patch_required_in_declared_scope": false,
+      "recommendation_effect": "Criatividade visual não autoriza reescrita factual ou funcional."
+    },
+    {
+      "id": "V07",
+      "source_lines": [
+        17,
+        32,
+        59
+      ],
+      "section": "Movimento e execução",
+      "incentive": "Usar um momento coreografado, revelação ou feedback visual; fazer screenshots quando disponíveis.",
+      "affected_contract": "Interações aprovadas, performance, reduced motion, dependências e permissões.",
+      "severity": "Moderada; pode ser alta para usuários sensíveis ao movimento ou efeitos não autorizados.",
+      "mitigation": "Não adicionar movimento por iniciativa da skill; manter estado estático e preferências do projeto. Ferramentas visuais opcionais não autorizam instalar ou iniciar serviços.",
+      "external_guidance_feasible": true,
+      "upstream_already_limits": "Texto pede movimento intencional e escasso, foco visível e reduced motion; screenshots condicionais.",
+      "content_patch_required_in_declared_scope": false,
+      "recommendation_effect": "Nenhuma dependência automática nas três especialistas de animação."
+    },
+    {
+      "id": "V08",
+      "source_lines": [
+        13,
+        59
+      ],
+      "section": "Memória, autocrítica e limites de qualidade",
+      "incentive": "Usar preferências lembradas e juízo subjetivo de harmonia/originalidade.",
+      "affected_contract": "Requisitos atuais, aprovações verificáveis, acessibilidade e validação objetiva.",
+      "severity": "Moderada; não constitui prova de qualidade ou conformidade.",
+      "mitigation": "Confirmar preferências contra artefatos atuais; revisar contexto, dispositivos e objetivos. Não declarar WCAG, performance ou eficácia visual sem testes próprios.",
+      "external_guidance_feasible": true,
+      "upstream_already_limits": "Há piso de responsividade/foco/redução de movimento, mas sem auditoria detalhada ou métricas.",
+      "content_patch_required_in_declared_scope": false,
+      "recommendation_effect": "Especialista complementar; não substitui UI/UX, testes ou revisão humana."
+    }
+  ],
+  "complementarity": {
+    "uiux_existing_id": "ui-ux-pro-max:ui-ux-pro-max",
+    "uiux_role": "Fundamentos, busca de estilos/paletas/tipos, UX/acessibilidade e stack; contém sistema Master/overrides e revisão contextual.",
+    "frontend_design_role": "Alternativas criativas, composição orientada ao assunto, crítica de padrões genéricos e planejamento visual antes de implementar.",
+    "overlap": [
+      "cores",
+      "tipografia",
+      "layout",
+      "responsividade",
+      "movimento intencional",
+      "clareza de conteúdo"
+    ],
+    "independent_distribution_possible": true,
+    "mandatory_skill_dependency": false,
+    "suggested_order": [
+      "Ler briefing e artefatos aprovados; esclarecer lacunas.",
+      "Usar UI/UX aplicável como referência, sem regenerar decisões aprovadas automaticamente.",
+      "Explorar com Frontend Design somente eixos livres ou alterações nominalmente solicitadas.",
+      "Apresentar plano/alternativas para revisão; aplicar somente mudanças autorizadas e validar resultado."
+    ],
+    "existing_approved_interfaces": "Autocrítica de legibilidade, foco, espaçamento e coerência pode continuar útil; novas paletas/tipos/layouts não são mudanças implícitas.",
+    "combined_selection_is_full_root_set": true,
+    "actual_combined_distribution_tested": false
+  },
+  "license": {
+    "identified": "Apache-2.0",
+    "evidence_path": "skills/frontend-design/LICENSE.txt",
+    "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+    "frontmatter_reference": "Complete terms in LICENSE.txt",
+    "applicable_notice_file_in_directory_or_ancestors": null,
+    "root_other_notices_file": "THIRD_PARTY_NOTICES.md",
+    "other_notices_scope": "Avisos de componentes/softwares/fontes não incluídos no fechamento; sem referência à frontend-design. Não presume licença para dependências/assets futuros.",
+    "specific_copyright_notice_in_two_resources": "Não encontrado aviso específico com titular/ano; não foi inventado. Origem e revisão devem permanecer na proveniência.",
+    "copy_distribution_conditions": [
+      "Acompanhar com a cópia integral da licença.",
+      "Preservar avisos aplicáveis de copyright, patentes, marcas e atribuição.",
+      "Se houver NOTICE aplicável, preservar atribuições conforme seção 4(d)."
+    ],
+    "modified_distribution_conditions": [
+      "Seção 4(b): destacar arquivos modificados; manter origem, revisão, hashes antes/depois e diffs conforme infraestrutura.",
+      "Não atribuir mudanças StackNauta ao fornecedor; preservar licença e avisos aplicáveis."
+    ],
+    "commercial_use": "Não foi identificada proibição de uso comercial no texto; direitos não incluem licença irrestrita de marcas, fontes ou assets externos.",
+    "not_a_universal_repository_license": true
+  },
+  "security": {
+    "standalone_scripts": [],
+    "shell_python_javascript_commands_in_skill": [],
+    "skill_external_urls": [],
+    "local_reference_checks": [],
+    "dependency_evidence": [],
+    "service_or_install_requirement": false,
+    "code_executed_from_supplier": false,
+    "side_effects_of_future_use": "A prose orienta construir/revisar código, copy e notas; isso exige escopo/autorização de uso, não foi executado nesta preparação.",
+    "book_reference": "The Elements of Typographic Style é referência textual, não recurso adquirido nem conteúdo redistribuído.",
+    "screenshot_capability": "Opcional; não há ferramenta/browser instalado ou validado por esta candidata."
+  },
+  "agent_compatibility": {
+    "structure": "Frontmatter name/description/license e Markdown legíveis pelo inventário existente. Alias esperado stacknauta-frontend-design cabe no contrato portátil.",
+    "physical_resources": "Dois arquivos físicos; nenhuma conversão específica por agente necessária para leitura.",
+    "commands_proprietary": [],
+    "conversion_required": "Somente adaptações contratuais/caminhos já suportadas, após decisão e plano autorizados; nenhuma executada agora.",
+    "estimated_portability": {
+      "Codex CLI": "provável para leitura/uso textual",
+      "OpenCode": "provável para leitura/uso textual",
+      "Gemini": "provável para leitura/uso textual"
+    },
+    "native_discovery": "not_executed",
+    "effective_activation": "not_tested",
+    "visual_quality_workflow": "Não executado; screenshots e ferramentas de implementação dependem do ambiente."
+  },
+  "contract_limits": [
+    "Frontend vanilla com JavaScript sem framework é normalizável, mas a proposta o rejeita; HTML/CSS não são linguagens registradas.",
+    "frameworks_any aceita React em combinação com React Native; não existe discriminador web/nativo ou exclusão de frameworks. Não usar em alvo ambíguo.",
+    "A lista de features não representa estágio criativo, status de aprovação visual ou precedência; selection_mode não controla comportamento do agente.",
+    "Listas explícitas são raízes completas; UI/UX precisa ser solicitada nominalmente se também for desejada.",
+    "Escolha da skill não instala bibliotecas, fontes, assets ou runtimes."
+  ],
+  "future_contract_option": "Avaliar em etapa separada um discriminador explícito de alvo web/nativo e frontend sem framework. Nenhum campo novo foi inventado como válido ou implementado nesta rodada.",
+  "directed_tests": {
+    "tests_run": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "status": "passed",
+    "observations": {
+      "A": {
+        "active_roots": [
+          "ui-ux-pro-max:ui-ux-pro-max"
+        ],
+        "proposed_mode": "explicit",
+        "candidate_available_in_active_library": false,
+        "hypothetical_candidate_selection_not_executed": true
+      },
+      "B": {
+        "metadata_compatible_frameworks": [
+          "react",
+          "nextjs",
+          "vue",
+          "nuxt",
+          "svelte",
+          "astro"
+        ],
+        "real_library_selection": "rejected_not_catalogued",
+        "availability_simulated": false
+      },
+      "C": {
+        "roots": [
+          "ui-ux-pro-max:ui-ux-pro-max"
+        ],
+        "selected": [
+          "ui-ux-pro-max:ui-ux-pro-max"
+        ],
+        "historical_policy_without_new_mode": true
+      },
+      "D": {
+        "requested_roots": [
+          "gh-anthropics-skills:frontend-design",
+          "ui-ux-pro-max:ui-ux-pro-max"
+        ],
+        "both_predicates_compatible": true,
+        "real_combined_distribution": "not_performed_candidate_absent",
+        "mandatory_dependency_between_the_two": false
+      },
+      "E": {
+        "transport_preserved": true,
+        "artifact_generation": "in_memory_only",
+        "runtime_versions_global_asdf": {
+          "nodejs": "24.21.0",
+          "python": "3.14.8"
+        },
+        "agent_obedience_tested": false,
+        "supplier_changed": false
+      },
+      "F": {
+        "javascript_without_framework": "metadata_rejected",
+        "html_css_languages": "not_supported",
+        "vanilla_framework": "not_supported"
+      },
+      "G": {
+        "native_only": "metadata_rejected",
+        "react_and_react_native_predicate": "accepted",
+        "mixed_target_safe": false,
+        "mixed_distribution": "not_performed",
+        "operational_condition": "Exigir alvo web inequívoco; suspender uso no caso ambíguo."
+      },
+      "H": {
+        "incompatible_metadata_rejected": true,
+        "existing_nominal_compatibility_guard": "rejected",
+        "invalid_selection_modes_rejected": true
+      }
+    },
+    "destination": "/tmp/stacknauta-2b-uncreated-14841300ea0444898ecc75a7583e37d5",
+    "destination_exists": false,
+    "candidate_registered_as_approved": false,
+    "plans_generated": false,
+    "consumer_created": false,
+    "supplier_executed": false,
+    "log": "test_A_automatic_active_selection_and_proposed_mode (__main__.Scenarios.test_A_automatic_active_selection_and_proposed_mode) ... ok\ntest_B_explicit_metadata_for_six_web_frameworks (__main__.Scenarios.test_B_explicit_metadata_for_six_web_frameworks) ... ok\ntest_C_uiux_explicit_isolation (__main__.Scenarios.test_C_uiux_explicit_isolation) ... ok\ntest_D_combined_roots_are_only_a_prepared_configuration (__main__.Scenarios.test_D_combined_roots_are_only_a_prepared_configuration) ... ok\ntest_E_precedence_constraints_preserved_in_memory (__main__.Scenarios.test_E_precedence_constraints_preserved_in_memory) ... ok\ntest_F_vanilla_and_unknown_language_framework_are_not_invented (__main__.Scenarios.test_F_vanilla_and_unknown_language_framework_are_not_invented) ... ok\ntest_G_native_only_rejected_and_mixed_target_risk_exposed (__main__.Scenarios.test_G_native_only_rejected_and_mixed_target_risk_exposed) ... ok\ntest_H_incompatible_metadata_and_existing_nominal_guard (__main__.Scenarios.test_H_incompatible_metadata_and_existing_nominal_guard) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.034s\n\nOK\n"
+  },
+  "library_validation_initial": {
+    "schema_version": 2,
+    "stage": "1.5",
+    "validated_at_utc": "2026-11-13T18:27:36.691174+00:00",
+    "status": "passed_with_documented_pending",
+    "python_executor": {
+      "manager": "asdf",
+      "global_source": "~/.tool-versions",
+      "version": "3.14.8"
+    },
+    "counts": {
+      "approved_by_category": {
+        "Backend": 19,
+        "Frontend": 7,
+        "Mobile": 71,
+        "Seguranca": 7
+      },
+      "approved_skills": 104,
+      "by_category": {
+        "Backend": 24,
+        "Frontend": 14,
+        "Mobile": 80,
+        "Seguranca": 9
+      },
+      "by_scope": {
+        "catalogued_source": 131,
+        "experimental_source": 1,
+        "internal_evaluation_not_distributable": 1
+      },
+      "catalogued_skills": 133,
+      "distribution_aliases": 6,
+      "distribution_packages": 10,
+      "enabled_skills": 0,
+      "excluded_skills": 2,
+      "pending_skills": 27,
+      "physical_skill_files": 139,
+      "prepared_distribution_skills": 104,
+      "sources": 8,
+      "unclassified_skills": 6
+    },
+    "package_files_verified": 974,
+    "python_files_parsed": 41,
+    "node_syntax": {
+      "status": "passed",
+      "files": 7,
+      "execution": "syntax parsing only, vendor code not executed"
+    },
+    "local_markdown_links_checked": 1098,
+    "adapted_files": 105,
+    "cache_validation": {
+      "status": "not_required_for_distribution"
+    },
+    "physical_copy_test": {
+      "status": "not_requested"
+    },
+    "checks": [
+      "Revisões e proveniência de cada arquivo confrontadas com o lock e índices adquiridos.",
+      "Hashes, inventários completos, recursos, referências Markdown locais e licenças conferidos.",
+      "Planos de cópia fechados sobre dependências; nenhum SKILL.md pendente/excluído nos pacotes.",
+      "Adaptações explícitas com hashes antes/depois e unified diff.",
+      "Sem links simbólicos, caminhos locais ou dependência de cache nos pacotes.",
+      "Nenhuma ativação de agentes; estado do núcleo validado separadamente da biblioteca."
+    ],
+    "errors": [],
+    "limits": [
+      "Packaging approval does not certify agent discovery or all application workflows.",
+      "Consumer SDKs, hardware, authenticated services and CLIs were not provisioned or exercised.",
+      "Frontmatter delimiters/name/description and declared licence paths checked; not full YAML schema validation."
+    ],
+    "bootstrap_implemented": true,
+    "bootstrap_core_stage": "2A",
+    "agent_integration_tested": false,
+    "production_ready": false
+  },
+  "library_validation_final": {
+    "schema_version": 2,
+    "stage": "1.5",
+    "validated_at_utc": "2026-11-13T18:34:05.600758+00:00",
+    "status": "passed_with_documented_pending",
+    "python_executor": {
+      "manager": "asdf",
+      "global_source": "~/.tool-versions",
+      "version": "3.14.8"
+    },
+    "counts": {
+      "approved_by_category": {
+        "Backend": 19,
+        "Frontend": 7,
+        "Mobile": 71,
+        "Seguranca": 7
+      },
+      "approved_skills": 104,
+      "by_category": {
+        "Backend": 24,
+        "Frontend": 14,
+        "Mobile": 80,
+        "Seguranca": 9
+      },
+      "by_scope": {
+        "catalogued_source": 131,
+        "experimental_source": 1,
+        "internal_evaluation_not_distributable": 1
+      },
+      "catalogued_skills": 133,
+      "distribution_aliases": 6,
+      "distribution_packages": 10,
+      "enabled_skills": 0,
+      "excluded_skills": 2,
+      "pending_skills": 27,
+      "physical_skill_files": 139,
+      "prepared_distribution_skills": 104,
+      "sources": 8,
+      "unclassified_skills": 6
+    },
+    "package_files_verified": 974,
+    "python_files_parsed": 41,
+    "node_syntax": {
+      "status": "passed",
+      "files": 7,
+      "execution": "syntax parsing only, vendor code not executed"
+    },
+    "local_markdown_links_checked": 1098,
+    "adapted_files": 105,
+    "cache_validation": {
+      "status": "not_required_for_distribution"
+    },
+    "physical_copy_test": {
+      "status": "not_requested"
+    },
+    "checks": [
+      "Revisões e proveniência de cada arquivo confrontadas com o lock e índices adquiridos.",
+      "Hashes, inventários completos, recursos, referências Markdown locais e licenças conferidos.",
+      "Planos de cópia fechados sobre dependências; nenhum SKILL.md pendente/excluído nos pacotes.",
+      "Adaptações explícitas com hashes antes/depois e unified diff.",
+      "Sem links simbólicos, caminhos locais ou dependência de cache nos pacotes.",
+      "Nenhuma ativação de agentes; estado do núcleo validado separadamente da biblioteca."
+    ],
+    "errors": [],
+    "limits": [
+      "Packaging approval does not certify agent discovery or all application workflows.",
+      "Consumer SDKs, hardware, authenticated services and CLIs were not provisioned or exercised.",
+      "Frontmatter delimiters/name/description and declared licence paths checked; not full YAML schema validation."
+    ],
+    "bootstrap_implemented": true,
+    "bootstrap_core_stage": "2A",
+    "agent_integration_tested": false,
+    "production_ready": false
+  },
+  "full_regression": "not_repeated_no_production_or_active_package_changes",
+  "physical_copy_suite": "not_repeated_104_historical_cases_remain_prior_evidence",
+  "planning_impediments": [
+    "Nenhuma autorização individual de aprovação foi concedida nesta rodada; CLI exige decisões para preparar plano.",
+    "Árvore Git contém relatórios esperados não rastreados; clean() impede planejamento. Preservá-los, sem limpar ou commit nesta rodada.",
+    "Se documentação for posteriormente versionada e HEAD mudar, renovar descoberta oficial na revisão original em baseline limpa; não editar sessão para reaproveitar baseline."
+  ],
+  "round_2c_recommendations": [
+    "Revisar condições e a orientação de precedência antes de autorizar qualquer decisão individual.",
+    "Resolver organização documental/baseline por autorização própria; não apagar artefatos para passar clean().",
+    "Se nova sessão for necessária, usar skills add https://github.com/anthropics/skills --ref 2c5958ecac7cee2b583967a2c4981d0f4a75c579 --path skills/frontend-design.",
+    "Preferir fixação formal por commit na nova aquisição; sessão atual foi obtida de main, mas bytes/commit ficaram fixados e foram verificados.",
+    "Somente após autorização individual enviar decisão pelo review oficial e inspecionar dry-run/hash e adaptações geradas; promoção exige autorização distinta."
+  ],
+  "operations": {
+    "new_acquisition": false,
+    "approved_decisions": 0,
+    "plans_generated": 0,
+    "plan_applied": false,
+    "skills_promoted": 0,
+    "production_code_changed": false,
+    "active_library_changed": false,
+    "supplier_content_changed": false,
+    "consumer_created": false,
+    "existing_consumers_written": false,
+    "other_candidates_reanalyzed_or_acquired": false,
+    "historical_backups_modified": false,
+    "dependencies_or_runtimes_installed": false,
+    "agents_executed": false,
+    "commits_created": 0,
+    "push_executed": false
+  },
+  "created_report_files": [
+    "Automacao/validacao-design-rodada2b/RELATORIO.md",
+    "Automacao/validacao-design-rodada2b/propostas.json"
+  ],
+  "staging_artifacts_directory": ".stacknauta-updates/78ab56b987824743915bca34f29e1090/rodada2b",
+  "initial_tracked_fingerprint_sha256": "7f4b1ff840ca2e39884fc7d0451822c14296586aa7703afd06613e1792d564a8",
+  "final_head": "56b33bdfaac4a5e06c16418fface2611a52b7b24",
+  "final_git_status": "?? Automacao/validacao-design-rodada2a/RELATORIO.md\n?? Automacao/validacao-design-rodada2a/resultado.json\n?? Automacao/validacao-design-rodada2b/RELATORIO.md\n?? Automacao/validacao-design-rodada2b/propostas.json\n",
+  "final_tracked_files_unchanged": true,
+  "prior_2a_reports_preserved": true,
+  "source_bytes_preserved": true,
+  "final_library_counts": {
+    "approved_by_category": {
+      "Backend": 19,
+      "Frontend": 7,
+      "Mobile": 71,
+      "Seguranca": 7
+    },
+    "approved_skills": 104,
+    "by_category": {
+      "Backend": 24,
+      "Frontend": 14,
+      "Mobile": 80,
+      "Seguranca": 9
+    },
+    "by_scope": {
+      "catalogued_source": 131,
+      "experimental_source": 1,
+      "internal_evaluation_not_distributable": 1
+    },
+    "catalogued_skills": 133,
+    "distribution_aliases": 6,
+    "distribution_packages": 10,
+    "enabled_skills": 0,
+    "excluded_skills": 2,
+    "pending_skills": 27,
+    "physical_skill_files": 139,
+    "prepared_distribution_skills": 104,
+    "sources": 8,
+    "unclassified_skills": 6
+  },
+  "final_git_clean": false,
+  "final_untracked_files": [
+    "Automacao/validacao-design-rodada2a/RELATORIO.md",
+    "Automacao/validacao-design-rodada2a/resultado.json",
+    "Automacao/validacao-design-rodada2b/RELATORIO.md",
+    "Automacao/validacao-design-rodada2b/propostas.json"
+  ]
+}
