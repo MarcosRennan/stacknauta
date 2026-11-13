@@ -1,6 +1,6 @@
 # Frontend
 
-Biblioteca preparada na Etapa 1.5. Nenhuma skill ativada.
+Biblioteca versionada; atualizações manuais. Nenhuma skill ativada.
 
 | Skill | Status | Pacote ou impedimento |
 |---|---|---|
@@ -15,3 +15,6 @@ Biblioteca preparada na Etapa 1.5. Nenhuma skill ativada.
 | brand-guidelines | pending | Fluxo específico da organização Sentry (marca, repositório, serviços ou acesso interno); faltam contexto e adaptação para distribuição genérica. Não autenticar serviços nesta etapa. |
 | presentation-creator | pending | Fluxo específico da organização Sentry (marca, repositório, serviços ou acesso interno); faltam contexto e adaptação para distribuição genérica. Não autenticar serviços nesta etapa. |
 | triage-frontend-issues | pending | Fluxo específico da organização Sentry (marca, repositório, serviços ou acesso interno); faltam contexto e adaptação para distribuição genérica. Não autenticar serviços nesta etapa. |
+| [60fps-animation](gh-iart-ai-web-animation-skills/vendor/skills/60fps-animation/SKILL.md) | approved | Frontend/gh-iart-ai-web-animation-skills |
+| [micro-interaction](gh-iart-ai-web-animation-skills/vendor/skills/micro-interaction/SKILL.md) | approved | Frontend/gh-iart-ai-web-animation-skills |
+| [svg-animation](gh-iart-ai-web-animation-skills/vendor/skills/svg-animation/SKILL.md) | approved | Frontend/gh-iart-ai-web-animation-skills |

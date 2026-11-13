@@ -1,0 +1,245 @@
+{
+  "commit": "ed3a045192679b24d32090ee7a983871311ababd",
+  "directory": "Skills/Frontend/gh-iart-ai-web-animation-skills",
+  "files": {
+    "README.md": {
+      "adaptation": null,
+      "inputs": [],
+      "mode": "100644",
+      "origin": "StackNauta",
+      "sha256": "cf20f754245655b140ac65e7eb9872efa9f82fa882a4af1d25421a94b3046ae9",
+      "size": 1941
+    },
+    "vendor/LICENSE": {
+      "adaptation": null,
+      "inputs": [
+        {
+          "path": "LICENSE",
+          "sha256": "33d6cd35a20903b5e968a76a1e584a7aeae2c83e3e58ea58ecc50b889b83e668"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "33d6cd35a20903b5e968a76a1e584a7aeae2c83e3e58ea58ecc50b889b83e668",
+      "size": 1064
+    },
+    "vendor/scripts/README.md": {
+      "adaptation": null,
+      "inputs": [
+        {
+          "path": "scripts/README.md",
+          "sha256": "8f1bb92dfb6c741e74e1b7949a8230b824388bd311ccc47401a24245b0f6d17e"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "8f1bb92dfb6c741e74e1b7949a8230b824388bd311ccc47401a24245b0f6d17e",
+      "size": 2028
+    },
+    "vendor/scripts/contact-sheet.sh": {
+      "adaptation": null,
+      "inputs": [
+        {
+          "path": "scripts/contact-sheet.sh",
+          "sha256": "a3873536da80dbb6724c2a3d462bd60a2ddc03e22dabce73bb0d0f70d4d1a361"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "a3873536da80dbb6724c2a3d462bd60a2ddc03e22dabce73bb0d0f70d4d1a361",
+      "size": 851
+    },
+    "vendor/scripts/probe-mp4.sh": {
+      "adaptation": null,
+      "inputs": [
+        {
+          "path": "scripts/probe-mp4.sh",
+          "sha256": "3a1bb8c5d017599e52f4bb49822259257266899ee46028663ba416acccc19e6a"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "3a1bb8c5d017599e52f4bb49822259257266899ee46028663ba416acccc19e6a",
+      "size": 1514
+    },
+    "vendor/scripts/seek-shot.sh": {
+      "adaptation": null,
+      "inputs": [
+        {
+          "path": "scripts/seek-shot.sh",
+          "sha256": "4f02b7350669049b2f38c3761e395814be6262d6a12d7fb0a14504af51c9ba7b"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "4f02b7350669049b2f38c3761e395814be6262d6a12d7fb0a14504af51c9ba7b",
+      "size": 1095
+    },
+    "vendor/skills/60fps-animation/README.md": {
+      "adaptation": null,
+      "inputs": [
+        {
+          "path": "skills/60fps-animation/README.md",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "vendor/skills/60fps-animation/SKILL.md": {
+      "adaptation": "Contrato explícito de distribuição/asdf e caminhos relativos para README/licença; layout de origem preservado.",
+      "inputs": [
+        {
+          "path": "skills/60fps-animation/SKILL.md",
+          "sha256": "deb5d78aabae2289cbe161733be81aca6c3b4cd0940c0df3acf10196efdfe962"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "d54e95b0e5483f7a80866ef9914df683c72839ddbde70303c54be24e399e81b7",
+      "size": 11189
+    },
+    "vendor/skills/60fps-animation/references/patterns-and-profiling.md": {
+      "adaptation": null,
+      "inputs": [
+        {
+          "path": "skills/60fps-animation/references/patterns-and-profiling.md",
+          "sha256": "f6562a32eb70bea6dd27f0796ea6597d93ee5ecf4d3ab334ec44b773cde65f05"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "f6562a32eb70bea6dd27f0796ea6597d93ee5ecf4d3ab334ec44b773cde65f05",
+      "size": 4806
+    },
+    "vendor/skills/micro-interaction/README.md": {
+      "adaptation": null,
+      "inputs": [
+        {
+          "path": "skills/micro-interaction/README.md",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "vendor/skills/micro-interaction/SKILL.md": {
+      "adaptation": "Contrato explícito de distribuição/asdf e caminhos relativos para README/licença; layout de origem preservado.",
+      "inputs": [
+        {
+          "path": "skills/micro-interaction/SKILL.md",
+          "sha256": "f8ae0fc6137448bce51f689a13513a0a8742b1cbffa1b9f32ac723b46309e6e0"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "92b5976aef42d779b0fbd0214026fad1108b92d5dd724e17ecee997444bb264f",
+      "size": 9049
+    },
+    "vendor/skills/micro-interaction/references/css-recipes.md": {
+      "adaptation": null,
+      "inputs": [
+        {
+          "path": "skills/micro-interaction/references/css-recipes.md",
+          "sha256": "e32eec6eda6f40dac5972c7944cb72a24f79f849ff42a4238caf94f9a90daebc"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "e32eec6eda6f40dac5972c7944cb72a24f79f849ff42a4238caf94f9a90daebc",
+      "size": 4917
+    },
+    "vendor/skills/micro-interaction/references/framer-motion-recipes.md": {
+      "adaptation": null,
+      "inputs": [
+        {
+          "path": "skills/micro-interaction/references/framer-motion-recipes.md",
+          "sha256": "5be7a9c3bca7feb2ba23f907da8e69c2d84f8ce8f61763dde89b7f718a904bdb"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "5be7a9c3bca7feb2ba23f907da8e69c2d84f8ce8f61763dde89b7f718a904bdb",
+      "size": 5950
+    },
+    "vendor/skills/svg-animation/README.md": {
+      "adaptation": null,
+      "inputs": [
+        {
+          "path": "skills/svg-animation/README.md",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "vendor/skills/svg-animation/SKILL.md": {
+      "adaptation": "Contrato explícito de distribuição/asdf e caminhos relativos para README/licença; layout de origem preservado.",
+      "inputs": [
+        {
+          "path": "skills/svg-animation/SKILL.md",
+          "sha256": "90e37f8f3d8c662515952de7a50c9130f5695d1a0cae1501115bd5d253c712c4"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "1d0c9520d23b9bb211c829b7775c6423321a2b9bb48c1b20b403f1be5f717cee",
+      "size": 9037
+    },
+    "vendor/skills/svg-animation/references/svg-techniques.md": {
+      "adaptation": null,
+      "inputs": [
+        {
+          "path": "skills/svg-animation/references/svg-techniques.md",
+          "sha256": "41cff6f8ced2d6f952b08db6d6fb20fb38c27419ff9e28b30668d8ca80b35983"
+        }
+      ],
+      "mode": "100644",
+      "origin": "vendor",
+      "sha256": "41cff6f8ced2d6f952b08db6d6fb20fb38c27419ff9e28b30668d8ca80b35983",
+      "size": 9053
+    }
+  },
+  "id": "Frontend/gh-iart-ai-web-animation-skills",
+  "layout": "source-relative-v1",
+  "repository": "https://github.com/iart-ai/web-animation-skills.git",
+  "shared_files": [
+    "README.md",
+    "vendor/LICENSE"
+  ],
+  "skill_extra_files": {
+    "gh-iart-ai-web-animation-skills:60fps-animation": [
+      "vendor/LICENSE",
+      "vendor/scripts/README.md",
+      "vendor/scripts/contact-sheet.sh",
+      "vendor/scripts/probe-mp4.sh",
+      "vendor/scripts/seek-shot.sh"
+    ],
+    "gh-iart-ai-web-animation-skills:micro-interaction": [
+      "vendor/LICENSE",
+      "vendor/scripts/README.md",
+      "vendor/scripts/contact-sheet.sh",
+      "vendor/scripts/probe-mp4.sh",
+      "vendor/scripts/seek-shot.sh"
+    ],
+    "gh-iart-ai-web-animation-skills:svg-animation": [
+      "vendor/LICENSE",
+      "vendor/scripts/README.md",
+      "vendor/scripts/contact-sheet.sh",
+      "vendor/scripts/probe-mp4.sh",
+      "vendor/scripts/seek-shot.sh"
+    ]
+  },
+  "skills": [
+    "gh-iart-ai-web-animation-skills:60fps-animation",
+    "gh-iart-ai-web-animation-skills:micro-interaction",
+    "gh-iart-ai-web-animation-skills:svg-animation"
+  ],
+  "source_id": "gh-iart-ai-web-animation-skills"
+}
