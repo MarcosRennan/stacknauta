@@ -5,7 +5,7 @@
 Iniciada em 13/11/2026 no HEAD
 `a035f50c3d890668b4817c3b32edad6274c6a344`. Havia somente os dois relatórios não
 rastreados da [Rodada 1A](../validacao-animacoes-rodada1/RELATORIO.md); nenhum arquivo
-rastreado estava modificado. Ambos foram preservados byte a byte e serão
+rastreado estava modificado. Ambos foram preservados byte a byte e foram
 versionados com esta rodada para permitir o driver de regressão em árvore limpa.
 
 Hashes iniciais preservados:
@@ -75,11 +75,36 @@ ao catálogo; integração comum; idempotência; schemas 1/2, locks e evolutivos
 manifesto/lock/skill protegidos adulterados. A manutenção foi exercitada com
 metadado válido, preservação após update e bloqueio de valor inválido.
 
-Regressão completa: **a executar uma única vez após o commit de implementação**,
-com o driver existente, clone local limpo com origin preservado, sem _repos,
-validação integral, parsing Node e 101 casos de cópia física. O modo
---sem-smoke-fornecedor evita executar scripts de terceiros. Este parágrafo será
-substituído pelos resultados verificáveis após a execução.
+**Regressão completa executada uma única vez e aprovada**, entre 13:58:28 e
+14:00:08 UTC de 13/11/2026 (aproximadamente 100 segundos), no commit
+`a2744bbaf48b5e56bdaad9ff6e45c5083e312389`:
+
+```sh
+Automacao/python-global Automacao/validacao-correcoes-funcionais/executar_testes.py --report /tmp/stacknauta-4b1b-regressao-final.json --sem-smoke-fornecedor
+```
+
+| Grupo | Testes | Falhas / erros / skips |
+|---|---:|---|
+| Núcleo e ciclo de vida | 132 | 0 / 0 / 0 |
+| Integração compartilhada | 16 | 0 / 0 / 0 |
+| Atualizações, analisadores e segurança | 99 | 0 / 0 / 0 |
+| Inclusões | 50 | 0 / 0 / 0 |
+| **Total** | **297** | **0 / 0 / 0** |
+
+São 273 históricos mais 24 novos; os testes direcionados já fazem parte desse
+total e não são somados novamente. Nenhum teste automatizado ficou pendente.
+Os testes visuais/nativos e smoke tests de fornecedor não foram solicitados.
+
+O driver existente (cujo campo histórico stage ainda é 4A.1) criou
+`/tmp/stacknauta-4a1-regression-88140gut/StackNauta`, sem _repos ou alternates,
+com origin apontando para o repositório local e preservado até o fim. A árvore
+do clone permaneceu limpa. A biblioteca passou: 101/21/2, sete origens, nove
+pacotes, 958 arquivos de pacotes íntegros e sete JS parseados, sem executar vendor.
+**101 casos de cópia física**, 4.114 arquivos copiados, incluindo verificações
+adversariais de conteúdo adulterado, referência ausente e escape de caminho.
+O modo sem-smoke-fornecedor foi respeitado: smoke tests não solicitados,
+vendor_code_executed false. Não há alegação de validação visual de animações.
+Logs e resultados completos estão em [resultado.json](resultado.json).
 
 ## Revisão das quatro candidatas
 
@@ -190,8 +215,24 @@ manutencao-skills/INCLUSAO.md. Relatórios e propostas desta pasta; relatórios 
 versionados sem alteração de bytes. Nenhum diretório ignorado, cópia de fornecedor
 ou staging deve ser incluído no commit.
 
-Commits e resultados finais serão registrados após a regressão. Permanecem as
-limitações de análise estática, falta de execução visual/nativa, escopo conservador
-dos frameworks propostos, receita acessível bloqueada e dependências opcionais
-nunca automaticamente disponíveis. A extensão de seleção não resolve problemas
-de execução, autorização ou qualidade dos fornecedores.
+Commit de implementação/testes/documentação:
+`a2744bbaf48b5e56bdaad9ff6e45c5083e312389` — feat: exigir seleção explícita para
+skills especializadas. Inclui os relatórios 1A intactos. O commit documental
+subsequente registra exclusivamente o resultado final desta rodada; seu hash
+está no Git e na resposta de entrega. Nenhum commit de inclusão ou promoção.
+
+A comparação final dos **1.004 arquivos rastreados de Skills/** com a baseline
+inicial preservou todos os hashes e modos; git diff do diretório também ficou
+vazio. Os relatórios 1A conservam os hashes acima. A árvore foi limpa antes da
+regressão e será novamente limpa após registrar as evidências finais. Staging
+ignorado permaneceu fora dos commits. Os arquivos executáveis do commit testado
+não foram alterados depois da regressão; não há justificativa para repeti-la.
+
+**Resultado: política implementada e validada; três candidatas preparadas para
+futura revisão individual com as condições documentadas; accessible-animation
+formalmente bloqueada. Nenhuma candidata aprovada ou promovida.**
+
+Permanecem as limitações de análise estática, falta de execução visual/nativa,
+escopo conservador dos frameworks propostos, receita acessível bloqueada e
+dependências opcionais nunca automaticamente disponíveis. A extensão de seleção
+não resolve problemas de execução, autorização ou qualidade dos fornecedores.
