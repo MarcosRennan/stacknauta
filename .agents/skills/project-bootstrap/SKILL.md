@@ -5,7 +5,8 @@ description: Prepare o esqueleto inicial de um novo projeto com StackNauta quand
 
 # Project bootstrap
 
-Use um único procedimento para Codex, OpenCode com DeepSeek e Gemini CLI.
+Use um único procedimento para Codex CLI, OpenCode com DeepSeek e Gemini
+via Antigravity CLI (`agy`), com AGENTS.md como base compartilhada.
 O diretório StackNauta é `../../..` relativo ao diretório deste SKILL.md.
 O executável é [project-bootstrap](../../../Automacao/project-bootstrap/project-bootstrap),
 resolvido a partir desse diretório, independentemente do cwd. Consulte
@@ -57,9 +58,11 @@ resolvido a partir desse diretório, independentemente do cwd. Consulte
    originais; os caminhos de recursos são relativos ao SKILL.md original.
    No Codex use a lista de skills da sessão e carregue uma selecionada. No OpenCode
    use `@stacknauta-<nome>` e confirme carregamento pela ferramenta de skills.
-   No Gemini CLI use `/skills reload`, `/skills list` e aceite somente os pedidos
-   de confiança/ativação apropriados. GEMINI.md importa AGENTS.md; nenhuma
-   configuração pessoal do agente é alterada. Se não houver nova sessão/listagem,
+   No Gemini via Antigravity CLI (`agy`), confira AGENTS.md e o catálogo em
+   `/skills`; confirme a leitura de `.stacknauta/AGENT-INTEGRATION.md`, dos
+   encaminhadores e dos originais pertinentes. Respeite confiança e permissões
+   nativas; nenhuma configuração pessoal do agente é alterada. Não inicie outra
+   sessão de agente sem solicitação do usuário. Se não houver nova sessão/listagem,
    registre descoberta nativa como não verificada; não confunda hashes com ativação.
 9. Relate destino, runtimes, skills e revisões, verificações, operações executadas
    e pendentes. Distingua esqueleto pronto, integração testada nesse agente e

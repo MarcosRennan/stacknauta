@@ -274,7 +274,7 @@ def validate(origins=False,copies=False,node_syntax=False,*,vendor_smoke=True):
                 errors.append('Metadados da skill de integração inválidos')
             if sorted(p.name for p in (ROOT/'.agents/skills').iterdir())!=['project-bootstrap']:
                 errors.append('Skills de automação não registradas')
-            for relative in ('AGENTS.md','GEMINI.md','Automacao/project-bootstrap/stacknauta_core/integration.py'):
+            for relative in ('AGENTS.md','Automacao/project-bootstrap/stacknauta_core/integration.py'):
                 if not (ROOT/relative).is_file() or (ROOT/relative).is_symlink():
                     errors.append('Integração incompleta: '+relative)
             empty_directories=()

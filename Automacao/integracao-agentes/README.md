@@ -8,9 +8,10 @@ de skills ou realizar configuração tecnológica. Um caminho Markdown não comp
 carregamento automático. Requisitos e decisões aprovadas prevalecem sobre sugestões
 das skills. Seleção explícita, cópias físicas, recursos e aliases são preservados.
 
-O `GEMINI.md` da raiz StackNauta e as instruções do Gemini CLI convencional no
-item 8 da skill de bootstrap são legado preservado para avaliação na 2H;
-não descrevem o fluxo Antigravity desta rodada. Nenhum SKILL.md foi alterado.
+Atualização 2H: o procedimento da skill de bootstrap e o roteiro operacional
+utilizam Gemini via Antigravity CLI (`agy`), sem imports de contexto específicos
+do cliente convencional. O reteste comportamental 2G foi confirmado pelo usuário;
+as verificações automatizadas continuam distinguindo estrutura de ativação nativa.
 Não há migração automática de consumidores antigos: os manifestos recompostos
 incluem os templates originais; use a revisão do gerador que criou o consumidor
 para verificar/reaplicar planos anteriores. Não substitua hashes históricos.
@@ -18,8 +19,9 @@ para verificar/reaplicar planos anteriores. Não substitua hashes históricos.
 Atualização 2D: [ciclo de vida](../project-bootstrap/CICLO-DE-VIDA.md) distingue
 conteúdo protegido, evolutivo, sementes de desenvolvimento e adicionais.
 `agent-verify` agora relata evolução permitida, mantendo status verified;
-verification_state e lifecycle detalham alterações/remoções. GEMINI.md pode evoluir
-após conclusão da integração. Os manifestos e aliases permanecem protegidos.
+verification_state e lifecycle detalham alterações/remoções. A classificação
+evolutiva de GEMINI.md permanece apenas para contratos históricos; novos planos
+não o emitem. Os manifestos e aliases permanecem protegidos.
 Os relatórios históricos 2B descrevem o contrato anterior de igualdade total.
 
 O procedimento está em `../../.agents/skills/project-bootstrap/SKILL.md`.
@@ -53,9 +55,8 @@ não certifica sintaxe, semântica, testes ou dependências da aplicação.
 ## Descoberta comum
 
 No StackNauta há uma skill real `project-bootstrap` em `.agents/skills/`.
-`AGENTS.md` encaminha para ela. O `GEMINI.md` existente na raiz é legado do
-Gemini CLI convencional; não é necessário ao Antigravity. Não há configuração
-nova do OpenCode, provedor ou usuário.
+`AGENTS.md` encaminha para ela. Os três ambientes usam essa entrada compartilhada.
+Não há configuração nova do OpenCode, provedor ou usuário.
 
 No consumidor, o núcleo preserva o layout aprovado dos pacotes. A integração
 acrescenta um SKILL.md por skill selecionada em

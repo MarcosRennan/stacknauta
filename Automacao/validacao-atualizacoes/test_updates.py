@@ -91,7 +91,7 @@ class UpdateTests(unittest.TestCase):
         self.addCleanup(cleanup)
         self.root = self.base / "StackNauta"
         self.root.mkdir()
-        paths = [ROOT / p for p in (".gitignore", "README.md", "AGENTS.md", "GEMINI.md", "Automacao/python-global", ".agents/skills/project-bootstrap/SKILL.md", "Automacao/validacao-project-bootstrap/test_bootstrap.py")]
+        paths = [ROOT / p for p in (".gitignore", "README.md", "AGENTS.md", "Automacao/python-global", ".agents/skills/project-bootstrap/SKILL.md", "Automacao/validacao-project-bootstrap/test_bootstrap.py")]
         for pattern in ("Automacao/project-bootstrap/*.py", "Automacao/project-bootstrap/STATUS.json", "Automacao/project-bootstrap/project-bootstrap",
                         "Automacao/project-bootstrap/stacknauta_core/*.py", "Automacao/manutencao-skills/*", "Skills/manutencao/*.py", "Skills/validacao/*.py", "Skills/validacao/*.json",
                         "Skills/catalogo.json", "Skills/fontes.lock.json", "Skills/manutencao/distribuicao-politica.json"):

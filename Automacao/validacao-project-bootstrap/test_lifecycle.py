@@ -11,7 +11,7 @@ from test_bootstrap import Base, ROOT
 from stacknauta_core import BootstrapError
 from stacknauta_core.core import encoded
 from stacknauta_core.core import Bootstrap
-from stacknauta_core.filesystem import MANIFEST, directory, fingerprint
+from stacknauta_core.filesystem import MANIFEST, directory, fingerprint, inspect_files
 from stacknauta_core.integration import AgentIntegration, additions, MARKER
 from stacknauta_core.library import digest
 from stacknauta_core.lifecycle import classification, COMPLETION
@@ -74,6 +74,22 @@ class LifecycleTests(Base):
         result = self.integration.verify(raw)
         self.assertEqual(result["verification_state"], "intact")
         self.assertFalse(result["lifecycle"]["modified"])
+
+    def test_historical_gemini_policy_preserves_evolution_and_removal(self):
+        # Contrato persistido, independente da ausência desse arquivo em planos novos.
+        self.assertEqual(classification("GEMINI.md"), "evolutive")
+        self.destination.mkdir()
+        path = self.destination / "GEMINI.md"
+        expected = {"GEMINI.md": b"# historical context\n"}
+        path.write_bytes(expected["GEMINI.md"])
+        with directory(self.destination) as root:
+            self.assertEqual(inspect_files(root, expected, completed=True)["modified"], {})
+            path.write_text("# user evolution\n")
+            self.assertIn("GEMINI.md", inspect_files(root, expected, completed=True)["modified"])
+            path.unlink()
+            state = inspect_files(root, expected, completed=True)
+            self.assertEqual(state["removed"], ["GEMINI.md"])
+            self.assertEqual(state["create"], [])
 
     def test_unrelated_catalog_and_source_changes_preserve_pinned_consumer(self):
         library=self.minimal_library()

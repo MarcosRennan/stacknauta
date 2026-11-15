@@ -16,6 +16,9 @@ protegidos. O índice `.agents/skills/README.md` e o documento interno
 `.stacknauta/AGENT-INTEGRATION.md` também são protegidos. A lista está em
 `stacknauta_core/lifecycle.py`, com padrão fechado para caminhos desconhecidos.
 
+`GEMINI.md` permanece na política para preservar a classificação de manifestos
+históricos. Novos consumidores usam AGENTS.md e não geram esse arquivo.
+
 O inventário completo da integração recusa adicionais em `.stacknauta/` e
 `.agents/skills/`; não aceita skills novas só por aparecerem no destino. O núcleo
 simples `plan/apply` valida seu próprio conjunto. A validação das adições de

@@ -1,6 +1,7 @@
 """Integração comum, destinos temporários e nenhuma execução de outros agentes."""
 import sys
 sys.dont_write_bytecode = True
+import importlib.util
 import json
 import os
 import re
@@ -31,6 +32,45 @@ class IntegrationTests(Base):
         self.assertNotEqual(report["plan_id"], plan.plan_id)
         self.assertEqual(len(report["integration_files"]), len(files))
         self.assertTrue(report["discovery_entries"])
+
+    def test_operational_instructions_use_shared_entrypoint_and_antigravity(self):
+        paths = ("AGENTS.md", ".agents/skills/project-bootstrap/SKILL.md", "README.md",
+                 "Automacao/integracao-agentes/README.md", "Automacao/integracao-agentes/TESTES-MANUAIS.md")
+        for path in paths:
+            with self.subTest(path=path):
+                text = (ROOT / path).read_text()
+                self.assertIn("Antigravity CLI", text)
+                self.assertNotIn("/skills list", text)
+                self.assertNotIn("activate_skill", text)
+                self.assertNotIn("@./", text)
+                for link in re.findall(r"\]\(([^)\s]+)\)", text):
+                    if "://" not in link and not link.startswith("#"):
+                        target = (ROOT / path).parent / link.split("#", 1)[0]
+                        self.assertTrue(target.exists(), f"{path}: {link}")
+
+    def library_validator(self):
+        spec = importlib.util.spec_from_file_location(
+            "stacknauta_validator_2h", ROOT / "Skills/validacao/validar_biblioteca.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    def test_library_validation_accepts_agents_without_gemini_context(self):
+        self.assertTrue((ROOT / "AGENTS.md").is_file())
+        self.assertFalse((ROOT / "GEMINI.md").exists())
+        result = self.library_validator().validate(vendor_smoke=False)
+        self.assertEqual(result["errors"], [])
+        self.assertEqual(result["status"], "passed_with_documented_pending")
+
+    def test_library_validation_still_requires_shared_integration_files(self):
+        validator = self.library_validator()
+        is_file = Path.is_file
+        for relative in ("AGENTS.md", "Automacao/project-bootstrap/stacknauta_core/integration.py"):
+            with self.subTest(path=relative), patch.object(
+                    Path, "is_file", lambda path: path != ROOT / relative and is_file(path)):
+                result = validator.validate(vendor_smoke=False)
+                self.assertEqual(result["status"], "failed")
+                self.assertIn("Integração incompleta: " + relative, result["errors"])
 
     def test_wrong_hash_and_core_hash_cannot_authorize_integration(self):
         raw = self.request()

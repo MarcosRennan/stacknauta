@@ -1,5 +1,10 @@
 # StackNauta
 
+Os ambientes suportados são Codex CLI, OpenCode e Gemini via Antigravity CLI
+(`agy`). Todos usam `AGENTS.md`, skills físicas em `.agents/skills/` e o contrato
+complementar `.stacknauta/AGENT-INTEGRATION.md` nos consumidores. Consulte a
+[integração compartilhada](Automacao/integracao-agentes/README.md).
+
 **Etapa 3B — inclusão controlada de skills e origens.** Descoberta isolada por URL,
 revisão e classificação individual, compatibilidade declarativa e promoção pelo
 mesmo hash/apply/recuperação da Etapa 3A. Nenhuma origem ou skill real foi adicionada
@@ -14,8 +19,8 @@ ou atualizada nesta etapa. A biblioteca permanece com sete origens, 101 aprovada
 ```
 
 [Inclusão, decisões e compatibilidade](Automacao/manutencao-skills/INCLUSAO.md)
-e [relatório 3B](Automacao/validacao-inclusoes/RELATORIO.md). OpenCode/DeepSeek e
-Gemini CLI continuam pendentes de validação prática; não foram executados.
+e [relatório 3B](Automacao/validacao-inclusoes/RELATORIO.md). As limitações e contagens
+daquela etapa são registros históricos, não o estado atual de validação dos agentes.
 
 ```sh
 ./Automacao/manutencao-skills/skills check
@@ -80,7 +85,6 @@ StackNauta/
 │   └── fontes.lock.json
 ├── .agents/skills/project-bootstrap/SKILL.md
 ├── AGENTS.md
-├── GEMINI.md                       # importa AGENTS.md
 └── README.md
 ```
 
@@ -170,4 +174,8 @@ A skill orienta o agente a revisar dois hashes e as duas listas de arquivos,
 aplicar somente quando autorizado e interpretar operações tecnológicas pendentes.
 A integração não concede autorização nem executa geradores.
 
-Os aliases rasos `stacknauta-*` encaminham aos SKILL.md originais copiados fisicamente, preservando recursos e licenças sem duplicação. A descoberta nativa e o uso explícito no Codex atual têm evidências separadas; ativação automática numa nova sessão continua uma confirmação posterior. OpenCode/DeepSeek e Gemini CLI estão preparados estaticamente, sem aprovação prática nesta etapa.
+Os aliases rasos `stacknauta-*` encaminham aos SKILL.md originais copiados
+fisicamente, preservando recursos e licenças sem duplicação. Novos consumidores
+usam AGENTS.md diretamente. O reteste manual da 2G no Antigravity confirmou
+carregamento, descoberta e uso das skills, conforme informado pelo usuário.
+Regressões estruturais não substituem evidência comportamental de cada ambiente.

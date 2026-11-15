@@ -2,7 +2,8 @@
 
 Para inicializar um novo projeto, use a skill
 [project-bootstrap](.agents/skills/project-bootstrap/SKILL.md).
-Codex, OpenCode e Gemini CLI compartilham esse procedimento e o mesmo núcleo Python.
+Codex CLI, OpenCode e Gemini via Antigravity CLI (`agy`) compartilham esse
+procedimento e o mesmo núcleo Python.
 Pedidos de manutenção do próprio StackNauta não são pedidos de criar aplicações.
 
 Preserve a biblioteca versionada, suas licenças e revisões. Não consulte o cache

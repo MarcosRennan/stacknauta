@@ -1,12 +1,9 @@
 # Testes posteriores — não executados nesta etapa
 
-Atualização 2G: o fluxo Gemini suportado é Antigravity CLI (`agy`). Abra o novo
-consumidor como workspace, confira `AGENTS.md` e `/skills`, e observe a leitura
-explícita de `.stacknauta/AGENT-INTEGRATION.md` e dos originais pertinentes.
-O consumidor não recebe GEMINI.md. O roteiro Gemini CLI convencional abaixo é
-histórico, preservado para avaliação na 2H; não deve orientar o reteste 2G.
-O prompt definitivo e as evidências da 2G ficam em
-`../../.stacknauta-updates/padronizacao-agents-2g/` (artefatos locais ignorados).
+O fluxo Gemini suportado é Antigravity CLI (`agy`), com a mesma entrada AGENTS.md
+usada por Codex CLI e OpenCode. O roteiro atual substitui o cliente convencional;
+as versões anteriores permanecem no histórico Git. O reteste comportamental 2G
+foi confirmado pelo usuário. As verificações desta 2H não iniciam outros agentes.
 
 Abra os agentes diretamente em seus ambientes habituais. Não é necessário mudar
 configurações globais ou instalar nada pelo StackNauta. Use somente um modelo
@@ -27,18 +24,19 @@ global asdf ou permissão, registre o bloqueio; não substitua silenciosamente.
    mesmo hash e confirme ausência de alterações. Registre versão do agente,
    modelo DeepSeek, comandos e resultados; erros permanecem pendências.
 
-## Gemini CLI
+## Gemini via Antigravity CLI (`agy`)
 
-1. Abra o Gemini CLI na raiz StackNauta. Respeite a confiança de workspace
-   (`/trust`, se necessário) e use `/skills list` ou `/skills reload`. Confirme
-   `project-bootstrap`. Faça o pedido acima usando o nome simples da skill e
-   confira `activate_skill`, com consentimento nativo, e `agent-plan` real.
+1. Em uma validação manual autorizada, abra o Antigravity CLI na raiz StackNauta,
+   selecione Gemini e respeite a confiança do workspace e as permissões nativas.
+   Confira AGENTS.md e a skill `project-bootstrap` em `/skills`. Faça o pedido
+   acima e confirme a leitura da skill e a execução real de `agent-plan`.
 2. Revise e autorize o plano concreto; confira aplicação e verificação usando os
    mesmos comandos Python, sem versões ou arquitetura escolhidas pelo agente.
-3. Abra sessão no consumidor; confira importação de GEMINI.md, `/skills list` e
-   ativação de `stacknauta-fastapi`. Leia original/recurso relativo, reexecute o
-   mesmo plano e registre evidências. Não considerar a presença dos arquivos
-   como prova de ativação.
+3. Abra uma nova sessão na raiz do consumidor; confira AGENTS.md, o catálogo em
+   `/skills` e a leitura de `.stacknauta/AGENT-INTEGRATION.md`. Verifique a seleção
+   contextual, leitura do encaminhador, SKILL.md original e recursos pertinentes.
+   Reexecute o mesmo plano e registre evidências. A presença de arquivos e hashes
+   não comprova ativação. Nenhum import de contexto é necessário.
 
 ## Codex — confirmação posterior em nova sessão
 

@@ -14,9 +14,6 @@ from .library import Library, digest
 from . import lifecycle
 
 MARKER = ".stacknauta/agent-integration.json"
-# Template legado do Gemini CLI convencional, preservado para avaliação na 2H.
-# Novos consumidores usam AGENTS.md diretamente, inclusive no Antigravity CLI.
-LEGACY_GEMINI_IMPORTS = b"@./AGENTS.md\n\n@./.stacknauta/AGENT-INTEGRATION.md\n"
 
 
 def additions(plan, library_root):
