@@ -14,6 +14,9 @@ from .library import Library, digest
 from . import lifecycle
 
 MARKER = ".stacknauta/agent-integration.json"
+# Template legado do Gemini CLI convencional, preservado para avaliação na 2H.
+# Novos consumidores usam AGENTS.md diretamente, inclusive no Antigravity CLI.
+LEGACY_GEMINI_IMPORTS = b"@./AGENTS.md\n\n@./.stacknauta/AGENT-INTEGRATION.md\n"
 
 
 def additions(plan, library_root):
@@ -46,13 +49,13 @@ def additions(plan, library_root):
         entries.append({"name": name, "id": skill["id"], "path": path,
                         "original_path": source, "original_sha256": digest(plan.files[source]),
                         "repository": skill["repository"], "commit": skill["commit"]})
-    files["GEMINI.md"] = b"@./AGENTS.md\n\n@./.stacknauta/AGENT-INTEGRATION.md\n"
     lines = ["# Descoberta das skills copiadas", "",
              "Entradas portáveis estão em .agents/skills/stacknauta-*/SKILL.md.",
              "Cada entrada exige ler o SKILL.md original indicado e usar seu diretório como base dos recursos.",
              "As cópias originais, licenças e arquivos geridos pelo núcleo 2A estão preservados.",
              "Codex e OpenCode podem também listar entradas originais aninhadas; use o alias stacknauta-* para o fluxo portátil.",
-             "Abra uma nova sessão no destino; no Gemini CLI use /skills reload e /skills list.",
+             "AGENTS.md é a base compartilhada de Codex, OpenCode e Gemini no Antigravity CLI (agy).",
+             "Abra uma nova sessão no destino; no Antigravity CLI confira as skills com /skills.",
              "Respeite confiança do workspace, consentimento de ativação e permissões do agente.",
              "Leia .stacknauta/agent-plan.json: tarefas listadas não autorizam geradores, instalações ou serviços.",
              "Operações tecnológicas precisam de versões explícitas, plano, pré-requisitos e autorização aplicável.", ""]

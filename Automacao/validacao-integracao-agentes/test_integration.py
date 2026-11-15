@@ -56,7 +56,39 @@ class IntegrationTests(Base):
             text = (self.destination / entry["path"]).read_text()
             link = re.search(r"\]\(([^)]+)\)", text)[1]
             self.assertEqual(((self.destination / entry["path"]).parent / link).resolve(), (self.destination / entry["original_path"]).resolve())
-        self.assertEqual((self.destination / "GEMINI.md").read_text(), "@./AGENTS.md\n\n@./.stacknauta/AGENT-INTEGRATION.md\n")
+        self.assertFalse((self.destination / "GEMINI.md").exists())
+
+    def test_shared_instructions_and_explicit_ui_selection_without_gemini(self):
+        raw = self.request(("typescript",), ("react",), features=("ui",),
+                           skills=["ui-ux-pro-max:ui-ux-pro-max", "gh-anthropics-skills:frontend-design"])
+        raw["requirements"].update(description="Responsive web", constraints=["No dependency installation"])
+        plan, files, report = self.integration.plan(raw)
+        self.assertNotIn("GEMINI.md", plan.files | files)
+        self.assertEqual(set(plan.selection["selected"]), set(raw["skills"]))
+        self.assertIsNone(plan.config["stack"]["architecture"])
+        self.integration.apply(raw, report["plan_id"])
+        text = (self.destination / "AGENTS.md").read_text()
+        for target in re.findall(r"\]\(([^)]+)\)", text):
+            self.assertFalse(Path(target).is_absolute())
+            self.assertTrue((self.destination / target).is_file(), target)
+        self.assertIn("read .stacknauta/AGENT-INTEGRATION.md if present", text)
+        self.assertTrue((self.destination / ".stacknauta/AGENT-INTEGRATION.md").is_file())
+        self.assertIn("Explicit requirements and approved decisions take precedence", text)
+        self.assertIn("Preserve StackNauta-managed", text)
+        self.assertIn("Do not infer", text)
+        self.assertNotIn("@./", text)
+        self.assertNotIn("GEMINI.md", text)
+        self.assertNotIn("Agent-specific integrations", text)
+        self.assertEqual(json.loads((self.destination / "docs/REQUIREMENTS.json").read_text()), raw["requirements"])
+        contract = (self.destination / ".stacknauta/AGENT-INTEGRATION.md").read_text()
+        self.assertIn("Antigravity CLI", contract)
+        self.assertNotIn("Gemini CLI use", contract)
+        marker = json.loads((self.destination / MARKER).read_text())
+        self.assertNotIn("GEMINI.md", marker["files"])
+        self.assertEqual({e["name"] for e in report["discovery_entries"]},
+                         {"stacknauta-ui-ux-pro-max", "stacknauta-frontend-design"})
+        self.assertEqual(self.integration.verify(raw)["verification_state"], "intact")
+        self.assertFalse((self.destination / "node_modules").exists())
 
     def test_idempotence_preserves_bytes_inode_mtime_and_original_core(self):
         raw = self.request(frameworks=("fastapi",))
@@ -95,15 +127,17 @@ class IntegrationTests(Base):
             AgentIntegration(engine).plan(self.request(("typescript",), ("nextjs",)))
         self.assertFalse(self.destination.exists())
 
-    def test_conflicting_gemini_file_blocks_before_core_changes(self):
+    def test_user_gemini_file_is_unmanaged_and_preserved(self):
         raw = self.request()
         plan = self.engine.plan(raw)
         self.engine.apply(raw, plan.plan_id)
         (self.destination / "GEMINI.md").write_text("user context")
         before = self.snapshot()
-        with self.assertRaisesRegex(BootstrapError, "preservada"):
-            self.integration.plan(raw)
-        self.assertEqual(before, self.snapshot())
+        report = self.integration.plan(raw)[2]
+        self.integration.apply(raw, report["plan_id"])
+        after = self.snapshot()
+        self.assertTrue(all(after[p] == value for p, value in before.items()))
+        self.assertIn("GEMINI.md", [e["path"] for e in self.integration.verify(raw)["integration_lifecycle"]["unmanaged"]])
 
     def test_dangerous_symlink_and_hardlink_block(self):
         for kind in ("symlink", "hardlink"):
@@ -111,7 +145,7 @@ class IntegrationTests(Base):
             raw = self.request(); plan = self.engine.plan(raw)
             self.engine.apply(raw, plan.plan_id)
             outside = self.temp / (kind + "-outside"); outside.write_text("untouched")
-            target = self.destination / "GEMINI.md"
+            target = self.destination / ".stacknauta/AGENT-INTEGRATION.md"
             target.symlink_to(outside) if kind == "symlink" else os.link(outside, target)
             with self.assertRaises(BootstrapError):
                 self.integration.plan(raw)
@@ -122,14 +156,16 @@ class IntegrationTests(Base):
         self.engine.apply(raw, plan.plan_id)
         report = self.integration.plan(raw)[2]
         before = self.snapshot()
-        self.destination.chmod(0o555)
+        # A integração agora publica apenas em subdiretórios, sem GEMINI.md na raiz.
+        protected = self.destination / ".stacknauta"
+        protected.chmod(0o555)
         try:
             if os.geteuid() == 0:
                 self.skipTest("Permission semantics require an unprivileged user")
             with self.assertRaisesRegex(BootstrapError, "interrompida"):
                 self.integration.apply(raw, report["plan_id"])
         finally:
-            self.destination.chmod(0o755)
+            protected.chmod(0o755)
         self.assertEqual(before, self.snapshot())
 
     def test_partial_failure_resumes_without_overwrite(self):

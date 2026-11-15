@@ -159,7 +159,7 @@ class LifecycleTests(Base):
         before = self.full_snapshot()
         self.integration.apply(raw, report["plan_id"])
         self.assertEqual(before, self.full_snapshot())
-        self.assertIn("GEMINI.md", self.integration.verify(raw)["integration_lifecycle"]["modified"])
+        self.assertIn("GEMINI.md", [e["path"] for e in self.integration.verify(raw)["integration_lifecycle"]["unmanaged"]])
 
     def test_classification_is_path_based_and_defaults_closed(self):
         for p in (".stacknauta/config.json", ".agents/skills/a/references/README.md", "unknown.json", ".tool-versions"):
@@ -220,7 +220,7 @@ class LifecycleTests(Base):
 
     def test_removed_evolutive_files_and_placeholders_are_not_restored(self):
         raw, _, report = self.start()
-        names = ("pyproject.toml", "README.md", "src/.gitkeep", "tests/.gitkeep", "GEMINI.md")
+        names = ("pyproject.toml", "README.md", "src/.gitkeep", "tests/.gitkeep", "AGENTS.md")
         for name in names: (self.destination / name).unlink()
         before = self.full_snapshot(); result = self.integration.apply(raw, report["plan_id"])
         self.assertEqual(before, self.full_snapshot())

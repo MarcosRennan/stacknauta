@@ -1,5 +1,20 @@
 # Integração com agentes — Etapa 2B
 
+Atualização 2G: `AGENTS.md` é a base compartilhada de Codex, OpenCode e
+Gemini executado no Antigravity CLI (`agy`). Novos consumidores não recebem
+`GEMINI.md`. O núcleo instrui a leitura explícita do contrato complementar
+`.stacknauta/AGENT-INTEGRATION.md`, quando presente, antes de usar descoberta
+de skills ou realizar configuração tecnológica. Um caminho Markdown não comprova
+carregamento automático. Requisitos e decisões aprovadas prevalecem sobre sugestões
+das skills. Seleção explícita, cópias físicas, recursos e aliases são preservados.
+
+O `GEMINI.md` da raiz StackNauta e as instruções do Gemini CLI convencional no
+item 8 da skill de bootstrap são legado preservado para avaliação na 2H;
+não descrevem o fluxo Antigravity desta rodada. Nenhum SKILL.md foi alterado.
+Não há migração automática de consumidores antigos: os manifestos recompostos
+incluem os templates originais; use a revisão do gerador que criou o consumidor
+para verificar/reaplicar planos anteriores. Não substitua hashes históricos.
+
 Atualização 2D: [ciclo de vida](../project-bootstrap/CICLO-DE-VIDA.md) distingue
 conteúdo protegido, evolutivo, sementes de desenvolvimento e adicionais.
 `agent-verify` agora relata evolução permitida, mantendo status verified;
@@ -38,8 +53,9 @@ não certifica sintaxe, semântica, testes ou dependências da aplicação.
 ## Descoberta comum
 
 No StackNauta há uma skill real `project-bootstrap` em `.agents/skills/`.
-`AGENTS.md` encaminha para ela. `GEMINI.md` importa AGENTS.md pelo mecanismo
-oficial do Gemini. Não há configuração nova do OpenCode, provedor ou usuário.
+`AGENTS.md` encaminha para ela. O `GEMINI.md` existente na raiz é legado do
+Gemini CLI convencional; não é necessário ao Antigravity. Não há configuração
+nova do OpenCode, provedor ou usuário.
 
 No consumidor, o núcleo preserva o layout aprovado dos pacotes. A integração
 acrescenta um SKILL.md por skill selecionada em
@@ -51,9 +67,10 @@ hashes são registrados em `.stacknauta/agent-integration.json`.
 
 Os aliases têm nomes distintos dos originais. Codex/OpenCode podem listar também
 os originais aninhados; isso não significa recursos duplicados nem nova seleção.
-Gemini precisa do nível raso. Um novo GEMINI.md importa o AGENTS.md original e
-`.stacknauta/AGENT-INTEGRATION.md`. Nenhum arquivo gerido pelo núcleo 2A é alterado.
-Conflitos preexistentes, inclusive GEMINI.md, bloqueiam antes da criação. O
+O Antigravity descobre o nível raso e o AGENTS.md diretamente, sem imports.
+O contrato complementar permanece consultável e protegido. Um GEMINI.md do usuário
+não é gerado, gerenciado nem sobrescrito pela integração nova. Conflitos em arquivos
+gerenciados bloqueiam antes da criação. O
 verificador usa as mesmas operações POSIX com dirfd/no-follow do núcleo. Não há
 rollback destrutivo: uma interrupção deixa arquivos íntegros; reaplicar o mesmo
 plano autorizado completa ausências e preserva conflitos para revisão manual.
@@ -62,8 +79,9 @@ Fontes oficiais consultadas durante a etapa:
 
 - [Codex: instalação manual de skills](https://developers.openai.com/api/reference/cli)
 - [OpenCode: descoberta, IDs e permissões](https://opencode.ai/docs/skills/)
-- [Gemini CLI: descoberta e ativação](https://geminicli.com/docs/cli/tutorials/skills-getting-started/)
-- [Gemini CLI: importação de contexto](https://geminicli.com/docs/cli/gemini-md/)
+- [Antigravity: regras compartilhadas e includes](https://antigravity.google/docs/rules)
+- [Antigravity: skills no CLI](https://antigravity.google/docs/skills)
+- [Antigravity: descoberta e precedência](https://antigravity.google/docs/customization-discovery)
 
 ## Primeiro prompt
 
@@ -92,15 +110,15 @@ esta lista é um roteiro, não evidência de aprovação.
 
 1. Abra sessão no clone e confirme `project-bootstrap` na lista nativa.
    No Codex, invoque `$project-bootstrap`; no OpenCode, `@project-bootstrap`;
-   no Gemini, `/skills list`, depois peça a preparação e confirme `activate_skill`
-   quando solicitado. Respeite confiança do workspace e permissões nativas.
+   no Gemini/Antigravity, `/skills`, depois peça a preparação e confirme leitura
+   real. Respeite confiança do workspace e permissões nativas.
 2. Use um prompt acima com destino temporário; confira invocação real do launcher
    e ausência do destino após dry-run. Revise os dois hashes e ambas as listas.
 3. Autorize esse plano concreto e execute a aplicação. Confira agent-verify,
    cópias físicas, locks, `.tool-versions` e ausência de instalação/negócio.
 4. Abra nova sessão no consumidor. Liste e ative um alias `stacknauta-*`, leia o
-   original indicado e um recurso relativo real. Gemini: `/skills reload` seguido
-   de `/skills list`; aceite somente consentimento pertinente. Confira o caminho
+   original indicado e um recurso relativo real. Antigravity: `/skills`;
+   aceite somente consentimento pertinente. Confira o caminho
    e conteúdo reais, não apenas a descrição retornada pelo modelo.
 5. Reaplique o mesmo hash e confira arquivos inalterados. Hash incorreto, runtime
    global ausente, destino sem permissão e symlink perigoso devem bloquear.

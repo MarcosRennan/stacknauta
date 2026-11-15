@@ -49,7 +49,22 @@ def skeleton(config, runtimes, exported):
                       "Nenhum código de negócio, build de aplicação ou integração com agentes foi executado.\n\n"
                       f"Arquitetura declarada: {architecture or 'não informada; nenhuma escolhida'}.\n"
                       "A versão inicial 0.0.0 nos metadados é apenas um marcador de esqueleto.\n").encode(),
-        "AGENTS.md": b"# Initial development context\n\nRead .stacknauta/config.json, docs/REQUIREMENTS.json and .stacknauta/agent-plan.json before development.\nDo not infer a language, framework or architecture. Missing choices must be resolved with the user.\nUse installed global asdf runtimes; do not install runtimes or use system fallbacks.\nSkills and provenance are indexed in .agents/skills/README.md and .stacknauta/skills-lock.json.\nAgent-specific integrations and automatic generator execution are not provided by this core.\n",
+        "AGENTS.md": (
+            "# Shared development instructions\n\n"
+            "Read [.stacknauta/config.json](.stacknauta/config.json), [docs/REQUIREMENTS.json](docs/REQUIREMENTS.json) "
+            "and [.stacknauta/agent-plan.json](.stacknauta/agent-plan.json) before development.\n"
+            "Respect the declared technologies, requirements and explicit decisions. Do not infer languages, framework versions "
+            "or unapproved architecture; resolve necessary missing choices with the user.\n"
+            "Use installed global asdf runtimes; do not install runtimes or use system fallbacks. "
+            "The agent plan does not authorize generators, dependency installation or services.\n"
+            "Preserve StackNauta-managed manifests, locks, runtime configuration and distributed skills/resources.\n"
+            "Before using skill discovery or performing technological setup, read .stacknauta/AGENT-INTEGRATION.md "
+            "if present. This is an explicit reading instruction, not an automatic include.\n"
+            "Distributed skills and provenance are indexed in [.agents/skills/README.md](.agents/skills/README.md) "
+            "and [.stacknauta/skills-lock.json](.stacknauta/skills-lock.json). For relevant tasks, read the applicable SKILL.md "
+            "and follow its forwarding instructions; resolve resources from the original skill directory.\n"
+            "Explicit requirements and approved decisions take precedence over skill suggestions.\n"
+        ).encode(),
     }
     ignores = [".env", ".env.*", "!.env.example"]
     if "python" in languages:

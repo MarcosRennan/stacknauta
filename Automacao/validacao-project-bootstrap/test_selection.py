@@ -203,7 +203,7 @@ class SelectionTests(Base):
         integration = AgentIntegration(self.engine)
         plan, files, report = integration.plan(raw)
         self.assertEqual(sorted(r["id"] for r in report["discovery_entries"]), plan.selection["selected"])
-        self.assertIn("GEMINI.md", files)
+        self.assertNotIn("GEMINI.md", files)
         integration.apply(raw, report["plan_id"])
         snapshot = self.snapshot()
         self.assertEqual(integration.verify(raw)["verification_state"], "intact")

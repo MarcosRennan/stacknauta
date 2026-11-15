@@ -1,5 +1,13 @@
 # Testes posteriores — não executados nesta etapa
 
+Atualização 2G: o fluxo Gemini suportado é Antigravity CLI (`agy`). Abra o novo
+consumidor como workspace, confira `AGENTS.md` e `/skills`, e observe a leitura
+explícita de `.stacknauta/AGENT-INTEGRATION.md` e dos originais pertinentes.
+O consumidor não recebe GEMINI.md. O roteiro Gemini CLI convencional abaixo é
+histórico, preservado para avaliação na 2H; não deve orientar o reteste 2G.
+O prompt definitivo e as evidências da 2G ficam em
+`../../.stacknauta-updates/padronizacao-agents-2g/` (artefatos locais ignorados).
+
 Abra os agentes diretamente em seus ambientes habituais. Não é necessário mudar
 configurações globais ou instalar nada pelo StackNauta. Use somente um modelo
 DeepSeek já disponível no OpenCode. Se faltar CLI, modelo, autenticação, runtime
