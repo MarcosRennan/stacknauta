@@ -87,6 +87,15 @@ O desenvolvimento começa em nova sessão no consumidor verificado. O esqueleto
 React não possui bundler, dependências instaladas ou scripts de build. Versões e
 operações tecnológicas pendentes exigem decisão e autorização próprias.
 
+## Licenciamento
+
+O código e a documentação próprios cujos direitos pertencem a Marcos Rennan são
+distribuídos sob a [licença MIT](LICENSE), com copyright de 2026. Essa licença
+não relicencia componentes de terceiros.
+Skills e recursos incorporados mantêm suas licenças originais nos respectivos
+diretórios. Consulte [origens, atribuições e escopos](THIRD_PARTY_NOTICES.md),
+incluindo a divergência documental MIT/Apache-2.0 de ui-styling.
+
 ## Contratos e rastreabilidade
 
 - [Entrada e CLI](Automacao/project-bootstrap/README.md), [seleção explícita](Automacao/project-bootstrap/SELECAO.md), [ciclo de vida](Automacao/project-bootstrap/CICLO-DE-VIDA.md) e [integração](Automacao/integracao-agentes/README.md).
