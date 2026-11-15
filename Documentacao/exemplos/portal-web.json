@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "name": "portal-astronomia-demo",
+  "stack": {
+    "languages": [
+      "typescript"
+    ],
+    "frameworks": [
+      "react"
+    ]
+  },
+  "requirements": {
+    "features": [
+      "ui"
+    ],
+    "description": "Interface web responsiva do portal fictício de astronomia Arquivo das Estrelas. Cabeçalho, navegação, hero, introdução, três destaques educativos e rodapé.",
+    "constraints": [
+      "Não instalar dependências, baixar pacotes, fontes ou assets externos, nem utilizar APIs ou serviços externos.",
+      "Usar somente runtimes globais instalados do asdf; não usar runtimes do sistema como fallback.",
+      "Preservar tecnologias, requisitos e arquivos protegidos. Requisitos e decisões explicitamente aprovados prevalecem sobre sugestões criativas.",
+      "Conteúdo exclusivamente fictício, com acessibilidade, legibilidade e organização visual. Se não for possível executar a aplicação, informar a limitação sem instalações."
+    ]
+  },
+  "skills": [
+    "ui-ux-pro-max:ui-ux-pro-max",
+    "gh-anthropics-skills:frontend-design"
+  ]
+}

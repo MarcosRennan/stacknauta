@@ -1,181 +1,100 @@
 # StackNauta
 
-Os ambientes suportados são Codex CLI, OpenCode e Gemini via Antigravity CLI
-(`agy`). Todos usam `AGENTS.md`, skills físicas em `.agents/skills/` e o contrato
-complementar `.stacknauta/AGENT-INTEGRATION.md` nos consumidores. Consulte a
-[integração compartilhada](Automacao/integracao-agentes/README.md).
+O StackNauta prepara esqueletos a partir de tecnologias, requisitos e skills
+explicitamente declarados. Confere runtimes globais do asdf, copia skills e
+recursos físicos e registra manifests e locks. Não instala dependências, executa
+geradores, inicia serviços ou implementa negócio.
 
-**Etapa 3B — inclusão controlada de skills e origens.** Descoberta isolada por URL,
-revisão e classificação individual, compatibilidade declarativa e promoção pelo
-mesmo hash/apply/recuperação da Etapa 3A. Nenhuma origem ou skill real foi adicionada
-ou atualizada nesta etapa. A biblioteca permanece com sete origens, 101 aprovadas,
-21 pendentes, duas excluídas e nove pacotes. Não certificado para produção.
+Ambientes suportados: **Codex CLI, OpenCode e Gemini via Antigravity CLI (`agy`)**.
+Todos usam `AGENTS.md`, `.agents/skills/` e o contrato complementar
+`.stacknauta/AGENT-INTEGRATION.md` do consumidor. Novos consumidores não dependem
+de GEMINI.md. Distribuir uma skill não comprova sua consulta pelo agente.
 
-```sh
-./Automacao/manutencao-skills/skills add https://github.com/usuario/repositorio
-./Automacao/manutencao-skills/skills review SESSION
-./Automacao/manutencao-skills/skills review SESSION --decisions decisoes.json --review-id HASH_DA_DESCOBERTA
-# Revisar plan.json/review.diff e obter autorização antes do apply.
-```
+## Comece aqui
 
-[Inclusão, decisões e compatibilidade](Automacao/manutencao-skills/INCLUSAO.md)
-e [relatório 3B](Automacao/validacao-inclusoes/RELATORIO.md). As limitações e contagens
-daquela etapa são registros históricos, não o estado atual de validação dos agentes.
+| Guia | Finalidade |
+|---|---|
+| [Instalação Linux](Documentacao/INSTALACAO-LINUX.md) | Fedora, asdf, runtimes e acesso futuro por SSH |
+| [Agentes](Documentacao/AGENTES.md) | Instalação e autenticação independentes de cada cliente |
+| [Primeiros passos](Documentacao/PRIMEIROS-PASSOS.md) | Primeiro prompt, plano, autorização, aplicação e segundo prompt |
+| [Validação](Documentacao/VALIDACAO.md) | Ambiente, biblioteca, scripts, regressão e consumidor |
+| [Solução de problemas](Documentacao/SOLUCAO-DE-PROBLEMAS.md) | asdf, sandbox, Git, seleção, recursos e manifests |
 
-```sh
-./Automacao/manutencao-skills/skills check
-./Automacao/manutencao-skills/skills update expo
-./Automacao/manutencao-skills/skills update --all
-# Os dois últimos comandos apenas preparam o dry-run.
-```
+## Estado consolidado
 
-Consulte [uso, segurança e recuperação](Automacao/manutencao-skills/README.md)
-e o [relatório 3A](Automacao/validacao-atualizacoes/RELATORIO.md). Novas skills
-permanecem pendentes. A atualização não modifica consumidores e não é executada
-durante o bootstrap.
-
-O núcleo prepara esqueleto, runtimes globais asdf e cópias físicas de skills
-compatíveis. Arquivos evolutivos podem mudar ou ser removidos após inicialização
-sem sobrescritas; manifestos, runtimes registrados e skills continuam protegidos.
-
-Consulte a [política de arquivos e compatibilidade](Automacao/project-bootstrap/CICLO-DE-VIDA.md)
-e o [relatório 2D](Automacao/validacao-ciclo-arquivos/RELATORIO.md). Novos projetos
-usam manifesto schema 2 e marcador final de inicialização. Projetos schema 1
-continuam reconhecidos sem migração nem reescrita. Conteúdo originalmente gerado
-e hashes são preservados para rastreabilidade; não se atualizam para aceitar edições.
-
-A biblioteca 1.5 permanece preservada: 101 skills aprovadas em nove pacotes, 21 pendentes e duas excluídas. Nenhum projeto consumidor antigo ou configuração global de agentes foi modificado.
-
-## Núcleo do bootstrap
-
-```bash
-./Automacao/project-bootstrap/project-bootstrap agent-plan --config Automacao/project-bootstrap/examples/python-fastapi.json
-# Revisar arquivos, hashes e autorização antes da aplicação.
-./Automacao/project-bootstrap/project-bootstrap agent-apply --config Automacao/project-bootstrap/examples/python-fastapi.json --plan-id HASH_REVISADO
-./Automacao/project-bootstrap/project-bootstrap agent-verify --config Automacao/project-bootstrap/examples/python-fastapi.json
-```
-
-O dry-run valida entradas, runtimes globais, compatibilidade de todo o fechamento e o destino antes de escrever. O destino padrão é `$HOME/Projetos/<name>`, com destino absoluto explicitamente configurável. A aplicação exige o hash revisado e não sobrescreve arquivos existentes. Não há geradores, instalação de dependências ou início de serviços automáticos.
-
-Ver [integração compartilhada e exemplos](Automacao/integracao-agentes/README.md), [relatório da Etapa 2B](Automacao/validacao-integracao-agentes/RELATORIO.md) e [testes manuais posteriores](Automacao/integracao-agentes/TESTES-MANUAIS.md). A [interface original](Automacao/project-bootstrap/README.md), os [testes da Etapa 2A](Automacao/validacao-project-bootstrap/README.md) e STATUS.json preservam o contrato e estado histórico 2A; o catálogo continua descrevendo a biblioteca 1.5.
-
-## Organização
-
-```text
-StackNauta/
-├── Automacao/
-│   ├── project-bootstrap/           # launcher, CLI, núcleo e exemplos
-│   ├── validacao-project-bootstrap/ # testes originais preservados
-│   ├── integracao-agentes/          # procedimento comum e testes manuais
-│   ├── manutencao-skills/           # consulta, preparação, promoção e recuperação
-│   ├── validacao-atualizacoes/      # fixtures Git e evidências 3A
-│   ├── validacao-inclusoes/         # fixtures, demonstração e clone 3B
-│   ├── python-global               # executor asdf compartilhado pelos launchers
-│   ├── validacao-ciclo-arquivos/    # investigação, compatibilidade e evidências 2D
-│   └── validacao-integracao-agentes/ # testes 2B e evidências
-├── Skills/
-│   ├── Frontend/ui-ux-pro-max/
-│   ├── Backend/{fastapi,remy,sentry}/
-│   ├── Mobile/{expo,chrisbanes,android}/
-│   ├── Seguranca/{android,sentry}/
-│   ├── manutencao/                 # política, renderer e empacotador
-│   ├── validacao/                  # validadores, auditorias e relatórios
-│   ├── _repos/                     # cache opcional, ignorado pelo Git
-│   ├── catalogo.json
-│   └── fontes.lock.json
-├── .agents/skills/project-bootstrap/SKILL.md
-├── AGENTS.md
-└── README.md
-```
-
-Cada pacote contém `skills/<nome>/`, licença(s) comuns, README de consumo e `PROVENANCE.json`. O manifesto registra cada arquivo, hash SHA-256, commit/caminho original e adaptações. Pastas de categoria mantêm índices de aprovadas e impedimentos. Fontes de terceiros permanecem intactas no cache.
+**105 aprovadas, 27 pendentes, duas excluídas, nove origens e onze pacotes.**
+O [catálogo](Skills/catalogo.json) e o [lock de origens](Skills/fontes.lock.json)
+são as fontes de verdade de revisões e distribuição.
 
 | Categoria | Skills aprovadas |
 |---|---:|
-| Frontend | 4 |
+| Frontend | 8 |
 | Backend | 19 |
 | Mobile | 71 |
-| Seguranca | 7 |
+| Segurança | 7 |
 
-As 124 skills distintas vêm de 130 arquivos SKILL.md adquiridos: seis são cópias de distribuição UI/UX, sem contagem duplicada. Duas exclusões são o avaliador interno Expo e o plugin experimental Expo. A justificativa individual das outras 21 está em [PENDENCIAS.md](Skills/validacao/PENDENCIAS.md) e no catálogo.
+A 4B validou comportamento dos três agentes conforme evidências aceitas pelo
+usuário; a regressão consolidada da 2H tem 303 testes. A 4C testa uma **simulação
+local**, não uma instalação em outro computador. Não há certificação de produção
+ou de todos os workflows das skills. Nenhuma URL GitHub publicada foi confirmada.
 
-## Consumo físico
+## Pré-requisitos e instalação rápida
 
-Os pacotes e seus recursos são rastreados pelo Git principal. Uma clonagem local limpa contém a biblioteca completa aprovada **sem depender de `_repos/`**, de ferramentas globais novas ou de download durante o consumo. O repositório principal não tem remoto configurado e nada foi publicado.
+Linux com os recursos de filesystem do guia, Bash, coreutils/readlink, asdf e
+**Python global instalado >=3.11**. Node global é necessário para JS/TS, determinados
+helpers e parsing JS dos validadores. Baseline testada: Fedora 44 x86_64, asdf
+0.20.2, Python 3.14.8 e Node 24.21.0; versões observadas não são mínimos universais.
+Git é necessário para obter o clone, validá-lo e executar os testes.
+React, TypeScript e bundlers não precisam ser instalados globalmente.
 
-A unidade autocontida é o pacote de origem/categoria. É possível copiar o pacote inteiro ou o conjunto fechado de uma skill. Para selecionar, usar o campo `distribution` de [catalogo.json](Skills/catalogo.json): `package`, `skill_directory` e `requires_skills`. `biblioteca.selected_files()` calcula esse fechamento transitivo e inclui os recursos comuns/licenças. O núcleo 2A reutiliza essa função e preserva o layout em namespaces sob `.agents/skills/`. Ele não altera os arquivos aprovados nem configura integrações específicas de agentes.
-
-Skills com referências entre si são copiadas juntas quando necessárias. A família Expo inclui o router e as 23 skills estáveis no fechamento, seguindo o contrato do fornecedor. Licenças e recursos comuns são armazenados uma vez por pacote; não há links simbólicos, hardlinks de consumidores ou referências obrigatórias ao cache. O índice de proveniência completo pode descrever skills não selecionadas numa cópia parcial; validar essa cópia contra o plano selecionado, não exigir todos os arquivos do índice de pacote completo.
-
-Antes de usar comandos das skills, ler o README do pacote. Os runtimes devem ser as versões globais instaladas do asdf, com caminho absoluto verificado. Ausência/override local deve interromper a operação; não usar runtime do sistema nem instalar ferramentas automaticamente. SDKs, CLIs autenticadas e hardware do consumidor são pré-requisitos de execução, não recursos que a biblioteca fornece ou autorização para instalá-los.
-
-## Fontes fixadas
-
-As revisões da Etapa 1 foram preservadas integralmente; não houve fetch ou atualização silenciosa na Etapa 1.5. A tabela mostra a contagem adquirida, incluindo entradas pendentes/excluídas, não apenas aprovadas.
-
-| Origem | Branch padrão/adquirida | Commit completo | Skills distintas |
-|---|---|---|---:|
-| [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | main | `6ae86f61f520d6ca229d2f40e070410638c908c5` | 7 |
-| [FastAPI](https://github.com/fastapi/fastapi) | master | `5add7a458d629b07311d48261f696b5ac2bb9a5f` | 1 |
-| [Remy349](https://github.com/Remy349/skills) | main | `5d9eae132afea72518ba0f1f41919f9e37964362` | 3 |
-| [Expo](https://github.com/expo/skills) | main | `a9e5bd3fa00b4e61f632e43f85da73aee1942582` | 25 |
-| [Chris Banes](https://github.com/chrisbanes/skills) | main | `50d54366e577460b769ce05b50da007de9939783` | 21 |
-| [Android](https://github.com/android/skills) | main | `5815d27fda564aa9f07ebdcb5e57ed3e8d904e0d` | 36 |
-| [Sentry](https://github.com/getsentry/skills) | main | `e94f22214528d69899d09c627b3315ddc3544816` | 31 |
-
-## UI/UX Pro Max e adaptações
-
-O orquestrador `ui-ux-pro-max` foi renderizado a partir do template oficial `universal`, com renderer Python da biblioteca padrão. A saída anterior às adaptações foi comparada byte a byte à função oficial `renderSkillFile` nas configurações universal, Codex, OpenCode e Gemini: todas idênticas. Nenhuma CLI de instalação, build, dependência npm/Bun ou atualização global foi usada.
-
-O pacote inclui os dados/scripts oficiais completos do orquestrador, referências, `banner-design`, `brand`, `ui-styling`, fontes de canvas e suas 27 licenças OFL. O único helper de tokens exigido por `brand` foi incluído como recurso compartilhado, sem criar SKILL.md para `design-system`. Os fluxos completos `design-system`, `slides` e `design` continuam pendentes porque a origem referencia assets de slides não fornecidos e fluxos dependentes. Nenhum asset foi fabricado.
-
-Toda skill aprovada recebeu um contrato explícito de execução/cópia. Correções pontuais incluem caminhos de licença compartilhada, a referência Expo iOS, a rota Expo ausente, cópia física de entrypoints em `agents-md` e herança do executável Node no helper `brand`. Ver [adaptacoes.json](Skills/validacao/adaptacoes.json) para os diffs completos e [DISTRIBUICAO.md](Skills/validacao/DISTRIBUICAO.md) para escopo e limites.
-
-## Validação
-
-Executar a partir da raiz, com Python global asdf instalado:
+Não há instalador próprio, pip install ou npm install obrigatório para o núcleo.
+Prepare o ambiente conforme o [guia Linux](Documentacao/INSTALACAO-LINUX.md), obtenha
+uma cópia versionada confiável e execute da raiz:
 
 ```bash
-asdf exec python Skills/validacao/validar_catalogo.py
-asdf exec python Skills/validacao/validar_biblioteca.py --copias --sintaxe-node
+asdf --version
+asdf current
+./Automacao/project-bootstrap/project-bootstrap --help
+bash Automacao/python-global Skills/validacao/validar_biblioteca.py --copias --sintaxe-node --sem-smoke-fornecedor
 ```
 
-O primeiro comando valida offline a distribuição e não exige cache. O segundo testa os planos de cópia física de todas as 101 skills, verifica sintaxe JS sem executar os scripts e faz buscas locais UI/UX previamente analisadas, sem persistir design systems ou criar aplicações. As cópias ficam em diretórios temporários novos. Nenhum projeto existente é usado como destino.
+## Primeiro uso
 
-Para conferir também as sete origens locais:
+Abra um agente escolhido na raiz StackNauta. Declare linguagem, framework, alvo,
+features, skills nominais e restrições; peça apenas planejamento inicialmente.
+Revise requisitos, seleção/omissões, recursos, arquivos, runtimes, core_plan_id,
+plan_id e pendências. Autorize o plano concreto: **hash não é autorização**.
+
+O [exemplo React/TypeScript completo](Documentacao/PRIMEIROS-PASSOS.md) usa o
+[pedido versionado](Documentacao/exemplos/portal-web.json), UI/UX Pro Max e Frontend
+Design explícitas. A CLI real oferece agent-plan, agent-apply e agent-verify:
+
+`/tmp/pedido-stacknauta.json` abaixo é um **placeholder**, não um arquivo criado
+pelo clone. Crie primeiro sua configuração: o [guia de primeiros passos](Documentacao/PRIMEIROS-PASSOS.md)
+contém o procedimento reproduzível para gerar o pedido a partir do exemplo versionado.
+Use o caminho do pedido efetivamente criado nos três comandos.
 
 ```bash
-asdf exec python Skills/validacao/validar_biblioteca.py --origens
+# Prepare esse pedido fora do destino, conforme o guia de primeiros passos.
+./Automacao/project-bootstrap/project-bootstrap agent-plan --config /tmp/pedido-stacknauta.json
+# Somente depois da revisão e autorização; use plan_id, não core_plan_id.
+read -r -p 'plan_id revisado e autorizado: ' STACKNAUTA_PLAN_ID
+./Automacao/project-bootstrap/project-bootstrap agent-apply --config /tmp/pedido-stacknauta.json --plan-id "$STACKNAUTA_PLAN_ID"
+./Automacao/project-bootstrap/project-bootstrap agent-verify --config /tmp/pedido-stacknauta.json
 ```
 
-Para repetir a clonagem local, primeiro manter um commit com árvore limpa e então executar:
+O desenvolvimento começa em nova sessão no consumidor verificado. O esqueleto
+React não possui bundler, dependências instaladas ou scripts de build. Versões e
+operações tecnológicas pendentes exigem decisão e autorização próprias.
 
-```bash
-asdf exec python Skills/validacao/testar_clone.py
-```
+## Contratos e rastreabilidade
 
-O teste imprime o relatório sem escrever no Git principal; o origin local criado automaticamente pelo clone é removido no repositório temporário. Nenhum remoto é adicionado ao StackNauta original.
+- [Entrada e CLI](Automacao/project-bootstrap/README.md), [seleção explícita](Automacao/project-bootstrap/SELECAO.md), [ciclo de vida](Automacao/project-bootstrap/CICLO-DE-VIDA.md) e [integração](Automacao/integracao-agentes/README.md).
+- [Distribuição e execução das skills](Skills/validacao/DISTRIBUICAO.md): consulte o README do pacote e o SKILL.md original antes de executar recursos de fornecedor.
+- [Manutenção](Automacao/manutencao-skills/README.md) e [inclusão](Automacao/manutencao-skills/INCLUSAO.md) são fluxos separados que podem exigir rede e revisão; não fazem parte do bootstrap.
+- [Relatórios históricos de integração](Automacao/validacao-integracao-agentes/RELATORIO.md), [ciclo de vida](Automacao/validacao-ciclo-arquivos/RELATORIO.md) e [inclusões](Automacao/validacao-inclusoes/RELATORIO.md): seus números refletem aquelas etapas, não o catálogo atual.
 
-Os relatórios estão em [resultado.json](Skills/validacao/resultado.json), [clone-local.json](Skills/validacao/clone-local.json), [renderizacao-ui.json](Skills/validacao/renderizacao-ui.json) e [preservacao-etapa15.json](Skills/validacao/preservacao-etapa15.json). `arquivos.json` e `recursos.json` preservam o inventário de aquisição; [revisao-recursos.json](Skills/validacao/revisao-recursos.json) classifica as 28 menções antes não resolvidas. O relatório de preservação original da Etapa 1 continua disponível.
-
-A aprovação cobre integridade, fechamento dos arquivos, licenças, cópia e funcionamento das buscas UI/UX testadas. Não certifica todos os scripts/fluxos de fornecedores, descoberta nos agentes ou execução de SDKs, autenticação e hardware. Frontmatter tem conferência estrutural básica e de licença, sem dependência PyYAML nova.
-
-## Manutenção e próxima etapa
-
-[MANUTENCAO.md](Skills/manutencao/MANUTENCAO.md) descreve a preparação histórica e
-a atualização incremental manual da Etapa 3A. Não há atualização durante consumo.
-O cache pode ser necessário para a preparação histórica, mas a CLI 3A adquire
-candidatos isoladamente e o consumo continua independente de `_repos/`.
-
-A Etapa 2A implementa a lógica única de esqueleto e seleção, preservada na 2B e
-evoluída pela política de arquivos 2D. Na 3A, o mesmo executor asdf do launcher foi
-extraído para reutilização na manutenção, sem alteração da lógica do núcleo.
-A skill orienta o agente a revisar dois hashes e as duas listas de arquivos,
-aplicar somente quando autorizado e interpretar operações tecnológicas pendentes.
-A integração não concede autorização nem executa geradores.
-
-Os aliases rasos `stacknauta-*` encaminham aos SKILL.md originais copiados
-fisicamente, preservando recursos e licenças sem duplicação. Novos consumidores
-usam AGENTS.md diretamente. O reteste manual da 2G no Antigravity confirmou
-carregamento, descoberta e uso das skills, conforme informado pelo usuário.
-Regressões estruturais não substituem evidência comportamental de cada ambiente.
+Os pacotes são versionados; consumo não depende de Skills/_repos, caches ignorados
+ou relatórios locais. Não edite arquivos protegidos/hashes para aceitar conflitos.
+Manifestos vinculam configuração e destino: relocação de consumidores e verificação
+com geradores diferentes não são migrações automáticas.
